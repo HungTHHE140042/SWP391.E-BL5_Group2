@@ -1,0 +1,18 @@
+SMAP
+blogDetails_jsp.java
+JSP
+*S JSP
+*F
++ 0 blogDetails.jsp
+blogDetails.jsp
++ 1 header.jsp
+layout/header.jsp
++ 2 footer.jsp
+layout/footer.jsp
+*L
+5,35:50
+5#1,39:85
+39#0,390:123
+5#2,111:513
+428#0,23:623
+*E
