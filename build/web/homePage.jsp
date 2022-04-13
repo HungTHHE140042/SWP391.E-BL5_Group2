@@ -36,7 +36,8 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
-        <%@include file="layout/header.jsp" %>
+        
+        <%@include file="layout/headerLoged.jsp" %>
 
         <!--offcanvas menu area start-->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">

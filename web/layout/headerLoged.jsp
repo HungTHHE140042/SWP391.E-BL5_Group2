@@ -18,19 +18,19 @@
                     <div class="main_menu d-none d-lg-block"> 
                         <nav>  
                             <ul class="d-flex">
-                                <li><a href="index.html">Home</a></li> 
-                                <li><a href="match.html">Game</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Faq</a></li>
-                                <li><a href="blog-left-sidebar.html">About us</a></li>
-                                <li><a href="blog-left-sidebar.html"><img width="15" height="15" src="assets/img/icon/user.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> Profile </a></li>
+                                <li><a href="${pageContext.request.contextPath}/home">Home</a></li> 
+                                <li><a href="${pageContext.request.contextPath}/product">Game</a></li>
+                                <li><a href="${pageContext.request.contextPath}/blog">Blog</a></li>
+                                <li><a href="${pageContext.request.contextPath}/faq">Faq</a></li>
+                                <li><a href="${pageContext.request.contextPath}/aboutus">About us</a></li>
+                                <li><a href="${pageContext.request.contextPath}/profile"><img width="15" height="15" src="assets/img/icon/user.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> Profile </a></li>
                             </ul>  
                         </nav>
                     </div>
                     <!--main menu end-->
                     <div class="header_right_sidebar d-flex align-items-center">
                         <div class="cart_btn">
-                            <a class="btn btn-link" href="registration.html">Cart <img width="15" height="15" src="assets/img/icon/shopping-cart.png" alt=""> </a>
+                            <a class="btn btn-link" href="${pageContext.request.contextPath}/cart">Cart <img width="15" height="15" src="assets/img/icon/shopping-cart.png" alt=""> </a>
                         </div>
                         <div class="canvas_open">
                             <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"><i class="icofont-navigation-menu"></i></button>
