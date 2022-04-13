@@ -124,7 +124,7 @@
                                     <img width="831" height="282" src="assets/img/others/404.webp" alt="">
                                 </div>
                                 <div class="error_btn">
-                                    <a class="btn btn-link" href="index.html"><img width="18" height="18" src="assets/img/icon/arrrow-left-icon.webp" alt=""> GO TO HOME</a>
+                                    <a class="btn btn-link" href="${pageContext.request.contextPath}/home"><img width="18" height="18" src="assets/img/icon/arrrow-left-icon.webp" alt=""> GO TO HOME</a>
                                 </div>
                             </div>
                         </div>

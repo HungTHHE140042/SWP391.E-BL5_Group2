@@ -120,7 +120,7 @@
                                 <h2>Signup</h2>
                             </div>
                             <div class="form_input">
-                                <input name="signup_name" placeholder="Name" type="text">
+                                <input name="signup_name" placeholder="Username" type="text">
                             </div>
                             <div class="form_input">
                                 <input name="signup_email" placeholder="Email" type="email">
@@ -130,6 +130,10 @@
                             </div>
                             <div class="form_input">
                                 <input name="signup_password" placeholder="Retype Password" type="password">
+                            </div>
+
+                            <div class="alert alert-danger" role="alert">
+                                Username was existed
                             </div>
 
                             <div class="form_input_btn text-center mb-40">

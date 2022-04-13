@@ -22,8 +22,8 @@
                                 <li><a href="${pageContext.request.contextPath}/product">Game</a></li>
                                 <li><a href="${pageContext.request.contextPath}/blog">Blog</a></li>
                                 <li><a href="${pageContext.request.contextPath}/faq">Faq</a></li>
-                                <li><a href="${pageContext.request.contextPath}/aboutus">About us</a></li>
-                                <li><a href="${pageContext.request.contextPath}/profile"><img width="15" height="15" src="assets/img/icon/user.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> Profile </a></li>
+                                <li><a href="${pageContext.request.contextPath}/general"> General </a></li>
+                                <li><a href="${pageContext.request.contextPath}/cms"><img width="15" height="15" src="assets/img/icon/crown.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> <span style="color: yellow">Dashboard</span> </a></li>
                             </ul>  
                         </nav>
                     </div>
