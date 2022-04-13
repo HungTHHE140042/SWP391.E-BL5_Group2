@@ -39,104 +39,107 @@
         <%@include file="layout/header.jsp" %>
 
         <!--offcanvas menu area start-->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
-        <div class="offcanvas-header justify-content-end">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="offcanvas_main_menu">
-                <li class="menu-item-has-children active">
-                    <a href="index.html">Home</a>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Match</a>
-                    <ul class="sub-menu">
-                        <li><a href="match.html">Match Page</a></li>
-                        <li><a href="match-details.html">Match Details</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="all-game.html">All Game</a></li>
-                        <li><a href="game-details.html">Game Details</a></li>
-                        <li><a href="faq.html">Faq Page</a></li>
-                        <li><a href="players.html">Players</a></li>
-                        <li><a href="player-details.html">Player Details</a></li>
-                                            <li><a href="registration.html">Sign Up</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                        <li><a href="404.html">Error 404</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children">
-                    <a href="#">blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                        <li><a href="blog-without-sidebar.html">Blog Without Sidebar</a></li>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
+            <div class="offcanvas-header justify-content-end">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="offcanvas_main_menu">
+                    <li class="menu-item-has-children active">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="menu-item-has-children"><a href="#">Match</a>
+                        <ul class="sub-menu">
+                            <li><a href="match.html">Match Page</a></li>
+                            <li><a href="match-details.html">Match Details</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children"><a href="#">Pages</a>
+                        <ul class="sub-menu">
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="all-game.html">All Game</a></li>
+                            <li><a href="game-details.html">Game Details</a></li>
+                            <li><a href="faq.html">Faq Page</a></li>
+                            <li><a href="players.html">Players</a></li>
+                            <li><a href="player-details.html">Player Details</a></li>
+                            <li><a href="registration.html">Sign Up</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="404.html">Error 404</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="#">blog</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                            <li><a href="blog-without-sidebar.html">Blog Without Sidebar</a></li>
                             <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
                             <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                        <li><a href="blog-grid-without-sidebar.html">Blog Grid Without Sidebar</a></li>
-                        <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                        <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-    </div>
-    <!--offcanvas menu area end-->
-
-    <!-- breadcrumbs area start -->
-    <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs_text text-center">
-                        <h1>Login</h1>
-                        <ul class="d-flex justify-content-center">
-                            <li><a href="index.html">Home </a></li>
-                            <li> <span>//</span></li>
-                            <li>  PAGES</li>
+                            <li><a href="blog-grid-without-sidebar.html">Blog Grid Without Sidebar</a></li>
+                            <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
+                            <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
+                            <li><a href="blog-details.html">Blog Details</a></li>
                         </ul>
+                    </li>
+                    <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--offcanvas menu area end-->
+
+        <!-- breadcrumbs area start -->
+        <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumbs_text text-center">
+                            <h1>Login</h1>
+                            <ul class="d-flex justify-content-center">
+                                <li><a href="index.html">Home </a></li>
+                                <li> <span>//</span></li>
+                                <li>  PAGES</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- breadcrumbs area end -->
-    <!-- page wrapper start -->
-    <div class="page_wrapper">
-    
-        <!-- contact section start -->
-        <section class="contact_page_section mb-140">
-            <div class="container">
-                <div class="row justify-content-between align-items-center mb-n50">
-                    <div class="col-lg-6 col-md-8 col-12 mx-auto mb-50">
-                        <img width="550" height="550" src="assets/img/others/about-thumb.webp" alt="">
-                    </div>
-                    <div class="col-lg-5 col-md-8 col-12 mx-auto mb-50">
-                        <div class="section_title text-center mb-60">
-                            <h2>Login</h2>
+        <!-- breadcrumbs area end -->
+        <!-- page wrapper start -->
+        <div class="page_wrapper">
+
+            <!-- contact section start -->
+            <section class="contact_page_section mb-140">
+                <div class="container">
+                    <div class="row justify-content-between align-items-center mb-n50">
+                        <div class="col-lg-6 col-md-8 col-12 mx-auto mb-50">
+                            <img width="550" height="550" src="assets/img/others/about-thumb.webp" alt="">
                         </div>
-                        <div class="form_input">
-                            <input name="login_email" placeholder="Email" type="email">
+                        <div class="col-lg-5 col-md-8 col-12 mx-auto mb-50">
+                            <div class="section_title text-center mb-60">
+                                <h2>Login</h2>
+                            </div>
+                            <div class="form_input">
+                                <input name="login_email" placeholder="Email" type="email">
+                            </div>
+                            <div class="form_input">
+                                <input name="login_password" placeholder="Password" type="password">
+                            </div>
+                            <div class="alert alert-danger" role="alert">
+                                Username or Password incorrect! <b><a href="forgot">Forgot password?</a></b>
+                            </div> 
+                            <div class="form_input_btn text-center mb-40">
+                                <button type="submit" class="btn btn-link">Login<img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
+                            </div>
+                            <p class="text-center">Don't have any account, <a href="${pageContext.request.contextPath}/signup">Signup here</a></p>
                         </div>
-                        <div class="form_input">
-                            <input name="login_password" placeholder="Password" type="password">
-                        </div>
-                        <div class="form_input_btn text-center mb-40">
-                            <button type="submit" class="btn btn-link">Login<img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
-                        </div>
-                        <p class="text-center">Don't have any account, <a href="${pageContext.request.contextPath}/signup">Signup here</a></p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- contact section end -->
+            </section>
+            <!-- contact section end -->
 
-    </div>
-    <!-- page wrapper end -->
+        </div>
+        <!-- page wrapper end -->
 
         <%@include file="layout/footer.jsp" %>
         <!-- JS
