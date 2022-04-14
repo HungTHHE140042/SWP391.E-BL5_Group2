@@ -39,80 +39,6 @@
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
         <%@include file="layout/header.jsp" %>
 
-        <!-- Modal change password -->
-        <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" style="font: 20px; color: black" id="exampleModalLongTitle">CHANGE PASSWORD</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <input class="col-lg-12 form-control mb-30" placeholder="Current password">
-                            </div>
-                            <div class="row">
-                                <input class="col-lg-12 form-control" placeholder="New password">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--offcanvas menu area start-->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
-            <div class="offcanvas-header justify-content-end">
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="offcanvas_main_menu">
-                    <li class="menu-item-has-children active">
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Match</a>
-                        <ul class="sub-menu">
-                            <li><a href="match.html">Match Page</a></li>
-                            <li><a href="match-details.html">Match Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="all-game.html">All Game</a></li>
-                            <li><a href="game-details.html">Game Details</a></li>
-                            <li><a href="faq.html">Faq Page</a></li>
-                            <li><a href="players.html">Players</a></li>
-                            <li><a href="player-details.html">Player Details</a></li>
-                            <li><a href="registration.html">Sign Up</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                            <li><a href="blog-without-sidebar.html">Blog Without Sidebar</a></li>
-                            <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
-                            <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                            <li><a href="blog-grid-without-sidebar.html">Blog Grid Without Sidebar</a></li>
-                            <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                            <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-        <!--offcanvas menu area end-->
-
         <!-- breadcrumbs area start -->
         <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
             <div class="container">
@@ -147,7 +73,7 @@
                 </div>
                 <div class="player_list_single_item wow fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1.1s">
                     <div class="content">
-                        <h1 class="title"><a href="profile"><i class="fas fa-history"></i> Order History <i class="fas fa-history"></i></a></h1>
+                        <h1 class="title"><a href="order-history"><i class="fas fa-history"></i> Order History <i class="fas fa-history"></i></a></h1>
 
                         <div class="content-shape-img">
                             <img width="351" height="126" src="assets/img/others/tam-text-shape.webp" alt="">

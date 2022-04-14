@@ -93,7 +93,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumbs_text text-center">
-                            <h1>All bonx game</h1>
+                            <h1>All game</h1>
                             <ul class="d-flex justify-content-center">
                                 <li><a href="index.html">Home </a></li>
                                 <li> <span>//</span></li>
@@ -126,10 +126,10 @@
                                     </div>
                                     <div class="gaming_form_list">
                                         <select>
-                                            <option selected value="1">All Platform</option>
-                                            <option value="2">Platform2</option>
-                                            <option value="3">Platform3</option>
-                                            <option value="4">Platform4</option>
+                                            <option selected value="1">Price</option>
+                                            <option value="2">$0-$100</option>
+                                            <option value="3">$100-$200</option>
+                                            <option value="4">$200-$300</option>
                                         </select>
                                     </div>
                                 </div>
@@ -152,23 +152,99 @@
                                             <div class="overlay">
                                                 <div class="social-link">
                                                     <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </a>
-                                                    <!--                                                    <a href="https://www.twitch.tv" target="_blank" rel="noopener noreferrer"><i class="icofont-twitch"></i></a> 
-                                                                                                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><i class="icofont-youtube-play"></i></a> 
-                                                                                                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i class="icofont-twitter"></i></a> 
-                                                                                                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="icofont-facebook"></i></a> -->
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="content">
-                                            <h4 class="title"><a href="player-details.html">PUBG</a></h4>
-                                            <h5 class="level-text">100$</h5>
+                                            <div style="height: 60px;">
+                                                <h4 class="title" style="line-height: 30px"><a href="product-details">PlayerUnknown's Battlegrounds</a></h4>
+                                            </div>
+                                            <p>
+                                            <div class="">
+                                                <div class="row" style="height: 28px">
+                                                    <div class="col-6 btn-warning" style="font-size:15px; color:black; text-decoration-line:line-through;">$100</div>
+                                                    <div class="col-6 btn-danger">-70%</div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="btn-success" style="font-size: 25px">$30</div>
+                                                </div>
+                                            </div>
 
                                             <div class="content-shape-img">
                                                 <img width="351" height="126" src="assets/img/others/tam-text-shape.webp" alt="">
                                                 <img width="351" height="126" src="assets/img/others/tam-text-shape2.webp" alt="">
                                             </div>
                                         </div>
+                                    </div>
+                                    <!--  Single Player List End-->
+                                </div>
 
+                                <div class="col-lg-4 col-md-6 col-12 mb-50">
+                                    <!--  Single Player List Start-->
+                                    <div class="player_list_single_item wow fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1.1s">
+                                        <div class="top">
+                                            <a class="image" href=""><img src="assets/img/player/list/player-1.webp" alt=""></a>
+                                            <div class="overlay">
+                                                <div class="social-link">
+                                                    <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <div style="height: 60px;">
+                                                <h4 class="title" style="line-height: 30px"><a href="product-details">League of Legends</a></h4>
+                                            </div>
+                                            <p>
+                                            <div class="">
+                                                <div class="row" style="height: 28px">
+                                                    <!--                                                    <div class="col-6 btn-warning" style="font-size:15px; color:black; text-decoration-line:line-through;">$100</div>
+                                                                                                        <div class="col-6 btn-danger">-70%</div>-->
+                                                </div>
+                                                <div class="row">
+                                                    <div class="btn-success" style="font-size: 25px">$200</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content-shape-img">
+                                                <img width="351" height="126" src="assets/img/others/tam-text-shape.webp" alt="">
+                                                <img width="351" height="126" src="assets/img/others/tam-text-shape2.webp" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--  Single Player List End-->
+                                </div>
+
+                                <div class="col-lg-4 col-md-6 col-12 mb-50">
+                                    <!--  Single Player List Start-->
+                                    <div class="player_list_single_item wow fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1.1s">
+                                        <div class="top">
+                                            <a class="image" href=""><img src="assets/img/player/list/player-1.webp" alt=""></a>
+                                            <div class="overlay">
+                                                <div class="social-link">
+                                                    <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content">
+                                            <div style="height: 60px;">
+                                                <h4 class="title" style="line-height: 30px"><a href="product-details">PlayerUnknown's Battlegrounds</a></h4>
+                                            </div>
+                                            <p>
+                                            <div class="">
+                                                <div class="row" style="height: 28px">
+                                                    <!--                                                    <div class="col-6 btn-warning" style="font-size:15px; color:black; text-decoration-line:line-through;">$100</div>
+                                                                                                        <div class="col-6 btn-danger">-70%</div>-->
+                                                </div>
+                                                <div class="row">
+                                                    <div class="btn-success" style="font-size: 25px">$100</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="content-shape-img">
+                                                <img width="351" height="126" src="assets/img/others/tam-text-shape.webp" alt="">
+                                                <img width="351" height="126" src="assets/img/others/tam-text-shape2.webp" alt="">
+                                            </div>
+                                        </div>
                                     </div>
                                     <!--  Single Player List End-->
                                 </div>

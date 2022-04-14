@@ -125,6 +125,9 @@
                             <div class="alert alert-danger" role="alert">
                                Email is not existed!
                             </div> 
+                            <div class="alert alert-success" role="alert">
+                                Reset link had sent to your email!
+                            </div> 
                             <div class="form_input_btn text-center mb-40">
                                 <button type="submit" class="btn btn-link">Reset password<img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
                             </div>

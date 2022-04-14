@@ -49,10 +49,13 @@
                     <div class="modal-body">
                         <div class="container">
                             <div class="row">
-                                <input class="col-lg-12 form-control mb-30" placeholder="Current password">
+                                <input class="col-lg-12 form-control mb-25" placeholder="Current password">
                             </div>
                             <div class="row">
-                                <input class="col-lg-12 form-control" placeholder="New password">
+                                <input class="col-lg-12 form-control mb-25" placeholder="New password">
+                            </div>
+                            <div class="row">
+                                <input class="col-lg-12 form-control" placeholder="Retype new password">
                             </div>
                         </div>
                     </div>
@@ -169,9 +172,14 @@
                                 </div>
                             </div>
                             <div class="col-lg-1">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword">
+<!--                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword">
                                     <i class="fas fa-edit" style="font-size: 40px; cursor: pointer"></i>
-                                </button>
+                                </button>-->
+                                <div class="question_form_btn">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -185,7 +193,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="alert alert-danger" role="alert">
-                                    Updated fail - wrong current password
+                                    Updated fail
                                 </div>
                             </div>
                         </div>

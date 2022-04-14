@@ -38,117 +38,56 @@
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
         <%@include file="layout/header.jsp" %>
 
-        <!--offcanvas menu area start-->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
-        <div class="offcanvas-header justify-content-end">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="offcanvas_main_menu">
-                <li class="menu-item-has-children active">
-                    <a href="index.html">Home</a>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Match</a>
-                    <ul class="sub-menu">
-                        <li><a href="match.html">Match Page</a></li>
-                        <li><a href="match-details.html">Match Details</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="all-game.html">All Game</a></li>
-                        <li><a href="game-details.html">Game Details</a></li>
-                        <li><a href="faq.html">Faq Page</a></li>
-                        <li><a href="players.html">Players</a></li>
-                        <li><a href="player-details.html">Player Details</a></li>
-                                            <li><a href="registration.html">Sign Up</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                        <li><a href="404.html">Error 404</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children">
-                    <a href="#">blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                        <li><a href="blog-without-sidebar.html">Blog Without Sidebar</a></li>
-                            <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
-                            <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                        <li><a href="blog-grid-without-sidebar.html">Blog Grid Without Sidebar</a></li>
-                        <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                        <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-    </div>
-    <!--offcanvas menu area end-->
-
-    <!-- breadcrumbs area start -->
-    <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs_text text-center">
-                        <h1>Game details</h1>
-                        <ul class="d-flex justify-content-center">
-                            <li><a href="index.html">Home </a></li>
-                            <li> <span>//</span></li>
-                            <li>  Game</li>
-                        </ul>
+        <!-- breadcrumbs area start -->
+        <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumbs_text text-center">
+                            <h1>Game details</h1>
+                            <ul class="d-flex justify-content-center">
+                                <li><a href="index.html">Home </a></li>
+                                <li> <span>//</span></li>
+                                <li>  Game</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- breadcrumbs area end -->
-    
-    <!-- page wrapper start -->
-    <div class="page_wrapper">
+        <!-- breadcrumbs area end -->
 
-        <!--game details section area start-->
-        <section class="game_details_section mb-125">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="game_details_inner">
-                            <div class="game_details_content top">
-                                <span>BONX Digital Game Studio</span>
-                                <h2 class="game_details_title">din saurs - Hunter Sniper Shooter</h2>
-                                <div class="game_details_desc">
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro
-                                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                        recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro
-                                        recently with desktop publishing software like including versions.</p>
-                                </div>
-                            </div>
-                            <div class="game_details_thumb_inner slick__activation slick_navigation" data-slick='{
-                                "slidesToShow": 1,
-                                "slidesToScroll": 1,
-                                "arrows": true,
-                                "dots": false,
-                                "autoplay": false,
-                                "speed": 300,
-                                "infinite": true ,  
-                                "responsive":[  
-                                {"breakpoint":576, "settings": { "slidesToShow": 1 } }  
-                                ]                                                     
-                            }'>
-                                <div class="game_details_thumb">
-                                    <img width="1170" height="540" src="assets/img/others/game-details-thumb.webp" alt="">
+        <!-- page wrapper start -->
+        <div class="page_wrapper">
+
+            <!--game details section area start-->
+            <section class="game_details_section mb-125">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="game_details_inner">
+                                <div class="game_details_content top">
+                                    <span>BONX Digital Game Studio</span>
+                                    <h2 class="game_details_title">din saurs - Hunter Sniper Shooter</h2>
                                 </div>
                                 <div class="game_details_thumb">
                                     <img width="1170" height="540" src="assets/img/others/game-details-thumb.webp" alt="">
                                 </div>
                             </div>
-                            <div class="start_now_btn">
-                                <a class="btn btn-link" href="game-details.html">START NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                            <div class="row">
+                                <div class="col-6">
+                                    Price:
+                                    <span class="" style="font-size:15px; color:gray; text-decoration-line:line-through;">$100</span>
+                                    <div class="btn btn-danger">-70%</div>
+                                    =
+                                    <div class="btn btn-success" style="text-align: left; font-size: 30px">$30</div>
+                                </div>
+                                <div class="col-6">
+                                    <div style="text-align: right;">
+                                        <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                    </div>
+                                </div>
+
                             </div>
 
                             <div class="game_details_content bottom">
@@ -282,32 +221,9 @@
                                 </div>
                             </div>
                             <div class="comments_form">
-                                <div class="comments_title">
-                                    <h2>Place your review:</h2>
-                                </div>
                                 <div class="comments_form_inner">
                                     <form action="#">
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Name *" type="text">
-                                                </div>
-                                            </div> 
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Email *" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Address *" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Review" type="text">
-                                                </div>
-                                            </div>
                                             <div class="col-12">
                                                 <div class="comments_form_input">
                                                     <textarea placeholder="Write a review from here"></textarea>
@@ -315,7 +231,7 @@
                                             </div> 
                                         </div>
                                         <div class="comments_submit_btn text-center">
-                                            <a class="btn btn-link" href="#">SUBMIT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                            <a class="btn btn-link" href="#">Comment <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                         </div>
                                     </form> 
                                 </div>  
@@ -324,89 +240,89 @@
 
                     </div>
                 </div>
-            </div>
-        </section>
-        <!--game details section area end-->
+        </div>
+    </section>
+    <!--game details section area end-->
 
-        <!-- counterup section start -->
-        <section class="counterup_section mb-130">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="counterup_inner d-flex justify-content-center">
-                            <div class="single_counterup one">
-                                <div class="counterup_text">
-                                    <h2 class="counterup color1">8697</h2>
-                                    <span>TWITCH STREAMS</span>
-                                </div>
+    <!-- counterup section start -->
+    <section class="counterup_section mb-130">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="counterup_inner d-flex justify-content-center">
+                        <div class="single_counterup one">
+                            <div class="counterup_text">
+                                <h2 class="counterup color1">8697</h2>
+                                <span>TWITCH STREAMS</span>
                             </div>
-                            <div class="single_counterup two">
-                                <div class="counterup_text">
-                                    <h2 class="counterup color2">428</h2>
-                                    <span>TOTAL GAMES</span>
-                                </div>
+                        </div>
+                        <div class="single_counterup two">
+                            <div class="counterup_text">
+                                <h2 class="counterup color2">428</h2>
+                                <span>TOTAL GAMES</span>
                             </div>
-                            <div class="single_counterup three">
-                                <div class="counterup_text">
-                                    <h2 class="counterup color3">5367</h2>
-                                    <span>YOUTUBE STREAMS</span>
-                                </div>
+                        </div>
+                        <div class="single_counterup three">
+                            <div class="counterup_text">
+                                <h2 class="counterup color3">5367</h2>
+                                <span>YOUTUBE STREAMS</span>
                             </div>
-                            <div class="single_counterup four">
-                                <div class="counterup_text">
-                                    <h2 class="counterup color4">249</h2>
-                                    <span>PRO TEAM</span>
-                                </div>
+                        </div>
+                        <div class="single_counterup four">
+                            <div class="counterup_text">
+                                <h2 class="counterup color4">249</h2>
+                                <span>PRO TEAM</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- counterup section end -->
+        </div>
+    </section>
+    <!-- counterup section end -->
 
-        <!-- gaming update section start -->
-        <section class="gaming_update_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="gaming_update_inner d-flex justify-content-between align-items-center" data-bgimg="assets/img/bg/gaming-update.webp">
-                            <div class="gaming_update_text">
-                                <h2>Connect with us <br>
-                                    for gamING update.</h2>
-                            </div>
-                            <div class="gaming_update_btn">
-                                <a class="btn btn-link" href="contact.html">CONNECT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                            </div>
+    <!-- gaming update section start -->
+    <section class="gaming_update_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="gaming_update_inner d-flex justify-content-between align-items-center" data-bgimg="assets/img/bg/gaming-update.webp">
+                        <div class="gaming_update_text">
+                            <h2>Connect with us <br>
+                                for gamING update.</h2>
+                        </div>
+                        <div class="gaming_update_btn">
+                            <a class="btn btn-link" href="contact.html">CONNECT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- gaming update section end -->
+        </div>
+    </section>
+    <!-- gaming update section end -->
 
-    </div>
-    <!-- page wrapper end -->
+</div>
+<!-- page wrapper end -->
 
-        <%@include file="layout/footer.jsp" %>
-        <!-- JS
+<%@include file="layout/footer.jsp" %>
+<!-- JS
 ============================================ -->
-        <!--modernizr min js here-->
-        <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+<!--modernizr min js here-->
+<script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
-        <!-- Vendor JS -->
-        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <script src="assets/js/vendor/popper.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
-        <script src="assets/js/slick.min.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/jquery.nice-select.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/jquery.counterup.min.js"></script>
-        <script src="assets/js/jquery-waypoints.js"></script>
+<!-- Vendor JS -->
+<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+<script src="assets/js/vendor/popper.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+<script src="assets/js/slick.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.nice-select.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/jquery.counterup.min.js"></script>
+<script src="assets/js/jquery-waypoints.js"></script>
 
-        <!-- Main JS -->
-        <script src="assets/js/main.js"></script>
-    </body>
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+</body>
 </html>

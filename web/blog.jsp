@@ -120,88 +120,19 @@
                                         <div class="col-lg-4 col-sm-6 col-12 mb-50">
                                             <div class="single_blog_grid d-flex flex-column">
                                                 <div class="blog_thumb">
-                                                    <a href="blog-details.html"><img width="376" height="376" src="assets/img/blog/blog-grid-1.webp" alt=""></a>
+                                                    <a href="blog-details"><img width="376" height="376" src="assets/img/blog/blog-grid-1.webp" alt=""></a>
                                                 </div>
                                                 <div class="blog_content">
                                                     <div class="blog_date">
-                                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
+                                                        <span><i class="icofont-calendar"></i>  20 January 2022</span>
                                                     </div>
-                                                    <h3><a href="blog-details.html">It long established fact that reader
+                                                    <h3><a href="blog-details">It long established fact that reader
                                                         distracted the readable.</a></h3>
-                                                    <a href="blog-details.html">READ MORE</a>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-sm-6 col-12 mb-50">
-                                            <div class="single_blog_grid d-flex flex-column">
-                                                <div class="blog_thumb">
-                                                    <a href="blog-details.html"><img width="376" height="376" src="assets/img/blog/blog-grid-2.webp" alt=""></a>
-                                                </div>
-                                                <div class="blog_content">
-                                                    <div class="blog_date">
-                                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                                    </div>
-                                                    <h3><a href="blog-details.html">THE READABLE CONTENT OF A PAGE WHEN LOOKING AT ITS LAYOUT.</a></h3>
-                                                    <a href="blog-details.html">READ MORE</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6 col-12 mb-50">
-                                            <div class="single_blog_grid d-flex flex-column">
-                                                <div class="blog_thumb">
-                                                    <a href="blog-details.html"><img width="376" height="376" src="assets/img/blog/blog-grid-3.webp" alt=""></a>
-                                                </div>
-                                                <div class="blog_content">
-                                                    <div class="blog_date">
-                                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                                    </div>
-                                                    <h3><a href="blog-details.html">THE POINT OF USING LOREM IPSUM THAT MORE-OR-LESS NORMAL</a></h3>
-                                                    <a href="blog-details.html">READ MORE</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6 col-12 mb-50">
-                                            <div class="single_blog_grid d-flex flex-column">
-                                                <div class="blog_thumb">
-                                                    <a href="blog-details.html"><img width="376" height="376" src="assets/img/blog/blog-grid-4.webp" alt=""></a>
-                                                </div>
-                                                <div class="blog_content">
-                                                    <div class="blog_date">
-                                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                                    </div>
-                                                    <h3><a href="blog-details.html">DISTRIBUTION OF LETTERS, AS OPPOSED USING CONTENT HERE</a></h3>
-                                                    <a href="blog-details.html">READ MORE</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6 col-12 mb-50">
-                                            <div class="single_blog_grid d-flex flex-column">
-                                                <div class="blog_thumb">
-                                                    <a href="blog-details.html"><img width="376" height="376" src="assets/img/blog/blog-grid-5.webp" alt=""></a>
-                                                </div>
-                                                <div class="blog_content">
-                                                    <div class="blog_date">
-                                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                                    </div>
-                                                    <h3><a href="blog-details.html">IT LONG ESTABLISHED FACT THAT READER DISTRACTED THE READABLE.</a></h3>
-                                                    <a href="blog-details.html">READ MORE</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-sm-6 col-12 mb-50">
-                                            <div class="single_blog_grid d-flex flex-column">
-                                                <div class="blog_thumb">
-                                                    <a href="blog-details.html"><img width="376" height="376" src="assets/img/blog/blog-grid-6.webp" alt=""></a>
-                                                </div>
-                                                <div class="blog_content">
-                                                    <div class="blog_date">
-                                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                                    </div>
-                                                    <h3><a href="blog-details.html">THE READABLE CONTENT OF A PAGE WHEN LOOKING AT ITS LAYOUT.</a></h3>
-                                                    <a href="blog-details.html">READ MORE</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="pagination pagination_pages">

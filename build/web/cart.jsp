@@ -135,6 +135,15 @@
                             <a href="#"><i class="fas fa-times" style="color: red"></i></a>
                         </td>
                     </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td class="text-center">
+                            <a href="#"><i class="fas fa-times" style="color: red"></i></a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="col-12">
