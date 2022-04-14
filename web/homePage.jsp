@@ -36,57 +36,8 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
-        
-        <%@include file="layout/headerLoged.jsp" %>
 
-        <!--offcanvas menu area start-->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
-            <div class="offcanvas-header justify-content-end">
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="offcanvas_main_menu">
-                    <li class="menu-item-has-children active">
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Match</a>
-                        <ul class="sub-menu">
-                            <li><a href="match.html">Match Page</a></li>
-                            <li><a href="match-details.html">Match Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="all-game.html">All Game</a></li>
-                            <li><a href="game-details.html">Game Details</a></li>
-                            <li><a href="faq.html">Faq Page</a></li>
-                            <li><a href="players.html">Players</a></li>
-                            <li><a href="player-details.html">Player Details</a></li>
-                            <li><a href="registration.html">Sign Up</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                            <li><a href="blog-without-sidebar.html">Blog Without Sidebar</a></li>
-                            <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
-                            <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                            <li><a href="blog-grid-without-sidebar.html">Blog Grid Without Sidebar</a></li>
-                            <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                            <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-        <!--offcanvas menu area end-->
+        <%@include file="layout/headerLoged.jsp" %>
 
         <!-- page wrapper start -->
         <div class="page_wrapper">
@@ -98,10 +49,10 @@
                         <div class="row align-items-center">
                             <div class="col-12">
                                 <div class="hero_content">
-                                    <h1 class="wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">Best Game <br>
-                                        Playing Today.</h1>
+                                    <h1 class="wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">Newest Game <br>
+                                        Selling Today.</h1>
                                     <p class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">Simply text of the printing and typesetting industry.</p>
-                                    <a class="btn btn-link wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.3s" href="all-game.html">Play Now <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                    <a class="btn btn-link wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.3s" href="all-game.html">Buy now <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                 </div>
                             </div>
                         </div>
@@ -112,13 +63,25 @@
                 </div>
             </section>
             <!--slider area end-->
-
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-11">
+                            <div class="form_input">
+                                <input placeholder="Search your Game" type="text">
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <button class="btn btn-primary" style="height: 62px">SEARCH</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!-- gaming  world section start -->
             <section class="gaming_world_section mb-140">
                 <div class="container">
                     <div class="section_title text-center wow fadeInUp mb-60" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                        <h2>yOU ARE MOST WELCOME <br>
-                            IN GAMING WORLD.</h2>
+                        <h2>Top Discount game</h2>
                     </div>
                     <div class="gaming_world_inner">
                         <div class="row">
@@ -128,10 +91,15 @@
                                         <img width="141" height="157" src="assets/img/others/gaming-world1.webp" alt="">
                                     </div>
                                     <div class="gaming_world_text">
-                                        <h3>Live Streaming</h3>
-                                        <p>When unknown printer took
-                                            type and scrambled it to make type
-                                            specimen book centuries,</p>
+                                        <div style="height: 100px">
+                                            <h3><a href="#">PlayerUnknown's Battlegrounds</a></h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6" style="font-size:20px; color:gray; text-decoration-line:line-through;">$100</div>
+                                            <div class="col-6 btn-danger">-70%</div>
+                                        </div>
+                                        <p>
+                                        <div class="btn-success" style="font-size: 25px">$25</div>
                                     </div>
                                 </div>
                             </div>
@@ -141,10 +109,15 @@
                                         <img width="156" height="157" src="assets/img/others/gaming-world2.webp" alt="">
                                     </div>
                                     <div class="gaming_world_text">
-                                        <h3>Game News</h3>
-                                        <p>When unknown printer took
-                                            type and scrambled it to make type
-                                            specimen book centuries,</p>
+                                        <div style="height: 100px">
+                                            <h3><a href="#">League of Legends</a></h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6" style="font-size:20px; color:gray; text-decoration-line:line-through;">$300</div>
+                                            <div class="col-6 btn-danger">-50%</div>
+                                        </div>
+                                        <p>
+                                        <div class="btn-success" style="font-size: 25px">$115</div>
                                     </div>
                                 </div>
                             </div>
@@ -154,10 +127,15 @@
                                         <img width="151" height="156" src="assets/img/others/gaming-world3.webp" alt="">
                                     </div>
                                     <div class="gaming_world_text">
-                                        <h3>Game Tournaments</h3>
-                                        <p>When unknown printer took
-                                            type and scrambled it to make type
-                                            specimen book centuries,</p>
+                                        <div style="height: 100px">
+                                            <h3><a href="#">Counter-Strike: Global Offensive</a></h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6" style="font-size:20px; color:gray; text-decoration-line:line-through;">$200</div>
+                                            <div class="col-6 btn-danger">-50%</div>
+                                        </div>
+                                        <p>
+                                        <div class="btn-success" style="font-size: 25px">$100</div>
                                     </div>
                                 </div>
                             </div>
@@ -166,131 +144,6 @@
                 </div>
             </section>
             <!-- gaming  world section end -->
-
-            <!-- gaming video section start -->
-            <section class="gaming_video_section mb-118 wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="gaming_video_inner slick_navigation slick__activation" data-slick='{
-                                 "slidesToShow": 1,
-                                 "slidesToScroll": 1,
-                                 "arrows": true,
-                                 "dots": false,
-                                 "autoplay": false,
-                                 "speed": 300,
-                                 "infinite": true ,  
-                                 "responsive":[ 
-                                 {"breakpoint":500, "settings": { "slidesToShow": 1 } }  
-                                 ]                                                     
-                                 }'>
-                                <div class="gaming_video_thumb">
-                                    <img width="1170" height="540" src="assets/img/bg/gaming-bg1.webp" alt="">
-                                    <div class="gaming_video_paly_icon">
-                                        <a class="video_popup" href="https://www.youtube.com/watch?v=eS9Qm4AOOBY"><img width="134" height="140" src="assets/img/others/play-btn.webp" alt=""></a>
-                                    </div>
-                                    <div class="live_streaming_text">
-                                        <h3>Watch Live Streaming</h3>
-                                    </div>
-                                </div>
-                                <div class="gaming_video_thumb">
-                                    <img width="1170" height="540" src="assets/img/bg/gaming-bg1.webp" alt="">
-                                    <div class="gaming_video_paly_icon">
-                                        <a class="video_popup" href="https://www.youtube.com/watch?v=eS9Qm4AOOBY"><img width="134" height="140" src="assets/img/others/play-btn.webp" alt=""></a>
-                                    </div>
-                                    <div class="live_streaming_text">
-                                        <h3>Watch Live Streaming</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- gaming video section end -->
-
-            <!-- upcoming gaming section start -->
-            <section class="upcoming_gaming_section mb-125">
-                <div class="container">
-                    <div class="section_title text-center wow fadeInUp mb-60" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                        <h2>Upcoming Match</h2>
-                        <p>When unknown printer took type and scrambled it to make <br>
-                            type specimen book centuries,</p>
-                    </div>
-                    <div class="upcoming_gaming_inner">
-                        <div class="upcoming_gaming_list wow fadeInUp d-flex justify-content-between align-items-center mb-30" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                            <div class="upcoming_gaming_text">
-                                <p>20 August 2021  -  09:00 PM</p>
-                                <h3><a href="match-details.html">Roar Spring Game 2021</a></h3>
-                                <span>08 Teams Registered</span>
-                            </div>
-                            <div class="upcoming_play_video text-center">
-                                <a class="video_popup" href="https://www.youtube.com/watch?v=eS9Qm4AOOBY"><img width="53" height="44" src="assets/img/others/play-btn2.webp" alt=""></a> <br>
-                                <span>Live Stream</span>
-                            </div>
-                            <div class="upcoming_gaming_thumb d-flex align-items-center">
-                                <div class="single_upcoming_thumb">
-                                    <img width="97" height="119" src="assets/img/others/upcoming-game-thumb1.webp" alt="">
-                                </div>
-                                <div class="single_upcoming_thumb">
-                                    <img width="87" height="87" src="assets/img/others/game-vs1.webp" alt="">
-                                </div>
-                                <div class="single_upcoming_thumb">
-                                    <img width="93" height="120" src="assets/img/others/upcoming-game-thumb2.webp" alt="">
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="upcoming_gaming_list wow fadeInUp d-flex justify-content-between align-items-center mb-30" data-wow-delay="0.2s" data-wow-duration="1.2s">
-                            <div class="upcoming_gaming_text">
-                                <p>20 August 2021  -  09:00 PM</p>
-                                <h3><a href="match-details.html">Skrit tournament 2021</a></h3>
-                                <span>08 Teams Registered</span>
-                            </div>
-                            <div class="upcoming_play_video text-center">
-                                <a class="video_popup" href="https://www.youtube.com/watch?v=eS9Qm4AOOBY"><img width="53" height="44" src="assets/img/others/play-btn2.webp" alt=""></a> <br>
-                                <span>Youtube Stream</span>
-                            </div>
-                            <div class="upcoming_gaming_thumb d-flex align-items-center">
-                                <div class="single_upcoming_thumb">
-                                    <img width="102" height="119" src="assets/img/others/upcoming-game-thumb3.webp" alt="">
-                                </div>
-                                <div class="single_upcoming_thumb">
-                                    <img width="87" height="87" src="assets/img/others/game-vs2.webp" alt="">
-                                </div>
-                                <div class="single_upcoming_thumb">
-                                    <img width="105" height="119" src="assets/img/others/upcoming-game-thumb4.webp" alt="">
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="upcoming_gaming_list wow fadeInUp d-flex justify-content-between align-items-center" data-wow-delay="0.3s" data-wow-duration="1.3s">
-                            <div class="upcoming_gaming_text">
-                                <p>20 August 2021  -  09:00 PM</p>
-                                <h3><a href="match-details.html">Ninja 360 Game 2021</a></h3>
-                                <span>08 Teams Registered</span>
-                            </div>
-                            <div class="upcoming_play_video text-center">
-                                <a class="video_popup" href="https://www.youtube.com/watch?v=eS9Qm4AOOBY"><img width="53" height="44" src="assets/img/others/play-btn2.webp" alt=""></a> <br>
-                                <span>Twitch Stream</span>
-                            </div>
-                            <div class="upcoming_gaming_thumb d-flex align-items-center">
-                                <div class="single_upcoming_thumb">
-                                    <img width="118" height="119" src="assets/img/others/upcoming-game-thumb5.webp" alt="">
-                                </div>
-                                <div class="single_upcoming_thumb">
-                                    <img width="87" height="87" src="assets/img/others/game-vs3.webp" alt="">
-                                </div>
-                                <div class="single_upcoming_thumb">
-                                    <img width="100" height="119" src="assets/img/others/upcoming-game-thumb6.webp" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="others_match_btn text-center">
-                        <a class="btn btn-link" href="match.html">Other’s Match </a>
-                    </div>
-                </div>
-            </section>
-            <!-- upcoming gaming section end -->
 
             <!-- counterup section start -->
             <section class="counterup_section mb-115 wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
@@ -301,7 +154,7 @@
                                 <div class="single_counterup one">
                                     <div class="counterup_text">
                                         <h2 class="counterup color1">8697</h2>
-                                        <span>TWITCH STREAMS</span>
+                                        <span>CUSTOMER</span>
                                     </div>
                                 </div>
                                 <div class="single_counterup two">
@@ -313,15 +166,10 @@
                                 <div class="single_counterup three">
                                     <div class="counterup_text">
                                         <h2 class="counterup color3">5367</h2>
-                                        <span>YOUTUBE STREAMS</span>
+                                        <span>SOLD</span>
                                     </div>
                                 </div>
-                                <div class="single_counterup four">
-                                    <div class="counterup_text">
-                                        <h2 class="counterup color4">249</h2>
-                                        <span>PRO TEAM</span>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

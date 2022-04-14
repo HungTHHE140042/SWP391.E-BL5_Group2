@@ -60,6 +60,14 @@
         <servlet-name>dashboardCMSController</servlet-name>
         <servlet-class>controller.dashboardCMSController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <servlet-class>controller.ResetPasswordController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryController</servlet-name>
+        <servlet-class>controller.OrderHistoryController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -78,7 +86,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProductDetailsController</servlet-name>
-        <url-pattern>/productDetails</url-pattern>
+        <url-pattern>/product-details</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BlogController</servlet-name>
@@ -86,7 +94,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BlogDetailsController</servlet-name>
-        <url-pattern>/blogDetails</url-pattern>
+        <url-pattern>/blog-details</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>faqController</servlet-name>
@@ -126,6 +134,14 @@
     <servlet-mapping>
         <servlet-name>dashboardCMSController</servlet-name>
         <url-pattern>/cms</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordController</servlet-name>
+        <url-pattern>/reset-password</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderHistoryController</servlet-name>
+        <url-pattern>/order-history</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
