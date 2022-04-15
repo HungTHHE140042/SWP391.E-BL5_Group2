@@ -1,0 +1,22 @@
+SMAP
+orderDetail_jsp.java
+JSP
+*S JSP
+*F
++ 0 orderDetail.jsp
+orderDetail.jsp
++ 1 headerLoged.jsp
+layout/headerLoged.jsp
++ 2 footer.jsp
+layout/footer.jsp
+*L
+5,39:50
+5#1,16:89
+21,6:105,3
+27,6:123
+33:129,3
+34,11:132
+43#0,113:142
+5#2,111:255
+155#0,25:365
+*E

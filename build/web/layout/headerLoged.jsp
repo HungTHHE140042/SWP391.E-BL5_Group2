@@ -22,8 +22,49 @@
                                 <li><a href="${pageContext.request.contextPath}/product">Game</a></li>
                                 <li><a href="${pageContext.request.contextPath}/blog">Blog</a></li>
                                 <li><a href="${pageContext.request.contextPath}/faq">Faq</a></li>
-                                <li><a href="${pageContext.request.contextPath}/general"> General </a></li>
+<!--                                <li><a href="${pageContext.request.contextPath}/general"> General </a></li>-->
+                                <li><a href="profile"><img width="15" height="15" src="assets/img/icon/user.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt="">Profile</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="profile"><img width="15" height="15" src="assets/img/icon/settings_violet.png"> Profile</a></li>
+                                            <li><a href="order-history"><img width="15" height="15" src="assets/img/icon/refresh_violet.png"> Order History</a></li>
+                                            <li><a href="#"><img width="15" height="15" src="assets/img/icon/logout_violet.png"> Logout</a></li>
+                                        </ul>
+                                    </li>
                                 <li><a href="${pageContext.request.contextPath}/cms"><img width="15" height="15" src="assets/img/icon/crown.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> <span style="color: yellow">Dashboard</span> </a></li>
+<!--                                <li><a><img width="15" height="15" src="assets/img/icon/bell.png" alt=""></a>-->
+                                <li><a><img width="15" height="15" src="assets/img/icon/bell_noti.png" alt=""></a>
+                                    <ul class="sub_menu">
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class="mr-3">
+                                                    <div class="icon-circle bg-primary">
+                                                        <i class="fas fa-file-alt text-white"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="small text-gray-500">December 12, 2019</div>
+                                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class="mr-3">
+                                                    <div class="icon-circle bg-success">
+                                                        <i class="fas fa-donate text-white"></i>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="small text-gray-500">December 7, 2019</div>
+                                                    $290.29 has been deposited into your account!
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <div class="text-center btn-secondary">
+                                            <a href="#" style="color: white; font-size: 10px" >Show all Notifications</a>
+                                        </div>
+                                    </ul>
+                                </li>
                             </ul>  
                         </nav>
                     </div>
