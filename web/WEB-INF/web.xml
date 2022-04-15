@@ -68,6 +68,10 @@
         <servlet-name>OrderHistoryController</servlet-name>
         <servlet-class>controller.OrderHistoryController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderDetailsController</servlet-name>
+        <servlet-class>controller.OrderDetailsController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -142,6 +146,10 @@
     <servlet-mapping>
         <servlet-name>OrderHistoryController</servlet-name>
         <url-pattern>/order-history</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderDetailsController</servlet-name>
+        <url-pattern>/order-details</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
