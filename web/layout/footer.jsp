@@ -17,9 +17,7 @@
                                     <a href="#"><img aria-label="logo" width="215" height="79" src="assets/img/logo/logo.webp" alt=""></a>
                                 </div>
                                 <div class="footer_contact_desc">
-                                    <p>It long estabhed fact that reader
-                                        will ditracted the readable content
-                                        looking using readable.</p>
+                                    <p>It Games Shop, a project we are making in SWP391. You can buy hottest key game in here.</p>
                                 </div>
                                 <div class="footer_social">
                                     <ul class="d-flex">
@@ -35,12 +33,11 @@
                                 <div class="footer_contact_info">
                                     <div class="footer_contact_info_list">
                                         <span>Location:</span>
-                                        <p>136 Harding Ave
-                                            Wheeling, West Virginia</p>
+                                        <p>Khu Công nghệ cao Hòa Lạc, Km29 Đại lộ Thăng Long, huyện Thạch Thất, Hà Nội</p>
                                     </div>
                                     <div class="footer_contact_info_list">
                                         <span>Phone:</span>
-                                        <p><a href="#">00 (62) 632 867 4497</a></p>
+                                        <p><a href="#">(+84) 999 999 999</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +91,7 @@
                     <div class="col-12">
                         <div class="footer_bottom_inner d-flex justify-content-between">
                             <div class="copyright_right">
-                                <p> © 2021  BONX  Made with  <i class="icofont-heart"></i>  by <a href="https://hasthemes.com">HasThemes</a></p>
+                                <p> © 2022  SWP391  Made with  <i class="icofont-heart"></i></p>
                             </div>
                             <div class="footer_bottom_link_menu">
                                 <ul class="d-flex">

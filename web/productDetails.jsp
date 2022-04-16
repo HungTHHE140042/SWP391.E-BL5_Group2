@@ -71,7 +71,7 @@
                                     <h2 class="game_details_title">din saurs - Hunter Sniper Shooter</h2>
                                 </div>
                                 <div class="game_details_thumb">
-                                    <img width="1170" height="540" src="assets/img/others/game-details-thumb.webp" alt="">
+                                    <img width="1170" height="540" src="assets/img/others/popular-game-thumb4.webp" alt="">
                                 </div>
                             </div>
                             <div class="row">

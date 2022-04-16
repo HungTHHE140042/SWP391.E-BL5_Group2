@@ -20,7 +20,7 @@
                             <ul class="d-flex">
                                 <li><a href="${pageContext.request.contextPath}/home">Home</a></li> 
                                 <li><a href="${pageContext.request.contextPath}/product">Game</a></li>
-                                <li><a href="${pageContext.request.contextPath}/blog">Blog</a></li>
+                                <li><a href="${pageContext.request.contextPath}/post">Post</a></li>
                                 <li><a href="${pageContext.request.contextPath}/faq">Faq</a></li>
                                 <li><a href="${pageContext.request.contextPath}/aboutus">About us</a></li>
                             </ul>  

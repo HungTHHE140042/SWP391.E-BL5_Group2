@@ -69,13 +69,13 @@
                         <th scope="col">First</th>
                         <th scope="col">Last</th>
                         <th scope="col">Handle</th>
-                        <th scope="col">Key</th>
+                        <th scope="col">Total</th>
                         <th class="" scope="col">
                             <div class="text-center">
                                 Status
                             </div>
                         </th>
-                        <th class="col-1" scope="col">
+                        <th class="col-2" scope="col">
                             <div class="text-center">
                                 Action
                             </div>
@@ -88,12 +88,13 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td style="color: green"></td>
+                        <td>$200</td>
                         <td class="text-center">
-                            <div class="btn btn-secondary">PENDING</div>
+                            <div class="btn btn-secondary">Pending</div>
                         </td>
                         <td class="text-center">
-                            <div class="btn btn-danger">Cancel</div>
+                            <a href="order-detail" type="button" class="btn btn-outline-primary">Detail</a>
+                            <a href="#" type="button" class="btn btn-outline-danger">Cancel</a>
                         </td>
                     </tr>
                     <tr>
@@ -101,22 +102,39 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td style="color: green">PUBG593417123913236</td>
+                        <td>$120</td>
                         <td class="text-center">
-                            <div class="btn btn-success">ACCEPTED</div>
+                            <div class="btn btn-success">Accepted</div>
                         </td>
-                        <td></td>
+                        <td class="text-center">
+                             <a href="order-detail" type="button" class="btn btn-outline-primary">Detail</a>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
-                        <td style="color: green"></td>
+                        <td>$320</td>
                         <td class="text-center">
-                            <div class="btn btn-danger">REJECTED</div>
+                            <div class="btn btn-danger">Rejected</div>
                         </td>
-                        <td></td>
+                        <td class="text-center">
+                             <a href="order-detail" type="button" class="btn btn-outline-primary">Detail</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>$320</td>
+                        <td class="text-center">
+                            <div class="btn btn-warning">Canceled</div>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-primary">Detail</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
