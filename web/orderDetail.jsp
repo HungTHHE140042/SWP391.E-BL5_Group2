@@ -1,6 +1,6 @@
 <%-- 
     Document   : orderDetail
-    Created on : Apr 15, 2022, 9:55:46 AM
+    Created on : Apr 15, 2022, 6:18:39 PM
     Author     : trinh
 --%>
 
@@ -35,7 +35,6 @@
         <!-- Main Style CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/table.css">
-        <link rel="stylesheet" href="assets/css/orderDetails.css">
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
@@ -43,16 +42,18 @@
         <%@include file="layout/headerLoged.jsp" %>
 
         <!-- breadcrumbs area start -->
-        <div class="breadcrumbs_aree breadcrumbs_bg" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
+        <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumbs_text text-center">
-                            <h1>Order Details</h1>
+                            <h1>#59241712</h1>
                             <ul class="d-flex justify-content-center">
-                                <li><a href="index.html">Home </a></li>
+                                <li><a href="home">Home </a></li>
                                 <li> <span>//</span></li>
-                                <li>  Cart </li>
+                                <li><a href="order-history">Order History </a></li>
+                                <li> <span>//</span></li>
+                                <li>  Order Detail </li>
                             </ul>
                         </div>
                     </div>
@@ -63,86 +64,74 @@
 
         <!-- page wrapper start -->
         <div class="page_wrapper container mb-100">
-            <section class="h-100 h-custom mb-25">
-                <div class="container py-5 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                        <div class="col-lg-8 col-xl-6">
-                            <div class="card border-top border-bottom border-3" style="border-color: #B053EF !important;">
-                                <div class="card-body p-5">
-
-                                    <p class="lead fw-bold mb-5" style="color: #B053EF;">Purchase Reciept</p>
-
-                                    <div class="row">
-                                        <div class="col mb-3">
-                                            <p class="small text-muted mb-1">Date</p>
-                                            <p style="color: black">10 April 2021</p>
-                                        </div>
-                                        <div class="col mb-3">
-                                            <p class="small text-muted mb-1">Email</p>
-                                            <p style="color: black">admin@gmail.com <a href="profile" class="btn btn-primary" style="font-size: 10px">Edit</a></p>
-                                        </div>
-                                    </div>
-
-                                    <table class="cart-table cart-table-rouned table table-light table-hover mb-25 ">
-                                        <thead>
-                                            <tr class="">
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Quantity</th>
-                                                <th class="col-2" scope="col">
-                                                    <div class="text-center">
-                                                        Total
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td class="text-center">$25</td>
-                                                <td class="text-center">2</td>
-                                                <td class="text-center">
-                                                    $50
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td class="text-center">$100</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center">
-                                                    $100
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <hr>
-                                    <div class="row my-4">
-                                        <div class="col-md-4 offset-md-8 col-lg-4 offset-lg-9">
-                                            <div class="btn btn-success">
-                                                <p class="lead fw-bold mb-0" style="color: white;">$262.99</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <table class="cart-table cart-table-rouned table table-light table-hover mb-25 ">
+                <thead>
+                    <tr class="">
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                        <th scope="col">Total</th>
+                        <th class="" scope="col">
+                            <div class="text-center">
+                                Key
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <div class="col-12">
-                <div class="others_gane_btn text-center">
-                    <a class="btn btn-link" href="#">Checkout </a>
-                </div>
-            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>$200</td>
+                        <td class="text-center" style="color: blue">
+                            PUBG59341712391323
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>$120</td>
+                        <td class="text-center" style="color: blue">
+                            PUBG59341712391323
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>$120</td>
+                        <td class="text-center" style="color: red">
+                            Rejected
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>$120</td>
+                        <td class="text-center" style="color: red">
+                            Canceled
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>$120</td>
+                        <td class="text-center" style="color: gray">
+                            Pending
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!-- page wrapper end -->

@@ -148,7 +148,7 @@
             </table>
             <div class="col-12">
                 <div class="others_gane_btn text-center">
-                    <a class="btn btn-link" href="order-details">Order </a>
+                    <a class="btn btn-link" href="checkout">Checkout </a>
                 </div>
             </div>
         </div>

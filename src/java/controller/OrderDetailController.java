@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author trinh
  */
-public class BlogController extends HttpServlet {
+public class OrderDetailController extends HttpServlet {
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,7 +29,7 @@ public class BlogController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("blog.jsp").forward(request, response);
+        request.getRequestDispatcher("orderDetail.jsp").forward(request, response);
     }
 
     /**

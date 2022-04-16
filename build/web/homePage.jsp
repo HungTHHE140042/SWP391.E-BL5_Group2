@@ -43,7 +43,7 @@
         <div class="page_wrapper">
 
             <!--slide banner section start-->
-            <section class="hero_banner_section d-flex align-items-center mb-130" data-bgimg="assets/img/bg/hero-bg1.webp">
+            <section class="hero_banner_section d-flex align-items-center mb-130" data-bgimg="">
                 <div class="container">
                     <div class="hero_banner_inner">
                         <div class="row align-items-center">
@@ -59,7 +59,7 @@
                     </div>    
                 </div>
                 <div class="hero_position_img">
-                    <img width="926" height="772" src="assets/img/bg/hero-position-img.webp" alt="">
+                    <img width="926" height="772" src="assets/img/player/list/player-1.webp" alt="">
                 </div>
             </section>
             <!--slider area end-->
@@ -355,26 +355,6 @@
                 </div>
             </section>
             <!-- blog section end -->
-
-            <!-- gaming update section start -->
-            <section class="gaming_update_section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="gaming_update_inner d-flex justify-content-between align-items-center" data-bgimg="assets/img/bg/gaming-update.webp">
-                                <div class="gaming_update_text">
-                                    <h2>Connect with us <br>
-                                        for gamING update.</h2>
-                                </div>
-                                <div class="gaming_update_btn">
-                                    <a class="btn btn-link" href="contact.html">CONNECT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- gaming update section end -->
 
         </div>
         <!-- page wrapper end -->
