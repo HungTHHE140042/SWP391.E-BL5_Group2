@@ -46,7 +46,7 @@
                     <div class="breadcrumbs_text text-center">
                         <h1>Post PAGE</h1>
                         <ul class="d-flex justify-content-center">
-                            <li><a href="index.html">Home </a></li>
+                            <li><a href="home">Home </a></li>
                             <li> <span>//</span></li>
                             <li>  Post </li>
                         </ul>
@@ -71,7 +71,7 @@
                                         <div class="col-lg-4 col-sm-6 col-12 mb-50">
                                             <div class="single_blog_grid d-flex flex-column">
                                                 <div class="blog_thumb">
-                                                    <a href="post-detail"><img width="376" height="376" src="assets/img/blog/blog-grid-1.webp" alt=""></a>
+                                                    <a href="post-detail"><img width="376px" height="376px" src="assets/img/blog/blog-grid-1.webp" alt=""></a>
                                                 </div>
                                                 <div class="blog_content">
                                                     <div class="blog_date">
@@ -101,26 +101,6 @@
                 </div>
         </section>
         <!-- blog page section end -->
-
-        <!-- gaming update section start -->
-        <section class="gaming_update_section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="gaming_update_inner d-flex justify-content-between align-items-center" data-bgimg="assets/img/bg/gaming-update.webp">
-                            <div class="gaming_update_text">
-                                <h2>Connect with us <br>
-                                    for gamING update.</h2>
-                            </div>
-                            <div class="gaming_update_btn">
-                                <a class="btn btn-link" href="contact.html">CONNECT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- gaming update section end -->
 
     </div>
     <!-- page wrapper end -->

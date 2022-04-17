@@ -142,7 +142,7 @@
             </section>
             <div class="col-12">
                 <div class="others_gane_btn text-center">
-                    <a class="btn btn-link" href="#">Payment </a>
+                    <a class="btn btn-link" href="payment">Payment </a>
                 </div>
             </div>
         </div>
