@@ -52,7 +52,7 @@
                                     <h1 class="wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">Newest Game <br>
                                         Selling Today.</h1>
                                     <p class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">Simply text of the printing and typesetting industry.</p>
-                                    <a class="btn btn-link wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.3s" href="all-game.html">Buy now <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                    <a class="btn btn-link wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.3s" href="product-details">Buy now <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg1.webp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                     <div class="gaming_world_thumb">
-                                        <img width="141" height="157" src="assets/img/others/gaming-world1.webp" alt="">
+                                        <img width="156px" height="156px" src="assets/img/others/gaming-world1.webp" alt="">
                                     </div>
                                     <div class="gaming_world_text">
                                         <div style="height: 100px">
@@ -106,7 +106,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg2.webp" data-wow-delay="0.2s" data-wow-duration="1.2s">
                                     <div class="gaming_world_thumb">
-                                        <img width="156" height="157" src="assets/img/others/gaming-world2.webp" alt="">
+                                        <img width="156px" height="156px" src="assets/img/others/gaming-world2.webp" alt="">
                                     </div>
                                     <div class="gaming_world_text">
                                         <div style="height: 100px">
@@ -124,7 +124,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg3.webp" data-wow-delay="0.3s" data-wow-duration="1.3s">
                                     <div class="gaming_world_thumb">
-                                        <img width="151" height="156" src="assets/img/others/gaming-world3.webp" alt="">
+                                        <img width="156px" height="156px" src="assets/img/others/gaming-world3.webp" alt="">
                                     </div>
                                     <div class="gaming_world_text">
                                         <div style="height: 100px">
@@ -189,7 +189,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="popular_gaming_thumb">
-                                    <a href="#"><img width="570" height="330" src="assets/img/others/popular-game-thumb1.webp" alt=""></a>
+                                    <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb1.webp" alt=""></a>
                                     <div class="gaming_details_btn">
                                         <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                     </div>
@@ -197,7 +197,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="popular_gaming_thumb">
-                                    <a href="#"><img width="570" height="330" src="assets/img/others/popular-game-thumb2.webp" alt=""></a>
+                                    <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb2.webp" alt=""></a>
                                     <div class="gaming_details_btn">
                                         <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                     </div>
@@ -205,7 +205,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="popular_gaming_thumb">
-                                    <a href="#"><img width="570" height="330" src="assets/img/others/popular-game-thumb3.webp" alt=""></a>
+                                    <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb3.webp" alt=""></a>
                                     <div class="gaming_details_btn">
                                         <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                     </div>
@@ -213,7 +213,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="popular_gaming_thumb">
-                                    <a href="#"><img width="570" height="330" src="assets/img/others/popular-game-thumb4.webp" alt=""></a>
+                                    <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb4.webp" alt=""></a>
                                     <div class="gaming_details_btn">
                                         <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                     </div>
@@ -289,14 +289,14 @@
             <section class="blog_section mb-90">
                 <div class="container">
                     <div class="section_title text-center wow fadeInUp mb-70" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                        <h2>Latest Blog</h2>
+                        <h2>Latest Post</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna</p>
                     </div>
                     <div class="row blog_inner">
                         <div class="col-lg-6">
                             <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                 <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog1.webp" alt=""></a>
+                                    <a href="blog-details.html"><img width="200px" height="200px" src="assets/img/blog/blog1.webp" alt=""></a>
                                 </div>
                                 <div class="blog_content">
                                     <div class="blog_date">
@@ -311,7 +311,7 @@
                         <div class="col-lg-6">
                             <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                 <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog2.webp" alt=""></a>
+                                    <a href="blog-details.html"><img width="200px" height="200px" src="assets/img/blog/blog2.webp" alt=""></a>
                                 </div>
                                 <div class="blog_content">
                                     <div class="blog_date">
@@ -325,7 +325,7 @@
                         <div class="col-lg-6">
                             <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                 <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog3.webp" alt=""></a>
+                                    <a href="blog-details.html"><img width="200px" height="200px" src="assets/img/blog/blog3.webp" alt=""></a>
                                 </div>
                                 <div class="blog_content">
                                     <div class="blog_date">

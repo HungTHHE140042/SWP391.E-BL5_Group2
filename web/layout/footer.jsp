@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="footer_widget_list">
-                                <h3>today’s winners</h3>
+                                <h3>today’s Game</h3>
                                 <div class="footer_winners_gallery">
                                     <div class="footer_winners_list d-flex">
                                         <div class="footer_winners_thumb">
@@ -72,7 +72,7 @@
                                 <h3>Content</h3>
                                 <div class="footer_menu">
                                     <ul>
-                                        <li><a href="about.html"> Copywriting</a></li>
+                                        <li><a href="aboutus"> About Us</a></li>
                                         <li><a href="about.html">Social Media</a></li>
                                         <li><a href="about.html">Interactive Media</a></li>
                                         <li><a href="about.html">Motion Design</a></li>
@@ -91,7 +91,7 @@
                     <div class="col-12">
                         <div class="footer_bottom_inner d-flex justify-content-between">
                             <div class="copyright_right">
-                                <p> © 2022  SWP391  Made with  <i class="icofont-heart"></i></p>
+                                <p> © 2022 in SWP391  Made with  <i class="icofont-heart"></i></p>
                             </div>
                             <div class="footer_bottom_link_menu">
                                 <ul class="d-flex">

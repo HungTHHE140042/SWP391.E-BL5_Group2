@@ -1,6 +1,6 @@
 <%-- 
-    Document   : orderDetail
-    Created on : Apr 15, 2022, 9:55:46 AM
+    Document   : payment
+    Created on : Apr 17, 2022, 6:45:06 PM
     Author     : trinh
 --%>
 
@@ -48,13 +48,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumbs_text text-center">
-                            <h1>Checkout</h1>
+                            <h1>Payment</h1>
                             <ul class="d-flex justify-content-center">
                                 <li><a href="home">Home </a></li>
                                 <li> <span>//</span></li>
-                                <li><a href="cart">Cart </a></li>
-                                <li> <span>//</span></li>
-                                <li>  Checkout </li>
+                                <li>  Payment </li>
                             </ul>
                         </div>
                     </div>
@@ -72,66 +70,48 @@
                             <div class="card border-top border-bottom border-3" style="border-color: #B053EF !important;">
                                 <div class="card-body p-5">
 
-                                    <p class="lead fw-bold mb-5" style="color: #B053EF;">Purchase Reciept</p>
+                                    <p class="lead fw-bold mb-5" style="color: #B053EF;">Payment Information</p>
 
                                     <div class="row">
                                         <div class="col mb-3">
-                                            <p class="small text-muted mb-1">Date</p>
-                                            <p style="color: black">10 April 2021</p>
+                                            <p class="small text-muted mb-1">Order ID:</p>
+                                            <p style="color: black">#541</p>
                                         </div>
                                         <div class="col mb-3">
-                                            <p class="small text-muted mb-1">Email</p>
-                                            <p style="color: black">admin@gmail.com <a href="profile" class="btn btn-primary" style="font-size: 10px">Edit</a></p>
+                                            <p class="small text-muted mb-1">User ID:</p>
+                                            <p style="color: black">#12</p>
                                         </div>
                                     </div>
-
-                                    <table class="cart-table cart-table-rouned table table-light table-hover mb-25 ">
-                                        <thead>
-                                            <tr class="">
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Quantity</th>
-                                                <th class="col-2" scope="col">
-                                                    <div class="text-center">
-                                                        Total
-                                                    </div>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td class="text-center">$25</td>
-                                                <td class="text-center">2</td>
-                                                <td class="text-center">
-                                                    $50
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td class="text-center">$100</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center">
-                                                    $100
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <hr>
-                                    <div class="row my-4">
-                                        <div class="col-md-4 offset-md-8 col-lg-4 offset-lg-9">
-                                            <div class="btn btn-success">
-                                                <p class="lead fw-bold mb-0" style="color: white;">$262.99</p>
-                                            </div>
+                                    
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <p class="small text-muted mb-1">Bank:</p>
+                                            <p style="color: #B053EF"><img width="40px" height="40px" src="https://lh3.googleusercontent.com/0E2CHhIwC6iCHoWU2h-Bfff7CFUsVm5XCrfEFM1VYrC8ZZGQ85KtoFYVdwSc6XjWpcs"> <span style="font-size: 20px"><b>TP</b>Bank - Ngân hàng Tiên Phong</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <p class="small text-muted mb-1">Name:</p>
+                                            <p style="color: black">Games Shop</p>
+                                        </div>
+                                        <div class="col mb-3">
+                                            <p class="small text-muted mb-1">Number:</p>
+                                            <p style="color: black" class="form-control">593417123913236</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <p class="small text-muted mb-1">Content:</p>
+                                            <p style="color: black" class="form-control">541</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <p class="small text-muted mb-1">Money to be paid:</p>
+                                            <p style="color: black" class="form-control">$262.99</p>
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +122,7 @@
             </section>
             <div class="col-12">
                 <div class="others_gane_btn text-center">
-                    <a class="btn btn-link" href="payment">Payment </a>
+                    <a class="btn btn-link" href="order-history">Done </a>
                 </div>
             </div>
         </div>

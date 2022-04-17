@@ -37,67 +37,19 @@
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
         <%@include file="layout/header.jsp" %>
-
-        <!--offcanvas menu area start-->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
-        <div class="offcanvas-header justify-content-end">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="offcanvas_main_menu">
-                <li class="menu-item-has-children active">
-                    <a href="index.html">Home</a>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Match</a>
-                    <ul class="sub-menu">
-                        <li><a href="match.html">Match Page</a></li>
-                        <li><a href="match-details.html">Match Details</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="all-game.html">All Game</a></li>
-                        <li><a href="game-details.html">Game Details</a></li>
-                        <li><a href="faq.html">Faq Page</a></li>
-                        <li><a href="players.html">Players</a></li>
-                        <li><a href="player-details.html">Player Details</a></li>
-                                            <li><a href="registration.html">Sign Up</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                        <li><a href="404.html">Error 404</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children">
-                    <a href="#">blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                        <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                        <li><a href="blog-without-sidebar.html">Blog Without Sidebar</a></li>
-                            <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
-                            <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                        <li><a href="blog-grid-without-sidebar.html">Blog Grid Without Sidebar</a></li>
-                        <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                        <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-    </div>
-    <!--offcanvas menu area end-->
-
     <!-- breadcrumbs area start -->
     <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumbs_text text-center">
-                        <h1>BLOG DETAILS</h1>
+                        <h1>Post DETAIL</h1>
                         <ul class="d-flex justify-content-center">
-                            <li><a href="index.html">Home </a></li>
+                            <li><a href="home">Home </a></li>
                             <li> <span>//</span></li>
-                            <li>  Blog Details</li>
+                            <li><a href="post">Post </a></li>
+                            <li> <span>//</span></li>
+                            <li> Detail</li>
                         </ul>
                     </div>
                 </div>
@@ -120,24 +72,15 @@
                                     <ul class="d-flex justify-content-center">
                                         <li><span>By</span> Harold Leonard   </li>
                                         <li> 03 April, 21  </li>
-                                        <li>0 min read</li>
                                     </ul>
                                 </div>
                                 <div class="blog_details_title">
                                     <h2>How to Start a Video Game from
                                         mobile & computer.</h2>
                                 </div>
-                                <div class="widget_tags">
-                                    <ul>
-                                        <li><a href="#">Advanture</a></li>
-                                        <li><a href="#">Gamming</a></li>
-                                        <li><a href="#"> Esport’s</a></li>
-                                        <li><a href="#">Fighter</a></li>
-                                    </ul>
-                                </div>
                             </div>
                             <div class="blog_sticky_thumb">
-                                <img width="1170" height="550" src="assets/img/blog/blog-sticky.webp" alt="">
+                                <img width="1170px" height="550px" src="assets/img/blog/blog-sticky.webp" alt="">
                             </div>
                             <div class="blog_details_content ">
                                 <div class="blog_details_content_step">
@@ -154,77 +97,7 @@
                                             specimen book. It has survived nots only five centuries, but also the leap into.</p>  
                                     </div> 
                                 </div>
-                                <div class="blog_details_content_step">
-                                    <h3 class="title_margin">Table of Content:</h3>
-                                    <div class="blog_details_table_content">
-                                        <ul>
-                                            <li><a href="#"><i class="icofont-rounded-double-right"></i> It was popularised in the 1960s with the release of Letraset sheets containing</a></li>
-                                            <li><a href="#"><i class="icofont-rounded-double-right"></i> Many desktop publishing packages and web page editors now use</a></li>
-                                            <li><a href="#"><i class="icofont-rounded-double-right"></i> It was popularised in the 1960s with the release of Letraset sheets containing</a></li>
-                                            <li><a href="#"><i class="icofont-rounded-double-right"></i> Many desktop publishing packages and web page editors now use</a></li>
-                                            <li><a href="#"><i class="icofont-rounded-double-right"></i> It was popularised in the 1960s with the release of Letraset sheets containing</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="blog_details_desc">   
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                            ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                            only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                            the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                            specimen book. It has survived nots only five centuries, but also the leap into.</p> 
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                            ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                            only five centuries, but also the leap into electronic typesetting.</p> 
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                                ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                                only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                                the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                                specimen book. It has survived nots only five centuries, but also the leap into.</p> 
-                                    </div>
-                                </div>
-
-                                <div class="blog_details_content_step">
-                                    <h3 class="title_margin">Our company fails the real world test in all kinds of ways.</h3>
-                                    <div class="blog_details_desc">   
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                            ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                            only five centuries, but also the leap into electronic typesetting.</p>  
-                                    </div>
-                                    <div class="blog_details_layer_thumb">
-                                        <img width="970" height="450" src="assets/img/blog/blog_details_layer.webp" alt="">
-                                    </div>
-                                </div>
-
-                                <div class="blog_details_content_step">
-                                    <h3 class="title_margin">Dress Up’s Innovative Approach to Customization Games Works.</h3>
-                                    <div class="blog_details_desc">   
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                            ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                            only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                            the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                            specimen book. It has survived nots only five centuries, but also the leap into.</p> 
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                            ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                            only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                            the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                            specimen book. It has survived nots only five centuries, but also the leap into.</p>     
-                                    </div>
-                                    <div class="blog_related_text" data-bgimg="assets/img/blog/blog-related-bg.webp">
-                                        <h3>2,83k People Receive Our Weekly
-                                            WordPress Related Newsletter.</h3>
-                                    </div>
-                                    <div class="blog_details_desc">   
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                            ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                            only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                            the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                            specimen book. It has survived nots only five centuries, but also the leap into.</p> 
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                            ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                            only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                            the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                            specimen book. It has survived nots only five centuries, but also the leap into.</p>     
-                                    </div>
-                                </div>
+                                
                                 <div class="post__social d-flex justify-content-between align-items-center">
                                     <h3>Share this article:</h3>
                                     <ul class="d-flex">
@@ -338,84 +211,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="blog_comment_wrapper">
-                            <div class="comments_box">
-                                <div class="comments_title">
-                                    <h2>COMMENTS (04)</h2>
-                                </div>
-                                <div class="comment_list d-flex">
-                                    <div class="comment_thumb">
-                                        <img width="100" height="100" src="assets/img/blog/post-comment1.webp" alt="">
-                                    </div>
-                                    <div class="comment_content">
-                                        <a href="#"> <img width="36" height="27" src="assets/img/icon/reply.webp" alt=""> </a>
-                                        <h3>Randolph Frazier</h3>
-                                        <span> Web Designer</span>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
-                                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                                <div class="comment_list d-flex">
-                                    <div class="comment_thumb">
-                                        <img width="100" height="100" src="assets/img/blog/post-comment2.webp" alt="">
-                                    </div>
-                                    <div class="comment_content">
-                                        <a href="#"> <img width="36" height="27" src="assets/img/icon/reply.webp" alt=""> </a>
-                                        <h3>Kenia Bumgarner</h3>
-                                        <span> user Interface designer</span>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
-                                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="comments_form">
-                                <div class="comments_title">
-                                    <h2>Leave A Comment</h2>
-                                </div>
-                                <div class="comments_form_inner">
-                                    <form action="#">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Name *" type="text">
-                                                </div>
-                                            </div> 
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Email *" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Address *" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="comments_form_input">
-                                                    <input placeholder="Subject" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="comments_form_input">
-                                                    <textarea placeholder="Message"></textarea>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <div class="comments_submit_btn text-center">
-                                            <a class="btn btn-link" href="#">SUBMIT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                        </div>
-                                    </form> 
-                                </div>  
-                            </div>   
-                        </div> 
                     </div>
                 </div>
             </div>

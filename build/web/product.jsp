@@ -46,9 +46,9 @@
                         <div class="breadcrumbs_text text-center">
                             <h1>All game</h1>
                             <ul class="d-flex justify-content-center">
-                                <li><a href="index.html">Home </a></li>
+                                <li><a href="home">Home </a></li>
                                 <li> <span>//</span></li>
-                                <li>  PAGES</li>
+                                <li>  All Game</li>
                             </ul>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                                     <!--  Single Player List Start-->
                                     <div class="player_list_single_item wow fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                         <div class="top">
-                                            <a class="image" href=""><img src="assets/img/player/list/player-1.webp" alt=""></a>
+                                            <a class="image" href=""><img width="370px" height="368px" src="assets/img/player/list/player-1.webp" alt=""></a>
                                             <div class="overlay">
                                                 <div class="social-link">
                                                     <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </a>
@@ -134,7 +134,7 @@
                                     <!--  Single Player List Start-->
                                     <div class="player_list_single_item wow fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                         <div class="top">
-                                            <a class="image" href=""><img src="assets/img/player/list/player-1.webp" alt=""></a>
+                                            <a class="image" href=""><img width="370px" height="368px" src="assets/img/player/list/player-1.webp" alt=""></a>
                                             <div class="overlay">
                                                 <div class="social-link">
                                                     <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </a>
@@ -169,7 +169,7 @@
                                     <!--  Single Player List Start-->
                                     <div class="player_list_single_item wow fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                         <div class="top">
-                                            <a class="image" href=""><img src="assets/img/player/list/player-1.webp" alt=""></a>
+                                            <a class="image" href=""><img width="370px" height="368px" src="assets/img/player/list/player-1.webp" alt=""></a>
                                             <div class="overlay">
                                                 <div class="social-link">
                                                     <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </a>
@@ -252,26 +252,6 @@
                 </div>
             </section>
             <!-- counterup section end -->
-
-            <!-- gaming update section start -->
-            <section class="gaming_update_section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="gaming_update_inner d-flex justify-content-between align-items-center" data-bgimg="assets/img/bg/gaming-update.webp">
-                                <div class="gaming_update_text">
-                                    <h2>Connect with us <br>
-                                        for gamING update.</h2>
-                                </div>
-                                <div class="gaming_update_btn">
-                                    <a class="btn btn-link" href="contact.html">CONNECT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- gaming update section end -->
 
         </div>
         <!-- page wrapper end -->

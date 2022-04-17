@@ -38,55 +38,6 @@
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
         <%@include file="layout/header.jsp" %>
 
-        <!--offcanvas menu area start-->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
-            <div class="offcanvas-header justify-content-end">
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="offcanvas_main_menu">
-                    <li class="menu-item-has-children active">
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Match</a>
-                        <ul class="sub-menu">
-                            <li><a href="match.html">Match Page</a></li>
-                            <li><a href="match-details.html">Match Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="all-game.html">All Game</a></li>
-                            <li><a href="game-details.html">Game Details</a></li>
-                            <li><a href="faq.html">Faq Page</a></li>
-                            <li><a href="players.html">Players</a></li>
-                            <li><a href="player-details.html">Player Details</a></li>
-                            <li><a href="registration.html">Sign Up</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="#">blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                            <li><a href="blog-without-sidebar.html">Blog Without Sidebar</a></li>
-                            <li><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
-                            <li><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
-                            <li><a href="blog-grid-without-sidebar.html">Blog Grid Without Sidebar</a></li>
-                            <li><a href="blog-details-left-sidebar.html">Blog Details Left Sidebar</a></li>
-                            <li><a href="blog-details-right-sidebar.html">Blog Details Right Sidebar</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-        <!--offcanvas menu area end-->
-
         <!-- breadcrumbs area start -->
         <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
             <div class="container">
@@ -95,9 +46,9 @@
                         <div class="breadcrumbs_text text-center">
                             <h1>About Us</h1>
                             <ul class="d-flex justify-content-center">
-                                <li><a href="index.html">Home </a></li>
+                                <li><a href="home">Home </a></li>
                                 <li> <span>//</span></li>
-                                <li>  PAGES</li>
+                                <li>  About Us</li>
                             </ul>
                         </div>
                     </div>
@@ -106,7 +57,7 @@
         </div>
         <!-- breadcrumbs area end -->
         <!-- page wrapper start -->
-        <div class="page_wrapper">
+        <div class="page_wrapper mb-100">
 
             <!-- contact section start -->
             <section class="contact_page_section mb-140">
@@ -134,8 +85,8 @@
                                     </div>
                                     <div class="contact_info_text">
                                         <h3>Location:</h3>
-                                        <p>100 N Aurora Ave #APT 19
-                                            Oakland, Nebraska(NE), 68045</p>
+                                        <p>Khu Công nghệ cao Hòa Lạc, 
+                                            Km29 Đại lộ Thăng Long, huyện Thạch Thất, Hà Nội</p>
                                     </div>
                                 </div>
                             </div>
@@ -203,29 +154,9 @@
 
             <!--contact map start-->
             <div class="contact_map mt-70">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.6701389278105!2d-0.13442558407566274!3d51.48256882033922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760532743b90e1%3A0x790260718555a20c!2sU.S.%20Embassy%2C%20London!5e0!3m2!1sen!2sbd!4v1623927462716!5m2!1sen!2sbd"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.296238264105!2d105.52487561538513!3d21.01325499368229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345b465a4e65fb%3A0xaae6040cfabe8fe!2sFPT%20University!5e0!3m2!1sen!2s!4v1650194900166!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <!--contact map end-->
-
-            <!-- gaming update section start -->
-            <section class="gaming_update_section contact_gaming_update">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="gaming_update_inner d-flex justify-content-between align-items-center" data-bgimg="assets/img/bg/gaming-update.webp">
-                                <div class="gaming_update_text">
-                                    <h2>Connect with us <br>
-                                        for gamING update.</h2>
-                                </div>
-                                <div class="gaming_update_btn">
-                                    <a class="btn btn-link" href="#">CONNECT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- gaming update section end -->
 
         </div>
         <!-- page wrapper end -->
