@@ -4,6 +4,9 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,7 +40,15 @@
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
 
-        <%@include file="layout/headerLoged.jsp" %>
+        <c:choose>
+            <c:when test="${u != null}">
+                <%@include file="layout/headerLoged.jsp" %>
+            </c:when>
+            <c:otherwise>
+                <%@include file="layout/header.jsp" %>
+            </c:otherwise>
+        </c:choose>
+
 
         <!-- page wrapper start -->
         <div class="page_wrapper">
