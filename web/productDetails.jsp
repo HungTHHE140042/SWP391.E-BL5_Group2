@@ -72,7 +72,7 @@
                                     <h2 class="game_details_title">din saurs - Hunter Sniper Shooter</h2>
                                 </div>
                                 <div class="game_details_thumb">
-                                    <img width="1170" height="540" src="assets/img/others/popular-game-thumb4.webp" alt="">
+                                    <img width="1170" height="540" src="https://previews.dropbox.com/p/thumb/ABjP7HmHcv42YrxHubThGlqAtbAOMYi55rZYTyj9osM4GjQJ_osoFXYppIn63-ivF3uD_YgylCFIulwFcaAx4pU5mi4zl47Z6zxpCXsydXwtzg7BjaENeaEVcbJX3eWw6_HIVbFubwhInzQWvN65oveXNmFpcL6s7EYKbos1Ujva3Vmhf-vnO2HRYVN80T9HUPeEwcHac5nKciSRgyAok3SczWJw-vV8vMD6rq1O_OTptmYAKI5zHy3oFeq9aiwC3SkSnZsjl_5meW8J6JvhhXB3RxpK6eJ6e4LDY4QqPI2RlYxYipF_EI4rgTq7CpmRavQ4jYOQ4nUsZVk0mXNOfIOyuHmOwx0JI2dGSA-4V5RAfCqTYOzJzEIPoFOjBLPnxvc/p.jpeg" alt="">
                                 </div>
                             </div>
                             <div class="row">
