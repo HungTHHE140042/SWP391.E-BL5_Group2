@@ -399,9 +399,7 @@
             $('#deleteModal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget); // Button that triggered the modal
                 var id = button.data('id');
-                console.log(id);
                 var modal = $(this);
-                console.log(modal);
                 modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
             });
         </script>
