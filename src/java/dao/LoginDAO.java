@@ -14,7 +14,8 @@ import java.sql.PreparedStatement;
  * @author trinh
  */
 public class LoginDAO {
-        public LoginDAO() {
+
+    public LoginDAO() {
         createConnection();
     }
 
