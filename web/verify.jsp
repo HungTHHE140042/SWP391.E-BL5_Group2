@@ -1,6 +1,6 @@
 <%-- 
-    Document   : resetPassword
-    Created on : Apr 14, 2022, 3:56:39 PM
+    Document   : verify
+    Created on : Apr 19, 2022, 12:06:37 AM
     Author     : trinh
 --%>
 
@@ -45,11 +45,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumbs_text text-center">
-                            <h1>Reset Password</h1>
+                            <h1>Verify</h1>
                             <ul class="d-flex justify-content-center">
                                 <li><a href="home">Home </a></li>
                                 <li> <span>//</span></li>
-                                <li>  Reset Password</li>
+                                <li>  Verify</li>
                             </ul>
                         </div>
                     </div>
@@ -57,62 +57,14 @@
             </div>
         </div>
         <!-- breadcrumbs area end -->
-        <!-- page wrapper start -->
-        <div class="page_wrapper">
-
-            <!-- contact section start -->
-            <section class="contact_page_section mb-140">
-                <div class="container">
-                    <div class="row justify-content-between align-items-center mb-n50">
-                        <div class="col-lg-6 col-md-8 col-12 mx-auto mb-50">
-                            <img width="550" height="550" src="assets/img/others/about-thumb.webp" alt="">
-                        </div>
-                        <div class="col-lg-5 col-md-8 col-12 mx-auto mb-50">
-                            <div class="section_title text-center mb-60">
-                                <h2>Reset password</h2>
-                            </div>
-                            <form method="post" action="reset-password">
-                                <div class="form_input">
-                                    <input name="id" placeholder="Email" type="hidden" value="<c:out value="${user.userId}"/>">
-                                </div>
-                                <div class="form_input">
-                                    <input name="email" placeholder="Email" type="email" value="<c:out value="${user.email}"/>" disabled="true">
-                                </div>
-                                <div class="form_input">
-                                    <input name="password" placeholder="New password" type="password" required="">
-                                </div>
-                                <div class="form_input">
-                                    <input name="repassword" placeholder="Retype new password" type="password" required="">
-                                </div>
-                                <c:choose>
-                                    <c:when test="${error.equals('1')}">
-                                        <div class="alert alert-danger" role="alert">
-                                            Re-password not match
-                                        </div>
-                                    </c:when>
-                                    <c:when test="${error.equals('2')}">
-                                        <div class="alert alert-danger" role="alert">
-                                            Some error, try again!
-                                        </div>
-                                    </c:when>
-                                    <c:otherwise>
-
-                                    </c:otherwise>
-                                </c:choose>
-                                <div class="form_input_btn text-center mb-40">
-                                    <button type="submit" class="btn btn-link">Change<img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
-                                </div>
-                            </form>
-                            <p class="text-center">Remembered password, <a href="${pageContext.request.contextPath}/signin">Login here</a></p>
-                        </div>
-                    </div>
+        <div class="container mb-100">
+            <h3 class="text-center mb-50">Your Account @<c:out value="${user.username}" /> had been Verified</h3>
+            <div class="col-12">
+                <div class="others_gane_btn text-center">
+                    <a class="btn btn-link" href="signin">Login </a>
                 </div>
-            </section>
-            <!-- contact section end -->
-
+            </div>
         </div>
-        <!-- page wrapper end -->
-
         <%@include file="layout/footer.jsp" %>
         <!-- JS
 ============================================ -->

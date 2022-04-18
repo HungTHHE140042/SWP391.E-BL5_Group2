@@ -4,6 +4,7 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -46,9 +47,9 @@
                         <div class="breadcrumbs_text text-center">
                             <h1>Reset Password</h1>
                             <ul class="d-flex justify-content-center">
-                                <li><a href="index.html">Home </a></li>
+                                <li><a href="home">Home </a></li>
                                 <li> <span>//</span></li>
-                                <li>  PAGES</li>
+                                <li>  Reset Password</li>
                             </ul>
                         </div>
                     </div>
@@ -70,19 +71,38 @@
                             <div class="section_title text-center mb-60">
                                 <h2>Reset password</h2>
                             </div>
-                            <div class="form_input">
-                                <input name="login_email" placeholder="Email" type="email" value="admin@gmail.com" disabled="true">
-                            </div>
-                            <div class="form_input">
-                                <input name="login_password" placeholder="New password" type="password">
-                            </div>
-                            <div class="form_input">
-                                <input name="login_password" placeholder="Retype new password" type="password">
-                            </div>
-                            
-                            <div class="form_input_btn text-center mb-40">
-                                <button type="submit" class="btn btn-link">Change<img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
-                            </div>
+                            <form method="post" action="reset-password">
+                                <div class="form_input">
+                                    <input name="id" placeholder="Email" type="hidden" value="<c:out value="${user.userId}"/>">
+                                </div>
+                                <div class="form_input">
+                                    <input name="email" placeholder="Email" type="email" value="<c:out value="${user.email}"/>" disabled="true">
+                                </div>
+                                <div class="form_input">
+                                    <input name="password" placeholder="New password" type="password" required="">
+                                </div>
+                                <div class="form_input">
+                                    <input name="repassword" placeholder="Retype new password" type="password" required="">
+                                </div>
+                                <c:choose>
+                                    <c:when test="${error.equals('1')}">
+                                        <div class="alert alert-danger" role="alert">
+                                            Re-password not match
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${error.equals('2')}">
+                                        <div class="alert alert-danger" role="alert">
+                                            Some error, try again!
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+
+                                    </c:otherwise>
+                                </c:choose>
+                                <div class="form_input_btn text-center mb-40">
+                                    <button type="submit" class="btn btn-link">Change<img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
+                                </div>
+                            </form>
                             <p class="text-center">Remembered password, <a href="${pageContext.request.contextPath}/signin">Login here</a></p>
                         </div>
                     </div>

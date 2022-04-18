@@ -6,12 +6,16 @@
 package controller;
 
 import dao.LoginDAO;
+import dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import smtp.Email;
 
 /**
  *
@@ -52,6 +56,7 @@ public class SignUpController extends HttpServlet {
         String repassword = request.getParameter("repassword");
 
         LoginDAO dao = new LoginDAO();
+        UserDAO uDAO = new UserDAO();
 
         if (!password.equals(repassword)) {
             request.setAttribute("error", "1");
@@ -65,6 +70,12 @@ public class SignUpController extends HttpServlet {
                 request.getRequestDispatcher("signUp.jsp").forward(request, response);
             } else {
                 if (dao.registerAccount(username, email, password)) {
+                    int userId = (uDAO.getNewestUser()).getUserId();
+                    try {
+                        Email.sendEmail(email, "[!] Verify tai khoan #" + userId + " cua ban.", " Truoc khi Dang nhap, hay nhap vao <a href='http://localhost:8080/SWP391.E-BL5_Group2/verify?id=" + userId + "'>link...</a>");
+                    } catch (Exception e) {
+                        Logger.getLogger(ForgotPasswordController.class.getName()).log(Level.SEVERE, null, e);
+                    }
                     request.setAttribute("error", "4");
                     request.getRequestDispatcher("signUp.jsp").forward(request, response);
                 } else {

@@ -5,25 +5,20 @@
  */
 package controller;
 
-import dao.LoginDAO;
 import dao.UserDAO;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import smtp.Email;
 
 /**
  *
  * @author trinh
  */
-public class ForgotPasswordController extends HttpServlet {
-
+public class VerifyController extends HttpServlet {
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -36,8 +31,23 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("error", null);
-        request.getRequestDispatcher("forgot.jsp").forward(request, response);
+        int userId = Integer.parseInt("".equals(request.getParameter("id")) ? "0" : request.getParameter("id"));
+        UserDAO uDAO = new UserDAO();
+        User u = new User();
+        u = uDAO.getUserByUserId(userId);
+        if (u != null) {
+            if (u.getStatusId() == 2) {
+                request.setAttribute("user", u);
+                boolean updateStatus = uDAO.updateUserStatusId(userId, 1);
+                request.getRequestDispatcher("verify.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
+        } else {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+        request.getRequestDispatcher("error.jsp").forward(request, response);
+        request.getRequestDispatcher("verify.jsp").forward(request, response);
     }
 
     /**
@@ -51,28 +61,7 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("email");
-        LoginDAO dao = new LoginDAO();
-        UserDAO uDao = new UserDAO();
-        if (dao.isExistedEmail(email)) {
-            try {
-                User u = new User();
-                u = uDao.getUserByEmail(email);
-                int userId = u.getUserId();
-                Email.sendEmail(email, "[?] Request Reset Password #" + userId, "To change your password, click link <a href=\"http://localhost:8080/SWP391.E-BL5_Group2/reset-password?id=" + userId +"\">here...</a>");
-                boolean updateStatus = uDao.updateUserStatusId(userId, 2);
-                request.setAttribute("error", "3");
-                request.getRequestDispatcher("forgot.jsp").forward(request, response);
-            } catch (Exception e) {
-                Logger.getLogger(ForgotPasswordController.class.getName()).log(Level.SEVERE, null, e);
-                request.setAttribute("error", "2");
-                request.getRequestDispatcher("forgot.jsp").forward(request, response);
-            }
 
-        } else {
-            request.setAttribute("error", "1");
-            request.getRequestDispatcher("forgot.jsp").forward(request, response);
-        }
     }
 
     /**
