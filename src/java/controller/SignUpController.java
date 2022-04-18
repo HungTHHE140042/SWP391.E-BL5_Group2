@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.LoginDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class SignUpController extends HttpServlet {
 
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -31,6 +31,7 @@ public class SignUpController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("error", null);
         request.getRequestDispatcher("signUp.jsp").forward(request, response);
     }
 
@@ -45,6 +46,33 @@ public class SignUpController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String repassword = request.getParameter("repassword");
+
+        LoginDAO dao = new LoginDAO();
+
+        if (!password.equals(repassword)) {
+            request.setAttribute("error", "1");
+            request.getRequestDispatcher("signUp.jsp").forward(request, response);
+        } else {
+            if (dao.isExistedUsername(username)) {
+                request.setAttribute("error", "2");
+                request.getRequestDispatcher("signUp.jsp").forward(request, response);
+            } else if (dao.isExistedEmail(email)) {
+                request.setAttribute("error", "3");
+                request.getRequestDispatcher("signUp.jsp").forward(request, response);
+            } else {
+                if (dao.registerAccount(username, email, password)) {
+                    request.setAttribute("error", "4");
+                    request.getRequestDispatcher("signUp.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("error", "5");
+                    request.getRequestDispatcher("signUp.jsp").forward(request, response);
+                }
+            }
+        }
     }
 
     /**

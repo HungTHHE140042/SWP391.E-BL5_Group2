@@ -5,12 +5,16 @@
  */
 package controller;
 
+import dao.LoginDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import smtp.Email;
 
 /**
  *
@@ -30,6 +34,7 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("error", null);
         request.getRequestDispatcher("forgot.jsp").forward(request, response);
     }
 
@@ -44,6 +49,23 @@ public class ForgotPasswordController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String email = request.getParameter("email");
+        LoginDAO dao = new LoginDAO();
+        if (dao.isExistedEmail(email)) {
+            try {
+                Email.sendEmail(email, "Request reset password", "test");
+                request.setAttribute("error", "3");
+                request.getRequestDispatcher("forgot.jsp").forward(request, response);
+            } catch (Exception e) {
+                Logger.getLogger(ForgotPasswordController.class.getName()).log(Level.SEVERE, null, e);
+                request.setAttribute("error", "2");
+                request.getRequestDispatcher("forgot.jsp").forward(request, response);
+            }
+
+        } else {
+            request.setAttribute("error", "1");
+            request.getRequestDispatcher("forgot.jsp").forward(request, response);
+        }
     }
 
     /**

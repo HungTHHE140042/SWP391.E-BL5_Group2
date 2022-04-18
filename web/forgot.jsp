@@ -4,8 +4,10 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -66,21 +68,39 @@
                             <img width="550" height="550" src="assets/img/others/about-thumb.webp" alt="">
                         </div>
                         <div class="col-lg-5 col-md-8 col-12 mx-auto mb-50">
-                            <div class="section_title text-center mb-60">
-                                <h2>Forgot Password</h2>
-                            </div>
-                            <div class="form_input">
-                                <input name="login_email" placeholder="Email" type="email">
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                               Email is not existed!
-                            </div> 
-                            <div class="alert alert-success" role="alert">
-                                Reset link had sent to your email!
-                            </div> 
-                            <div class="form_input_btn text-center mb-40">
-                                <button type="submit" class="btn btn-link">Reset password<img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
-                            </div>
+                            <form method="post" action="forgot">
+                                <div class="section_title text-center mb-60">
+                                    <h2>Forgot Password</h2>
+                                </div>
+                                <div class="form_input">
+                                    <input name="email" placeholder="Email" type="email">
+                                </div>
+                                <c:choose>
+                                    <c:when test="${error.equals('1')}">
+                                        <div class="alert alert-danger" role="alert">
+                                            Email is not existed!
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${error.equals('2')}">
+                                        <div class="alert alert-danger" role="alert">
+                                            Some things error, try a again!
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${error.equals('3')}">
+                                        <div class="alert alert-success" role="alert">
+                                            Reset link had sent to your email!
+                                        </div> 
+                                    </c:when>
+                                    <c:otherwise>
+
+                                    </c:otherwise>
+                                </c:choose>
+
+
+                                <div class="form_input_btn text-center mb-40">
+                                    <button type="submit" class="btn btn-link">Reset password<img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
+                                </div>
+                            </form>
                             <p class="text-center">Remembered password, <a href="${pageContext.request.contextPath}/signin">Login here</a></p>
                         </div>
                     </div>
