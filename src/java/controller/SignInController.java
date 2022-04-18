@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.LoginDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -30,6 +31,7 @@ public class SignInController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        LoginDAO dao = new LoginDAO();
         request.getRequestDispatcher("signIn.jsp").forward(request, response);
     }
 
