@@ -7,6 +7,7 @@ package dao;
 
 import context.DBContext;
 import entity.Post;
+import entity.PostJoinUser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +19,7 @@ import java.util.List;
  * @author Admin
  */
 public class PostDAO {
-
+    
     public PostDAO() {
         createConnection();
     }
@@ -26,7 +27,7 @@ public class PostDAO {
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-
+    
     public void createConnection() {
         DBContext u = new DBContext();
         try {
@@ -38,24 +39,127 @@ public class PostDAO {
         }
     }
     
-    public List<Post> getTop4LastestPost(){
+    public List<Post> getTop4LastestPost() {
         List<Post> list = new ArrayList<>();
         String query = "select top 4 * from post order by ID desc";
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
-            while (rs.next()) {                
-                list.add(new Post(rs.getInt("ID"), 
+            while (rs.next()) {
+                list.add(new Post(rs.getInt("ID"),
                         rs.getInt("authorID"),
                         rs.getString("title"),
-                        rs.getString("content"), 
-                        rs.getString("imageLinkDetail"), 
-                        rs.getDate("date"), 
+                        rs.getString("content"),
+                        rs.getString("imageLinkDetail"),
+                        rs.getDate("date"),
                         rs.getString("imageLinkThumbnail")));
             }
         } catch (Exception e) {
         }
         return list;
+    }
+    
+    public List<PostJoinUser> getAllPostJoinUser() {
+        List<PostJoinUser> list = new ArrayList<>();
+        String sql = "select * from post p, [user] u where p.authorID=u.userID";
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new PostJoinUser(rs.getInt("ID"),
+                        rs.getString("username"),
+                        rs.getString("title"),
+                        rs.getString("content"),
+                        rs.getString("imageLinkDetail"),
+                        rs.getDate("date"),
+                        rs.getString("imageLinkThumbnail")));
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
+    public PostJoinUser getPostJoinUserByPostId(int postId) {
+        String sql = "select * from post p, [user] u where p.authorID=u.userID and p.ID=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, postId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                PostJoinUser p = new PostJoinUser(rs.getInt("ID"),
+                        rs.getString("username"),
+                        rs.getString("title"),
+                        rs.getString("content"),
+                        rs.getString("imageLinkDetail"),
+                        rs.getDate("date"),
+                        rs.getString("imageLinkThumbnail"));
+                ps.close();
+                rs.close();
+                return p;
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return null;
+    }
+    
+    public boolean createPost(int authorId, String title, String urlThumbnail, String urlDetail, String content) {
+        String sql = "insert into post(authorID, title, [content], imageLinkDetail, date, imageLinkThumbnail) values (?, ?, ?, ?, GETDATE(), ?)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, authorId);
+            ps.setString(2, title);
+            ps.setString(3, content);
+            ps.setString(4, urlDetail);
+            ps.setString(5, urlThumbnail);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    public boolean removePostByPostId(int postId) {
+        String sql = "DELETE FROM post WHERE ID=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, postId);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean updatePost(int postId, String title, String urlThumbnail, String urlDetail, String content) {
+        if (con == null) {
+            createConnection();
+        }
+        String sql = "update post set title=?, [content]=?, imageLinkDetail=?, imageLinkThumbnail=? where ID=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, title);
+            ps.setString(2, content);
+            ps.setString(3, urlDetail);
+            ps.setString(4, urlThumbnail);
+            ps.setInt(5, postId);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
     
     public static void main(String[] args) {

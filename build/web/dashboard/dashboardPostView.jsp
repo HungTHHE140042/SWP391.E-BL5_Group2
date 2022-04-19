@@ -153,7 +153,7 @@
                                     ID
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="id" value="1" disabled="">
+                                    <input class="form-control" type="text" placeholder="id" value="${post.postId}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -161,7 +161,7 @@
                                     Title
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="title" value="HOW TO START A VIDEO GAME FROM MOBILE & COMPUTER." disabled="">
+                                    <input class="form-control" type="text" placeholder="title" value="${post.title}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -169,7 +169,7 @@
                                     Image (376x376)
                                 </div>
                                 <div class="col-10">
-                                    <img width="100px" src="assets/img/player/list/player-1.webp" alt="">
+                                    <img width="100px" src="${post.imageLinkThumbnail}" alt="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -177,7 +177,7 @@
                                     Image (1170x350)
                                 </div>
                                 <div class="col-10">
-                                    <img width="200px" src="assets/img/others/popular-game-thumb4.webp" alt="">
+                                    <img width="200px" src="${post.imageLinkDetail}" alt="">
                                 </div>
                             </div>
                             
@@ -186,7 +186,7 @@
                                     Content
                                 </div>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows="5" disabled="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electrotypesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and morerecently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
+                                    <textarea class="form-control" rows="5" disabled="">${post.content}</textarea>
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -194,7 +194,7 @@
                                     Author
                                 </div>
                                 <div class="col-10">
-                                    @Admin
+                                    @${post.username}
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -202,7 +202,7 @@
                                     Date
                                 </div>
                                 <div class="col-10">
-                                    17/4/2022
+                                    ${post.date}
                                 </div>
                             </div>
                             

@@ -5,6 +5,8 @@
  */
 package controller;
 
+import dao.PostDAO;
+import entity.PostJoinUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author trinh
  */
 public class dashboardPostEditController extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,7 +32,17 @@ public class dashboardPostEditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
+        try {
+            int postId = Integer.parseInt(request.getParameter("id"));
+            PostDAO pDAO = new PostDAO();
+            PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+            request.setAttribute("post", post);
+            request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+
     }
 
     /**
@@ -43,6 +56,20 @@ public class dashboardPostEditController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try {
+            int postId = Integer.parseInt(request.getParameter("id"));
+            String title = request.getParameter("title");
+            String urlThumbnail = request.getParameter("urlThumbnail");
+            String urlDetail = request.getParameter("urlDetail");
+            String content = request.getParameter("content");
+
+            PostDAO pDAO = new PostDAO();
+            if (pDAO.updatePost(postId, title, urlThumbnail, urlDetail, content)) {
+                response.sendRedirect("dashboard-post");
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     /**
