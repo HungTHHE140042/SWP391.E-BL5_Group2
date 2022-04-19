@@ -1,8 +1,9 @@
 <%-- 
-    Document   : profile
-    Created on : Apr 13, 2022, 10:12:41 PM
-    Author     : trinh
+    Document   : changePassword
+    Created on : Apr 19, 2022, 10:23:08 PM
+    Author     : QUANG HUNG
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,30 +42,70 @@
 
         <%@include file="layout/header.jsp" %>       
 
-        <!-- Modal change password -->
-        <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" style="font: 20px; color: black" id="exampleModalLongTitle">CHANGE PASSWORD</h5>
+        <!-- breadcrumbs area start -->
+        <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumbs_text text-center">
+                            <h1>Change Password</h1>
+                            <ul class="d-flex justify-content-center">
+                                <li><a href="index.html">Home </a></li>
+                                <li> <span>//</span></li>
+                                <li>  Change Password</li>
+                            </ul>
+                        </div>
                     </div>
-                    <form method="post" action="changePassword">
-                        <div class="modal-body">
-                            <div class="container">
-                                <div class="row">
-                                    <input type="hidden" class="" name="id" id=${sessionScope.user.userId}>
-                                </div>
-                                <div class="row">
-                                    <input name="currentpassword" class="col-lg-12 form-control mb-25" placeholder="Current password" required="">
-                                </div>
-                                <div class="row">
-                                    <input name="newpassword" class="col-lg-12 form-control mb-25" placeholder="New password" required="">
-                                </div>
-                                <div class="row">
-                                    <input name="repeatpassword" class="col-lg-12 form-control" placeholder="Retype new password" required="">
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumbs area end -->
+
+        <!-- page wrapper start -->
+        <div class="page_wrapper">
+            <div class="container mb-100">
+                <div class="contact_form_inner">
+                    <form id="contact-form" action="changePassword" method="post">
+                        <div class="row" style="display: none">
+                            <div class="col-lg-12">
+                                <div class="form_input">
+                                    <input name="userId" placeholder="Username" type="text" value=${sessionScope.user.userId}>
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            Current Password
+                        </div> 
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form_input">
+                                    <input name="currentpassword" placeholder="" type="password" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <!--.-->
+                        <div>
+                            New Password
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form_input">
+                                    <input name="newpassword" placeholder="" type="password"s value="">
+                                </div>
+                            </div>
+                        </div>
+                        <!--.-->
+                        <div>
+                            Re-type New Password
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form_input">
+                                    <input name="repeatpassword" placeholder="" type="password" value="">
+                                </div>
+                            </div>
+                        </div>
+
                         <c:choose>
                             <c:when test="${requestScope.mess1Stt == true}">
                                 <div class="row">
@@ -79,105 +120,12 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="alert alert-danger" role="alert">
-                                            ${requestScope.mess1}
+                                             ${requestScope.mess1}
                                         </div>
                                     </div>
                                 </div>
-                            </c:when>
-                        </c:choose> 
-                        <div class="modal-footer">
-                            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-        <!-- breadcrumbs area start -->
-        <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="breadcrumbs_text text-center">
-                            <h1>Profile</h1>
-                            <ul class="d-flex justify-content-center">
-                                <li><a href="index.html">Home </a></li>
-                                <li> <span>//</span></li>
-                                <li>  Profile</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- breadcrumbs area end -->
-
-        <!-- page wrapper start -->
-        <div class="page_wrapper">
-            <div class="container mb-100">
-                <div class="contact_form_inner">
-                    <form id="contact-form" action="profile" method="post">
-                        <div class="row" style="display: none">
-                            <div class="col-lg-12">
-                                <div class="form_input">
-                                    <input name="userId" placeholder="Username" type="text" value=${sessionScope.user.userId}>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            Username
-                        </div> 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form_input">
-                                    <input name="username" placeholder="" type="text" value=${sessionScope.user.username}>
-                                </div>
-                            </div>
-                        </div>
-                        <!--.-->
-                        <div>
-                            Email
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form_input">
-                                    <input name="email" disabled="true" placeholder="Email" type="text"s value=${sessionScope.user.email}>
-                                </div>
-                            </div>
-                        </div>
-                        <!--.-->
-                        <div>
-                            Password
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form_input">
-                                    <input name="password" placeholder="Password" type="password" value=${sessionScope.user.password} disabled="true">
-                                </div>
-                            </div>
-                        </div>
-
-                        <c:choose>
-                            <c:when test="${requestScope.msgUpdate == true}">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="alert alert-success" role="alert">
-                                            Updated successfully
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:when>
-                            <c:when test="${requestScope.msgUpdate == false}">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="alert alert-danger" role="alert">
-                                            Updated fail
-                                        </div>
-                                    </div>
-                                </div>
-                            </c:when>
-                        </c:choose>           
+                            </c:when>            
+                        </c:choose>            
 
                         <div class="form_input_btn text-center">
                             <button type="submit" class="btn btn-link">SAVE</button>
@@ -212,16 +160,6 @@
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="https://kit.fontawesome.com/228aa84c51.js" crossorigin="anonymous"></script>
-
-    <script>
-        $('#changePassword').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Button that triggered the modal
-            var id = button.data('id');
-            var modal = $(this);
-            modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
-            console.log(id);
-        });
-    </script>
 
 </body>
 </html>

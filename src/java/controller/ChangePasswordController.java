@@ -50,7 +50,7 @@ public class ChangePasswordController extends HttpServlet {
             throws ServletException, IOException {
          response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
+        request.getRequestDispatcher("changePassword.jsp").forward(request, response);
     }
 
     /**
@@ -76,26 +76,23 @@ public class ChangePasswordController extends HttpServlet {
         request.setAttribute("mess1", oldPassword + "//" + currentPassword + "//" + newPassword + "//" + repeatNewPassword);
         if (!newPassword.equals(repeatNewPassword)) {
             request.setAttribute("mess1", "New Password and Repeat Password not matched!");
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
-        }
-        if (!oldPassword.equals(currentPassword)) {
+            //request.getRequestDispatcher("changePassword.jsp").forward(request, response);
+        } else if (!oldPassword.equals(currentPassword)) {
             request.setAttribute("mess1", "Current password incorrect!");
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
-        }
-        
-        if (currentPassword.equals(newPassword)) {
+            //request.getRequestDispatcher("changePassword.jsp").forward(request, response);
+        } else if (currentPassword.equals(newPassword)) {
             request.setAttribute("mess1", "New Password must be different from Current Password!");
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
-        }
-
-        UserDAO dao = new UserDAO();
-        if (dao.updatePasswordByUserId(id,newPassword)) {
+            //request.getRequestDispatcher("changePassword.jsp").forward(request, response);
+        } else {
+            UserDAO dao = new UserDAO();
+            if (dao.updatePasswordByUserId(id,newPassword)) {
             request.setAttribute("mess1", "Password updated!");
             request.setAttribute("mess1Stt", true);
-        } else {
-            request.setAttribute("mess1", "Password change failed!");
+            } else {
+                request.setAttribute("mess1", "Password change failed!");
+            }
         }
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
+        request.getRequestDispatcher("changePassword.jsp").forward(request, response);
     }
 
     /**
