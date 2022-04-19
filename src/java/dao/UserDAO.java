@@ -10,15 +10,12 @@ import entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Arrays;
 
 /**
  *
  * @author trinh
  */
 public class UserDAO {
-
     public UserDAO() {
         createConnection();
     }
@@ -38,8 +35,8 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
-
-    public boolean updateUserStatusId(int userId, int statusId) {
+    
+    public boolean updateUserStatusId(int userId, int statusId){
         if (con == null) {
             createConnection();
         }
@@ -56,8 +53,8 @@ public class UserDAO {
         }
         return false;
     }
-
-    public boolean updatePasswordByUserId(int userId, String password) {
+    
+    public boolean updatePasswordByUserId(int userId, String password){
         if (con == null) {
             createConnection();
         }
@@ -74,8 +71,8 @@ public class UserDAO {
         }
         return false;
     }
-
-    public User getNewestUser() {
+    
+    public User getNewestUser(){
         sql = "select * from [user] order by userID DESC";
         try {
             ps = con.prepareStatement(sql);
@@ -94,34 +91,8 @@ public class UserDAO {
         }
         return null;
     }
-
-    public User getUsersByID(int id) {
-        sql = "select * from [user] where userID = ? ";
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                User u = new User(rs.getInt("userID"),
-                        rs.getString("username"),
-                        rs.getString("password"),
-                        rs.getString("Email"),
-                        rs.getInt("RoleID"),
-                        rs.getInt("StatusID")
-                );
-                ps.close();
-                rs.close();
-                return u;
-            }
-            ps.close();
-            rs.close();
-        } catch (SQLException e) {
-            return null;
-        }
-        return null;
-    }
-
-    public User getUserByEmail(String email) {
+    
+    public User getUserByEmail(String email){
         sql = "select * from [user] where email=?";
         try {
             ps = con.prepareStatement(sql);
@@ -141,8 +112,8 @@ public class UserDAO {
         }
         return null;
     }
-
-    public User getUserByUserId(int userId) {
+    
+    public User getUserByUserId(int userId){
         sql = "select * from [user] where userID=?";
         try {
             ps = con.prepareStatement(sql);
@@ -162,34 +133,28 @@ public class UserDAO {
         }
         return null;
     }
-
-    public boolean updateUser(int id, String username, String email) {
-
-        sql = "UPDATE [user] SET username = ?\n"
-                + ", email = ?\n"
-                + "WHERE userID = ?;";
+    
+    public String countUser(){
+        String query = "select COUNT(userID) as NumberOfUser from [user]";
         try {
-            ps = con.prepareStatement(sql);
-            ps.setString(1, username);
-            ps.setString(2, email);
-            ps.setInt(3, id);
-            ps.executeUpdate();
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {                
+                String count = rs.getString("NumberOfUser");
+                return count;
+            }
             ps.close();
-            return true;
-        } catch (SQLException e) {
-            System.out.println(Arrays.toString(e.getStackTrace()));
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
-        return false;
+        return null;
     }
-
-//    public static void main(String[] args) {
-//        UserDAO d = new UserDAO();
-//        try {
-//            d.updatePasswordByUserId(3, "123123");
-//        } catch (Exception e) {
-//            System.out.println("");
-//        }
-//
-//    }
-
+    
+    public static void main(String[] args) {
+        UserDAO userDAO = new UserDAO();
+        String count = userDAO.countUser();
+        System.out.println(count);
+    }
 }
