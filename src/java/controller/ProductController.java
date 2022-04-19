@@ -5,8 +5,11 @@
  */
 package controller;
 
+import dao.ProductDAO;
+import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +33,34 @@ public class ProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("product.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            //int categoryID = Integer.parseInt("".equals(request.getParameter("categoryID")) ? "0" : request.getParameter("categoryID"));
+            int categoryID = 0;
+            System.out.println(categoryID);
+            String txtSearch = "".equals(request.getParameter("txtSearch")) ? "" : request.getParameter("txtSearch");
+            int price = 0;
+            int countSearch = 0;
+            ProductDAO productDao = new ProductDAO();
+            //ArrayList<Product> listProduct = productDao.getAll();
+            String indexPage = request.getParameter("index");
+            if (indexPage == null) {
+                indexPage = "1";
+            }
+            int index = Integer.parseInt(indexPage);
+
+            ArrayList<Product> listProduct = productDao.searchProduct(index, txtSearch, categoryID, price);
+            int count = productDao.getTotalProduct();
+            int endPage = count / 3;
+            if (count % 3 != 0) {
+                endPage++;
+            }
+            request.setAttribute("listProduct", listProduct);
+            request.setAttribute("endPage", endPage);
+            request.setAttribute("countSearch", countSearch);
+            request.setAttribute("tag", index);
+            request.getRequestDispatcher("product.jsp").forward(request, response);
+        }
     }
 
     /**
