@@ -4,6 +4,7 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -61,103 +62,94 @@
 
         <!-- page wrapper start -->
         <div class="page_wrapper">
-
-            <!--game details section area start-->
-            <section class="game_details_section mb-125">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="game_details_inner">
-                                <div class="game_details_content top">
-                                    <h2 class="game_details_title">din saurs - Hunter Sniper Shooter</h2>
-                                </div>
-                                <div class="game_details_thumb">
-                                    <img width="1170" height="540" src="https://previews.dropbox.com/p/thumb/ABjP7HmHcv42YrxHubThGlqAtbAOMYi55rZYTyj9osM4GjQJ_osoFXYppIn63-ivF3uD_YgylCFIulwFcaAx4pU5mi4zl47Z6zxpCXsydXwtzg7BjaENeaEVcbJX3eWw6_HIVbFubwhInzQWvN65oveXNmFpcL6s7EYKbos1Ujva3Vmhf-vnO2HRYVN80T9HUPeEwcHac5nKciSRgyAok3SczWJw-vV8vMD6rq1O_OTptmYAKI5zHy3oFeq9aiwC3SkSnZsjl_5meW8J6JvhhXB3RxpK6eJ6e4LDY4QqPI2RlYxYipF_EI4rgTq7CpmRavQ4jYOQ4nUsZVk0mXNOfIOyuHmOwx0JI2dGSA-4V5RAfCqTYOzJzEIPoFOjBLPnxvc/p.jpeg" alt="">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    Price:
-                                    <span class="" style="font-size:15px; color:gray; text-decoration-line:line-through;">$100</span>
-                                    <div class="btn btn-danger">-70%</div>
-                                    =
-                                    <div class="btn btn-success" style="text-align: left; font-size: 30px">$30</div>
-                                </div>
-                                <div class="col-6">
-                                    <div style="text-align: right;">
-                                        <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+            <c:forEach items="${product}" var="c">
+                <!--game details section area start-->
+                <section class="game_details_section mb-125">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="game_details_inner">
+                                    <div class="game_details_content top">
+                                        <h2 class="game_details_title">${c.productName}</h2>
+                                    </div>
+                                    <div class="game_details_thumb">
+                                        <img width="1170" height="540" src="${c.productImgURL}" alt="">
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        Price:
+                                        <span class="" style="font-size:15px; color:gray; text-decoration-line:line-through;">$${c.originalPrice}</span>
+                                        <div class="btn btn-danger">-${c.salePercent}%</div>
+                                        =
+                                        <div class="btn btn-success" style="text-align: left; font-size: 30px">$${c.sellPrice}</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div style="text-align: right;">
+                                            <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                        </div>
+                                    </div>
 
-                            </div>
+                                </div>
 
-                            <div class="game_details_content bottom">
-                                <div class="game_details_content_step">
-                                    <h2>Description:</h2>
-                                    <div class="game_details_desc">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro
-                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro
-                                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                                            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electro
-                                            recently with desktop publishing software like including versions.</p>       
+                                <div class="game_details_content bottom">
+                                    <div class="game_details_content_step">
+                                        <h2>Description:</h2>
+                                        <div class="game_details_desc">
+                                            <p>${c.description}</p>      
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="blog_comment_wrapper match_details_comment mt-3">
+                                <div class="comments_box">
+                                    <div class="comments_title">
+                                        <h2>Review:</h2>
+                                    </div>
+                                    <div class="comment_list d-flex">
+                                        <div class="comment_content">
+                                            <h3>Randolph Frazier</h3>
+                                            <div class="game__review d-flex align-items-center">
+                                                <span> 28 January, 2021</span>
+                                            </div>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
+                                                unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
+                                                with desktop publishing software like including versions.</p>
+                                        </div>
+                                    </div>
+                                    <div class="comment_list d-flex">
+                                        <div class="comment_content">
+                                            <h3>Kenia Bumgarner</h3>
+                                            <div class="game__review d-flex align-items-center">
+                                                <span> 28 January, 2021</span>
+                                            </div>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
+                                                unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
+                                                with desktop publishing software like including versions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments_form">
+                                    <div class="comments_form_inner">
+                                        <form action="#">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="comments_form_input">
+                                                        <textarea placeholder="Write a review from here"></textarea>
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                            <div class="comments_submit_btn text-center">
+                                                <a class="btn btn-link" href="#">Comment <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                            </div>
+                                        </form> 
+                                    </div>  
+                                </div>   
+                            </div> 
+
                         </div>
-                        <div class="blog_comment_wrapper match_details_comment mt-3">
-                            <div class="comments_box">
-                                <div class="comments_title">
-                                    <h2>Review:</h2>
-                                </div>
-                                <div class="comment_list d-flex">
-                                    <div class="comment_content">
-                                        <h3>Randolph Frazier</h3>
-                                        <div class="game__review d-flex align-items-center">
-                                            <span> 28 January, 2021</span>
-                                        </div>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
-                                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                                <div class="comment_list d-flex">
-                                    <div class="comment_content">
-                                        <h3>Kenia Bumgarner</h3>
-                                        <div class="game__review d-flex align-items-center">
-                                            <span> 28 January, 2021</span>
-                                        </div>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
-                                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="comments_form">
-                                <div class="comments_form_inner">
-                                    <form action="#">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="comments_form_input">
-                                                    <textarea placeholder="Write a review from here"></textarea>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <div class="comments_submit_btn text-center">
-                                            <a class="btn btn-link" href="#">Comment <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                        </div>
-                                    </form> 
-                                </div>  
-                            </div>   
-                        </div> 
-
                     </div>
-                </div>
+                </c:forEach>
         </div>
     </section>
     <!--game details section area end-->

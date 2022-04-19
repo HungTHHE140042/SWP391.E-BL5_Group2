@@ -5,8 +5,11 @@
  */
 package controller;
 
+import dao.ProductDAO;
+import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +33,15 @@ public class ProductDetailsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("productDetails.jsp").forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            //int categoryID = Integer.parseInt("".equals(request.getParameter("categoryID")) ? "0" : request.getParameter("categoryID"));
+            int productID = Integer.parseInt(request.getParameter("productID"));
+            System.out.println(productID);
+            ProductDAO productDAO = new ProductDAO();
+            ArrayList<Product> product = productDAO.getProductByID(productID);
+            request.setAttribute("product", product);
+            request.getRequestDispatcher("productDetails.jsp").forward(request, response);
+        }
     }
 
     /**

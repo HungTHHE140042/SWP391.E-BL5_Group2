@@ -68,16 +68,20 @@
             <!--slider area end-->
             <section>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-11">
-                            <div class="form_input">
-                                <input placeholder="Search your Game" type="text">
+                    <form action="search" method="post">
+                        <div class="row">
+                            <div class="col-11">
+                                <div class="form_input">
+                                    <input name="txtSearch" placeholder="Search here" type="text">
+                                    <input name="categoryID" placeholder="Search here" type="text" hidden="" value="0">
+                                    <input name="price" placeholder="Search here" type="text" hidden="" value="0">
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <button class="btn btn-primary" style="height: 62px" type="submit">SEARCH</button>
                             </div>
                         </div>
-                        <div class="col-1">
-                            <button class="btn btn-primary" style="height: 62px">SEARCH</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </section>
             <!-- gaming  world section start -->
@@ -96,7 +100,7 @@
                                         </div>
                                         <div class="gaming_world_text">
                                             <div style="height: 120px">
-                                                <h3><a href="#">${product.productName}</a></h3>
+                                                <h3><a href="productDetails?productID=${product.productID}">${product.productName}</a></h3>
                                             </div>
                                             <div class="row">
                                                 <div class="col-6" style="font-size:20px; color:gray; text-decoration-line:line-through;">$${product.originalPrice}</div>
@@ -159,7 +163,7 @@
                             <c:forEach items="${listTop4Pupular}" var="pupular">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="popular_gaming_thumb">
-                                        <a href="#"><img width="570px" height="330px" src="${pupular.productImgURL}" alt=""></a>
+                                        <a href="productDetails?productID=${pupular.productID}"><img width="100px" height="100px" src="${pupular.productImgURL}" alt=""></a>
                                         <div class="gaming_details_btn">
                                             <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                         </div>
