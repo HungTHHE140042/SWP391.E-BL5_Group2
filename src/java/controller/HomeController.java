@@ -5,8 +5,10 @@
  */
 package controller;
 
+import dao.OrderDetailDAO;
 import dao.PostDAO;
 import dao.ProductDAO;
+import dao.UserDAO;
 import entity.Post;
 import entity.Product;
 import java.io.IOException;
@@ -27,13 +29,29 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //get data in database
+        //get the data of 3 products with the highest discounts
         ProductDAO productDAO = new ProductDAO();
         List<Product> listTop3ProductSale = productDAO.getTop3SaleProduct();
+        //get the latest product data
         Product lastProduct = productDAO.getLastProduct();
         String countProduct = productDAO.countProduct();
+        //get the latest 4 posts' data
         PostDAO postDAO = new PostDAO();
         List<Post> listTop4LastestPost = postDAO.getTop4LastestPost();
+        //get the number of registered users
+        UserDAO userDAO = new UserDAO();
+        String countUser = userDAO.countUser();
+        //get the number of products sold
+        OrderDetailDAO orderDetailDAO = new OrderDetailDAO();
+        String countOrderDetail = orderDetailDAO.countOrderDetail();
+        //get the list pupular product data
+        List<Product> listTop4Pupular = productDAO.getTop4PupularProduct();
         
+        //set data in database to jsp
+        request.setAttribute("listTop4Pupular", listTop4Pupular);
+        request.setAttribute("countOrderDetail", countOrderDetail);
+        request.setAttribute("countUser", countUser);
         request.setAttribute("listTop4LastestPost", listTop4LastestPost);
         request.setAttribute("countProduct", countProduct);
         request.setAttribute("lastProduct", lastProduct);

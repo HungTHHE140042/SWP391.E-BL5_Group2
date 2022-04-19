@@ -42,28 +42,28 @@
                                 </div>
                             </div>
                             <div class="footer_widget_list">
-                                <h3>today’s Game</h3>
+                                <h3>Administrative Council</h3>
                                 <div class="footer_winners_gallery">
                                     <div class="footer_winners_list d-flex">
                                         <div class="footer_winners_thumb">
-                                            <a href="game-details.html"><img aria-label="game-team" width="75" height="75" src="assets/img/others/winners1.webp" alt=""></a>
+                                            <a href="#"><img aria-label="game-team" width="75" height="75" src="https://previews.dropbox.com/p/thumb/ABiOx00-7kLUj0iuuHBWZlltnOFTw4C1v0_tTy-877VWATjThugmuyzFkB9t5mLX9uviFalvMEEf5wKRIKoXjAUAmWw6-9BbHdYghbwAFi9t-nOlvHSaBhA3wAdikaPyy2b6ki5QWAOVrzeLyKtn1_5KqXjGu7hhu6eL1gWDZA8puEwckO9Y5HgsFkvR5YFbLXCvW1MmHbycdW76mKp33XYW_OQctIUCgvru4XUSdSWQExQIOUQJ-MRUiEw7139MJA-Pv9_uPa-5udV-hAGzgwDDVSRUFTmXKK6nQYaYEqSgCvI90JxYkOS6NB-P20DsXmdr3LOMO-kSOxAGp332O_0mVPTXiTIdNoehR6RsFgc-YUwuUjZ6Pk4eQ_9cY-b9e7k/p.jpeg" alt=""></a>
                                         </div>
                                         <div class="footer_winners_thumb">
-                                            <a href="game-details.html"><img aria-label="game-team" width="75" height="75" src="assets/img/others/winners2.webp" alt=""></a>
+                                            <a href="#"><img aria-label="game-team" width="75" height="75" src="https://previews.dropbox.com/p/thumb/ABjhDQ9b-iH7380-Lr8ddeo9xbcBUu5cUF7h_Hi7s1XiWcLW1OwDBaIcgq1z5t9TKiP3-Lq85U8Saa7QmdKzN4y0uOUmUn330Lk8xeJdLDyFg_uN3jgu8c9RTqnWmkbBd4VAVcWtRnAp4ff0Qeob0TmYdbH57kjQLp14hEPO73s8Mjw0_2uZzHNQndBUxUiLiQfUMhsDr2HDPtX3B767rJ7DLe1gcq7NxryjcqrGXdRIgqBABmdERqvp6ZhpVJfBEk_Da44BD0BvZGCJf_tE1fBDo4Re_4sFBa9j76kTxOSmt3prNgco3Z6t_IWwcKC-BDAI14ZWTPtmTl-CaH0cGft3AJM1DzMOIL1XkaQ6KHTsC3WHGBi3g74xpU6U0Tl48KU/p.png" alt=""></a>
                                         </div>
                                         <div class="footer_winners_thumb">
-                                            <a href="game-details.html"><img aria-label="game-team" width="75" height="75" src="assets/img/others/winners3.webp" alt=""></a>
+                                            <a href="#"><img aria-label="game-team" width="75" height="75" src="https://previews.dropbox.com/p/thumb/ABgyH6Ny73nE0bns6i6chcW-JJGtNRScHK6k7MfjxT961ifTs-OLvIDGARoWvHOMPkrE0df6-03xPcW2xN0CUKXfwtSHtAnGStNM1lYGP8_3nL6iWdzvuQLjuOtgyv_YqC98urjH-RKMrbf2NsG2zr-GkwOghBDTYxrD7mVVemCdu3UHmcHil3xbVDaXlywHL5WcFzTbO9ho4D4Vhc6WS3sKt9ELojgTZmPlSb_lO8Age4dIbHzrdrwHy7JqI87v2YEP8G47TreKGTA_dUTP0ul1zXgW0d9fls3gcj5E0LZ4KpziYaGUMXULCYQJJhGMlQZFiaI-BPerR8B9imyBIiLz7_1JUBeHAL576pXbrqFdDJaGg0zufa8ry28sRGU0emk/p.jpeg" alt=""></a>
                                         </div>
                                     </div>
                                     <div class="footer_winners_list d-flex">
                                         <div class="footer_winners_thumb">
-                                            <a href="game-details.html"><img aria-label="game-team" width="75" height="75" src="assets/img/others/winners4.webp" alt=""></a>
+                                            <a href="#"><img aria-label="game-team" width="75" height="75" src="https://previews.dropbox.com/p/thumb/ABiy43OPR4zx8UaPCaVEVenyvD1Mv7vuBD-Uyarc44VyO7-Oza3ldjIU_sOo7-OJCDYtV9pZutenwoLzCt09CSDhqU_CV4bWIosRK571PSjNpcQwogMfVabASKahjoPYzlYGNKO6KB2LUUonQxn1vO1BN2Im4wArFAfsce0rYvwPPeBKtmbuml7Jd1y5-7xJYv4wzGzAryF9y51EOxULE4wnufnfPiegWUbIYDu58x_ZLiy6Pk4oIdlZSzzhR4l3TbTIBnTBPHo__3g8yG6mcs2OWgtzNKYWjtL2g04HuJ7CxeAk56ciKF3_TZcqm15Qz4NoVu1IulRhWYYbeLhhbiIWQ-JiPt98pMaGqO2QzuqeBnar3N_N6VOL3KmuoqOIRIQ/p.jpeg" alt=""></a>
                                         </div>
                                         <div class="footer_winners_thumb">
-                                            <a href="game-details.html"><img aria-label="game-team" width="75" height="75" src="assets/img/others/winners5.webp" alt=""></a>
+                                            <a href="#"><img aria-label="game-team" width="75" height="75" src="https://previews.dropbox.com/p/thumb/ABhTCqnlf3tbI-03ngU5qj_3WovAVBCFDnmiPrA4OA_5OwVqCBKgtUaZCbsiRShMsvGbszDkpjiAqxqBHNIPvoV730ySKWy6_jKJHpHcpTKyxMDAl4SpqVhO-_7nyGhr8WK37JLktplS1T5Iz9_g23lbcZ11rY0p4W1_Ksg9IdANjIkUmvX6E27prYg78oOFKLgeA5P0DGpvMRlyBM14ZnHWZxtAJXxwsK92_NtTbcOtofrKq9N2G9UhyJ1JFDS0tgiA_8fF141Gp5IHWr7-WU1hUlfCo-ZZ5L3BKSHDDbKCIQd5VnAuQv8Bn9gTH9O0Z69BUDRhg1alAYJIsfalVHonWIAz2KCsD2LmLUq_-PYm-S672ISU3hhPXq15llATKVM/p.jpeg" alt=""></a>
                                         </div>
                                         <div class="footer_winners_thumb">
-                                            <a href="game-details.html"><img aria-label="game-team" width="75" height="75" src="assets/img/others/winners6.webp" alt=""></a>
+                                            <a href="#"><img aria-label="game-team" width="75" height="75" src="https://previews.dropbox.com/p/thumb/ABjjDK79YXNWJz23CmvTv9l12jfr-CG5fG6GJmjw5OcJMTBa1_8x8fG20_Uyta_sNve7RWIxc-RPOm3gjZOtVzNun_LXvqiU_8-KFAzWgmp7oZ_2l-Pvj3c_U2sWaQmIk2sr66BQv7RpEwV9hgjARSyJC4IwD4NnlTEIVI53tUMrqHOw1mCS55e7kGl1coOMUT6JML4LwSkDckm0AaMvorGhtg_3fp0iN55y1xpqQXTuApoy9HUKa3Q2yZp0Z4EfXjINCgQfLTpMEda4jBmofuoVgDXTJ1QcD3T5c5YEeMeE6ZGSFJBw9huzK7jPywLLTI-tOkqBMDA-TAkotjP_MSe65t5H703FGO6iCzm9SXjYuhmTpF1QNNhCfJaMeJf1ZRo/p.jpeg" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
