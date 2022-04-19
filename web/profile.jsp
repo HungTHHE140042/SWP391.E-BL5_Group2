@@ -3,7 +3,8 @@
     Created on : Apr 13, 2022, 10:12:41 PM
     Author     : trinh
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,8 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
-        <%@include file="layout/header.jsp" %>
+
+        <%@include file="layout/header.jsp" %>       
 
         <!-- Modal change password -->
         <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -46,23 +48,43 @@
                     <div class="modal-header">
                         <h5 class="modal-title" style="font: 20px; color: black" id="exampleModalLongTitle">CHANGE PASSWORD</h5>
                     </div>
-                    <form method="post" action="">
+                    <form method="post" action="changePassword">
                         <div class="modal-body">
                             <div class="container">
                                 <div class="row">
-                                    <input type="hidden" class="" name="id" id="id">
+                                    <input type="hidden" class="" name="id" id=${sessionScope.user.userId}>
                                 </div>
                                 <div class="row">
-                                    <input class="col-lg-12 form-control mb-25" placeholder="Current password" required="">
+                                    <input name="currentpassword" class="col-lg-12 form-control mb-25" placeholder="Current password" required="">
                                 </div>
                                 <div class="row">
-                                    <input class="col-lg-12 form-control mb-25" placeholder="New password" required="">
+                                    <input name="newpassword" class="col-lg-12 form-control mb-25" placeholder="New password" required="">
                                 </div>
                                 <div class="row">
-                                    <input class="col-lg-12 form-control" placeholder="Retype new password" required="">
+                                    <input name="repeatpassword" class="col-lg-12 form-control" placeholder="Retype new password" required="">
                                 </div>
                             </div>
                         </div>
+                        <c:choose>
+                            <c:when test="${requestScope.mess1Stt == true}">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-success" role="alert">
+                                            ${requestScope.mess1}
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:when test="${requestScope.mess1Stt == false}">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-danger" role="alert">
+                                             ${requestScope.mess1}
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
+                        </c:choose> 
                         <div class="modal-footer">
                             <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save</button>
@@ -95,14 +117,21 @@
         <div class="page_wrapper">
             <div class="container mb-100">
                 <div class="contact_form_inner">
-                    <form id="contact-form" action="#">
+                    <form id="contact-form" action="profile" method="post">
+                        <div class="row" style="display: none">
+                            <div class="col-lg-12">
+                                <div class="form_input">
+                                    <input name="userId" placeholder="Username" type="text" value=${sessionScope.user.userId}>
+                                </div>
+                            </div>
+                        </div>
                         <div>
                             Username
-                        </div>
+                        </div> 
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form_input">
-                                    <input name="con_name" placeholder="Username" type="text" value="@Admin">
+                                    <input name="username" placeholder="Username" type="text" value=${sessionScope.user.username}>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +142,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form_input">
-                                    <input name="con_name" placeholder="Email" type="text" value="admin@gmail.com">
+                                    <input name="email" placeholder="Email" type="text"s value=${sessionScope.user.email}>
                                 </div>
                             </div>
                         </div>
@@ -124,37 +153,46 @@
                         <div class="row">
                             <div class="col-lg-11">
                                 <div class="form_input">
-                                    <input name="con_name" placeholder="Password" type="password" value="123456" disabled="true">
+                                    <input name="password" placeholder="Password" type="password" value=${sessionScope.user.password} disabled="true">
                                 </div>
                             </div>
                             <div class="col-lg-1">
                                 <div class="question_form_btn">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword" data-id="id here">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword" data-id=${sessionScope.user.userId}>
                                         <i class="fas fa-edit"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="alert alert-success" role="alert">
-                                    Updated successfully
+                        <c:choose>
+                            <c:when test="${requestScope.messageStt == true}">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-success" role="alert">
+                                            Updated successfully
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="alert alert-danger" role="alert">
-                                    Updated fail
+                            </c:when>
+                            <c:when test="${requestScope.messageStt == false}">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-danger" role="alert">
+                                            Updated fail
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </c:when>
+                        </c:choose>           
+
+                        <div class="form_input_btn text-center">
+                            <button type="submit" class="btn btn-link">SAVE</button>
                         </div>
+                    </form>
                 </div>
-                <div class="form_input_btn text-center">
-                    <button type="submit" class="btn btn-link">SAVE</button>
-                </div>
-                </form>
+
+
             </div>
         </div>
     </div>
@@ -162,7 +200,7 @@
 
     <%@include file="layout/footer.jsp" %>
     <!-- JS
-============================================ -->
+    ============================================ -->
     <!--modernizr min js here-->
     <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
@@ -181,15 +219,16 @@
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
     <script src="https://kit.fontawesome.com/228aa84c51.js" crossorigin="anonymous"></script>
-    
+
     <script>
-            $('#changePassword').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget); // Button that triggered the modal
-                var id = button.data('id');
-                var modal = $(this);
-                modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
-            });
-        </script>
-    
+        $('#changePassword').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var id = button.data('id');
+            var modal = $(this);
+            modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
+            console.log(id);
+        });
+    </script>
+
 </body>
 </html>

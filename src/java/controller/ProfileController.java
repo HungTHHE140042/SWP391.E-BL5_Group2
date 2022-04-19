@@ -5,12 +5,15 @@
  */
 package controller;
 
+import dao.UserDAO;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,7 +33,8 @@ public class ProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
         request.getRequestDispatcher("profile.jsp").forward(request, response);
     }
 
@@ -45,7 +49,31 @@ public class ProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession();
+        int id = Integer.parseInt(request.getParameter("userId"));
+        String userName = request.getParameter("username");
+        String email = request.getParameter("email");
         
+        boolean bool = false;
+        
+        if (!userName.equals("")) {
+            UserDAO dao = new UserDAO();
+            bool = dao.updateUser(id, userName, email);
+            if (bool) {
+                User u = dao.getUsersByID(id);
+                session.setAttribute("user", u);
+                request.setAttribute("messageStt", bool);
+                request.getRequestDispatcher("profile.jsp").forward(request, response);
+            } else {
+                request.setAttribute("messageStt", bool);
+                request.getRequestDispatcher("profile.jsp").forward(request, response);
+            }
+        } else {
+            request.setAttribute("messageStt", bool);
+                request.getRequestDispatcher("profile.jsp").forward(request, response);
+        }
+
     }
 
     /**

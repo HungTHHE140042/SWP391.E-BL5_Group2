@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,6 +38,7 @@ public class HomeController extends HttpServlet {
         request.setAttribute("countProduct", countProduct);
         request.setAttribute("lastProduct", lastProduct);
         request.setAttribute("listTop3ProductSale", listTop3ProductSale);
+
         request.getRequestDispatcher("homePage.jsp").forward(request, response);
     }
 
@@ -52,6 +54,7 @@ public class HomeController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
     }
 
     /**
