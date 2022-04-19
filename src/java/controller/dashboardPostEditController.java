@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author trinh
+ * @author trson
  */
 public class dashboardPostEditController extends HttpServlet {
 
@@ -37,6 +37,7 @@ public class dashboardPostEditController extends HttpServlet {
             PostDAO pDAO = new PostDAO();
             PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
             request.setAttribute("post", post);
+            request.setAttribute("error", null);
             request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
 
         } catch (Exception e) {
@@ -66,6 +67,11 @@ public class dashboardPostEditController extends HttpServlet {
             PostDAO pDAO = new PostDAO();
             if (pDAO.updatePost(postId, title, urlThumbnail, urlDetail, content)) {
                 response.sendRedirect("dashboard-post");
+            } else {
+                request.setAttribute("error", "1");
+                PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+                request.setAttribute("post", post);
+                request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
             }
         } catch (Exception e) {
             request.getRequestDispatcher("error.jsp").forward(request, response);

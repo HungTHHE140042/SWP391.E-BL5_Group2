@@ -31,157 +31,172 @@
     </head>
 
     <body id="page-top">
-
-        <!-- Page Wrapper -->
-        <div id="wrapper">
-
-            <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-                <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="cms" style="color: yellow">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-file"></i>
+    <c:choose>
+        <c:when test="${error.equals('1')}">
+            <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                <div class="toast" data-autohide="false">
+                    <div class="toast-header">
+                        <strong class="mr-auto text-danger"><h5>Fail</h5></strong>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
                     </div>
-                    <div class="sidebar-brand-text mx-3">Posts</div>
-                </a>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
-
-                <!-- Nav Item - Dashboard -->
-                <li class="nav-item">
-                    <a class="nav-link" href="cms">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Admin
+                    <div class="toast-body">
+                        Update post fail, try again!
+                    </div>
                 </div>
+            </div>
+        </c:when>
+        <c:otherwise></c:otherwise>
+    </c:choose>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-account">
-                        <i class="fas fa-user"></i>
-                        <span>Accounts</span></a>
-                </li>
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Seller
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="cms" style="color: yellow">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-file"></i>
                 </div>
+                <div class="sidebar-brand-text mx-3">Posts</div>
+            </a>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-product">
-                        <i class="fas fa-gamepad"></i>
-                        <span>Products</span></a>
-                </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-order">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Orders</span></a>
-                </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="cms">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Marketing
-                </div>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Admin
+            </div>
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="dashboard-post">
-                        <i class="fas fa-file"></i>
-                        <span>Posts</span></a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard-account">
+                    <i class="fas fa-user"></i>
+                    <span>Accounts</span></a>
+            </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-faq">
-                        <i class="fas fa-question-circle"></i>
-                        <span>FAQs</span></a>
-                </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-notification">
-                        <i class="fas fa-bell"></i>
-                        <span>Notifications</span></a>
-                </li>
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Seller
+            </div>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard-product">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Products</span></a>
+            </li>
 
-                <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard-order">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Marketing
+            </div>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="dashboard-post">
+                    <i class="fas fa-file"></i>
+                    <span>Posts</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard-faq">
+                    <i class="fas fa-question-circle"></i>
+                    <span>FAQs</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard-notification">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 
 
-            </ul>
-            <!-- End of Sidebar -->
+        </ul>
+        <!-- End of Sidebar -->
 
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-                <!-- Main Content -->
-                <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-                    <!-- Topbar -->
-                    <%@include file="layout/header.jsp" %>
-                    <!-- End of Topbar -->
+                <!-- Topbar -->
+                <%@include file="layout/header.jsp" %>
+                <!-- End of Topbar -->
 
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                        <!-- Page Heading -->
-                        <div class="div mb-4">
-                            <h4><a href="dashboard-post">Post</a> > Edit</h4>
-                        </div>
+                    <!-- Page Heading -->
+                    <div class="div mb-4">
+                        <h4><a href="dashboard-post">Post</a> > Edit</h4>
+                    </div>
 
-                        <!-- DataTales Example -->
-                        <form method="post" action="">
-                            <div class="card shadow mb-4">
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-1 text-center">
-                                        ID
-                                    </div>
-                                    <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="ID" name="id" value="${post.postId}" disabled="">
-                                    </div>
+                    <!-- DataTales Example -->
+                    <form method="post" action="">
+                        <div class="card shadow mb-4">
+                            <div class="row mt-4 mb-4">
+                                <div class="col-1 text-center">
+                                    ID
                                 </div>
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-1 text-center">
-                                        <span style="color: red">*</span> Title
-                                    </div>
-                                    <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Title" name="title" value="${post.title}" required="">
-                                    </div>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" placeholder="ID" name="id" value="${post.postId}" disabled="">
                                 </div>
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-1 text-center">
-                                        <span style="color: red">*</span> Image (376x376)
-                                    </div>
-                                    <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="URL Image (376x376)" name="urlThumbnail" value="${post.imageLinkThumbnail}" required="">
-                                    </div>
+                            </div>
+                            <div class="row mt-4 mb-4">
+                                <div class="col-1 text-center">
+                                    <span style="color: red">*</span> Title
                                 </div>
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-1 text-center">
-                                        Image (1170x350)
-                                    </div>
-                                    <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="URL Image (1170x350)" name="urlDetail" value="${post.imageLinkDetail}">
-                                    </div>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" placeholder="Title" name="title" value="${post.title}" required="">
                                 </div>
-                                <div class="row mt-4 mb-4">
+                            </div>
+                            <div class="row mt-4 mb-4">
+                                <div class="col-1 text-center">
+                                    <span style="color: red">*</span> Image (376x376)
+                                </div>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" placeholder="URL Image (376x376)" name="urlThumbnail" value="${post.imageLinkThumbnail}" required="">
+                                </div>
+                            </div>
+                            <div class="row mt-4 mb-4">
+                                <div class="col-1 text-center">
+                                    Image (1170x350)
+                                </div>
+                                <div class="col-10">
+                                    <input class="form-control" type="text" placeholder="URL Image (1170x350)" name="urlDetail" value="${post.imageLinkDetail}">
+                                </div>
+                            </div>
+                            <div class="row mt-4 mb-4">
                                 <div class="col-1 text-center">
                                     <span style="color: red">*</span> Content
                                 </div>
@@ -189,62 +204,62 @@
                                     <textarea class="form-control" rows="5" name="content" required="">${post.content}</textarea>
                                 </div>
                             </div>
-                                
-                                <div class="div mb-4 mr-4">
-                                    <button type="submit" class="btn btn-success float-right ml-2">
-                                        <span class="text">Save</span>
-                                    </button>
-                                    <a href="dashboard-post" class="btn btn-danger float-right">
-                                        <span class="text">Close</span>
-                                    </a>
-                                </div>
+
+                            <div class="div mb-4 mr-4">
+                                <button type="submit" class="btn btn-success float-right ml-2">
+                                    <span class="text">Save</span>
+                                </button>
+                                <a href="dashboard-post" class="btn btn-danger float-right">
+                                    <span class="text">Close</span>
+                                </a>
                             </div>
-                        </form>
-                    </div>
-                    <!-- /.container-fluid -->
-
-                </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; SWP391 2022</span>
                         </div>
-                    </div>
-                </footer>
-                <!-- End of Footer -->
+                    </form>
+                </div>
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; SWP391 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Page Wrapper -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+    </div>
+    <!-- End of Page Wrapper -->
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="dashboard/vendor/jquery/jquery.min.js"></script>
-        <script src="dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-        <!-- Core plugin JavaScript-->
-        <script src="dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="dashboard/vendor/jquery/jquery.min.js"></script>
+    <script src="dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="dashboard/js/sb-admin-2.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="dashboard/vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="dashboard/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="dashboard/js/sb-admin-2.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="dashboard/js/demo/datatables-demo.js"></script>
+    <!-- Page level plugins -->
+    <script src="dashboard/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="dashboard/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-        <script src="https://kit.fontawesome.com/228aa84c51.js" crossorigin="anonymous"></script>
+    <!-- Page level custom scripts -->
+    <script src="dashboard/js/demo/datatables-demo.js"></script>
 
-    </body>
+    <script src="https://kit.fontawesome.com/228aa84c51.js" crossorigin="anonymous"></script>
+
+</body>
 </html>
