@@ -52,28 +52,21 @@ public class ProfileController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         int id = Integer.parseInt(request.getParameter("userId"));
-        String userName = request.getParameter("username");
-        String email = request.getParameter("email");
-        
+        String userName = request.getParameter("username").trim();
+
         boolean bool = false;
-        
+        request.setAttribute("msgUpdate", bool);
+
         if (!userName.equals("")) {
             UserDAO dao = new UserDAO();
-            bool = dao.updateUser(id, userName, email);
+            bool = dao.updateUser(id, userName);
             if (bool) {
                 User u = dao.getUsersByID(id);
                 session.setAttribute("user", u);
-                request.setAttribute("messageStt", bool);
-                request.getRequestDispatcher("profile.jsp").forward(request, response);
-            } else {
-                request.setAttribute("messageStt", bool);
-                request.getRequestDispatcher("profile.jsp").forward(request, response);
+                request.setAttribute("msgUpdate", bool);
             }
-        } else {
-            request.setAttribute("messageStt", bool);
-                request.getRequestDispatcher("profile.jsp").forward(request, response);
         }
-
+        request.getRequestDispatcher("profile.jsp").forward(request, response);
     }
 
     /**

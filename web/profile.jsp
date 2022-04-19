@@ -131,7 +131,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form_input">
-                                    <input name="username" placeholder="Username" type="text" value=${sessionScope.user.username}>
+                                    <input name="username" placeholder="" type="text" value=${sessionScope.user.username}>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form_input">
-                                    <input name="email" placeholder="Email" type="text"s value=${sessionScope.user.email}>
+                                    <input name="email" disabled="true" placeholder="Email" type="text"s value=${sessionScope.user.email}>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                         </div>
 
                         <c:choose>
-                            <c:when test="${requestScope.messageStt == true}">
+                            <c:when test="${requestScope.msgUpdate == true}">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="alert alert-success" role="alert">
@@ -175,7 +175,7 @@
                                     </div>
                                 </div>
                             </c:when>
-                            <c:when test="${requestScope.messageStt == false}">
+                            <c:when test="${requestScope.msgUpdate == false}">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="alert alert-danger" role="alert">
