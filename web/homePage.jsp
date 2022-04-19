@@ -38,16 +38,7 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
-
-        <c:choose>
-            <c:when test="${u != null}">
-                <%@include file="layout/headerLoged.jsp" %>
-            </c:when>
-            <c:otherwise>
-                <%@include file="layout/header.jsp" %>
-            </c:otherwise>
-        </c:choose>
-
+        <%@include file="layout/header.jsp" %>
 
         <!-- page wrapper start -->
         <div class="page_wrapper">

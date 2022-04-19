@@ -148,6 +148,10 @@
         <servlet-name>VerifyController</servlet-name>
         <servlet-class>controller.VerifyController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogOutController</servlet-name>
+        <servlet-class>controller.LogOutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -302,6 +306,10 @@
     <servlet-mapping>
         <servlet-name>VerifyController</servlet-name>
         <url-pattern>/verify</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
