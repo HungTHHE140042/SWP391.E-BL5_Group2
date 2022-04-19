@@ -151,16 +151,9 @@
                             Password
                         </div>
                         <div class="row">
-                            <div class="col-lg-11">
+                            <div class="col-lg-12">
                                 <div class="form_input">
                                     <input name="password" placeholder="Password" type="password" value=${sessionScope.user.password} disabled="true">
-                                </div>
-                            </div>
-                            <div class="col-lg-1">
-                                <div class="question_form_btn">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePassword" data-id=${sessionScope.user.userId}>
-                                        <i class="fas fa-edit"></i>
-                                    </button>
                                 </div>
                             </div>
                         </div>

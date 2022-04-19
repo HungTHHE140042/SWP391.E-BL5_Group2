@@ -30,6 +30,7 @@
                                     <li><a href="profile"><img width="15" height="15" src="assets/img/icon/user.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt="">Profile</a>
                                         <ul class="sub_menu">
                                             <li><a href="profile"><img width="15" height="15" src="assets/img/icon/settings_violet.png"> Profile</a></li>
+                                            <li><a href="changePassword"><img width="15" height="15" src="assets/img/icon/change-password.png"> Change Password</a></li>
                                             <li><a href="order-history"><img width="15" height="15" src="assets/img/icon/refresh_violet.png"> Order History</a></li>
                                             <li><a href="#" class="" data-bs-toggle="modal" data-bs-target="#logoutModal"><img width="15" height="15" src="assets/img/icon/logout_violet.png"> Logout</a></li>
                                         </ul>
