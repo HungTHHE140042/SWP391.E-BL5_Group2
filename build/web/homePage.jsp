@@ -60,7 +60,7 @@
                     </div>    
                 </div>
                 <div class="hero_position_img">
-                    <img width="926" height="772" src="${lastProduct.productImgURL}" alt="">
+                    <img width="926" height="772" src="${lastProduct.productImgURL}" style="border-radius: 5px" alt="">
                 </div>
             </section>
             <!--slider area end-->
@@ -90,7 +90,7 @@
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg1.webp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                         <div class="gaming_world_thumb">
-                                            <img width="156px" height="156px" src="${product.productImgURL}" alt="">
+                                            <img width="156px" height="156px" src="${product.productImgURL}" style="border-radius: 5px" alt="">
                                         </div>
                                         <div class="gaming_world_text">
                                             <div style="height: 120px">
@@ -242,7 +242,7 @@
                             <div class="col-lg-6">
                                 <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                     <div class="blog_thumb">
-                                        <a href="blog-details.html"><img width="200px" height="200px" src="${post.imageLinkThumbnail}" alt=""></a>
+                                        <a href="blog-details.html"><img width="200px" height="200px" src="${post.imageLinkThumbnail}" style="border-radius: 10px" alt=""></a>
                                     </div>
                                     <div class="blog_content">
                                         <div class="blog_date">

@@ -23,20 +23,22 @@
                                 <li><a href="${pageContext.request.contextPath}/product">Game</a></li>
                                 <li><a href="${pageContext.request.contextPath}/post">Post</a></li>
                                 <li><a href="${pageContext.request.contextPath}/faq">Faq</a></li>
-                                <li><a href="${pageContext.request.contextPath}/aboutus">About us</a></li>
+                                    <c:if test="${(sessionScope.user == null)}">              
+                                    <li><a href="${pageContext.request.contextPath}/aboutus">About us</a></li>
+                                    </c:if>
                                     <c:if test="${sessionScope.user != null}">
                                     <li><a href="profile"><img width="15" height="15" src="assets/img/icon/user.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt="">Profile</a>
                                         <ul class="sub_menu">
                                             <li><a href="profile"><img width="15" height="15" src="assets/img/icon/settings_violet.png"> Profile</a></li>
                                             <li><a href="order-history"><img width="15" height="15" src="assets/img/icon/refresh_violet.png"> Order History</a></li>
-                                            <li><a href="logout"><img width="15" height="15" src="assets/img/icon/logout_violet.png"> Logout</a></li>
+                                            <li><a href="#" class="" data-bs-toggle="modal" data-bs-target="#logoutModal"><img width="15" height="15" src="assets/img/icon/logout_violet.png"> Logout</a></li>
                                         </ul>
                                     </li>
                                 </c:if>
                                 <c:if test="${(sessionScope.user != null) and (sessionScope.user.userId != 3)}">              
                                     <li><a href="${pageContext.request.contextPath}/cms"><img width="15" height="15" src="assets/img/icon/crown.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> <span style="color: yellow">Dashboard</span> </a></li>
-                                </c:if>
-                                <c:if test="${sessionScope.user != null}">
+                                        </c:if>
+                                        <c:if test="${sessionScope.user != null}">
                                     <li><a><img width="15" height="15" src="assets/img/icon/bell_noti.png" alt=""></a>
                                         <ul class="sub_menu">
                                             <li>
@@ -87,4 +89,24 @@
             </div>
         </div>
     </div>
+
 </header>
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-10" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color: black" id="exampleModalLongTitle">Are you sure Logout?</h5>
+            </div>
+            <div class="modal-body">
+                <div class="container" style="color: black" >
+                    Select "Logout" below if you are sure to logout this account.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="logout" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
