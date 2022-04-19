@@ -5,7 +5,6 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -62,7 +61,7 @@
                                 <div class="hero_content">
                                     <h1 class="wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">Newest Game <br>
                                         Selling Today.</h1>
-                                    <p class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">Simply text of the printing and typesetting industry.</p>
+                                    <p class="wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">${lastProduct.productName}</p>
                                     <a class="btn btn-link wow fadeInUp" data-wow-delay="0.3s" data-wow-duration="1.3s" href="product-details">Buy now <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                 </div>
                             </div>
@@ -70,7 +69,7 @@
                     </div>    
                 </div>
                 <div class="hero_position_img">
-                    <img width="926" height="772" src="assets/img/player/list/player-1.webp" alt="">
+                    <img width="926" height="772" src="${lastProduct.productImgURL}" alt="">
                 </div>
             </section>
             <!--slider area end-->
@@ -96,60 +95,26 @@
                     </div>
                     <div class="gaming_world_inner">
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg1.webp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                    <div class="gaming_world_thumb">
-                                        <img width="156px" height="156px" src="assets/img/others/gaming-world1.webp" alt="">
-                                    </div>
-                                    <div class="gaming_world_text">
-                                        <div style="height: 100px">
-                                            <h3><a href="#">PlayerUnknown's Battlegrounds</a></h3>
+                            <c:forEach items="${listTop3ProductSale}" var="product">
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg1.webp" data-wow-delay="0.1s" data-wow-duration="1.1s">
+                                        <div class="gaming_world_thumb">
+                                            <img width="156px" height="156px" src="${product.productImgURL}" alt="">
                                         </div>
-                                        <div class="row">
-                                            <div class="col-6" style="font-size:20px; color:gray; text-decoration-line:line-through;">$100</div>
-                                            <div class="col-6 btn-danger">-70%</div>
+                                        <div class="gaming_world_text">
+                                            <div style="height: 120px">
+                                                <h3><a href="#">${product.productName}</a></h3>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6" style="font-size:20px; color:gray; text-decoration-line:line-through;">$${product.originalPrice}</div>
+                                                <div class="col-6 btn-danger">-${product.salePercent}%</div>
+                                            </div>
+                                            <p>
+                                            <div class="btn-success" style="font-size: 25px">$${product.sellPrice}</div>
                                         </div>
-                                        <p>
-                                        <div class="btn-success" style="font-size: 25px">$25</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg2.webp" data-wow-delay="0.2s" data-wow-duration="1.2s">
-                                    <div class="gaming_world_thumb">
-                                        <img width="156px" height="156px" src="assets/img/others/gaming-world2.webp" alt="">
-                                    </div>
-                                    <div class="gaming_world_text">
-                                        <div style="height: 100px">
-                                            <h3><a href="#">League of Legends</a></h3>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6" style="font-size:20px; color:gray; text-decoration-line:line-through;">$300</div>
-                                            <div class="col-6 btn-danger">-50%</div>
-                                        </div>
-                                        <p>
-                                        <div class="btn-success" style="font-size: 25px">$115</div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg3.webp" data-wow-delay="0.3s" data-wow-duration="1.3s">
-                                    <div class="gaming_world_thumb">
-                                        <img width="156px" height="156px" src="assets/img/others/gaming-world3.webp" alt="">
-                                    </div>
-                                    <div class="gaming_world_text">
-                                        <div style="height: 100px">
-                                            <h3><a href="#">Counter-Strike: Global Offensive</a></h3>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6" style="font-size:20px; color:gray; text-decoration-line:line-through;">$200</div>
-                                            <div class="col-6 btn-danger">-50%</div>
-                                        </div>
-                                        <p>
-                                        <div class="btn-success" style="font-size: 25px">$100</div>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -170,7 +135,7 @@
                                 </div>
                                 <div class="single_counterup two">
                                     <div class="counterup_text">
-                                        <h2 class="counterup color2">428</h2>
+                                        <h2 class="counterup color2"><c:out value="${countProduct}"/></h2>
                                         <span>TOTAL GAMES</span>
                                     </div>
                                 </div>
@@ -198,38 +163,16 @@
                     </div>
                     <div class="popular_gaming_inner wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="popular_gaming_thumb">
-                                    <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb1.webp" alt=""></a>
-                                    <div class="gaming_details_btn">
-                                        <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                            <c:forEach begin="1" end="4" var="blog">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="popular_gaming_thumb">
+                                        <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb1.webp" alt=""></a>
+                                        <div class="gaming_details_btn">
+                                            <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="popular_gaming_thumb">
-                                    <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb2.webp" alt=""></a>
-                                    <div class="gaming_details_btn">
-                                        <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="popular_gaming_thumb">
-                                    <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb3.webp" alt=""></a>
-                                    <div class="gaming_details_btn">
-                                        <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="popular_gaming_thumb">
-                                    <a href="#"><img width="570px" height="330px" src="assets/img/others/popular-game-thumb4.webp" alt=""></a>
-                                    <div class="gaming_details_btn">
-                                        <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>                         
                         </div>
                     </div>
                 </div>
@@ -304,64 +247,22 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna</p>
                     </div>
                     <div class="row blog_inner">
-                        <div class="col-lg-6">
-                            <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200px" height="200px" src="assets/img/blog/blog1.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
+                        <c:forEach items="${listTop4LastestPost}" var="post">
+                            <div class="col-lg-6">
+                                <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
+                                    <div class="blog_thumb">
+                                        <a href="blog-details.html"><img width="200px" height="200px" src="${post.imageLinkThumbnail}" alt=""></a>
                                     </div>
-                                    <h3><a href="blog-details.html">if you have seen Apple's
-                                            recent jabs.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
+                                    <div class="blog_content">
+                                        <div class="blog_date">
+                                            <span><i class="icofont-calendar"></i>  ${post.date}</span>
+                                        </div>
+                                        <h3><a href="blog-details.html">${post.title}</a></h3>
+                                        <a href="blog-details.html">READ MORE</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200px" height="200px" src="assets/img/blog/blog2.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                    </div>
-                                    <h3><a href="blog-details.html">Lorem ipsum dolor sit amet, adipisicing elit.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200px" height="200px" src="assets/img/blog/blog3.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                    </div>
-                                    <h3><a href="blog-details.html"> Perferendis hic sint are rem, incidunt vitae.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog4.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                    </div>
-                                    <h3><a href="blog-details.html">if you have seen Apple's
-                                            recent jabs.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </section>

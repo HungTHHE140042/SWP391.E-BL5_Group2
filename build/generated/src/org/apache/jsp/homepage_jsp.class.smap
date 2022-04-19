@@ -1,18 +1,24 @@
 SMAP
-homepage_jsp.java
+homePage_jsp.java
 JSP
 *S JSP
 *F
-+ 0 homepage.jsp
-homepage.jsp
-+ 1 header.jsp
-layout/header.jsp
++ 0 homePage.jsp
+homePage.jsp
++ 1 headerLoged.jsp
+layout/headerLoged.jsp
 + 2 footer.jsp
 layout/footer.jsp
 *L
-5,35:50
-5#1,68:85
-39#0,496:152
-5#2,111:648
-534#0,23:758
+5,36:50
+5#1,16:86
+21,5:102,3
+26,7:117
+33:124,3
+34,30:127
+64:157,3
+65,11:160
+40#0,323:170
+5#2,108:493
+362#0,23:600
 *E
