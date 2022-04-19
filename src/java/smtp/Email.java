@@ -28,13 +28,13 @@ public class Email {
 
         // sets SMTP server properties
         Properties properties = new Properties();
-        properties.put("mail.smtp.host", "smtp.gmail.com");
+        properties.put("mail.smtp.host", "smtp.googlemail.com");
         properties.put("mail.smtp.port", 587);
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.starttls.enable", "true");
 
         // creates a new session with an authenticator
-        final String userName = "rypito.twwiter@gmail.com";
+        final String userName = "rypito.twitter@gmail.com";
         final String password = "rypito123456";
         
         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
@@ -56,7 +56,7 @@ public class Email {
         msg.setRecipients(Message.RecipientType.TO, toAddresses);
         msg.setSubject(subject);
 
-        String htmlContent = "<h1>" + msg + "</h1> <br> <h3>From GameShop WITH LOVE</h3>";
+        String htmlContent = "<h1>" + message + "</h1> <br> <h3>- From GamesShop with LOVE</h3> <br> <img aria-label=\"logo\" width=\"215px\" height=\"79px\" src=\"https://uc3b8bf5170412817032af00f85a.previews.dropboxusercontent.com/p/thumb/ABgL9Y7hLF-fa7PLwpwGQqEnnwkvwXsUaR-bMebf8PoI4NR_B00teNi9iXsmExiHTix0msRpaKW5AKQXbWrdP5ZDuvlgHpB34OqI8UeSCzrwHmWakH8jt6amAv-msQmbHWhBQe7qzbodXGnl76RHo_K9JkkAOmcXhpv-gnY5w7vbjJE-KhV-VjCK4v-g72OfIK1zOjTfI36-GuCMCTwgxljm7RGgcuynF0ummJjCvMUQOfQlUcutkL39xwL_rw0c62MpagobTfLzniXkLqsgJGZzpAAU_cE_xHmD7V5recctf2Nv68l61FEXYZdYl5QndtbdDZWQmejX8Hb258d8BQ_23hCzz_7C_vzfnmIxlmGcOIOVAKwo4YY5fZ8gPnNdJ_c/p.png\" alt=\"\">";
         msg.setContent(htmlContent, "text/html");
 
         // sends the e-mail
