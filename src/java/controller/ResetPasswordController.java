@@ -9,6 +9,7 @@ import dao.UserDAO;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,9 +34,15 @@ public class ResetPasswordController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("error", null);
-        int userId = Integer.parseInt("".equals(request.getParameter("id")) ? "0" : request.getParameter("id"));
+        int userId = 0;
+        try {
+            userId = Integer.parseInt("".equals(request.getParameter("id")) ? "0" : request.getParameter("id"));
+        } catch (Exception e) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
         UserDAO uDAO = new UserDAO();
         User u = new User();
+        u = null;
         u = uDAO.getUserByUserId(userId);
         if (u != null) {
             if (u.getStatusId() == 2) {

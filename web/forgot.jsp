@@ -65,7 +65,7 @@
                 <div class="container">
                     <div class="row justify-content-between align-items-center mb-n50">
                         <div class="col-lg-6 col-md-8 col-12 mx-auto mb-50">
-                            <img width="550" height="550" src="assets/img/others/about-thumb.webp" alt="">
+                            <img width="550px" height="550px" src="assets/img/others/undraw_Forgot_password_re_hxwm.png" style="border-radius: 10px" alt="">
                         </div>
                         <div class="col-lg-5 col-md-8 col-12 mx-auto mb-50">
                             <form method="post" action="forgot">
