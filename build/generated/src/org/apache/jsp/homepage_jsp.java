@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import entity.User;
 
 public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -17,10 +18,26 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_dependants.add("/layout/footer.jsp");
   }
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_choose;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_otherwise;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_when_test;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_choose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_otherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_when_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_choose.release();
+    _jspx_tagPool_c_otherwise.release();
+    _jspx_tagPool_c_when_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -630,5 +647,230 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_choose_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:choose
+    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_choose_0.setParent(null);
+    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
+    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("            ");
+        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("            ");
+        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
+          return true;
+        out.write("\r\n");
+        out.write("        ");
+        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+      return true;
+    }
+    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:when
+    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
+    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                ");
+        out.write("\r\n");
+        out.write("\r\n");
+        out.write("\r\n");
+        out.write("<!DOCTYPE html>\r\n");
+        out.write("<header class=\"header_section header_transparent sticky-header\">\r\n");
+        out.write("    <div class=\"container\">\r\n");
+        out.write("        <div class=\"row\">\r\n");
+        out.write("            <div class=\"col-12\">\r\n");
+        out.write("                <div class=\"main_header d-flex justify-content-between align-items-center\">\r\n");
+        out.write("                    <div class=\"header_logo\">\r\n");
+        out.write("                        <a class=\"sticky_none\" href=\"home\"><img aria-label=\"logo\" width=\"215\" height=\"79\" src=\"assets/img/logo/logo.webp\" alt=\"\"></a>\r\n");
+        out.write("                    </div>\r\n");
+        out.write("                    <!--main menu start-->\r\n");
+        out.write("                    <div class=\"main_menu d-none d-lg-block\"> \r\n");
+        out.write("                        <nav>  \r\n");
+        out.write("                            <ul class=\"d-flex\">\r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/home\">Home</a></li> \r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/product\">Game</a></li>\r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/post\">Post</a></li>\r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/faq\">Faq</a></li>\r\n");
+        out.write("<!--                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/general\"> General </a></li>-->\r\n");
+        out.write("                                <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/user.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\">Profile</a>\r\n");
+        out.write("                                    <ul class=\"sub_menu\">\r\n");
+        out.write("                                        <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/settings_violet.png\"> Profile</a></li>\r\n");
+        out.write("                                        <li><a href=\"order-history\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/refresh_violet.png\"> Order History</a></li>\r\n");
+        out.write("                                        <li><a href=\"#\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/logout_violet.png\"> Logout</a></li>\r\n");
+        out.write("                                    </ul>\r\n");
+        out.write("                                </li>\r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/cms\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/crown.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\"> <span style=\"color: yellow\">Dashboard</span> </a></li>\r\n");
+        out.write("                                <!--                                <li><a><img width=\"15\" height=\"15\" src=\"assets/img/icon/bell.png\" alt=\"\"></a>-->\r\n");
+        out.write("                                <li><a><img width=\"15\" height=\"15\" src=\"assets/img/icon/bell_noti.png\" alt=\"\"></a>\r\n");
+        out.write("                                    <ul class=\"sub_menu\">\r\n");
+        out.write("                                        <li>\r\n");
+        out.write("                                            <a class=\"dropdown-item d-flex align-items-center\" href=\"notification-detail\">\r\n");
+        out.write("                                                <div>\r\n");
+        out.write("                                                    <div class=\"small text-gray-500\">April 12, 2022</div>\r\n");
+        out.write("                                                    <span class=\"font-weight-bold\">We will sale-off all products in next month.</span>\r\n");
+        out.write("                                                </div>\r\n");
+        out.write("                                            </a>\r\n");
+        out.write("                                        </li>\r\n");
+        out.write("                                        <li>\r\n");
+        out.write("                                            <a class=\"dropdown-item d-flex align-items-center\" href=\"notification-detail\">\r\n");
+        out.write("                                                <div>\r\n");
+        out.write("                                                    <div class=\"small text-gray-500\">April 12, 2022</div>\r\n");
+        out.write("                                                    Your order #5946221 had accepted.\r\n");
+        out.write("                                                </div>\r\n");
+        out.write("                                            </a>\r\n");
+        out.write("                                        </li>\r\n");
+        out.write("                                        <div class=\"text-center btn-secondary\">\r\n");
+        out.write("                                            <a href=\"notifications\" style=\"color: white; font-size: 10px\" >Show all Notifications</a>\r\n");
+        out.write("                                        </div>\r\n");
+        out.write("                                    </ul>\r\n");
+        out.write("                                </li>\r\n");
+        out.write("                            </ul>  \r\n");
+        out.write("                        </nav>\r\n");
+        out.write("                    </div>\r\n");
+        out.write("                    <!--main menu end-->\r\n");
+        out.write("                    <div class=\"header_right_sidebar d-flex align-items-center\">\r\n");
+        out.write("                        <div class=\"cart_btn\">\r\n");
+        out.write("                            <a class=\"btn btn-link\" href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/cart\">Cart <img width=\"15\" height=\"15\" src=\"assets/img/icon/shopping-cart.png\" alt=\"\"> </a>\r\n");
+        out.write("                        </div>\r\n");
+        out.write("                        <div class=\"canvas_open\">\r\n");
+        out.write("                            <button type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#offcanvasMenu\"><i class=\"icofont-navigation-menu\"></i></button>\r\n");
+        out.write("                        </div>\r\n");
+        out.write("                    </div>\r\n");
+        out.write("                </div>\r\n");
+        out.write("            </div>\r\n");
+        out.write("        </div>\r\n");
+        out.write("    </div>\r\n");
+        out.write("</header>\r\n");
+        out.write("\r\n");
+        out.write("            ");
+        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+      return true;
+    }
+    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:otherwise
+    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
+    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
+    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                ");
+        out.write("\r\n");
+        out.write("\r\n");
+        out.write("\r\n");
+        out.write("<!DOCTYPE html>\r\n");
+        out.write("<header class=\"header_section header_transparent sticky-header\">\r\n");
+        out.write("    <div class=\"container\">\r\n");
+        out.write("        <div class=\"row\">\r\n");
+        out.write("            <div class=\"col-12\">\r\n");
+        out.write("                <div class=\"main_header d-flex justify-content-between align-items-center\">\r\n");
+        out.write("                    <div class=\"header_logo\">\r\n");
+        out.write("                        <a class=\"sticky_none\" href=\"home\"><img aria-label=\"logo\" width=\"215\" height=\"79\" src=\"assets/img/logo/logo.webp\" alt=\"\"></a>\r\n");
+        out.write("                    </div>\r\n");
+        out.write("                    <!--main menu start-->\r\n");
+        out.write("                    <div class=\"main_menu d-none d-lg-block\"> \r\n");
+        out.write("                        <nav>  \r\n");
+        out.write("                            <ul class=\"d-flex\">\r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/home\">Home</a></li> \r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/product\">Game</a></li>\r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/post\">Post</a></li>\r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/faq\">Faq</a></li>\r\n");
+        out.write("                                <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/aboutus\">About us</a></li>\r\n");
+        out.write("                            </ul>  \r\n");
+        out.write("                        </nav>\r\n");
+        out.write("                    </div>\r\n");
+        out.write("                    <!--main menu end-->\r\n");
+        out.write("                    <div class=\"header_right_sidebar d-flex align-items-center\">\r\n");
+        out.write("                        <div class=\"sing_up_btn\">\r\n");
+        out.write("                            <a class=\"btn btn-link\" href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/signin\">SIGN IN <img width=\"15\" height=\"15\" src=\"assets/img/icon/arrrow-icon2.webp\" alt=\"\"> </a>\r\n");
+        out.write("                        </div>\r\n");
+        out.write("                        <div class=\"canvas_open\">\r\n");
+        out.write("                            <button type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#offcanvasMenu\"><i class=\"icofont-navigation-menu\"></i></button>\r\n");
+        out.write("                        </div>\r\n");
+        out.write("                    </div>\r\n");
+        out.write("                </div>\r\n");
+        out.write("            </div>\r\n");
+        out.write("        </div>\r\n");
+        out.write("    </div>\r\n");
+        out.write("</header>\r\n");
+        out.write("\r\n");
+        out.write("            ");
+        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+      return true;
+    }
+    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    return false;
   }
 }

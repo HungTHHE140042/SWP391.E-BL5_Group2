@@ -38,7 +38,9 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
+
         <%@include file="layout/header.jsp" %>
+
 
         <!-- page wrapper start -->
         <div class="page_wrapper">
