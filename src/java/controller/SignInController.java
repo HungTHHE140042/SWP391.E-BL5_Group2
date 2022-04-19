@@ -54,6 +54,7 @@ public class SignInController extends HttpServlet {
 
         String email = request.getParameter("email");
         String pass = request.getParameter("password");
+        System.out.println(pass + "aa");
         LoginDAO dao = new LoginDAO();
         User u = dao.checkLogin(email, pass);
         HttpSession session = request.getSession();
@@ -70,6 +71,7 @@ public class SignInController extends HttpServlet {
             }
         } else {
             request.setAttribute("error", "1");
+            request.getRequestDispatcher("signIn.jsp").forward(request, response);
         }
     }
 
