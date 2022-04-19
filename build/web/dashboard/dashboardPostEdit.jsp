@@ -154,7 +154,7 @@
                                         ID
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Username" value="1" disabled="">
+                                        <input class="form-control" type="text" placeholder="ID" name="id" value="${post.postId}" disabled="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -162,7 +162,7 @@
                                         <span style="color: red">*</span> Title
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Title" value="HOW TO START A VIDEO GAME FROM MOBILE & COMPUTER." required="">
+                                        <input class="form-control" type="text" placeholder="Title" name="title" value="${post.title}" required="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -170,7 +170,7 @@
                                         <span style="color: red">*</span> Image (376x376)
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="img1" value="https://meet.google.com/?authuser=1" required="">
+                                        <input class="form-control" type="text" placeholder="URL Image (376x376)" name="urlThumbnail" value="${post.imageLinkThumbnail}" required="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -178,7 +178,7 @@
                                         Image (1170x350)
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="img2" value="https://meet.google.com/?authuser=1">
+                                        <input class="form-control" type="text" placeholder="URL Image (1170x350)" name="urlDetail" value="${post.imageLinkDetail}">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -186,7 +186,7 @@
                                     <span style="color: red">*</span> Content
                                 </div>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows="5" required="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electrotypesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and morerecently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
+                                    <textarea class="form-control" rows="5" name="content" required="">${post.content}</textarea>
                                 </div>
                             </div>
                                 
