@@ -5,8 +5,13 @@
  */
 package controller;
 
+import dao.PostDAO;
+import dao.ProductDAO;
+import entity.Post;
+import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +26,17 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        ProductDAO productDAO = new ProductDAO();
+        List<Product> listTop3ProductSale = productDAO.getTop3SaleProduct();
+        Product lastProduct = productDAO.getLastProduct();
+        String countProduct = productDAO.countProduct();
+        PostDAO postDAO = new PostDAO();
+        List<Post> listTop4LastestPost = postDAO.getTop4LastestPost();
+        
+        request.setAttribute("listTop4LastestPost", listTop4LastestPost);
+        request.setAttribute("countProduct", countProduct);
+        request.setAttribute("lastProduct", lastProduct);
+        request.setAttribute("listTop3ProductSale", listTop3ProductSale);
         request.getRequestDispatcher("homePage.jsp").forward(request, response);
     }
 
