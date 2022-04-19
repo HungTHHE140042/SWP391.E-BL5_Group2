@@ -10,6 +10,8 @@ import entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Arrays;
 
 /**
  *
@@ -150,6 +152,49 @@ public class UserDAO {
             return null;
         }
         return null;
+    }
+    
+    public User getUsersByID(int id) {
+        sql = "select * from [user] where userID = ? ";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                User u = new User(rs.getInt("userID"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("Email"),
+                        rs.getInt("RoleID"),
+                        rs.getInt("StatusID")
+                );
+                ps.close();
+                rs.close();
+                return u;
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            return null;
+        }
+        return null;
+    }
+    
+    public boolean updateUser(int id, String username) {
+
+        sql = "UPDATE [user] SET username = ?\n"
+                + "WHERE userID = ?;";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
+        return false;
     }
     
     public static void main(String[] args) {
