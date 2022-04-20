@@ -5,8 +5,12 @@
  */
 package controller;
 
+import dao.UserDAO;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author trinh
+ * @author long
  */
 public class dashboardAccountController extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,7 +34,23 @@ public class dashboardAccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("dashboard/dashboardAccount.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        UserDAO userDAO = new UserDAO();
+        List<User> listAccount = new ArrayList<>();
+        try {
+            int userId = Integer.parseInt(request.getParameter("idDelete"));
+            if (userDAO.removeUserByUserId(userId)) {
+                listAccount = userDAO.getAllUsers();
+                //Set data to JSP
+                request.setAttribute("LIST_User", listAccount);
+                request.getRequestDispatcher("dashboard/dashboardAccount.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            listAccount = userDAO.getAllUsers();
+            //Set data to JSP
+            request.setAttribute("LIST_User", listAccount);
+            request.getRequestDispatcher("dashboard/dashboardAccount.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -43,6 +64,18 @@ public class dashboardAccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try {
+            String username = ("".equals(request.getParameter("username"))) ? "" : request.getParameter("username");
+            String email = ("".equals(request.getParameter("email"))) ? "" : request.getParameter("email");
+            String password = ("".equals(request.getParameter("password"))) ? "" : request.getParameter("password");
+            int roleId = Integer.parseInt(("".equals(request.getParameter("roleId"))) ? "" : request.getParameter("roleId"));
+            UserDAO uDAO = new UserDAO();
+            if (uDAO.createUser(username, password, email, roleId, 1)) {
+                response.sendRedirect("dashboard-account");
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     /**

@@ -1,9 +1,10 @@
 <%-- 
     Document   : cmsAccount
-    Created on : Apr 16, 2022, 1:23:12 PM
-    Author     : trinh
+    Created on : Apr 20, 2022, 1:23:12 PM
+    Author     : long
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -161,7 +162,7 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>UserID</th>
                                                 <th>Username</th>
                                                 <th>Password</th>
                                                 <th>Email</th>
@@ -171,106 +172,71 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <c:forEach var="c" items="${LIST_User}">
                                             <tr>
-                                                <td>1</td>
-                                                <td>@admin</td>
-                                                <td>*****</td>
-                                                <td>admin@gmail.com</td>
+                                                <td>${c.userId}</td>
+                                                <td>${c.username}</td>
+                                                <td>${c.password}</td>
+                                                <td>${c.email}</td>
+                                                <c:if test="${c.roleId == 1}">
+                                                    <td>
+                                                        <div class="btn btn-outline-danger btn-sm">
+                                                            Admin
+                                                        </div>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${c.roleId == 2}">
+                                                    <td>
+                                                        <div class="btn btn-outline-primary btn-sm">
+                                                            Seller
+                                                        </div>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${c.roleId == 3}">
+                                                    <td>
+                                                        <div class="btn btn-outline-warning btn-sm">
+                                                            Marketing
+                                                        </div>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${c.roleId == 4}">
+                                                    <td>
+                                                        <div class="btn btn-outline-secondary btn-sm">
+                                                            Customer
+                                                        </div>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${c.statusId == 1}">
+                                                    <td>
+                                                        <div style="color: blue">
+                                                            Active
+                                                        </div>
+                                                    </td>
+                                                </c:if>
+                                                    <c:if test="${c.statusId == 2}">
+                                                    <td>
+                                                        <div style="color: gray">
+                                                            Inactive
+                                                        </div>
+                                                    </td>
+                                                </c:if>
+                                                    <c:if test="${c.statusId== 3} ">
+                                                    <td>
+                                                        <div style="color: red">
+                                                            Banned
+                                                        </div>
+                                                    </td>
+                                                </c:if>
                                                 <td>
-                                                    <div class="btn btn-outline-danger btn-sm">
-                                                        Admin
-                                                    </div>
-                                                </td>
-                                                <td style="color: blue">Active</td>
-                                                <td>
-                                                    <a href="dashboard-account-edit" class="btn btn-success btn-icon-split btn-sm">
+                                                    <a href="dashboard-account-edit?id=${c.userId}" class="btn btn-success btn-icon-split btn-sm">
                                                         <span class="text">Edit</span>
                                                     </a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>2</td>
-                                                <td>@seller</td>
-                                                <td>*****</td>
-                                                <td>seller@gmail.com</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-outline-primary btn-sm">
-                                                        Seller
-                                                    </a>
-                                                </td>
-                                                <td style="color: blue">Active</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>3</td>
-                                                <td>@marketing</td>
-                                                <td>*****</td>
-                                                <td>marketing@gmail.com</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-outline-warning btn-sm">
-                                                        Marketing
-                                                    </a>
-                                                </td>
-                                                <td style="color: blue">Active</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>@customer</td>
-                                                <td>*****</td>
-                                                <td>customer@gmail.com</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-outline-secondary btn-sm">
-                                                        Customer
-                                                    </a>
-                                                </td>
-                                                <td style="color: red">Banned</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
+                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="${c.userId}">
                                                         <span class="text">Delete</span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>@customer2</td>
-                                                <td>*****</td>
-                                                <td>customer2@gmail.com</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-outline-secondary btn-sm">
-                                                        Customer
-                                                    </a>
-                                                </td>
-                                                <td style="color: gray">Not Active</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                        </c:forEach>
                                         </tbody> 
                                     </table>
                                 </div>
@@ -316,8 +282,8 @@
                         </button>
                     </div>
                     <div class="modal-body">Select "Delete" below if you are sure to delete this account.
-                        <form method="post" action="">
-                            <input type="hidden" name="id" id="id">
+                        <form method="get" action="">
+                            <input type="hidden" name="idDelete" id="id">
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                 <button type="submit" class="btn btn-danger" href="login.html">Delete</button>
@@ -351,7 +317,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="role" class="col-form-label"><span style="color: red">*</span> Role:</label>
-                                <select class="form-control" name="role">
+                                <select class="form-control" name="roleId">
                                     <option value="1">Admin</option>
                                     <option value="2">Seller</option>
                                     <option value="3">Marketing</option>
