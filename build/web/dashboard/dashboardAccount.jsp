@@ -195,14 +195,14 @@
                                                 <c:if test="${c.roleId == 3}">
                                                     <td>
                                                         <div class="btn btn-outline-warning btn-sm">
-                                                            Marketing
+                                                            Customer
                                                         </div>
                                                     </td>
                                                 </c:if>
                                                 <c:if test="${c.roleId == 4}">
                                                     <td>
                                                         <div class="btn btn-outline-secondary btn-sm">
-                                                            Customer
+                                                            Marketing
                                                         </div>
                                                     </td>
                                                 </c:if>

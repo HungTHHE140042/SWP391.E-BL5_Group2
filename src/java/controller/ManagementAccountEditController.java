@@ -55,14 +55,15 @@ public class ManagementAccountEditController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            UserDAO pDAO = new UserDAO();
             int userId = Integer.parseInt(request.getParameter("id"));
             String username = request.getParameter("username");
             String email = request.getParameter("email");
-            String password = request.getParameter("password");
+            String password = pDAO.getUserByUserId(userId).getPassword();
             int roleId = Integer.parseInt(request.getParameter("roleId"));
             int statusId = Integer.parseInt(request.getParameter("statusId"));
 
-            UserDAO pDAO = new UserDAO();
+            
             if (pDAO.updateUser(userId, username, password, email, roleId, statusId)) {
                 response.sendRedirect("dashboard-account");
             }

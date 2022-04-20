@@ -4,6 +4,7 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -167,38 +168,26 @@
                                                 <th>Author</th>
                                                 <th>Title</th>
                                                 <th>Content</th>
-                                                <th class="col-1">Action</th>
+                                                <th class="col-2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>@Marketing</td>
-                                                <td>HOW CAN I CONTACT THE TEAM FOR HELP?</td>
-                                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha with desktop publishing software like including versions.</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#editModal" data-id="id here" data-title="HOW CAN I CONTACT THE TEAM FOR HELP?" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha with desktop publishing software like including versions.">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>@Marketing</td>
-                                                <td>HOW CAN I CONTACT THE TEAM FOR HELP?</td>
-                                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha with desktop publishing software like including versions.</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#editModal" data-id="id here" data-title="HOW CAN I CONTACT THE TEAM FOR HELP?" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha with desktop publishing software like including versions.">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            <c:forEach var="l" items="${List_FAQ}">
+                                                <tr>
+                                                    <td>${l.ID}</td>
+                                                    <td>${l.authorName}</td>
+                                                    <td>${l.title}</td>
+                                                    <td>${l.content}</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#editModal" data-id="${l.ID}" data-title="${l.title}" data-content="${l.content}"/>
+                                                            <span class="text">Edit</span>
+                                                        </a>
+                                                        <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="${l.ID}">
+                                                            <span class="text">Delete</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody> 
                                     </table>
                                 </div>
@@ -245,7 +234,7 @@
                     </div>
                     <div class="modal-body">Select "Delete" below if you are sure to delete this FAQ.
                         <form method="post" action="">
-                            <input type="hidden" name="id" id="id">
+                            <input type="hidden" name="idDelete" id="id">
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                 <button type="submit" class="btn btn-danger" href="login.html">Delete</button>
@@ -275,7 +264,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="titleEdit" class="col-form-label"><span style="color: red">*</span> Title:</label>
-                                <input type="text" class="form-control" name="id" id="titleEdit" required="">
+                                <input type="text" class="form-control" name="title" id="titleEdit" required="">
                             </div>
                             <div class="mb-3">
                                 <label for="contentEdit" class="col-form-label"><span style="color: red">*</span> Content:</label>
