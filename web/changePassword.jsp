@@ -107,20 +107,20 @@
                         </div>
 
                         <c:choose>
-                            <c:when test="${requestScope.mess1Stt == true}">
+                            <c:when test="${requestScope.notifiStt == true}">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="alert alert-success" role="alert">
-                                            ${requestScope.mess1}
+                                            ${requestScope.notifi}
                                         </div>
                                     </div>
                                 </div>
                             </c:when>
-                            <c:when test="${requestScope.mess1Stt == false}">
+                            <c:when test="${requestScope.notifiStt == false}">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="alert alert-danger" role="alert">
-                                             ${requestScope.mess1}
+                                             ${requestScope.notifi}
                                         </div>
                                     </div>
                                 </div>
