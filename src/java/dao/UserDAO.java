@@ -11,7 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -37,7 +39,33 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
+
     
+    public List<User> getAllUsers() {
+        if (con == null) {
+            createConnection();
+        }
+        List<User> list = new ArrayList<>();
+        String query = "select * from [GameShop].[dbo].[user]";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new User(rs.getInt("userId"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("email"),
+                        rs.getInt("roleId"),
+                        rs.getInt("statusId")
+                        ));
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
     public boolean updateUserStatusId(int userId, int statusId){
         if (con == null) {
             createConnection();
@@ -135,7 +163,58 @@ public class UserDAO {
         }
         return null;
     }
+        public boolean updateUser(int userId, String username, String password, String email, int roleID, int statusID) {
+        if (con == null) {
+            createConnection();
+        }
+        String sql = "UPDATE [GameShop].[dbo].[user] SET [username] = ? ,[password] = ? ,[email] = ? ,[roleID] = ? ,[statusID] = ? WHERE userID= ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, email);
+            ps.setInt(4, roleID);
+            ps.setInt(5, statusID);
+            ps.setInt(6, userId);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    public boolean removeUserByUserId(int userId) {
+        String sql = "DELETE FROM [GameShop].[dbo].[user] WHERE userID=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, userId);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     
+        public boolean createUser(String username, String password, String email, int roleID, int statusID) {
+        String sql = "INSERT INTO [GameShop].[dbo].[user]([username],[password],[email],[roleID],[statusID]) VALUES (?, ?, ?, ?, ?)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, email);
+            ps.setInt(4, roleID);
+            ps.setInt(5, statusID);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     public String countUser(){
         String query = "select COUNT(userID) as NumberOfUser from [user]";
         try {
@@ -199,7 +278,7 @@ public class UserDAO {
     
     public static void main(String[] args) {
         UserDAO userDAO = new UserDAO();
-        String count = userDAO.countUser();
+        List<User> count = userDAO.getAllUsers();
         System.out.println(count);
     }
 }

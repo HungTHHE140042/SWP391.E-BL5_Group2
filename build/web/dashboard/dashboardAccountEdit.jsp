@@ -1,9 +1,10 @@
 <%-- 
     Document   : dashboardAccountEdit
     Created on : Apr 16, 2022, 2:41:50 PM
-    Author     : trinh
+    Author     : long
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -154,7 +155,7 @@
                                         ID
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Username" value="1" disabled="">
+                                        <input name="id" class="form-control" type="text"  value="${user.userId}" disabled="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -162,7 +163,7 @@
                                         <span style="color: red">*</span> Username
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Username" value="@Admin" required="">
+                                        <input name="username" class="form-control" type="text"  value="${user.username}" required="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -170,7 +171,7 @@
                                         <span style="color: red">*</span> Email
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Username" value="admin@gmail.com" required="">
+                                        <input name="email" class="form-control" type="text" value="${user.email}" required="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -178,11 +179,12 @@
                                         <span style="color: red">*</span> Role
                                     </div>
                                     <div class="col-10">
-                                        <select class="form-control">
-                                            <option value="1">Admin</option>
-                                            <option value="2">Seller</option>
-                                            <option value="3">Marketing</option>
-                                            <option value="4">Customer</option>
+                                        
+                                        <select name="roleId" class="form-control">
+                                            <option value="1" <c:if test="${user.roleId eq 1}">selected</c:if>>Admin</option>
+                                            <option value="2" <c:if test="${user.roleId eq 2}">selected</c:if>>Seller</option>
+                                            <option value="3" <c:if test="${user.roleId eq 3}">selected</c:if>>Marketing</option>
+                                            <option value="4" <c:if test="${user.roleId eq 4}">selected</c:if>>Customer</option>
                                         </select>
                                     </div>
                                 </div>
@@ -191,10 +193,10 @@
                                         <span style="color: red">*</span> Status
                                     </div>
                                     <div class="col-10">
-                                        <select class="form-control">
-                                            <option value="1">Active</option>
-                                            <option value="2">Not Active</option>
-                                            <option value="3">Ban</option>
+                                        <select name="statusId" class="form-control">
+                                            <option value="1" <c:if test="${user.statusId eq 1}">selected</c:if>>Active</option>
+                                            <option value="2" <c:if test="${user.statusId eq 2}">selected</c:if>>Not Active</option>
+                                            <option value="3" <c:if test="${user.statusId eq 3}">selected</c:if>>Ban</option>
                                         </select>
                                     </div>
                                 </div>
@@ -203,7 +205,7 @@
                                         <span style="color: red">*</span> Password
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Username" value="123213" required="">
+                                        <input name="password" class="form-control" type="text" placeholder="Password" value="${user.password}" required="">
                                     </div>
                                 </div>
                                 <div class="div mb-4 mr-4">
