@@ -6,10 +6,13 @@
 package controller;
 
 import dao.ProductDAO;
+import dao.ReviewDAO;
 import entity.Product;
+import entity.ReviewJoinUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +43,10 @@ public class ProductDetailsController extends HttpServlet {
             ProductDAO productDAO = new ProductDAO();
             ArrayList<Product> product = productDAO.getProductByID(productID);
             request.setAttribute("product", product);
+            //
+            ReviewDAO reviewDAO = new ReviewDAO();
+            List<ReviewJoinUser> review = reviewDAO.getAllReviewJoinUserByProductId(productID);
+            request.setAttribute("review", review);
             request.getRequestDispatcher("productDetails.jsp").forward(request, response);
         }
     }
