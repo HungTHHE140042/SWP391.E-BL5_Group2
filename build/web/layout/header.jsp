@@ -36,7 +36,7 @@
                                         </ul>
                                     </li>
                                 </c:if>
-                                <c:if test="${(sessionScope.user != null) and (sessionScope.user.userId != 3)}">              
+                                <c:if test="${(sessionScope.user != null) and (sessionScope.user.roleId != 3)}">              
                                     <li><a href="${pageContext.request.contextPath}/cms"><img width="15" height="15" src="assets/img/icon/crown.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> <span style="color: yellow">Dashboard</span> </a></li>
                                         </c:if>
                                         <c:if test="${sessionScope.user != null}">
@@ -69,7 +69,7 @@
                     </div>
                     <!--main menu end-->
                     <div class="header_right_sidebar d-flex align-items-center">
-                        <c:if test="${sessionScope.user.userId == null}">
+                        <c:if test="${sessionScope.user == null}">
                             <div class="sing_up_btn">
                                 <a class="btn btn-link" href="${pageContext.request.contextPath}/signin">SIGN IN <img width="15" height="15" src="assets/img/icon/arrrow-icon2.webp" alt=""> </a>
                             </div>
