@@ -5,8 +5,8 @@
  */
 package controller;
 
-import dao.UserDAO;
-import entity.User;
+import dao.PostDAO;
+import entity.PostJoinUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author trinh
  */
-public class dashboardAccountEditlController extends HttpServlet {
+public class ManagementPostViewController extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -31,16 +32,17 @@ public class dashboardAccountEditlController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            int userId = Integer.parseInt(request.getParameter("id"));
-            UserDAO pDAO = new UserDAO();
-            User user = pDAO.getUserByUserId(userId);
-            request.setAttribute("user", user);
-            request.getRequestDispatcher("dashboard/dashboardAccountEdit.jsp").forward(request, response);
 
-        } catch (Exception e) {
+        int postId = Integer.parseInt(request.getParameter("id"));
+        PostDAO pDAO = new PostDAO();
+        PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+        if (post != null) {
+            request.setAttribute("post", post);
+            request.getRequestDispatcher("dashboard/dashboardPostView.jsp").forward(request, response);
+        } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+        request.getRequestDispatcher("dashboard/dashboardPostView.jsp").forward(request, response);
     }
 
     /**
@@ -54,21 +56,6 @@ public class dashboardAccountEditlController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            int userId = Integer.parseInt(request.getParameter("id"));
-            String username = request.getParameter("username");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            int roleId = Integer.parseInt(request.getParameter("roleId"));
-            int statusId = Integer.parseInt(request.getParameter("statusId"));
-
-            UserDAO pDAO = new UserDAO();
-            if (pDAO.updateUser(userId, username, password, email, roleId, statusId)) {
-                response.sendRedirect("dashboard-account");
-            }
-        } catch (Exception e) {
-            request.getRequestDispatcher("error.jsp").forward(request, response);
-        }
     }
 
     /**

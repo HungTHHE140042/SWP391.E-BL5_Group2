@@ -5,12 +5,10 @@
  */
 package controller;
 
-import dao.UserDAO;
-import entity.User;
+import dao.PostDAO;
+import entity.PostJoinUser;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author long
+ * @author trson
  */
-public class dashboardAccountController extends HttpServlet {
+public class ManagementPostEditController extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -34,23 +32,18 @@ public class dashboardAccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        UserDAO userDAO = new UserDAO();
-        List<User> listAccount = new ArrayList<>();
         try {
-            int userId = Integer.parseInt(request.getParameter("idDelete"));
-            if (userDAO.removeUserByUserId(userId)) {
-                listAccount = userDAO.getAllUsers();
-                //Set data to JSP
-                request.setAttribute("LIST_User", listAccount);
-                request.getRequestDispatcher("dashboard/dashboardAccount.jsp").forward(request, response);
-            }
+            int postId = Integer.parseInt(request.getParameter("id"));
+            PostDAO pDAO = new PostDAO();
+            PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+            request.setAttribute("post", post);
+            request.setAttribute("error", null);
+            request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
+
         } catch (Exception e) {
-            listAccount = userDAO.getAllUsers();
-            //Set data to JSP
-            request.setAttribute("LIST_User", listAccount);
-            request.getRequestDispatcher("dashboard/dashboardAccount.jsp").forward(request, response);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+
     }
 
     /**
@@ -65,13 +58,20 @@ public class dashboardAccountController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String username = ("".equals(request.getParameter("username"))) ? "" : request.getParameter("username");
-            String email = ("".equals(request.getParameter("email"))) ? "" : request.getParameter("email");
-            String password = ("".equals(request.getParameter("password"))) ? "" : request.getParameter("password");
-            int roleId = Integer.parseInt(("".equals(request.getParameter("roleId"))) ? "" : request.getParameter("roleId"));
-            UserDAO uDAO = new UserDAO();
-            if (uDAO.createUser(username, password, email, roleId, 1)) {
-                response.sendRedirect("dashboard-account");
+            int postId = Integer.parseInt(request.getParameter("id"));
+            String title = request.getParameter("title");
+            String urlThumbnail = request.getParameter("urlThumbnail");
+            String urlDetail = request.getParameter("urlDetail");
+            String content = request.getParameter("content");
+
+            PostDAO pDAO = new PostDAO();
+            if (pDAO.updatePost(postId, title, urlThumbnail, urlDetail, content)) {
+                response.sendRedirect("dashboard-post");
+            } else {
+                request.setAttribute("error", "1");
+                PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+                request.setAttribute("post", post);
+                request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
             }
         } catch (Exception e) {
             request.getRequestDispatcher("error.jsp").forward(request, response);

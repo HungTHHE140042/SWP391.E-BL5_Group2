@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author trinh
  */
-public class dashboardOrderDetailController extends HttpServlet {
+public class ManagementCategoryController extends HttpServlet {
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,7 +29,7 @@ public class dashboardOrderDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("dashboard/dashboardOrderDetail.jsp").forward(request, response);
+        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
     }
 
     /**
