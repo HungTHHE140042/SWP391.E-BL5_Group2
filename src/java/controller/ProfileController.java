@@ -35,7 +35,13 @@ public class ProfileController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
+        User u = (User) session.getAttribute("user");
+        
+        if (u != null) {
+            request.getRequestDispatcher("profile.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("signin");
+        }
     }
 
     /**
@@ -51,21 +57,21 @@ public class ProfileController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
+
         int id = Integer.parseInt(request.getParameter("userId"));
         String userName = request.getParameter("username").trim();
 
-        boolean bool = false;
-        request.setAttribute("msgUpdate", bool);
+        request.setAttribute("msgUpdate", false);
 
         if (!userName.equals("")) {
             UserDAO dao = new UserDAO();
-            bool = dao.updateUser(id, userName);
-            if (bool) {
+            if (dao.updateUser(id, userName)) {
                 User u = dao.getUsersByID(id);
                 session.setAttribute("user", u);
-                request.setAttribute("msgUpdate", bool);
+                request.setAttribute("msgUpdate", true);
             }
         }
+
         request.getRequestDispatcher("profile.jsp").forward(request, response);
     }
 

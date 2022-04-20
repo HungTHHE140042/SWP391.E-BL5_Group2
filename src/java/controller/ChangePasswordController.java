@@ -50,7 +50,13 @@ public class ChangePasswordController extends HttpServlet {
             throws ServletException, IOException {
          response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        request.getRequestDispatcher("changePassword.jsp").forward(request, response);
+        User u = (User) session.getAttribute("user");
+        
+        if (u != null) {
+            request.getRequestDispatcher("changePassword.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("signin");
+        }
     }
 
     /**
@@ -72,24 +78,21 @@ public class ChangePasswordController extends HttpServlet {
         String currentPassword = request.getParameter("currentpassword");
         String newPassword = request.getParameter("newpassword");
         String repeatNewPassword = request.getParameter("repeatpassword");
-        request.setAttribute("mess1Stt", false);
-        request.setAttribute("mess1", oldPassword + "//" + currentPassword + "//" + newPassword + "//" + repeatNewPassword);
+        request.setAttribute("notifiStt", false);
+        
         if (!newPassword.equals(repeatNewPassword)) {
-            request.setAttribute("mess1", "New Password and Repeat Password not matched!");
-            //request.getRequestDispatcher("changePassword.jsp").forward(request, response);
+            request.setAttribute("notifi", "New Password and Repeat Password not matched!");
         } else if (!oldPassword.equals(currentPassword)) {
-            request.setAttribute("mess1", "Current password incorrect!");
-            //request.getRequestDispatcher("changePassword.jsp").forward(request, response);
+            request.setAttribute("notifi", "Current password incorrect!");
         } else if (currentPassword.equals(newPassword)) {
-            request.setAttribute("mess1", "New Password must be different from Current Password!");
-            //request.getRequestDispatcher("changePassword.jsp").forward(request, response);
+            request.setAttribute("notifi", "New Password must be different from Current Password!");
         } else {
             UserDAO dao = new UserDAO();
             if (dao.updatePasswordByUserId(id,newPassword)) {
-            request.setAttribute("mess1", "Password updated!");
-            request.setAttribute("mess1Stt", true);
+            request.setAttribute("notifi", "Password updated!");
+            request.setAttribute("notifiStt", true);
             } else {
-                request.setAttribute("mess1", "Password change failed!");
+                request.setAttribute("notifi", "Password change failed!");
             }
         }
         request.getRequestDispatcher("changePassword.jsp").forward(request, response);
