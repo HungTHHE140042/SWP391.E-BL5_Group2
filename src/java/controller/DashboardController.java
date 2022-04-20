@@ -16,7 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author trinh
  */
-public class dashboardProductEdit extends HttpServlet {
+public class DashboardController extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,7 +30,7 @@ public class dashboardProductEdit extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("dashboard/dashboardProductEdit.jsp").forward(request, response);
+        request.getRequestDispatcher("dashboard/cms.jsp").forward(request, response);
     }
 
     /**
@@ -43,6 +44,7 @@ public class dashboardProductEdit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
     }
 
     /**

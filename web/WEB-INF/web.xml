@@ -57,8 +57,8 @@
         <servlet-class>controller.GeneralController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardCMSController</servlet-name>
-        <servlet-class>controller.dashboardCMSController</servlet-class>
+        <servlet-name>DashboardController</servlet-name>
+        <servlet-class>controller.DashboardController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ResetPasswordController</servlet-name>
@@ -85,60 +85,60 @@
         <servlet-class>controller.NotificationDetailController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardAccountController</servlet-name>
-        <servlet-class>controller.dashboardAccountController</servlet-class>
+        <servlet-name>ManagementAccountController</servlet-name>
+        <servlet-class>controller.ManagementAccountController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardAccountEditlController</servlet-name>
-        <servlet-class>controller.dashboardAccountEditlController</servlet-class>
+        <servlet-name>ManagementAccountEditlController</servlet-name>
+        <servlet-class>controller.ManagementAccountEditController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardProductController</servlet-name>
-        <servlet-class>controller.dashboardProductController</servlet-class>
+        <servlet-name>ManagementProductController</servlet-name>
+        <servlet-class>controller.ManagementProductController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardProductViewController</servlet-name>
-        <servlet-class>controller.dashboardProductViewController</servlet-class>
+        <servlet-name>ManagementProductViewController</servlet-name>
+        <servlet-class>controller.ManagementProductViewController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardProductEdit</servlet-name>
-        <servlet-class>controller.dashboardProductEdit</servlet-class>
+        <servlet-name>ManagementProductEdit</servlet-name>
+        <servlet-class>controller.ManagementProductEdit</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardCategoryController</servlet-name>
-        <servlet-class>controller.dashboardCategoryController</servlet-class>
+        <servlet-name>ManagementCategoryController</servlet-name>
+        <servlet-class>controller.ManagementCategoryController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardOrderController</servlet-name>
-        <servlet-class>controller.dashboardOrderController</servlet-class>
+        <servlet-name>ManagementOrderController</servlet-name>
+        <servlet-class>controller.ManagementOrderController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardOrderDetailController</servlet-name>
-        <servlet-class>controller.dashboardOrderDetailController</servlet-class>
+        <servlet-name>ManagementOrderDetailController</servlet-name>
+        <servlet-class>controller.ManagementOrderDetailController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardPostController</servlet-name>
-        <servlet-class>controller.dashboardPostController</servlet-class>
+        <servlet-name>ManagementPostController</servlet-name>
+        <servlet-class>controller.ManagementPostController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardPostViewController</servlet-name>
-        <servlet-class>controller.dashboardPostViewController</servlet-class>
+        <servlet-name>ManagementPostViewController</servlet-name>
+        <servlet-class>controller.ManagementPostViewController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardPostEditController</servlet-name>
-        <servlet-class>controller.dashboardPostEditController</servlet-class>
+        <servlet-name>ManagementPostEditController</servlet-name>
+        <servlet-class>controller.ManagementPostEditController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardFaqController</servlet-name>
-        <servlet-class>controller.dashboardFaqController</servlet-class>
+        <servlet-name>ManagementFaqController</servlet-name>
+        <servlet-class>controller.ManagementFaqController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardNotificationController</servlet-name>
-        <servlet-class>controller.dashboardNotificationController</servlet-class>
+        <servlet-name>ManagementNotificationController</servlet-name>
+        <servlet-class>controller.ManagementNotificationController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>dashboardNotificationDetailController</servlet-name>
-        <servlet-class>controller.dashboardNotificationDetailController</servlet-class>
+        <servlet-name>ManagementNotificationDetailController</servlet-name>
+        <servlet-class>controller.ManagementNotificationDetailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentController</servlet-name>
@@ -224,7 +224,7 @@
         <url-pattern>/general</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardCMSController</servlet-name>
+        <servlet-name>DashboardController</servlet-name>
         <url-pattern>/cms</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -252,59 +252,59 @@
         <url-pattern>/notification-detail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardAccountController</servlet-name>
+        <servlet-name>ManagementAccountController</servlet-name>
         <url-pattern>/dashboard-account</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardAccountEditlController</servlet-name>
+        <servlet-name>ManagementAccountEditlController</servlet-name>
         <url-pattern>/dashboard-account-edit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardProductController</servlet-name>
+        <servlet-name>ManagementProductController</servlet-name>
         <url-pattern>/dashboard-product</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardProductViewController</servlet-name>
+        <servlet-name>ManagementProductViewController</servlet-name>
         <url-pattern>/dashboard-product-view</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardProductEdit</servlet-name>
+        <servlet-name>ManagementProductEdit</servlet-name>
         <url-pattern>/dashboard-product-edit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardCategoryController</servlet-name>
+        <servlet-name>ManagementCategoryController</servlet-name>
         <url-pattern>/dashboard-category</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardOrderController</servlet-name>
+        <servlet-name>ManagementOrderController</servlet-name>
         <url-pattern>/dashboard-order</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardOrderDetailController</servlet-name>
+        <servlet-name>ManagementOrderDetailController</servlet-name>
         <url-pattern>/dashboard-order-detail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardPostController</servlet-name>
+        <servlet-name>ManagementPostController</servlet-name>
         <url-pattern>/dashboard-post</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardPostViewController</servlet-name>
+        <servlet-name>ManagementPostViewController</servlet-name>
         <url-pattern>/dashboard-post-view</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardPostEditController</servlet-name>
+        <servlet-name>ManagementPostEditController</servlet-name>
         <url-pattern>/dashboard-post-edit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardFaqController</servlet-name>
+        <servlet-name>ManagementFaqController</servlet-name>
         <url-pattern>/dashboard-faq</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardNotificationController</servlet-name>
+        <servlet-name>ManagementNotificationController</servlet-name>
         <url-pattern>/dashboard-notification</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>dashboardNotificationDetailController</servlet-name>
+        <servlet-name>ManagementNotificationDetailController</servlet-name>
         <url-pattern>/dashboard-notification-detail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

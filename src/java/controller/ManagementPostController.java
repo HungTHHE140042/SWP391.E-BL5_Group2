@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author trinh
  */
-public class dashboardPostController extends HttpServlet {
+public class ManagementPostController extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
