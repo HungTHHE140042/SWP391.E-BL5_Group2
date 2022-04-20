@@ -7,6 +7,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    String notifiStt = request.getParameter("notifiStt");
+%>
 <html>
     <head>
         <meta charset="utf-8">
@@ -109,38 +112,50 @@
                                     <c:forEach items="${review}" var="r">
                                         <div class="comment_list d-flex">
                                             <div class="comment_content">
-                                                <h3>${r.username}</h3>
+                                                <h3>${r.username}(${r.roleName})</h3>
                                                 <div class="game__review d-flex align-items-center">
                                                     <span>${r.date}</span>
                                                 </div>
                                                 <p>${r.reviewDetail}</p>
                                             </div>
                                         </div>
-                                        <div class="comment_list d-flex">
-                                            <div class="comment_content">
-                                                <h3>Kenia Bumgarner</h3>
-                                                <div class="game__review d-flex align-items-center">
-                                                    <span> 28 January, 2021</span>
-                                                </div>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
-                                                    unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                                    with desktop publishing software like including versions.</p>
-                                            </div>
-                                        </div>
                                     </c:forEach>
+                                    <div class="comment_list d-flex">
+                                        <div class="comment_content">
+                                            <h3>S1mple</h3>
+                                            <div class="game__review d-flex align-items-center">
+                                                <span> 20 Apr, 2022</span>
+                                            </div>
+                                            <p>I love this game! Thank for purchased!...<br>It is simply dummy text of the printing and typesetting industry. Lorem sum has been 
+                                                unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
+                                                with desktop publishing software like including versions.</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="comments_form">
                                     <div class="comments_form_inner">
-                                        <form action="#">
+                                        <form action="addReview" method="post">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="comments_form_input">
-                                                        <textarea placeholder="Write a review from here"></textarea>
+                                                        <input type="hidden" name="productID" value=${c.productID}>
+                                                        <textarea name="reviewDetail" placeholder="Write a review from here"></textarea>
                                                     </div>
                                                 </div> 
                                             </div>
+                                            <c:choose>
+                                                <c:when test="${sessionScope.notifiStt == false}">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="alert alert-danger" role="alert">
+                                                                Please Input Your Review!
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </c:when>            
+                                            </c:choose>
                                             <div class="comments_submit_btn text-center">
-                                                <a class="btn btn-link" href="#">Comment <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                                <button class="btn btn-link" type="submit">Comment <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </button>
                                             </div>
                                         </form> 
                                     </div>  
