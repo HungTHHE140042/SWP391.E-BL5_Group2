@@ -14,13 +14,13 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   static {
     _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/layout/headerLoged.jsp");
+    _jspx_dependants.add("/layout/header.jsp");
     _jspx_dependants.add("/layout/footer.jsp");
   }
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_choose;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_otherwise;
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_when_test;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -29,15 +29,15 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
-    _jspx_tagPool_c_choose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_otherwise = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _jspx_tagPool_c_when_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_c_choose.release();
-    _jspx_tagPool_c_otherwise.release();
-    _jspx_tagPool_c_when_test.release();
+    _jspx_tagPool_c_forEach_var_items.release();
+    _jspx_tagPool_c_out_value_nobody.release();
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -64,6 +64,8 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -103,6 +105,7 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<header class=\"header_section header_transparent sticky-header\">\r\n");
       out.write("    <div class=\"container\">\r\n");
@@ -128,62 +131,62 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <li><a href=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/faq\">Faq</a></li>\r\n");
-      out.write("<!--                                <li><a href=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/general\"> General </a></li>-->\r\n");
-      out.write("                                <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/user.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\">Profile</a>\r\n");
-      out.write("                                    <ul class=\"sub_menu\">\r\n");
-      out.write("                                        <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/settings_violet.png\"> Profile</a></li>\r\n");
-      out.write("                                        <li><a href=\"order-history\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/refresh_violet.png\"> Order History</a></li>\r\n");
-      out.write("                                        <li><a href=\"#\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/logout_violet.png\"> Logout</a></li>\r\n");
-      out.write("                                    </ul>\r\n");
-      out.write("                                </li>\r\n");
-      out.write("                                <li><a href=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/cms\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/crown.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\"> <span style=\"color: yellow\">Dashboard</span> </a></li>\r\n");
-      out.write("                                <!--                                <li><a><img width=\"15\" height=\"15\" src=\"assets/img/icon/bell.png\" alt=\"\"></a>-->\r\n");
-      out.write("                                <li><a><img width=\"15\" height=\"15\" src=\"assets/img/icon/bell_noti.png\" alt=\"\"></a>\r\n");
-      out.write("                                    <ul class=\"sub_menu\">\r\n");
-      out.write("                                        <li>\r\n");
-      out.write("                                            <a class=\"dropdown-item d-flex align-items-center\" href=\"notification-detail\">\r\n");
-      out.write("                                                <div>\r\n");
-      out.write("                                                    <div class=\"small text-gray-500\">April 12, 2022</div>\r\n");
-      out.write("                                                    <span class=\"font-weight-bold\">We will sale-off all products in next month.</span>\r\n");
-      out.write("                                                </div>\r\n");
-      out.write("                                            </a>\r\n");
-      out.write("                                        </li>\r\n");
-      out.write("                                        <li>\r\n");
-      out.write("                                            <a class=\"dropdown-item d-flex align-items-center\" href=\"notification-detail\">\r\n");
-      out.write("                                                <div>\r\n");
-      out.write("                                                    <div class=\"small text-gray-500\">April 12, 2022</div>\r\n");
-      out.write("                                                    Your order #5946221 had accepted.\r\n");
-      out.write("                                                </div>\r\n");
-      out.write("                                            </a>\r\n");
-      out.write("                                        </li>\r\n");
-      out.write("                                        <div class=\"text-center btn-secondary\">\r\n");
-      out.write("                                            <a href=\"notifications\" style=\"color: white; font-size: 10px\" >Show all Notifications</a>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </ul>\r\n");
-      out.write("                                </li>\r\n");
+      out.write("                                    ");
+      if (_jspx_meth_c_if_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                    ");
+      if (_jspx_meth_c_if_1(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                ");
+      if (_jspx_meth_c_if_2(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                                        ");
+      if (_jspx_meth_c_if_3(_jspx_page_context))
+        return;
+      out.write("                               \r\n");
       out.write("                            </ul>  \r\n");
       out.write("                        </nav>\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <!--main menu end-->\r\n");
       out.write("                    <div class=\"header_right_sidebar d-flex align-items-center\">\r\n");
-      out.write("                        <div class=\"cart_btn\">\r\n");
-      out.write("                            <a class=\"btn btn-link\" href=\"");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/cart\">Cart <img width=\"15\" height=\"15\" src=\"assets/img/icon/shopping-cart.png\" alt=\"\"> </a>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"canvas_open\">\r\n");
-      out.write("                            <button type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#offcanvasMenu\"><i class=\"icofont-navigation-menu\"></i></button>\r\n");
-      out.write("                        </div>\r\n");
+      out.write("                        ");
+      if (_jspx_meth_c_if_4(_jspx_page_context))
+        return;
+      out.write("\r\n");
+      out.write("                        ");
+      if (_jspx_meth_c_if_5(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
       out.write("    </div>\r\n");
+      out.write("\r\n");
       out.write("</header>\r\n");
+      out.write("<!-- Logout Modal -->\r\n");
+      out.write("<div class=\"modal fade\" id=\"logoutModal\" tabindex=\"-10\" role=\"dialog\" aria-labelledby=\"exampleModalCenterTitle\" aria-hidden=\"true\">\r\n");
+      out.write("    <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n");
+      out.write("        <div class=\"modal-content\">\r\n");
+      out.write("            <div class=\"modal-header\">\r\n");
+      out.write("                <h5 class=\"modal-title\" style=\"color: black\" id=\"exampleModalLongTitle\">Are you sure Logout?</h5>\r\n");
+      out.write("            </div>\r\n");
+      out.write("            <div class=\"modal-body\">\r\n");
+      out.write("                <div class=\"container\" style=\"color: black\" >\r\n");
+      out.write("                    Select \"Logout\" below if you are sure to logout this account.\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("            <div class=\"modal-footer\">\r\n");
+      out.write("                <button class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Close</button>\r\n");
+      out.write("                <a href=\"logout\" class=\"btn btn-danger\">Logout</a>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("        <!-- page wrapper start -->\r\n");
@@ -198,7 +201,9 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"hero_content\">\r\n");
       out.write("                                    <h1 class=\"wow fadeInUp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">Newest Game <br>\r\n");
       out.write("                                        Selling Today.</h1>\r\n");
-      out.write("                                    <p class=\"wow fadeInUp\" data-wow-delay=\"0.2s\" data-wow-duration=\"1.2s\">Simply text of the printing and typesetting industry.</p>\r\n");
+      out.write("                                    <p class=\"wow fadeInUp\" data-wow-delay=\"0.2s\" data-wow-duration=\"1.2s\">");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lastProduct.productName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</p>\r\n");
       out.write("                                    <a class=\"btn btn-link wow fadeInUp\" data-wow-delay=\"0.3s\" data-wow-duration=\"1.3s\" href=\"product-details\">Buy now <img width=\"20\" height=\"20\" src=\"assets/img/icon/arrrow-icon.webp\" alt=\"\"> </a>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
@@ -206,22 +211,28 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>    \r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"hero_position_img\">\r\n");
-      out.write("                    <img width=\"926\" height=\"772\" src=\"assets/img/player/list/player-1.webp\" alt=\"\">\r\n");
+      out.write("                    <img width=\"926\" height=\"772\" src=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lastProduct.productImgURL}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" style=\"border-radius: 5px\" alt=\"\">\r\n");
       out.write("                </div>\r\n");
       out.write("            </section>\r\n");
       out.write("            <!--slider area end-->\r\n");
       out.write("            <section>\r\n");
       out.write("                <div class=\"container\">\r\n");
-      out.write("                    <div class=\"row\">\r\n");
-      out.write("                        <div class=\"col-11\">\r\n");
-      out.write("                            <div class=\"form_input\">\r\n");
-      out.write("                                <input placeholder=\"Search your Game\" type=\"text\">\r\n");
+      out.write("                    <form action=\"search\" method=\"post\">\r\n");
+      out.write("                        <div class=\"row\">\r\n");
+      out.write("                            <div class=\"col-11\">\r\n");
+      out.write("                                <div class=\"form_input\">\r\n");
+      out.write("                                    <input name=\"txtSearch\" placeholder=\"Search here\" type=\"text\">\r\n");
+      out.write("                                    <input name=\"categoryID\" placeholder=\"Search here\" type=\"text\" hidden=\"\" value=\"0\">\r\n");
+      out.write("                                    <input name=\"price\" placeholder=\"Search here\" type=\"text\" hidden=\"\" value=\"0\">\r\n");
+      out.write("                                </div>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <div class=\"col-1\">\r\n");
+      out.write("                                <button class=\"btn btn-primary\" style=\"height: 62px\" type=\"submit\">SEARCH</button>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
-      out.write("                        <div class=\"col-1\">\r\n");
-      out.write("                            <button class=\"btn btn-primary\" style=\"height: 62px\">SEARCH</button>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("                    </form>\r\n");
       out.write("                </div>\r\n");
       out.write("            </section>\r\n");
       out.write("            <!-- gaming  world section start -->\r\n");
@@ -232,60 +243,10 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"gaming_world_inner\">\r\n");
       out.write("                        <div class=\"row\">\r\n");
-      out.write("                            <div class=\"col-lg-4 col-md-4 col-sm-6\">\r\n");
-      out.write("                                <div class=\"single_gaming_world wow fadeInUp\" data-bgimg=\"assets/img/others/gaming-world-bg1.webp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">\r\n");
-      out.write("                                    <div class=\"gaming_world_thumb\">\r\n");
-      out.write("                                        <img width=\"156px\" height=\"156px\" src=\"assets/img/others/gaming-world1.webp\" alt=\"\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"gaming_world_text\">\r\n");
-      out.write("                                        <div style=\"height: 100px\">\r\n");
-      out.write("                                            <h3><a href=\"#\">PlayerUnknown's Battlegrounds</a></h3>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <div class=\"row\">\r\n");
-      out.write("                                            <div class=\"col-6\" style=\"font-size:20px; color:gray; text-decoration-line:line-through;\">$100</div>\r\n");
-      out.write("                                            <div class=\"col-6 btn-danger\">-70%</div>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <p>\r\n");
-      out.write("                                        <div class=\"btn-success\" style=\"font-size: 25px\">$25</div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-lg-4 col-md-4 col-sm-6\">\r\n");
-      out.write("                                <div class=\"single_gaming_world wow fadeInUp\" data-bgimg=\"assets/img/others/gaming-world-bg2.webp\" data-wow-delay=\"0.2s\" data-wow-duration=\"1.2s\">\r\n");
-      out.write("                                    <div class=\"gaming_world_thumb\">\r\n");
-      out.write("                                        <img width=\"156px\" height=\"156px\" src=\"assets/img/others/gaming-world2.webp\" alt=\"\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"gaming_world_text\">\r\n");
-      out.write("                                        <div style=\"height: 100px\">\r\n");
-      out.write("                                            <h3><a href=\"#\">League of Legends</a></h3>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <div class=\"row\">\r\n");
-      out.write("                                            <div class=\"col-6\" style=\"font-size:20px; color:gray; text-decoration-line:line-through;\">$300</div>\r\n");
-      out.write("                                            <div class=\"col-6 btn-danger\">-50%</div>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <p>\r\n");
-      out.write("                                        <div class=\"btn-success\" style=\"font-size: 25px\">$115</div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-lg-4 col-md-4 col-sm-6\">\r\n");
-      out.write("                                <div class=\"single_gaming_world wow fadeInUp\" data-bgimg=\"assets/img/others/gaming-world-bg3.webp\" data-wow-delay=\"0.3s\" data-wow-duration=\"1.3s\">\r\n");
-      out.write("                                    <div class=\"gaming_world_thumb\">\r\n");
-      out.write("                                        <img width=\"156px\" height=\"156px\" src=\"assets/img/others/gaming-world3.webp\" alt=\"\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"gaming_world_text\">\r\n");
-      out.write("                                        <div style=\"height: 100px\">\r\n");
-      out.write("                                            <h3><a href=\"#\">Counter-Strike: Global Offensive</a></h3>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <div class=\"row\">\r\n");
-      out.write("                                            <div class=\"col-6\" style=\"font-size:20px; color:gray; text-decoration-line:line-through;\">$200</div>\r\n");
-      out.write("                                            <div class=\"col-6 btn-danger\">-50%</div>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <p>\r\n");
-      out.write("                                        <div class=\"btn-success\" style=\"font-size: 25px\">$100</div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
+      out.write("                            ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
@@ -300,19 +261,28 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"counterup_inner d-flex justify-content-center\">\r\n");
       out.write("                                <div class=\"single_counterup one\">\r\n");
       out.write("                                    <div class=\"counterup_text\">\r\n");
-      out.write("                                        <h2 class=\"counterup color1\">8697</h2>\r\n");
+      out.write("                                        <h2 class=\"counterup color1\">");
+      if (_jspx_meth_c_out_0(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                                        <span>CUSTOMER</span>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"single_counterup two\">\r\n");
       out.write("                                    <div class=\"counterup_text\">\r\n");
-      out.write("                                        <h2 class=\"counterup color2\">428</h2>\r\n");
+      out.write("                                        <h2 class=\"counterup color2\">");
+      if (_jspx_meth_c_out_1(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                                        <span>TOTAL GAMES</span>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                                <div class=\"single_counterup three\">\r\n");
       out.write("                                    <div class=\"counterup_text\">\r\n");
-      out.write("                                        <h2 class=\"counterup color3\">5367</h2>\r\n");
+      out.write("                                        <h2 class=\"counterup color3\">");
+      if (_jspx_meth_c_out_2(_jspx_page_context))
+        return;
+      out.write("</h2>\r\n");
       out.write("                                        <span>SOLD</span>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
@@ -334,103 +304,15 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"popular_gaming_inner wow fadeInUp\" data-wow-delay=\"0.2s\" data-wow-duration=\"1.2s\">\r\n");
       out.write("                        <div class=\"row\">\r\n");
-      out.write("                            <div class=\"col-lg-6 col-md-6\">\r\n");
-      out.write("                                <div class=\"popular_gaming_thumb\">\r\n");
-      out.write("                                    <a href=\"#\"><img width=\"570px\" height=\"330px\" src=\"assets/img/others/popular-game-thumb1.webp\" alt=\"\"></a>\r\n");
-      out.write("                                    <div class=\"gaming_details_btn\">\r\n");
-      out.write("                                        <a class=\"btn btn-link\" href=\"game-details.html\">Game Details <img width=\"20\" height=\"20\" src=\"assets/img/icon/arrrow-icon.webp\" alt=\"\"> </a>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-lg-6 col-md-6\">\r\n");
-      out.write("                                <div class=\"popular_gaming_thumb\">\r\n");
-      out.write("                                    <a href=\"#\"><img width=\"570px\" height=\"330px\" src=\"assets/img/others/popular-game-thumb2.webp\" alt=\"\"></a>\r\n");
-      out.write("                                    <div class=\"gaming_details_btn\">\r\n");
-      out.write("                                        <a class=\"btn btn-link\" href=\"game-details.html\">Game Details <img width=\"20\" height=\"20\" src=\"assets/img/icon/arrrow-icon.webp\" alt=\"\"> </a>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-lg-6 col-md-6\">\r\n");
-      out.write("                                <div class=\"popular_gaming_thumb\">\r\n");
-      out.write("                                    <a href=\"#\"><img width=\"570px\" height=\"330px\" src=\"assets/img/others/popular-game-thumb3.webp\" alt=\"\"></a>\r\n");
-      out.write("                                    <div class=\"gaming_details_btn\">\r\n");
-      out.write("                                        <a class=\"btn btn-link\" href=\"game-details.html\">Game Details <img width=\"20\" height=\"20\" src=\"assets/img/icon/arrrow-icon.webp\" alt=\"\"> </a>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"col-lg-6 col-md-6\">\r\n");
-      out.write("                                <div class=\"popular_gaming_thumb\">\r\n");
-      out.write("                                    <a href=\"#\"><img width=\"570px\" height=\"330px\" src=\"assets/img/others/popular-game-thumb4.webp\" alt=\"\"></a>\r\n");
-      out.write("                                    <div class=\"gaming_details_btn\">\r\n");
-      out.write("                                        <a class=\"btn btn-link\" href=\"game-details.html\">Game Details <img width=\"20\" height=\"20\" src=\"assets/img/icon/arrrow-icon.webp\" alt=\"\"> </a>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
+      out.write("                            ");
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
+        return;
+      out.write("                         \r\n");
       out.write("                        </div>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </section>\r\n");
       out.write("            <!-- popular gaming section end -->\r\n");
-      out.write("\r\n");
-      out.write("            <!-- testimonial section start -->\r\n");
-      out.write("            <section class=\"testimonial_section wow fadeInUp\" data-bgimg=\"assets/img/others/testimonial-bg-fullwidth.webp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">\r\n");
-      out.write("                <div class=\"container\">\r\n");
-      out.write("                    <div class=\"row\">\r\n");
-      out.write("                        <div class=\"col-12\">\r\n");
-      out.write("                            <div class=\"section_title mb-60\">\r\n");
-      out.write("                                <h2>What people’s say <br>\r\n");
-      out.write("                                    ABOUT <span>game studio.</span></h2>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                            <div class=\"testimonial_inner slick__activation slick_navigation\" data-slick='{\r\n");
-      out.write("                                 \"slidesToShow\": 1,\r\n");
-      out.write("                                 \"slidesToScroll\": 1,\r\n");
-      out.write("                                 \"arrows\": true,\r\n");
-      out.write("                                 \"dots\": false,\r\n");
-      out.write("                                 \"autoplay\": false,\r\n");
-      out.write("                                 \"speed\": 300,\r\n");
-      out.write("                                 \"infinite\": true ,  \r\n");
-      out.write("                                 \"responsive\":[  \r\n");
-      out.write("                                 {\"breakpoint\":576, \"settings\": { \"slidesToShow\": 1 } }  \r\n");
-      out.write("                                 ]                                                     \r\n");
-      out.write("                                 }' data-bgimg=\"assets/img/others/testimonial-bg.webp\">\r\n");
-      out.write("                                <div class=\"testimonial_list d-flex align-items-center\">\r\n");
-      out.write("                                    <div class=\"testimonial_thumb\">\r\n");
-      out.write("                                        <img width=\"270\" height=\"319\" src=\"assets/img/others/testimonial-thumb.webp\" alt=\"\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"testimonial_content\">\r\n");
-      out.write("                                        <div class=\"testimonial_desc\">\r\n");
-      out.write("                                            <p>It is a long established fact that a reader will be distracted the\r\n");
-      out.write("                                                readable content of page when looking at it layout the point using\r\n");
-      out.write("                                                lorem Ipsum is that it has a more-or-less normal distribution lette\r\n");
-      out.write("                                                as opposed to using making it look like readable english,\r\n");
-      out.write("                                                many desktop publishing packages and web page now editors.</p>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <div class=\"testimonial_author\">\r\n");
-      out.write("                                            <h3>Randolph Frazier</h3>\r\n");
-      out.write("                                            <span>Top Rated Gamer</span>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"testimonial_list d-flex align-items-center\">\r\n");
-      out.write("                                    <div class=\"testimonial_thumb\">\r\n");
-      out.write("                                        <img width=\"270\" height=\"319\" src=\"assets/img/others/testimonial-thumb.webp\" alt=\"\">\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <div class=\"testimonial_content\">\r\n");
-      out.write("                                        <div class=\"testimonial_desc\">\r\n");
-      out.write("                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus quos consectetur amet blanditiis, facilis esse illo unde saepe facere dolore porro asperiores ducimus, inventore voluptate doloribus odio fugit magnam voluptatum perferendis? Sit quisquam labore adipisci doloremque! Aperiam voluptate modi quasi are nobis.</p>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                        <div class=\"testimonial_author\">\r\n");
-      out.write("                                            <h3>Roar Spring</h3>\r\n");
-      out.write("                                            <span>Top Rated Gamer</span>\r\n");
-      out.write("                                        </div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("            </section>\r\n");
-      out.write("            <!-- testimonial section end -->\r\n");
       out.write("\r\n");
       out.write("            <!-- blog section start -->\r\n");
       out.write("            <section class=\"blog_section mb-90\">\r\n");
@@ -440,64 +322,10 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br> tempor incididunt ut labore et dolore magna</p>\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"row blog_inner\">\r\n");
-      out.write("                        <div class=\"col-lg-6\">\r\n");
-      out.write("                            <div class=\"single_blog d-flex align-items-center wow fadeInUp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">\r\n");
-      out.write("                                <div class=\"blog_thumb\">\r\n");
-      out.write("                                    <a href=\"blog-details.html\"><img width=\"200px\" height=\"200px\" src=\"assets/img/blog/blog1.webp\" alt=\"\"></a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"blog_content\">\r\n");
-      out.write("                                    <div class=\"blog_date\">\r\n");
-      out.write("                                        <span><i class=\"icofont-calendar\"></i>  20 January 2021</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <h3><a href=\"blog-details.html\">if you have seen Apple's\r\n");
-      out.write("                                            recent jabs.</a></h3>\r\n");
-      out.write("                                    <a href=\"blog-details.html\">READ MORE</a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"col-lg-6\">\r\n");
-      out.write("                            <div class=\"single_blog d-flex align-items-center wow fadeInUp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">\r\n");
-      out.write("                                <div class=\"blog_thumb\">\r\n");
-      out.write("                                    <a href=\"blog-details.html\"><img width=\"200px\" height=\"200px\" src=\"assets/img/blog/blog2.webp\" alt=\"\"></a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"blog_content\">\r\n");
-      out.write("                                    <div class=\"blog_date\">\r\n");
-      out.write("                                        <span><i class=\"icofont-calendar\"></i>  20 January 2021</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <h3><a href=\"blog-details.html\">Lorem ipsum dolor sit amet, adipisicing elit.</a></h3>\r\n");
-      out.write("                                    <a href=\"blog-details.html\">READ MORE</a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"col-lg-6\">\r\n");
-      out.write("                            <div class=\"single_blog d-flex align-items-center wow fadeInUp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">\r\n");
-      out.write("                                <div class=\"blog_thumb\">\r\n");
-      out.write("                                    <a href=\"blog-details.html\"><img width=\"200px\" height=\"200px\" src=\"assets/img/blog/blog3.webp\" alt=\"\"></a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"blog_content\">\r\n");
-      out.write("                                    <div class=\"blog_date\">\r\n");
-      out.write("                                        <span><i class=\"icofont-calendar\"></i>  20 January 2021</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <h3><a href=\"blog-details.html\"> Perferendis hic sint are rem, incidunt vitae.</a></h3>\r\n");
-      out.write("                                    <a href=\"blog-details.html\">READ MORE</a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"col-lg-6\">\r\n");
-      out.write("                            <div class=\"single_blog d-flex align-items-center wow fadeInUp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">\r\n");
-      out.write("                                <div class=\"blog_thumb\">\r\n");
-      out.write("                                    <a href=\"blog-details.html\"><img width=\"200\" height=\"200\" src=\"assets/img/blog/blog4.webp\" alt=\"\"></a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                <div class=\"blog_content\">\r\n");
-      out.write("                                    <div class=\"blog_date\">\r\n");
-      out.write("                                        <span><i class=\"icofont-calendar\"></i>  20 January 2021</span>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                    <h3><a href=\"blog-details.html\">if you have seen Apple's\r\n");
-      out.write("                                            recent jabs.</a></h3>\r\n");
-      out.write("                                    <a href=\"blog-details.html\">READ MORE</a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
+      out.write("                        ");
+      if (_jspx_meth_c_forEach_2(_jspx_page_context))
+        return;
+      out.write("\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </section>\r\n");
@@ -547,28 +375,28 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"footer_widget_list\">\r\n");
-      out.write("                                <h3>today’s Game</h3>\r\n");
+      out.write("                                <h3>Administrative Council</h3>\r\n");
       out.write("                                <div class=\"footer_winners_gallery\">\r\n");
       out.write("                                    <div class=\"footer_winners_list d-flex\">\r\n");
       out.write("                                        <div class=\"footer_winners_thumb\">\r\n");
-      out.write("                                            <a href=\"game-details.html\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"assets/img/others/winners1.webp\" alt=\"\"></a>\r\n");
+      out.write("                                            <a href=\"#\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"https://previews.dropbox.com/p/thumb/ABiOx00-7kLUj0iuuHBWZlltnOFTw4C1v0_tTy-877VWATjThugmuyzFkB9t5mLX9uviFalvMEEf5wKRIKoXjAUAmWw6-9BbHdYghbwAFi9t-nOlvHSaBhA3wAdikaPyy2b6ki5QWAOVrzeLyKtn1_5KqXjGu7hhu6eL1gWDZA8puEwckO9Y5HgsFkvR5YFbLXCvW1MmHbycdW76mKp33XYW_OQctIUCgvru4XUSdSWQExQIOUQJ-MRUiEw7139MJA-Pv9_uPa-5udV-hAGzgwDDVSRUFTmXKK6nQYaYEqSgCvI90JxYkOS6NB-P20DsXmdr3LOMO-kSOxAGp332O_0mVPTXiTIdNoehR6RsFgc-YUwuUjZ6Pk4eQ_9cY-b9e7k/p.jpeg\" alt=\"\"></a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"footer_winners_thumb\">\r\n");
-      out.write("                                            <a href=\"game-details.html\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"assets/img/others/winners2.webp\" alt=\"\"></a>\r\n");
+      out.write("                                            <a href=\"#\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"https://previews.dropbox.com/p/thumb/ABjhDQ9b-iH7380-Lr8ddeo9xbcBUu5cUF7h_Hi7s1XiWcLW1OwDBaIcgq1z5t9TKiP3-Lq85U8Saa7QmdKzN4y0uOUmUn330Lk8xeJdLDyFg_uN3jgu8c9RTqnWmkbBd4VAVcWtRnAp4ff0Qeob0TmYdbH57kjQLp14hEPO73s8Mjw0_2uZzHNQndBUxUiLiQfUMhsDr2HDPtX3B767rJ7DLe1gcq7NxryjcqrGXdRIgqBABmdERqvp6ZhpVJfBEk_Da44BD0BvZGCJf_tE1fBDo4Re_4sFBa9j76kTxOSmt3prNgco3Z6t_IWwcKC-BDAI14ZWTPtmTl-CaH0cGft3AJM1DzMOIL1XkaQ6KHTsC3WHGBi3g74xpU6U0Tl48KU/p.png\" alt=\"\"></a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"footer_winners_thumb\">\r\n");
-      out.write("                                            <a href=\"game-details.html\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"assets/img/others/winners3.webp\" alt=\"\"></a>\r\n");
+      out.write("                                            <a href=\"#\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"https://previews.dropbox.com/p/thumb/ABgyH6Ny73nE0bns6i6chcW-JJGtNRScHK6k7MfjxT961ifTs-OLvIDGARoWvHOMPkrE0df6-03xPcW2xN0CUKXfwtSHtAnGStNM1lYGP8_3nL6iWdzvuQLjuOtgyv_YqC98urjH-RKMrbf2NsG2zr-GkwOghBDTYxrD7mVVemCdu3UHmcHil3xbVDaXlywHL5WcFzTbO9ho4D4Vhc6WS3sKt9ELojgTZmPlSb_lO8Age4dIbHzrdrwHy7JqI87v2YEP8G47TreKGTA_dUTP0ul1zXgW0d9fls3gcj5E0LZ4KpziYaGUMXULCYQJJhGMlQZFiaI-BPerR8B9imyBIiLz7_1JUBeHAL576pXbrqFdDJaGg0zufa8ry28sRGU0emk/p.jpeg\" alt=\"\"></a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                    <div class=\"footer_winners_list d-flex\">\r\n");
       out.write("                                        <div class=\"footer_winners_thumb\">\r\n");
-      out.write("                                            <a href=\"game-details.html\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"assets/img/others/winners4.webp\" alt=\"\"></a>\r\n");
+      out.write("                                            <a href=\"#\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"https://previews.dropbox.com/p/thumb/ABiy43OPR4zx8UaPCaVEVenyvD1Mv7vuBD-Uyarc44VyO7-Oza3ldjIU_sOo7-OJCDYtV9pZutenwoLzCt09CSDhqU_CV4bWIosRK571PSjNpcQwogMfVabASKahjoPYzlYGNKO6KB2LUUonQxn1vO1BN2Im4wArFAfsce0rYvwPPeBKtmbuml7Jd1y5-7xJYv4wzGzAryF9y51EOxULE4wnufnfPiegWUbIYDu58x_ZLiy6Pk4oIdlZSzzhR4l3TbTIBnTBPHo__3g8yG6mcs2OWgtzNKYWjtL2g04HuJ7CxeAk56ciKF3_TZcqm15Qz4NoVu1IulRhWYYbeLhhbiIWQ-JiPt98pMaGqO2QzuqeBnar3N_N6VOL3KmuoqOIRIQ/p.jpeg\" alt=\"\"></a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"footer_winners_thumb\">\r\n");
-      out.write("                                            <a href=\"game-details.html\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"assets/img/others/winners5.webp\" alt=\"\"></a>\r\n");
+      out.write("                                            <a href=\"#\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"https://previews.dropbox.com/p/thumb/ABhTCqnlf3tbI-03ngU5qj_3WovAVBCFDnmiPrA4OA_5OwVqCBKgtUaZCbsiRShMsvGbszDkpjiAqxqBHNIPvoV730ySKWy6_jKJHpHcpTKyxMDAl4SpqVhO-_7nyGhr8WK37JLktplS1T5Iz9_g23lbcZ11rY0p4W1_Ksg9IdANjIkUmvX6E27prYg78oOFKLgeA5P0DGpvMRlyBM14ZnHWZxtAJXxwsK92_NtTbcOtofrKq9N2G9UhyJ1JFDS0tgiA_8fF141Gp5IHWr7-WU1hUlfCo-ZZ5L3BKSHDDbKCIQd5VnAuQv8Bn9gTH9O0Z69BUDRhg1alAYJIsfalVHonWIAz2KCsD2LmLUq_-PYm-S672ISU3hhPXq15llATKVM/p.jpeg\" alt=\"\"></a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                        <div class=\"footer_winners_thumb\">\r\n");
-      out.write("                                            <a href=\"game-details.html\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"assets/img/others/winners6.webp\" alt=\"\"></a>\r\n");
+      out.write("                                            <a href=\"#\"><img aria-label=\"game-team\" width=\"75\" height=\"75\" src=\"https://previews.dropbox.com/p/thumb/ABjjDK79YXNWJz23CmvTv9l12jfr-CG5fG6GJmjw5OcJMTBa1_8x8fG20_Uyta_sNve7RWIxc-RPOm3gjZOtVzNun_LXvqiU_8-KFAzWgmp7oZ_2l-Pvj3c_U2sWaQmIk2sr66BQv7RpEwV9hgjARSyJC4IwD4NnlTEIVI53tUMrqHOw1mCS55e7kGl1coOMUT6JML4LwSkDckm0AaMvorGhtg_3fp0iN55y1xpqQXTuApoy9HUKa3Q2yZp0Z4EfXjINCgQfLTpMEda4jBmofuoVgDXTJ1QcD3T5c5YEeMeE6ZGSFJBw9huzK7jPywLLTI-tOkqBMDA-TAkotjP_MSe65t5H703FGO6iCzm9SXjYuhmTpF1QNNhCfJaMeJf1ZRo/p.jpeg\" alt=\"\"></a>\r\n");
       out.write("                                        </div>\r\n");
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
@@ -649,228 +477,442 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
     }
   }
 
-  private boolean _jspx_meth_c_choose_0(PageContext _jspx_page_context)
+  private boolean _jspx_meth_c_if_0(PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
-    //  c:choose
-    org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
-    _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_choose_0.setParent(null);
-    int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
-    if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_0.setParent(null);
+    _jspx_th_c_if_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${(sessionScope.user == null)}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+    if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
-        out.write("            ");
-        if (_jspx_meth_c_when_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
-        out.write("            ");
-        if (_jspx_meth_c_otherwise_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_choose_0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
-        out.write("        ");
-        int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
-      return true;
-    }
-    _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_when_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:when
-    org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
-    _jspx_th_c_when_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    _jspx_th_c_when_0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
-    int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
-    if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("                ");
-        out.write("\r\n");
-        out.write("\r\n");
-        out.write("\r\n");
-        out.write("<!DOCTYPE html>\r\n");
-        out.write("<header class=\"header_section header_transparent sticky-header\">\r\n");
-        out.write("    <div class=\"container\">\r\n");
-        out.write("        <div class=\"row\">\r\n");
-        out.write("            <div class=\"col-12\">\r\n");
-        out.write("                <div class=\"main_header d-flex justify-content-between align-items-center\">\r\n");
-        out.write("                    <div class=\"header_logo\">\r\n");
-        out.write("                        <a class=\"sticky_none\" href=\"home\"><img aria-label=\"logo\" width=\"215\" height=\"79\" src=\"assets/img/logo/logo.webp\" alt=\"\"></a>\r\n");
-        out.write("                    </div>\r\n");
-        out.write("                    <!--main menu start-->\r\n");
-        out.write("                    <div class=\"main_menu d-none d-lg-block\"> \r\n");
-        out.write("                        <nav>  \r\n");
-        out.write("                            <ul class=\"d-flex\">\r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/home\">Home</a></li> \r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/product\">Game</a></li>\r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/post\">Post</a></li>\r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/faq\">Faq</a></li>\r\n");
-        out.write("<!--                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/general\"> General </a></li>-->\r\n");
-        out.write("                                <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/user.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\">Profile</a>\r\n");
-        out.write("                                    <ul class=\"sub_menu\">\r\n");
-        out.write("                                        <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/settings_violet.png\"> Profile</a></li>\r\n");
-        out.write("                                        <li><a href=\"order-history\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/refresh_violet.png\"> Order History</a></li>\r\n");
-        out.write("                                        <li><a href=\"#\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/logout_violet.png\"> Logout</a></li>\r\n");
-        out.write("                                    </ul>\r\n");
-        out.write("                                </li>\r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/cms\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/crown.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\"> <span style=\"color: yellow\">Dashboard</span> </a></li>\r\n");
-        out.write("                                <!--                                <li><a><img width=\"15\" height=\"15\" src=\"assets/img/icon/bell.png\" alt=\"\"></a>-->\r\n");
-        out.write("                                <li><a><img width=\"15\" height=\"15\" src=\"assets/img/icon/bell_noti.png\" alt=\"\"></a>\r\n");
-        out.write("                                    <ul class=\"sub_menu\">\r\n");
-        out.write("                                        <li>\r\n");
-        out.write("                                            <a class=\"dropdown-item d-flex align-items-center\" href=\"notification-detail\">\r\n");
-        out.write("                                                <div>\r\n");
-        out.write("                                                    <div class=\"small text-gray-500\">April 12, 2022</div>\r\n");
-        out.write("                                                    <span class=\"font-weight-bold\">We will sale-off all products in next month.</span>\r\n");
-        out.write("                                                </div>\r\n");
-        out.write("                                            </a>\r\n");
-        out.write("                                        </li>\r\n");
-        out.write("                                        <li>\r\n");
-        out.write("                                            <a class=\"dropdown-item d-flex align-items-center\" href=\"notification-detail\">\r\n");
-        out.write("                                                <div>\r\n");
-        out.write("                                                    <div class=\"small text-gray-500\">April 12, 2022</div>\r\n");
-        out.write("                                                    Your order #5946221 had accepted.\r\n");
-        out.write("                                                </div>\r\n");
-        out.write("                                            </a>\r\n");
-        out.write("                                        </li>\r\n");
-        out.write("                                        <div class=\"text-center btn-secondary\">\r\n");
-        out.write("                                            <a href=\"notifications\" style=\"color: white; font-size: 10px\" >Show all Notifications</a>\r\n");
-        out.write("                                        </div>\r\n");
-        out.write("                                    </ul>\r\n");
-        out.write("                                </li>\r\n");
-        out.write("                            </ul>  \r\n");
-        out.write("                        </nav>\r\n");
-        out.write("                    </div>\r\n");
-        out.write("                    <!--main menu end-->\r\n");
-        out.write("                    <div class=\"header_right_sidebar d-flex align-items-center\">\r\n");
-        out.write("                        <div class=\"cart_btn\">\r\n");
-        out.write("                            <a class=\"btn btn-link\" href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/cart\">Cart <img width=\"15\" height=\"15\" src=\"assets/img/icon/shopping-cart.png\" alt=\"\"> </a>\r\n");
-        out.write("                        </div>\r\n");
-        out.write("                        <div class=\"canvas_open\">\r\n");
-        out.write("                            <button type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#offcanvasMenu\"><i class=\"icofont-navigation-menu\"></i></button>\r\n");
-        out.write("                        </div>\r\n");
-        out.write("                    </div>\r\n");
-        out.write("                </div>\r\n");
-        out.write("            </div>\r\n");
-        out.write("        </div>\r\n");
-        out.write("    </div>\r\n");
-        out.write("</header>\r\n");
-        out.write("\r\n");
-        out.write("            ");
-        int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-    }
-    if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
-      return true;
-    }
-    _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_otherwise_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_choose_0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:otherwise
-    org.apache.taglibs.standard.tag.common.core.OtherwiseTag _jspx_th_c_otherwise_0 = (org.apache.taglibs.standard.tag.common.core.OtherwiseTag) _jspx_tagPool_c_otherwise.get(org.apache.taglibs.standard.tag.common.core.OtherwiseTag.class);
-    _jspx_th_c_otherwise_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_otherwise_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
-    int _jspx_eval_c_otherwise_0 = _jspx_th_c_otherwise_0.doStartTag();
-    if (_jspx_eval_c_otherwise_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      do {
-        out.write("\r\n");
-        out.write("                ");
-        out.write("\r\n");
-        out.write("\r\n");
-        out.write("\r\n");
-        out.write("<!DOCTYPE html>\r\n");
-        out.write("<header class=\"header_section header_transparent sticky-header\">\r\n");
-        out.write("    <div class=\"container\">\r\n");
-        out.write("        <div class=\"row\">\r\n");
-        out.write("            <div class=\"col-12\">\r\n");
-        out.write("                <div class=\"main_header d-flex justify-content-between align-items-center\">\r\n");
-        out.write("                    <div class=\"header_logo\">\r\n");
-        out.write("                        <a class=\"sticky_none\" href=\"home\"><img aria-label=\"logo\" width=\"215\" height=\"79\" src=\"assets/img/logo/logo.webp\" alt=\"\"></a>\r\n");
-        out.write("                    </div>\r\n");
-        out.write("                    <!--main menu start-->\r\n");
-        out.write("                    <div class=\"main_menu d-none d-lg-block\"> \r\n");
-        out.write("                        <nav>  \r\n");
-        out.write("                            <ul class=\"d-flex\">\r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/home\">Home</a></li> \r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/product\">Game</a></li>\r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/post\">Post</a></li>\r\n");
-        out.write("                                <li><a href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/faq\">Faq</a></li>\r\n");
-        out.write("                                <li><a href=\"");
+        out.write("              \r\n");
+        out.write("                                    <li><a href=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("/aboutus\">About us</a></li>\r\n");
-        out.write("                            </ul>  \r\n");
-        out.write("                        </nav>\r\n");
-        out.write("                    </div>\r\n");
-        out.write("                    <!--main menu end-->\r\n");
-        out.write("                    <div class=\"header_right_sidebar d-flex align-items-center\">\r\n");
-        out.write("                        <div class=\"sing_up_btn\">\r\n");
-        out.write("                            <a class=\"btn btn-link\" href=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("/signin\">SIGN IN <img width=\"15\" height=\"15\" src=\"assets/img/icon/arrrow-icon2.webp\" alt=\"\"> </a>\r\n");
-        out.write("                        </div>\r\n");
-        out.write("                        <div class=\"canvas_open\">\r\n");
-        out.write("                            <button type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#offcanvasMenu\"><i class=\"icofont-navigation-menu\"></i></button>\r\n");
-        out.write("                        </div>\r\n");
-        out.write("                    </div>\r\n");
-        out.write("                </div>\r\n");
-        out.write("            </div>\r\n");
-        out.write("        </div>\r\n");
-        out.write("    </div>\r\n");
-        out.write("</header>\r\n");
-        out.write("\r\n");
-        out.write("            ");
-        int evalDoAfterBody = _jspx_th_c_otherwise_0.doAfterBody();
+        out.write("                                    ");
+        int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
       } while (true);
     }
-    if (_jspx_th_c_otherwise_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
       return true;
     }
-    _jspx_tagPool_c_otherwise.reuse(_jspx_th_c_otherwise_0);
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_1 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_1.setParent(null);
+    _jspx_th_c_if_1.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_1 = _jspx_th_c_if_1.doStartTag();
+    if (_jspx_eval_c_if_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                                    <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/user.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\">Profile</a>\r\n");
+        out.write("                                        <ul class=\"sub_menu\">\r\n");
+        out.write("                                            <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/settings_violet.png\"> Profile</a></li>\r\n");
+        out.write("                                            <li><a href=\"order-history\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/refresh_violet.png\"> Order History</a></li>\r\n");
+        out.write("                                            <li><a href=\"#\" class=\"\" data-bs-toggle=\"modal\" data-bs-target=\"#logoutModal\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/logout_violet.png\"> Logout</a></li>\r\n");
+        out.write("                                        </ul>\r\n");
+        out.write("                                    </li>\r\n");
+        out.write("                                ");
+        int evalDoAfterBody = _jspx_th_c_if_1.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_2.setParent(null);
+    _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${(sessionScope.user != null) and (sessionScope.user.userId != 3)}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_2 = _jspx_th_c_if_2.doStartTag();
+    if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("              \r\n");
+        out.write("                                    <li><a href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/cms\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/crown.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\"> <span style=\"color: yellow\">Dashboard</span> </a></li>\r\n");
+        out.write("                                        ");
+        int evalDoAfterBody = _jspx_th_c_if_2.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_3(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_3 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_3.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_3.setParent(null);
+    _jspx_th_c_if_3.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_3 = _jspx_th_c_if_3.doStartTag();
+    if (_jspx_eval_c_if_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                                    <li><a><img width=\"15\" height=\"15\" src=\"assets/img/icon/bell_noti.png\" alt=\"\"></a>\r\n");
+        out.write("                                        <ul class=\"sub_menu\">\r\n");
+        out.write("                                            <li>\r\n");
+        out.write("                                                <a class=\"dropdown-item d-flex align-items-center\" href=\"notification-detail\">\r\n");
+        out.write("                                                    <div>\r\n");
+        out.write("                                                        <div class=\"small text-gray-500\">April 12, 2022</div>\r\n");
+        out.write("                                                        <span class=\"font-weight-bold\">We will sale-off all products in next month.</span>\r\n");
+        out.write("                                                    </div>\r\n");
+        out.write("                                                </a>\r\n");
+        out.write("                                            </li>\r\n");
+        out.write("                                            <li>\r\n");
+        out.write("                                                <a class=\"dropdown-item d-flex align-items-center\" href=\"notification-detail\">\r\n");
+        out.write("                                                    <div>\r\n");
+        out.write("                                                        <div class=\"small text-gray-500\">April 12, 2022</div>\r\n");
+        out.write("                                                        Your order #5946221 had accepted.\r\n");
+        out.write("                                                    </div>\r\n");
+        out.write("                                                </a>\r\n");
+        out.write("                                            </li>\r\n");
+        out.write("                                            <div class=\"text-center btn-secondary\">\r\n");
+        out.write("                                                <a href=\"notifications\" style=\"color: white; font-size: 10px\" >Show all Notifications</a>\r\n");
+        out.write("                                            </div>\r\n");
+        out.write("                                        </ul>\r\n");
+        out.write("                                    </li>    \r\n");
+        out.write("                                ");
+        int evalDoAfterBody = _jspx_th_c_if_3.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_3);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_4(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_4 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_4.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_4.setParent(null);
+    _jspx_th_c_if_4.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user.userId == null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_4 = _jspx_th_c_if_4.doStartTag();
+    if (_jspx_eval_c_if_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                            <div class=\"sing_up_btn\">\r\n");
+        out.write("                                <a class=\"btn btn-link\" href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/signin\">SIGN IN <img width=\"15\" height=\"15\" src=\"assets/img/icon/arrrow-icon2.webp\" alt=\"\"> </a>\r\n");
+        out.write("                            </div>\r\n");
+        out.write("                            <div class=\"canvas_open\">\r\n");
+        out.write("                                <button type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#offcanvasMenu\"><i class=\"icofont-navigation-menu\"></i></button>\r\n");
+        out.write("                            </div>\r\n");
+        out.write("                        ");
+        int evalDoAfterBody = _jspx_th_c_if_4.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_4);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_4);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_if_5(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:if
+    org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_5 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+    _jspx_th_c_if_5.setPageContext(_jspx_page_context);
+    _jspx_th_c_if_5.setParent(null);
+    _jspx_th_c_if_5.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user != null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    int _jspx_eval_c_if_5 = _jspx_th_c_if_5.doStartTag();
+    if (_jspx_eval_c_if_5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      do {
+        out.write("\r\n");
+        out.write("                            <div class=\"cart_btn\">\r\n");
+        out.write("                                <a class=\"btn btn-link\" href=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.request.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("/cart\">Cart <img width=\"15\" height=\"15\" src=\"assets/img/icon/shopping-cart.png\" alt=\"\"> </a>\r\n");
+        out.write("                            </div>\r\n");
+        out.write("                            <div class=\"canvas_open\">\r\n");
+        out.write("                                <button type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#offcanvasMenu\"><i class=\"icofont-navigation-menu\"></i></button>\r\n");
+        out.write("                            </div>\r\n");
+        out.write("                        ");
+        int evalDoAfterBody = _jspx_th_c_if_5.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+    }
+    if (_jspx_th_c_if_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_5);
+      return true;
+    }
+    _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listTop3ProductSale}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setVar("product");
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                <div class=\"col-lg-4 col-md-4 col-sm-6\">\r\n");
+          out.write("                                    <div class=\"single_gaming_world wow fadeInUp\" data-bgimg=\"assets/img/others/gaming-world-bg1.webp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">\r\n");
+          out.write("                                        <div class=\"gaming_world_thumb\">\r\n");
+          out.write("                                            <img width=\"156px\" height=\"156px\" src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.productImgURL}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" style=\"border-radius: 5px\" alt=\"\">\r\n");
+          out.write("                                        </div>\r\n");
+          out.write("                                        <div class=\"gaming_world_text\">\r\n");
+          out.write("                                            <div style=\"height: 120px\">\r\n");
+          out.write("                                                <h3><a href=\"productDetails?productID=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.productID}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.productName}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a></h3>\r\n");
+          out.write("                                            </div>\r\n");
+          out.write("                                            <div class=\"row\">\r\n");
+          out.write("                                                <div class=\"col-6\" style=\"font-size:20px; color:gray; text-decoration-line:line-through;\">$");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.originalPrice}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</div>\r\n");
+          out.write("                                                <div class=\"col-6 btn-danger\">-");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.salePercent}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("%</div>\r\n");
+          out.write("                                            </div>\r\n");
+          out.write("                                            <p>\r\n");
+          out.write("                                            <div class=\"btn-success\" style=\"font-size: 25px\">$");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.sellPrice}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</div>\r\n");
+          out.write("                                        </div>\r\n");
+          out.write("                                    </div>\r\n");
+          out.write("                                </div>\r\n");
+          out.write("                            ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_0.setParent(null);
+    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${countUser}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
+    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_1 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_1.setParent(null);
+    _jspx_th_c_out_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${countProduct}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_1 = _jspx_th_c_out_1.doStartTag();
+    if (_jspx_th_c_out_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:out
+    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_2 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
+    _jspx_th_c_out_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_out_2.setParent(null);
+    _jspx_th_c_out_2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${countOrderDetail}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_out_2 = _jspx_th_c_out_2.doStartTag();
+    if (_jspx_th_c_out_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_2);
+      return true;
+    }
+    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listTop4Pupular}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_1.setVar("pupular");
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                                <div class=\"col-lg-6 col-md-6\">\r\n");
+          out.write("                                    <div class=\"popular_gaming_thumb\">\r\n");
+          out.write("                                        <a href=\"productDetails?productID=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pupular.productID}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\"><img width=\"100px\" height=\"100px\" src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pupular.productImgURL}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" alt=\"\"></a>\r\n");
+          out.write("                                        <div class=\"gaming_details_btn\">\r\n");
+          out.write("                                            <a class=\"btn btn-link\" href=\"game-details.html\">Game Details <img width=\"20\" height=\"20\" src=\"assets/img/icon/arrrow-icon.webp\" alt=\"\"> </a>\r\n");
+          out.write("                                        </div>\r\n");
+          out.write("                                    </div>\r\n");
+          out.write("                                </div>\r\n");
+          out.write("                            ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_1);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_2.setParent(null);
+    _jspx_th_c_forEach_2.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${listTop4LastestPost}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_2.setVar("post");
+    int[] _jspx_push_body_count_c_forEach_2 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_2 = _jspx_th_c_forEach_2.doStartTag();
+      if (_jspx_eval_c_forEach_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                            <div class=\"col-lg-6\">\r\n");
+          out.write("                                <div class=\"single_blog d-flex align-items-center wow fadeInUp\" data-wow-delay=\"0.1s\" data-wow-duration=\"1.1s\">\r\n");
+          out.write("                                    <div class=\"blog_thumb\">\r\n");
+          out.write("                                        <a href=\"blog-details.html\"><img width=\"200px\" height=\"200px\" src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${post.imageLinkThumbnail}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" style=\"border-radius: 10px\" alt=\"\"></a>\r\n");
+          out.write("                                    </div>\r\n");
+          out.write("                                    <div class=\"blog_content\">\r\n");
+          out.write("                                        <div class=\"blog_date\">\r\n");
+          out.write("                                            <span><i class=\"icofont-calendar\"></i>  ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${post.date}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</span>\r\n");
+          out.write("                                        </div>\r\n");
+          out.write("                                        <h3><a href=\"blog-details.html\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${post.title}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a></h3>\r\n");
+          out.write("                                        <a href=\"blog-details.html\">READ MORE</a>\r\n");
+          out.write("                                    </div>\r\n");
+          out.write("                                </div>\r\n");
+          out.write("                            </div>\r\n");
+          out.write("                        ");
+          int evalDoAfterBody = _jspx_th_c_forEach_2.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_2[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_2.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_2.doFinally();
+      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_2);
+    }
     return false;
   }
 }

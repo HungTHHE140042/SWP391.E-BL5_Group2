@@ -4,6 +4,8 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -53,69 +55,75 @@
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
-                
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    Admin
-                </div>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-account">
-                        <i class="fas fa-user"></i>
-                        <span>Accounts</span></a>
-                </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
 
                 <!-- Heading -->
-                <div class="sidebar-heading">
-                    Seller
-                </div>
+                <c:if test="${sessionScope.user.roleId == 1}">
+                    <div class="sidebar-heading">
+                        Admin
+                    </div>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-product">
-                        <i class="fas fa-gamepad"></i>
-                        <span>Products</span></a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-account">
+                            <i class="fas fa-user"></i>
+                            <span>Accounts</span></a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-order">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Orders</span></a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+                </c:if>
                 <!-- Heading -->
-                <div class="sidebar-heading">
-                    Marketing
-                </div>
+                <c:if test="${(sessionScope.user.roleId == 1) or (sessionScope.user.roleId == 2)}">
+                    <div class="sidebar-heading">
+                        Seller
+                    </div>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-post">
-                        <i class="fas fa-file"></i>
-                        <span>Posts</span></a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-product">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Products</span></a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-faq">
-                        <i class="fas fa-question-circle"></i>
-                        <span>FAQs</span></a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-order">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span></a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="dashboard-notification">
-                        <i class="fas fa-bell"></i>
-                        <span>Notifications</span></a>
-                </li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+                </c:if>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
+                <c:if test="${(sessionScope.user.roleId == 1) or (sessionScope.user.roleId == 4)}">
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        Marketing
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-post">
+                            <i class="fas fa-file"></i>
+                            <span>Posts</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-faq">
+                            <i class="fas fa-question-circle"></i>
+                            <span>FAQs</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-notification">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span></a>
+                    </li>
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider d-none d-md-block">
+                </c:if>
+
 
                 <!-- Sidebar Toggler (Sidebar) -->
                 <div class="text-center d-none d-md-inline">
@@ -508,7 +516,7 @@
         <!-- Page level custom scripts -->
         <script src="dashboard/js/demo/chart-area-demo.js"></script>
         <script src="dashboard/js/demo/chart-pie-demo.js"></script>
-        
+
         <script src="https://kit.fontawesome.com/228aa84c51.js" crossorigin="anonymous"></script>
 
     </body>
