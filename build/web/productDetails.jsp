@@ -106,28 +106,28 @@
                                     <div class="comments_title">
                                         <h2>Review:</h2>
                                     </div>
-                                    <div class="comment_list d-flex">
-                                        <div class="comment_content">
-                                            <h3>Randolph Frazier</h3>
-                                            <div class="game__review d-flex align-items-center">
-                                                <span> 28 January, 2021</span>
+                                    <c:forEach items="${review}" var="r">
+                                        <div class="comment_list d-flex">
+                                            <div class="comment_content">
+                                                <h3>${r.username}</h3>
+                                                <div class="game__review d-flex align-items-center">
+                                                    <span>${r.date}</span>
+                                                </div>
+                                                <p>${r.reviewDetail}</p>
                                             </div>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
-                                                unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                                with desktop publishing software like including versions.</p>
                                         </div>
-                                    </div>
-                                    <div class="comment_list d-flex">
-                                        <div class="comment_content">
-                                            <h3>Kenia Bumgarner</h3>
-                                            <div class="game__review d-flex align-items-center">
-                                                <span> 28 January, 2021</span>
+                                        <div class="comment_list d-flex">
+                                            <div class="comment_content">
+                                                <h3>Kenia Bumgarner</h3>
+                                                <div class="game__review d-flex align-items-center">
+                                                    <span> 28 January, 2021</span>
+                                                </div>
+                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
+                                                    unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
+                                                    with desktop publishing software like including versions.</p>
                                             </div>
-                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem sum has been 
-                                                unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                                with desktop publishing software like including versions.</p>
                                         </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                                 <div class="comments_form">
                                     <div class="comments_form_inner">
