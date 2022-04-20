@@ -65,7 +65,7 @@
 
         <!-- page wrapper start -->
         <div class="page_wrapper container mb-100">
-            <section class="h-100 h-custom mb-25">
+            <section class="mb-50">
                 <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-lg-8 col-xl-6">
@@ -127,6 +127,21 @@
                                         </tbody>
                                     </table>
                                     <hr>
+                                    <form method="post" action="">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <input type="hidden" name="cartId" value="">
+                                                <input class="form-control" type="text" name="promotionCode" placeholder="Promotion Code">
+                                            </div>
+                                            <div class="col-1">
+                                                <button type="submit" class="btn btn-info">USE</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr>
+                                    <p class="placeholder-wave">
+                                        <span class="placeholder col-12 bg-secondary"></span>
+                                    </p>
                                     <div class="row my-4">
                                         <div class="col-md-4 offset-md-8 col-lg-4 offset-lg-9">
                                             <div class="btn btn-success">

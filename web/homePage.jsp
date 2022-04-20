@@ -62,7 +62,7 @@
                     </div>    
                 </div>
                 <div class="hero_position_img">
-                    <img width="926" height="772" src="${lastProduct.productImgURL}" style="border-radius: 5px" alt="">
+                    <img width="926px" height="772px" src="${lastProduct.productImgURL}" style="border-radius: 50px" alt="">
                 </div>
             </section>
             <!--slider area end-->
@@ -96,7 +96,7 @@
                                 <div class="col-lg-4 col-md-4 col-sm-6">
                                     <div class="single_gaming_world wow fadeInUp" data-bgimg="assets/img/others/gaming-world-bg1.webp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                         <div class="gaming_world_thumb">
-                                            <img width="156px" height="156px" src="${product.productImgURL}" style="border-radius: 5px" alt="">
+                                            <img width="156px" height="156px" src="${product.productImgURL}" style="border-radius: 10px" alt="">
                                         </div>
                                         <div class="gaming_world_text">
                                             <div style="height: 120px">
@@ -162,8 +162,8 @@
                         <div class="row">
                             <c:forEach items="${listTop4Pupular}" var="pupular">
                                 <div class="col-lg-6 col-md-6">
-                                    <div class="popular_gaming_thumb">
-                                        <a href="productDetails?productID=${pupular.productID}"><img width="100px" height="100px" src="${pupular.productImgURL}" alt=""></a>
+                                    <div class="popular_gaming_thumb text-center">
+                                        <a href="productDetails?productID=${pupular.productID}"><img style="width: 600px; height: 600px;" src="${pupular.productImgURL}" alt=""></a>
                                         <div class="gaming_details_btn">
                                             <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                         </div>
