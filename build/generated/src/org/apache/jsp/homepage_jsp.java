@@ -211,9 +211,9 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>    \r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"hero_position_img\">\r\n");
-      out.write("                    <img width=\"926\" height=\"772\" src=\"");
+      out.write("                    <img width=\"926px\" height=\"772px\" src=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${lastProduct.productImgURL}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\" style=\"border-radius: 5px\" alt=\"\">\r\n");
+      out.write("\" style=\"border-radius: 50px\" alt=\"\">\r\n");
       out.write("                </div>\r\n");
       out.write("            </section>\r\n");
       out.write("            <!--slider area end-->\r\n");
@@ -523,6 +523,7 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                                    <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/user.png\" style=\"position: absolute; left: -20px; top: 6px; margin-right: 2px;\" alt=\"\">Profile</a>\r\n");
         out.write("                                        <ul class=\"sub_menu\">\r\n");
         out.write("                                            <li><a href=\"profile\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/settings_violet.png\"> Profile</a></li>\r\n");
+        out.write("                                            <li><a href=\"changePassword\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/change-password.png\"> Change Password</a></li>\r\n");
         out.write("                                            <li><a href=\"order-history\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/refresh_violet.png\"> Order History</a></li>\r\n");
         out.write("                                            <li><a href=\"#\" class=\"\" data-bs-toggle=\"modal\" data-bs-target=\"#logoutModal\"><img width=\"15\" height=\"15\" src=\"assets/img/icon/logout_violet.png\"> Logout</a></li>\r\n");
         out.write("                                        </ul>\r\n");
@@ -549,7 +550,7 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_2 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_if_2.setPageContext(_jspx_page_context);
     _jspx_th_c_if_2.setParent(null);
-    _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${(sessionScope.user != null) and (sessionScope.user.userId != 3)}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_if_2.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${(sessionScope.user != null) and (sessionScope.user.roleId != 3)}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_if_2 = _jspx_th_c_if_2.doStartTag();
     if (_jspx_eval_c_if_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
@@ -629,7 +630,7 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_4 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_if_4.setPageContext(_jspx_page_context);
     _jspx_th_c_if_4.setParent(null);
-    _jspx_th_c_if_4.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user.userId == null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
+    _jspx_th_c_if_4.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${sessionScope.user == null}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null)).booleanValue());
     int _jspx_eval_c_if_4 = _jspx_th_c_if_4.doStartTag();
     if (_jspx_eval_c_if_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
@@ -712,7 +713,7 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                        <div class=\"gaming_world_thumb\">\r\n");
           out.write("                                            <img width=\"156px\" height=\"156px\" src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${product.productImgURL}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" style=\"border-radius: 5px\" alt=\"\">\r\n");
+          out.write("\" style=\"border-radius: 10px\" alt=\"\">\r\n");
           out.write("                                        </div>\r\n");
           out.write("                                        <div class=\"gaming_world_text\">\r\n");
           out.write("                                            <div style=\"height: 120px\">\r\n");
@@ -829,14 +830,16 @@ public final class homePage_jsp extends org.apache.jasper.runtime.HttpJspBase
         do {
           out.write("\r\n");
           out.write("                                <div class=\"col-lg-6 col-md-6\">\r\n");
-          out.write("                                    <div class=\"popular_gaming_thumb\">\r\n");
+          out.write("                                    <div class=\"popular_gaming_thumb text-center\">\r\n");
           out.write("                                        <a href=\"productDetails?productID=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pupular.productID}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\"><img width=\"100px\" height=\"100px\" src=\"");
+          out.write("\"><img style=\"width: 600px; height: 600px;\" src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pupular.productImgURL}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" alt=\"\"></a>\r\n");
           out.write("                                        <div class=\"gaming_details_btn\">\r\n");
-          out.write("                                            <a class=\"btn btn-link\" href=\"game-details.html\">Game Details <img width=\"20\" height=\"20\" src=\"assets/img/icon/arrrow-icon.webp\" alt=\"\"> </a>\r\n");
+          out.write("                                            <a class=\"btn btn-link\" href=\"productDetails?productID=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pupular.productID}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">Game Details <img width=\"20\" height=\"20\" src=\"assets/img/icon/arrrow-icon.webp\" alt=\"\"> </a>\r\n");
           out.write("                                        </div>\r\n");
           out.write("                                    </div>\r\n");
           out.write("                                </div>\r\n");

@@ -29,7 +29,18 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
-var x = 10;
+var thang1 = $('#dataAreaChart').data('thang1');
+var thang2 = $('#dataAreaChart').data('thang2');
+var thang3 = $('#dataAreaChart').data('thang3');
+var thang4 = $('#dataAreaChart').data('thang4');
+var thang5 = $('#dataAreaChart').data('thang5');
+var thang6 = $('#dataAreaChart').data('thang6');
+var thang7 = $('#dataAreaChart').data('thang7');
+var thang8 = $('#dataAreaChart').data('thang8');
+var thang9 = $('#dataAreaChart').data('thang9');
+var thang10 = $('#dataAreaChart').data('thang10');
+var thang11 = $('#dataAreaChart').data('thang11');
+var thang12 = $('#dataAreaChart').data('thang12');
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -47,7 +58,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, x, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 100, 25000, x],
+      data: [thang1, thang2, thang3, thang4],
     }],
   },
   options: {

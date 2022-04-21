@@ -301,7 +301,6 @@ public class ProductDAO {
                 + "inner join productImg pI\n"
                 + "ON p.productID = pI.productID where pI.type = 1\n"
                 + "order by salePercent desc";
-
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
@@ -325,7 +324,6 @@ public class ProductDAO {
             e.printStackTrace();
             return null;
         }
-
         return list;
     }
 
@@ -335,7 +333,6 @@ public class ProductDAO {
                 + "inner join productImg pI\n"
                 + "ON p.productID = pI.productID where pI.type = 1\n"
                 + "order by P.productID desc";
-
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
@@ -388,7 +385,6 @@ public class ProductDAO {
                 + "p.description, p.originalPrice, p.sellPrice, p.salePercent, \n"
                 + "p.categoryID, p.sellerID, p.amount, p.statusID, p.createdDate, pI.productImgURL\n"
                 + "order by COUNT(od.orderID) desc";
-
         try {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
