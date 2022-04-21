@@ -99,8 +99,7 @@ public class ProductDAO {
         return 0;
     }
     
-    public ArrayList<Product> getProductByID(int id){
-        ArrayList<Product> list = new ArrayList<>();
+    public Product getProductByID(int id){
         query = "select product.*, productImg.productImgURL from product inner join productImg On product.productID = productImg.productID Where productImg.type = 1 AND product.productID = ?";
         try {
             con = u.getConnection();
@@ -122,12 +121,12 @@ public class ProductDAO {
                         rs.getDate("createdDate"),
                         rs.getString("productImgURL").trim());
                             
-                list.add(product);               
+                return product;               
             }
         } catch (Exception e) {
         }
         
-        return list;
+        return null;
     }
     
     public ArrayList<Product> searchProduct(int index, String txtSearch, int categoryId,int price){

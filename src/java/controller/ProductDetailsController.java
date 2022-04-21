@@ -9,6 +9,7 @@ import dao.ProductDAO;
 import dao.ReviewDAO;
 import entity.Product;
 import entity.ReviewJoinUser;
+import entity.ReviewReplyJoinUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -41,12 +42,25 @@ public class ProductDetailsController extends HttpServlet {
             int productID = Integer.parseInt(request.getParameter("productID"));
             System.out.println(productID);
             ProductDAO productDAO = new ProductDAO();
-            ArrayList<Product> product = productDAO.getProductByID(productID);
+            Product product = productDAO.getProductByID(productID);
             request.setAttribute("product", product);
             //
             ReviewDAO reviewDAO = new ReviewDAO();
             List<ReviewJoinUser> review = reviewDAO.getAllReviewJoinUserByProductId(productID);
             request.setAttribute("review", review);
+            
+            List<ReviewReplyJoinUser> reviewReplyList = new ArrayList<>();
+            
+            for (ReviewJoinUser reviewJoinUser : review) {
+                int reviewID = reviewJoinUser.getReviewId();
+                ReviewReplyJoinUser reviewReply = reviewDAO.getReviewReplyJoinUserByReviewId(reviewID);
+                reviewReplyList.add(reviewReply);
+            }
+            request.setAttribute("reviewReply", reviewReplyList);
+            //
+//            int reviewID = Integer.parseInt(request.getAttribute("reviewID").toString());
+//            List<ReviewReplyJoinUser> reviewReply = reviewDAO.getAllReviewReplyJoinUserByReviewId(reviewID);
+//            request.setAttribute("reviewReply", reviewReply);
             request.getRequestDispatcher("productDetails.jsp").forward(request, response);
         }
     }
