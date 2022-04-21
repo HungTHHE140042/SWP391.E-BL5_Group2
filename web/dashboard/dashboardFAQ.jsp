@@ -233,7 +233,7 @@
                         </button>
                     </div>
                     <div class="modal-body">Select "Delete" below if you are sure to delete this FAQ.
-                        <form method="post" action="">
+                        <form method="get" action="">
                             <input type="hidden" name="idDelete" id="id">
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -260,7 +260,7 @@
                         <form method="post" action="">
                             <div class="mb-3">
                                 <label for="idEdit" class="col-form-label">ID:</label>
-                                <input type="text" class="form-control" name="id" id="idEdit" disabled="">
+                                <input type="text" class="form-control" name="idEdit" id="idEdit" readonly="">
                             </div>
                             <div class="mb-3">
                                 <label for="titleEdit" class="col-form-label"><span style="color: red">*</span> Title:</label>
@@ -295,11 +295,11 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="title" class="col-form-label"><span style="color: red">*</span> Title:</label>
-                                <input type="text" class="form-control" name="title" required="">
+                                <input type="text" class="form-control" name="titleCreate" required="">
                             </div>
                             <div class="mb-3">
                                 <label for="content" class="col-form-label"><span style="color: red">*</span> Content:</label>
-                                <textarea type="text" class="form-control" name="content" required=""></textarea>
+                                <textarea type="text" class="form-control" name="contentCreate" required=""></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -346,6 +346,7 @@
                 var title = button.data('title');
                 var content = button.data('content');
                 var modal = $(this);
+                console.log(modal)
                 modal.find('.modal-dialog .modal-content .modal-body #idEdit').val(id);
                 modal.find('.modal-dialog .modal-content .modal-body #titleEdit').val(title);
                 modal.find('.modal-dialog .modal-content .modal-body #contentEdit').val(content);

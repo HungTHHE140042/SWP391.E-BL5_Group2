@@ -81,7 +81,8 @@ public class FaqDAO {
         }
         return false;
     }
-        public boolean createFAQ(int authorID, String title, String content) {
+
+    public boolean createFAQ(int authorID, String title, String content) {
         String sql = "INSERT INTO [GameShop].[dbo].[FAQs]([authorID],[title],[content]) VALUES(?, ?, ?)";
         try {
             ps = con.prepareStatement(sql);
@@ -96,9 +97,24 @@ public class FaqDAO {
         }
         return false;
     }
+
+    public boolean removeFaqById(int Id) {
+        String sql = "DELETE FROM [GameShop].[dbo].[FAQs] WHERE ID=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, Id);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         FaqDAO faqDAO = new FaqDAO();
-        boolean count = faqDAO.updateFAQ(4, "1234", "bbbbbbb");
+        boolean count = faqDAO.removeFaqById(16);
         System.out.println(count);
     }
 

@@ -98,7 +98,6 @@ public class ManagementPostController extends HttpServlet {
                 request.getRequestDispatcher("dashboard/dashboardPost.jsp").forward(request, response);
             }
         }
-
     }
 
     /**
