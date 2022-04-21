@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -155,7 +154,6 @@ public class ProductDAO {
                     break;              
             }
             query += " ORDER BY productID OFFSET "+(index-1)*3+" ROWS FETCH NEXT 3 ROWS ONLY";           
-            System.out.println(query);
             con = u.getConnection();
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();

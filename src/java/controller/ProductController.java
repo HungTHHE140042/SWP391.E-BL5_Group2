@@ -35,9 +35,7 @@ public class ProductController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            //int categoryID = Integer.parseInt("".equals(request.getParameter("categoryID")) ? "0" : request.getParameter("categoryID"));
             int categoryID = 0;
-            System.out.println(categoryID);
             String txtSearch = "".equals(request.getParameter("txtSearch")) ? "" : request.getParameter("txtSearch");
             int price = 0;
             int countSearch = 0;

@@ -83,12 +83,11 @@
                                     Price:
                                     <span class="" style="font-size:15px; color:gray; text-decoration-line:line-through;">$${product.originalPrice}</span>
                                     <div class="btn btn-danger">-${product.salePercent}%</div>
-                                    =
                                     <div class="btn btn-success" style="text-align: left; font-size: 30px">$${product.sellPrice}</div>
                                 </div>
                                 <div class="col-6">
                                     <div style="text-align: right;">
-                                        <a class="btn btn-link" href=addtocart?productID=${product.productID}>Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                        <a class="btn btn-link" href="addtocart?productID=${product.productID}">Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                     </div>
                                 </div>
 

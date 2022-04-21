@@ -4,6 +4,7 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -65,10 +66,11 @@
             <table class="cart-table cart-table-rouned table table-light table-hover mb-25 ">
                 <thead>
                     <tr class="">
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">ID Product</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total Price</th>
                         <th class="col-2" scope="col">
                             <div class="text-center">
                                 Remove
@@ -77,26 +79,20 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <c:forEach items="${sessionScope.cart.items}" var="item">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th scope="row">${item.product.productID}</th>
+                        <td>${item.product.productName}</td>
+                        <td>${item.product.sellPrice}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.product.sellPrice*item.quantity}</td>
                         <td class="text-center">
                             <a href="#" class="" data-bs-toggle="modal" data-bs-target="#removeModal" data-id="id here">
                                 <i class="fas fa-times" style="color: red"></i>
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td class="text-center">
-                            <a href="#"><i class="fas fa-times" style="color: red"></i></a>
-                        </td>
-                    </tr>
+                    </c:forEach>
                 </tbody>
             </table>
             <div class="col-12">

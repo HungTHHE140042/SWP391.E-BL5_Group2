@@ -104,42 +104,45 @@
                                 <c:forEach items="${listProduct}" var="product">
                                     <div class="col-lg-4 col-md-6 col-12 mb-50">
                                         <!--  Single Player List Start-->
+                                        <form action="addtocart" method="post">
+                                            <div class="player_list_single_item wow fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1.1s">
+                                                <div class="top">
+                                                    <a class="image" href=""><img width="370px" height="368px" src="${product.productImgURL}" alt=""></a>
+                                                    <div class="overlay">
 
-                                        <div class="player_list_single_item wow fadeInLeft" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                            <div class="top">
-                                                <a class="image" href=""><img width="370px" height="368px" src="${product.productImgURL}" alt=""></a>
-                                                <div class="overlay">
-                                                    <div class="social-link">
-                                                        <a class="btn btn-link" href="game-details.html">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="content">
-                                                <div style="height: 60px;">
-                                                    <h4 class="title" style="line-height: 30px"><a href="productDetails?productID=${product.productID}">${product.productName}</a></h4>
-                                                </div>
-                                                <p>
-
-                                                <div class="">
-                                                    <c:if test="${product.salePercent > 0}">
-                                                        <div class="row" style="height: 28px">
-                                                            <div class="col-6 btn-warning" style="font-size:15px; color:black; text-decoration-line:line-through;">$ ${product.originalPrice}</div>
-                                                            <div class="col-6 btn-danger">-${product.salePercent}%</div>
+                                                        <div class="social-link">
+                                                            <input type="text" name="productID" value="${product.productID}" hidden>
+                                                            <button type="submit" class="btn btn-link">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </button>
                                                         </div>
-                                                    </c:if>
-                                                    <div class="row">
-                                                        <div class="btn-success" style="font-size: 25px">$ ${product.sellPrice}</div>
+
                                                     </div>
                                                 </div>
+                                                <div class="content">
+                                                    <div style="height: 60px;">
+                                                        <h4 class="title" style="line-height: 30px"><a href="productDetails?productID=${product.productID}">${product.productName}</a></h4>
+                                                    </div>
+                                                    <p>
+
+                                                    <div class="">
+                                                        <c:if test="${product.salePercent > 0}">
+                                                            <div class="row" style="height: 28px">
+                                                                <div class="col-6 btn-warning" style="font-size:15px; color:black; text-decoration-line:line-through;">$ ${product.originalPrice}</div>
+                                                                <div class="col-6 btn-danger">-${product.salePercent}%</div>
+                                                            </div>
+                                                        </c:if>
+                                                        <div class="row">
+                                                            <div class="btn-success" style="font-size: 25px">$ ${product.sellPrice}</div>
+                                                        </div>
+                                                    </div>
 
 
-                                                <div class="content-shape-img">
-                                                    <img width="351" height="126" src="assets/img/others/tam-text-shape.webp" alt="">
-                                                    <img width="351" height="126" src="assets/img/others/tam-text-shape2.webp" alt="">
+                                                    <div class="content-shape-img">
+                                                        <img width="351" height="126" src="assets/img/others/tam-text-shape.webp" alt="">
+                                                        <img width="351" height="126" src="assets/img/others/tam-text-shape2.webp" alt="">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-
+                                        </form>
                                         <!--  Single Player List End-->
                                     </div>
                                 </c:forEach>

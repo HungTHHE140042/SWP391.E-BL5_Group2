@@ -41,10 +41,6 @@
         <servlet-class>controller.ErrorController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CartController</servlet-name>
-        <servlet-class>controller.CartController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ProfileController</servlet-name>
         <servlet-class>controller.ProfileController</servlet-class>
     </servlet>
@@ -168,6 +164,10 @@
         <servlet-name>ReviewReplyAddController</servlet-name>
         <servlet-class>controller.ReviewReplyAddController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCartController</servlet-name>
+        <servlet-class>controller.AddToCartController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -214,10 +214,6 @@
     <servlet-mapping>
         <servlet-name>ErrorController</servlet-name>
         <url-pattern>/error</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CartController</servlet-name>
-        <url-pattern>/cart</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProfileController</servlet-name>
@@ -342,6 +338,10 @@
     <servlet-mapping>
         <servlet-name>ReviewReplyAddController</servlet-name>
         <url-pattern>/addReviewReply</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartController</servlet-name>
+        <url-pattern>/addtocart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
