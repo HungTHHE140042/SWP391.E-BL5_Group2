@@ -195,14 +195,14 @@
                                                 <c:if test="${c.roleId == 3}">
                                                     <td>
                                                         <div class="btn btn-outline-warning btn-sm">
-                                                            Marketing
+                                                            Customer
                                                         </div>
                                                     </td>
                                                 </c:if>
                                                 <c:if test="${c.roleId == 4}">
                                                     <td>
                                                         <div class="btn btn-outline-secondary btn-sm">
-                                                            Customer
+                                                            Marketing
                                                         </div>
                                                     </td>
                                                 </c:if>
@@ -320,8 +320,8 @@
                                 <select class="form-control" name="roleId">
                                     <option value="1">Admin</option>
                                     <option value="2">Seller</option>
-                                    <option value="3">Marketing</option>
-                                    <option value="4">Customer</option>
+                                    <option value="3">Customer</option>
+                                    <option value="4">Marketing</option>
                                 </select>
                             </div>
                             <div class="mb-3">

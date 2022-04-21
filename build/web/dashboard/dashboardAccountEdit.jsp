@@ -183,8 +183,8 @@
                                         <select name="roleId" class="form-control">
                                             <option value="1" <c:if test="${user.roleId eq 1}">selected</c:if>>Admin</option>
                                             <option value="2" <c:if test="${user.roleId eq 2}">selected</c:if>>Seller</option>
-                                            <option value="3" <c:if test="${user.roleId eq 3}">selected</c:if>>Marketing</option>
-                                            <option value="4" <c:if test="${user.roleId eq 4}">selected</c:if>>Customer</option>
+                                            <option value="3" <c:if test="${user.roleId eq 3}">selected</c:if>>Customer</option>
+                                            <option value="4" <c:if test="${user.roleId eq 4}">selected</c:if>>Marketing</option>
                                         </select>
                                     </div>
                                 </div>
@@ -198,14 +198,6 @@
                                             <option value="2" <c:if test="${user.statusId eq 2}">selected</c:if>>Not Active</option>
                                             <option value="3" <c:if test="${user.statusId eq 3}">selected</c:if>>Ban</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-1 text-center">
-                                        <span style="color: red">*</span> Password
-                                    </div>
-                                    <div class="col-10">
-                                        <input name="password" class="form-control" type="text" placeholder="Password" value="${user.password}" required="">
                                     </div>
                                 </div>
                                 <div class="div mb-4 mr-4">
