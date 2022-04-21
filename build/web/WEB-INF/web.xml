@@ -164,6 +164,10 @@
         <servlet-name>ReviewAddController</servlet-name>
         <servlet-class>controller.ReviewAddController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReviewReplyAddController</servlet-name>
+        <servlet-class>controller.ReviewReplyAddController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -334,6 +338,10 @@
     <servlet-mapping>
         <servlet-name>ReviewAddController</servlet-name>
         <url-pattern>/addReview</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReviewReplyAddController</servlet-name>
+        <url-pattern>/addReviewReply</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

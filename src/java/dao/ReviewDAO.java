@@ -7,6 +7,7 @@ package dao;
 
 import context.DBContext;
 import entity.ReviewJoinUser;
+import entity.ReviewReplyJoinUser;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -79,4 +80,46 @@ public class ReviewDAO {
         }
         return false;
     }
+    
+    public ReviewReplyJoinUser getReviewReplyJoinUserByReviewId(int reviewId) {
+        String sql = "select * from reviewReplies rr "
+                + "inner join review rv on rr.reviewID=rv.ID "
+                + "inner join [user] u on rr.userID=u.userID "
+                + "inner join role r on r.roleID=u.roleID where rv.ID=?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, reviewId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return (new ReviewReplyJoinUser(rs.getInt("ID"),
+                        rs.getString("username"),
+                        rs.getString("roleName").trim(),
+                        rs.getInt("reviewID"),
+                        rs.getString("repliesText"),
+                        rs.getDate("date")));
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public boolean createReviewReply(int userID, int reviewID, String replyDetail) {
+        String sql = "INSERT INTO reviewReplies(reviewID,userID,repliesText,date) VALUES(?, ?, ?, GETDATE())";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, reviewID);
+            ps.setInt(2, userID);
+            ps.setString(3, replyDetail);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
 }
