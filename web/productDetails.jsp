@@ -87,7 +87,10 @@
                                 </div>
                                 <div class="col-6">
                                     <div style="text-align: right;">
-                                        <a class="btn btn-link" href="addtocart?productID=${product.productID}">Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                        <form action="addtocart" method="post">
+                                            <input type="text" name="productID" value="${product.productID}" hidden>
+                                            <button type="submit" class="btn btn-link">Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt="">  </button>
+                                        </form>
                                     </div>
                                 </div>
 

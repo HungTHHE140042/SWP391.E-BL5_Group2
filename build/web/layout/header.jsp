@@ -79,7 +79,7 @@
                         </c:if>
                         <c:if test="${sessionScope.user != null}">
                             <div class="cart_btn">
-                                <a class="btn btn-link" href="${pageContext.request.contextPath}/cart">Cart <img width="15" height="15" src="assets/img/icon/shopping-cart.png" alt=""> </a>
+                                <a class="btn btn-link" href="cart">Cart <img width="15" height="15" src="assets/img/icon/shopping-cart.png" alt=""> </a>
                             </div>
                             <div class="canvas_open">
                                 <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"><i class="icofont-navigation-menu"></i></button>
