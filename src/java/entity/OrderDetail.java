@@ -10,6 +10,7 @@ package entity;
  * @author Admin
  */
 public class OrderDetail {
+
     private int ID;
     private int orderID;
     private int productID;

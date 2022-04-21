@@ -7,23 +7,26 @@ package dao;
 
 import context.DBContext;
 import entity.Cart;
+import entity.CartDetail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
  * @author MSI
  */
 public class AddToCartDAO {
+
     public AddToCartDAO() {
         createConnection();
     }
-    
+
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    
+
     public void createConnection() {
         DBContext u = new DBContext();
         try {
@@ -34,7 +37,8 @@ public class AddToCartDAO {
             e.printStackTrace();
         }
     }
-    public boolean createCart(int productID,int amount, int userID){
+
+    public boolean createCart(int productID, int amount, int userID) {
         String sql = "Insert into cart(productID,amount,userID) values(?,?,?)";
         try {
             ps = con.prepareStatement(sql);
@@ -49,17 +53,17 @@ public class AddToCartDAO {
         }
         return false;
     }
-    
-    public boolean checkProductCart(int productID, int userID){
-        String sql = "Select * from Cart Where productID = "+productID+" and userID = "+userID+"";
+
+    public boolean checkProductCart(int productID, int userID) {
+        String sql = "Select * from Cart Where productID = " + productID + " and userID = " + userID + "";
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Cart cart = new Cart(rs.getInt("ID"), rs.getInt("productID"), rs.getInt("amount"), rs.getInt("userID"));
                 ps.close();
                 rs.close();
-                if(cart != null){
+                if (cart != null) {
                     return true;
                 }
             }
@@ -68,13 +72,13 @@ public class AddToCartDAO {
         }
         return false;
     }
-    
-    public boolean updateCart(int productID,int amount, int userID){
+
+    public boolean updateCart(int productID, int amount, int userID) {
         if (con == null) {
             createConnection();
         }
         amount += 1;
-        String sql = "update [cart] set amount = "+amount+" where productID = "+productID+" AND  userID = "+userID+" ";
+        String sql = "update [cart] set amount = " + amount + " where productID = " + productID + " AND  userID = " + userID + " ";
         try {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
@@ -84,18 +88,18 @@ public class AddToCartDAO {
         }
         return false;
     }
-    
-    public int getAmountCart(int productID, int userID){
+
+    public int getAmountCart(int productID, int userID) {
         if (con == null) {
             createConnection();
         }
-        String sql = "select amount from cart where productID = "+productID+" AND userID = "+userID+"";
+        String sql = "select amount from cart where productID = " + productID + " AND userID = " + userID + "";
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 int amount = rs.getInt("amount");
-                
+
                 return amount;
             }
         } catch (Exception e) {
@@ -103,10 +107,52 @@ public class AddToCartDAO {
         }
         return 0;
     }
+
+    public ArrayList<CartDetail> getCartByUser(int userID) {
+        if (con == null) {
+            createConnection();
+        }
+        ArrayList<CartDetail> cartDetails = new ArrayList<>();
+        String sql = "Select product.productID, product.productName, product.sellPrice, cart.amount, cart.userID from product "
+                + "Inner join cart on product.productID = cart.productID where userID = ? ";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, userID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                CartDetail cartDetail = new CartDetail(
+                        rs.getInt("productID"),
+                        rs.getString("productName"),
+                        rs.getDouble("sellPrice"),
+                        rs.getInt("amount"));
+
+                cartDetails.add(cartDetail);             
+            }
+            return cartDetails;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     
-    
+    public Boolean removeFromCart(int productID, int userID){
+        if (con == null) {
+            createConnection();
+        }
+        String sql ="delete from cart where productID = "+productID+" AND userID =  "+userID+"";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         AddToCartDAO addToCartDAO = new AddToCartDAO();
-        System.out.println(addToCartDAO.getAmountCart(7, 2));
+        System.out.println(addToCartDAO.removeFromCart(1, 4));
     }
 }

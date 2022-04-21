@@ -12,20 +12,13 @@ import java.util.List;
  * @author MSI
  */
 public class Cart {
+
     private int ID;
     private int productID;
-    private List<Item> items;
     private int amount;
     private int userID;
 
     public Cart() {
-    }
-
-    public Cart(int ID, List<Item> items, int amount, int userID) {
-        this.ID = ID;
-        this.items = items;
-        this.amount = amount;
-        this.userID = userID;
     }
 
     public Cart(int ID, int productID, int amount, int userID) {
@@ -34,7 +27,6 @@ public class Cart {
         this.amount = amount;
         this.userID = userID;
     }
-       
 
     public int getProductID() {
         return productID;
@@ -43,7 +35,7 @@ public class Cart {
     public void setProductID(int productID) {
         this.productID = productID;
     }
-  
+
     public int getID() {
         return ID;
     }
@@ -51,14 +43,6 @@ public class Cart {
     public void setID(int ID) {
         this.ID = ID;
     }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }    
 
     public int getAmount() {
         return amount;
@@ -78,7 +62,7 @@ public class Cart {
 
     @Override
     public String toString() {
-        return "Cart{" + "ID=" + ID + ", items=" + items + ", amount=" + amount + ", userID=" + userID + '}';
+        return "Cart{" + "ID=" + ID + ", productID=" + productID + ", amount=" + amount + ", userID=" + userID + '}';
     }
-    
+
 }

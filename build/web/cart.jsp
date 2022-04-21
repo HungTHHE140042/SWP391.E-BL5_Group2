@@ -79,19 +79,42 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${sessionScope.cart.items}" var="item">
-                    <tr>
-                        <th scope="row">${item.product.productID}</th>
-                        <td>${item.product.productName}</td>
-                        <td>${item.product.sellPrice}</td>
-                        <td>${item.quantity}</td>
-                        <td>$${item.product.sellPrice*item.quantity}</td>
-                        <td class="text-center">
-                            <a href="#" class="" data-bs-toggle="modal" data-bs-target="#removeModal" data-id="id here">
-                                <i class="fas fa-times" style="color: red"></i>
-                            </a>
-                        </td>
-                    </tr>
+                    <c:forEach items="${cartDetails}" var="item">
+                        <tr>
+                            <th scope="row">${item.productID}</th>
+                            <td>${item.productName}</td>
+                            <td>${item.sellPrice}</td>
+
+                            <td class="text-center">
+                                <div class="row text-center">
+                                    <div class="col-2 text-center ">
+                                        <form  action="cart" method="post">
+                                            <button type="submit" class="btn btn-danger mr-2"><i class="fas fa-minus"></i>
+                                            </button>
+                                                <input hidden name="quantity" value="0">
+                                            <input hidden name="proID" value="${item.productID}">
+                                        </form>   
+                                    </div>
+                                    <div class="col-6 text-center" style="padding-left: 28px;">
+                                        ${item.quantity}
+                                    </div>
+                                    <div class="col-2 text-center">
+                                        <form action="cart" method="post">
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
+                                            </button>
+                                                <input hidden name="quantity" value="1">
+                                            <input hidden name="proID" value="${item.productID}">
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>$${item.sellPrice*item.quantity}</td>
+                            <td class="text-center">
+                                <a href="#" class="" data-bs-toggle="modal" data-bs-target="#removeModal" data-id="${item.productID}">
+                                    <i class="fas fa-times" style="color: red"></i>
+                                </a>
+                            </td>
+                        </tr>
                     </c:forEach>
                 </tbody>
             </table>
@@ -103,16 +126,16 @@
         </div>
 
         <!-- page wrapper end -->
-        
 
-        <!-- Remove Modal -->
+
+        <!-- Remove Modal -->     
         <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" style="color: black" id="exampleModalLongTitle">Are you sure Remove?</h5>
                     </div>
-                    <form method="post" action="">
+                    <form method="post" action="cart">
                         <div class="modal-body">
                             <div class="container" style="color: black" >
                                 Select "Remove" below if you are sure to remove this product.
@@ -161,5 +184,6 @@
                 modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
             });
         </script>
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     </body>
 </html>
