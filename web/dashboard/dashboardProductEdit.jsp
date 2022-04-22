@@ -4,6 +4,7 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/png">
 
-        <title>Dashboard</title>
+        <title>Management</title>
 
         <!-- Custom fonts for this template-->
         <link href="dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -147,14 +148,14 @@
                         </div>
 
                         <!-- DataTales Example -->
-                        <form method="post" action="">
+                        <form method="post" action="" enctype="multipart/form-data">
                             <div class="card shadow mb-4">
                                 <div class="row mt-4 mb-4">
                                     <div class="col-1 text-center">
                                         ID
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Username" value="1" disabled="">
+                                        <input class="form-control" type="text" placeholder="ID" name="idEdit" value="${product.productID}" readonly="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -162,7 +163,7 @@
                                         <span style="color: red">*</span> Name
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="Product name" value="PUBG" required="">
+                                        <input class="form-control" type="text" placeholder="Product name" name="name" value="${product.productName}" required="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -170,7 +171,7 @@
                                         <span style="color: red">*</span> URL Image (370x368)
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="" value="https://fap.fpt.edu.vn/Default.aspx" required="">
+                                        <input class="form-control" type="text" placeholder="URL Image (370x368)" name="imageSquare" value="${product.productImgURL}" required="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -178,7 +179,7 @@
                                         <span style="color: red">*</span> URL Image (570x330)
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="text" placeholder="" value="https://fap.fpt.edu.vn/Default.aspx" required="">
+                                        <input class="form-control" type="text" placeholder="URL Image (570x330)" name="imageRectangle" value="${product.productImgUrlDetail}" required="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -186,7 +187,7 @@
                                         <span style="color: red">*</span> Original Price ($)
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="number" placeholder="" value="100" required="">
+                                        <input class="form-control" type="text" placeholder="Original Price" name="originalPrice" value="${product.originalPrice}" required="">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -194,7 +195,7 @@
                                         Sale   Percent (%)
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" type="number" placeholder="" value="50">
+                                        <input class="form-control" type="text" placeholder="Sale Percent" name="salePercent" value="${product.salePercent}">
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -202,10 +203,10 @@
                                         <span style="color: red">*</span> Category
                                     </div>
                                     <div class="col-10">
-                                        <select class="form-control">
-                                            <option value="1">Action</option>
-                                            <option value="2">Teamwork</option>
-                                            <option value="3">Tactic</option>
+                                        <select name="categoryId" class="form-control">
+                                            <c:forEach items="${listCategory}" var="category">
+                                                <option value="${category.categoryID}" <c:if test="${product.categoryID == category.categoryID}">selected</c:if>>${category.categoryName}</option>
+                                            </c:forEach>
                                         </select>
                                     </div>
                                     <div class="col-1 text-center">
@@ -214,38 +215,31 @@
                                 </div>
                                 <div class="row mt-4 mb-4">
                                     <div class="col-1 text-center">
-                                        <span style="color: red">*</span> Amount
-                                    </div>
-                                    <div class="col-10">
-                                        <input class="form-control" type="number" placeholder="" value="12" required="">
-                                    </div>
-                                </div>
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-1 text-center">
                                         <span style="color: red">*</span> Status
                                     </div>
                                     <div class="col-10">
-                                        <select class="form-control">
-                                            <option value="1">Public</option>
-                                            <option value="2">Unpublic</option>
-                                            <option value="3">Out of stock</option>
-                                        </select>
+                                        <select class="form-control" name="statusId">
+                                            <option value="1" <c:if test="${product.statusID == 1}">selected</c:if>>Public</option>
+                                            <option value="2"<c:if test="${product.statusID == 2}">selected</c:if>>Not public</option>
+                                            <option value="3"<c:if test="${product.statusID == 3}">selected</c:if>>Out of stock</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 mb-4">
+                                        <div class="col-1 text-center">
+                                            Description
+                                        </div>
+                                        <div class="col-10">
+                                            <textarea class="form-control" rows="5" name="description">${product.description}</textarea>
                                     </div>
                                 </div>
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-1 text-center">
-                                        Description
-                                    </div>
-                                    <div class="col-10">
-                                        <textarea class="form-control" rows="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electrotypesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and morerecently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
-                                    </div>
-                                </div>
+                                <input type="hidden" name="amount" value="${product.amount}">
                                 <div class="row mt-4 mb-4">
                                     <div class="col-1 text-center">
                                         Add Product key
                                     </div>
                                     <div class="col-10">
-                                        <input class="form-control" accept=".xls,.xlsx" type="file" >
+                                        <input class="form-control" name="product-key-file" accept=".xls,.xlsx" type="file" >
                                     </div>
                                     <div class="col-1 text-center">
                                         <a href="file/product_key_template.xlsx" class="btn btn-warning btn-sm"><i class="fas fa-arrow-circle-down"></i> Template</a>

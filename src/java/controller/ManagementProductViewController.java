@@ -5,6 +5,10 @@
  */
 package controller;
 
+import dao.CategoryDAO;
+import dao.ProductDAO;
+import entity.Category;
+import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author trinh
  */
 public class ManagementProductViewController extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,7 +34,22 @@ public class ManagementProductViewController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("dashboard/dashboardProductView.jsp").forward(request, response);
+        String id = request.getParameter("id");
+
+        if (id != null) {
+            int productId = Integer.parseInt(id);
+            ProductDAO pDAO = new ProductDAO();
+            Product p = pDAO.getProductInformationByProductId(productId);
+            request.setAttribute("product", p);
+            
+            CategoryDAO cDAO = new CategoryDAO();
+            Category category = cDAO.getCategoryByCategoryId(p.getCategoryID());
+            request.setAttribute("category", category);
+            
+            request.getRequestDispatcher("dashboard/dashboardProductView.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     /**

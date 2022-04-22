@@ -97,8 +97,8 @@
         <servlet-class>controller.ManagementProductViewController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ManagementProductEdit</servlet-name>
-        <servlet-class>controller.ManagementProductEdit</servlet-class>
+        <servlet-name>ManagementProductEditController</servlet-name>
+        <servlet-class>controller.ManagementProductEditController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ManagementCategoryController</servlet-name>
@@ -276,7 +276,7 @@
         <url-pattern>/dashboard-product-view</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ManagementProductEdit</servlet-name>
+        <servlet-name>ManagementProductEditController</servlet-name>
         <url-pattern>/dashboard-product-edit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

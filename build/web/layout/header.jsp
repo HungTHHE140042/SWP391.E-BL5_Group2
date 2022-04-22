@@ -37,7 +37,7 @@
                                     </li>
                                 </c:if>
                                 <c:if test="${(sessionScope.user != null) and (sessionScope.user.roleId != 3)}">              
-                                    <li><a href="${pageContext.request.contextPath}/cms"><img width="15" height="15" src="assets/img/icon/crown.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> <span style="color: yellow">Dashboard</span> </a></li>
+                                    <li><a href="${pageContext.request.contextPath}/cms"><img width="15" height="15" src="assets/img/icon/crown.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> <span style="color: yellow">Manage</span> </a></li>
                                         </c:if>
                                         <c:if test="${sessionScope.user != null}">
                                     <li><a><img width="15" height="15" src="assets/img/icon/bell_noti.png" alt=""></a>

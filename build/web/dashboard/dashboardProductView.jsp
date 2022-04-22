@@ -4,6 +4,8 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/png">
 
-        <title>Dashboard</title>
+        <title>Management</title>
 
         <!-- Custom fonts for this template-->
         <link href="dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -153,7 +155,7 @@
                                     ID
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="Username" value="1" disabled="">
+                                    <input class="form-control" type="text" placeholder="Username" value="${product.productID}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -161,7 +163,7 @@
                                     Name
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="Product name" value="PUBG" disabled="">
+                                    <input class="form-control" type="text" placeholder="Product name" value="${product.productName}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -169,7 +171,7 @@
                                     Image (370x368)
                                 </div>
                                 <div class="col-10">
-                                    <img width="100px" src="assets/img/player/list/player-1.webp" alt="">
+                                    <img width="100px" src="${product.productImgURL}" alt="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -177,7 +179,7 @@
                                     Image (570x330)
                                 </div>
                                 <div class="col-10">
-                                    <img width="200px" src="assets/img/others/popular-game-thumb4.webp" alt="">
+                                    <img width="200px" src="${product.productImgUrlDetail}" alt="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -185,7 +187,7 @@
                                     Original Price
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="" value="$100" disabled="">
+                                    <input class="form-control" type="text" placeholder="" value="$${product.originalPrice}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -193,9 +195,11 @@
                                     Sale Percent
                                 </div>
                                 <div class="col-10">
-                                    <div class="btn btn-outline-danger btn-sm">
-                                        -50%
-                                    </div>
+                                    <c:if test="${product.salePercent > 0}">
+                                        <div class="btn btn-outline-danger btn-sm">
+                                            -${product.salePercent}%
+                                        </div>
+                                    </c:if>
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -203,7 +207,7 @@
                                     Sale Price
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="" value="$50" disabled="">
+                                    <input class="form-control" type="text" placeholder="" value="$${product.sellPrice}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -212,7 +216,7 @@
                                 </div>
                                 <div class="col-10">
                                     <select class="form-control" disabled="">
-                                        <option value="1">Action</option>
+                                        <option value="${category.categoryID}">${category.categoryName}</option>
                                     </select>
                                 </div>
                             </div>
@@ -221,7 +225,7 @@
                                     Amount
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="" value="12" disabled="">
+                                    <input class="form-control" type="text" placeholder="" value="${product.amount}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -229,9 +233,21 @@
                                     Status
                                 </div>
                                 <div class="col-10">
-                                    <div class="btn btn-outline-primary btn-sm">
-                                        Public
-                                    </div>
+                                    <c:if test="${product.statusID == 1}">
+                                        <div class="btn btn-outline-primary btn-sm">
+                                            Public
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${product.statusID == 2}">
+                                        <div class="btn btn-outline-secondary btn-sm">
+                                            Not public
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${product.statusID == 3}">
+                                        <div class="btn btn-outline-danger btn-sm">
+                                            Out of stock
+                                        </div>
+                                    </c:if>
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -239,18 +255,18 @@
                                     Description
                                 </div>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows="5" disabled="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electrotypesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and morerecently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
+                                    <textarea class="form-control" rows="5" disabled="">${product.description}</textarea>
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
                                 <div class="col-1 text-center">
-                                    Last Update
+                                    Seller
                                 </div>
                                 <div class="col-10">
-                                    @Admin
+                                    @${product.sellerName}
                                 </div>
                             </div>
-                            
+
                             <div class="div mb-4 mr-4">
                                 <a href="dashboard-product" class="btn btn-danger float-right">
                                     <span class="text">Close</span>
@@ -284,7 +300,7 @@
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-        
+
         <!-- Bootstrap core JavaScript-->
         <script src="dashboard/vendor/jquery/jquery.min.js"></script>
         <script src="dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
