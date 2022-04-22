@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="assets/css/animate.css">
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/loadmore.css">
         <!-- Main Style CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
 
@@ -111,7 +112,7 @@
                                     <h2>Review:</h2>
                                 </div>
                                 <c:forEach items="${review}" var="r">
-                                    <div class="comment_list d-flex">
+                                    <div class="comment_list">
                                         <div class="comment_content">
                                             <h3>${r.username}</h3>
                                             <div class="game__review d-flex align-items-center">
@@ -133,7 +134,7 @@
                                                                     count = count + 1;
                                                                     request.setAttribute("count", count);
                                                                 %>
-                                                                <div class="comment_list d-flex" style="background-color: #535788">
+                                                                <div class="reply_list d-flex" style="background-color: #535788">
                                                                     <div class="comment_content">
                                                                         <h3>${reply.username}(${reply.roleName})</h3>
                                                                         <div class="game__review d-flex align-items-center">
@@ -153,7 +154,7 @@
                                                                         <div class="comments_form_input" >
                                                                             <input type="hidden" name="reviewID" value=${r.reviewId}>
                                                                             <input type="hidden" name="productID" value=${product.productID}>
-                                                                            <textarea style="height: 100px" name="replyDetail" placeholder="Write a reply from here"></textarea>
+                                                                            <textarea required="" style="height: 100px" name="replyDetail" placeholder="Write a reply from here"></textarea>
                                                                         </div>
                                                                         <c:choose>
                                                                             <c:when test="${sessionScope.notifiReply == false}">
@@ -181,18 +182,11 @@
                                         </div>
                                     </div>
                                 </c:forEach>
-                                <div class="comment_list d-flex">
-                                    <div class="comment_content">
-                                        <h3>S1mple</h3>
-                                        <div class="game__review d-flex align-items-center">
-                                            <span> 20 Apr, 2022</span>
-                                        </div>
-                                        <p>I love this game! Thank for purchased!...<br>It is simply dummy text of the printing and typesetting industry. Lorem sum has been 
-                                            unknown printer took a galley of type and scrambled it to make a type specimen book. It has surv
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
+                                <div class="" style="text-align: right">
+                                    <div id="load-more">More...</div>
                                 </div>
                             </div>
+
                             <div class="comments_form">
                                 <div class="comments_form_inner">
                                     <form action="addReview" method="post">
@@ -200,7 +194,7 @@
                                             <div class="col-12">
                                                 <div class="comments_form_input">
                                                     <input type="hidden" name="productID" value=${product.productID}>
-                                                    <textarea style="height: 150px" name="reviewDetail" placeholder="Write a review from here"></textarea>
+                                                    <textarea required="" style="height: 150px" name="reviewDetail" placeholder="Write a review from here"></textarea>
                                                 </div>
                                             </div> 
                                         </div>
@@ -310,5 +304,40 @@
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        let loadMorebtn = document.querySelector('#load-more');
+        let currentItem = 3;
+        loadMorebtn.onclick = () => {
+            if (loadMorebtn.textContent == 'More...') {
+                let boxes = [...document.querySelectorAll('.comments_box .comment_list')];
+                for (var i = currentItem; i < currentItem + 3; i++) {
+                    if (boxes[i] != null) {
+                        boxes[i].style.display = 'block';
+                    }
+                }
+                currentItem += 3;
+                if (currentItem >= boxes.length) {
+                    loadMorebtn.textContent = 'Hide';
+                    //loadMorebtn.style.display = 'none';
+                }
+            } else {
+                let boxes = [...document.querySelectorAll('.comments_box .comment_list')];
+                for (var i = 0; i < boxes.length; i++) {
+                    if (boxes[i] != null) {
+                        boxes[i].style.display = 'none';
+                    }
+                }
+                for (var i = 0; i < 3; i++) {
+                    if (boxes[i] != null) {
+                        boxes[i].style.display = 'block';
+                    }
+                }
+                currentItem = 3;
+                loadMorebtn.textContent = 'More...';
+            }
+        }
+    </script>
+
 </body>
 </html>
