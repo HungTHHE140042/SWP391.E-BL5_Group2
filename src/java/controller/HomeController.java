@@ -25,6 +25,7 @@ import javax.servlet.http.HttpSession;
  * @author trinh
  */
 public class HomeController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -47,7 +48,7 @@ public class HomeController extends HttpServlet {
         String countOrderDetail = orderDetailDAO.countOrderDetail();
         //get the list pupular product data
         List<Product> listTop4Pupular = productDAO.getTop4PupularProduct();
-        
+
         //set data in database to jsp
         request.setAttribute("listTop4Pupular", listTop4Pupular);
         request.setAttribute("countOrderDetail", countOrderDetail);
@@ -56,7 +57,6 @@ public class HomeController extends HttpServlet {
         request.setAttribute("countProduct", countProduct);
         request.setAttribute("lastProduct", lastProduct);
         request.setAttribute("listTop3ProductSale", listTop3ProductSale);
-
         request.getRequestDispatcher("homePage.jsp").forward(request, response);
     }
 
@@ -72,7 +72,7 @@ public class HomeController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     /**

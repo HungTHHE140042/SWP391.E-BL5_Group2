@@ -165,7 +165,7 @@
                                     <div class="popular_gaming_thumb text-center">
                                         <a href="productDetails?productID=${pupular.productID}"><img style="width: 600px; height: 600px;" src="${pupular.productImgURL}" alt=""></a>
                                         <div class="gaming_details_btn">
-                                            <a class="btn btn-link" href="game-details.html">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                                            <a class="btn btn-link" href="productDetails?productID=${pupular.productID}">Game Details <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
                                         </div>
                                     </div>
                                 </div>

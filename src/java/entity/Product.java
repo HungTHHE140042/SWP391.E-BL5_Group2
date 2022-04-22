@@ -153,5 +153,4 @@ public class Product {
     public String toString() {
         return "product{" + "productID=" + productID + ", productName=" + productName + ", description=" + description + ", originalPrice=" + originalPrice + ", sellPrice=" + sellPrice + ", salePercent=" + salePercent + ", categoryID=" + categoryID + ", sellerID=" + sellerID + ", amount=" + amount + ", statusID=" + statusID + ", createdDate=" + createdDate + ", productImgURL=" + productImgURL + '}';
     }
-
 }
