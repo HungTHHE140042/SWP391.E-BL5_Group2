@@ -99,7 +99,7 @@ public class ProductDAO {
     }
 
     public Product getProductByID(int id) {
-        query = "select product.*, productImg.productImgURL from product inner join productImg On product.productID = productImg.productID Where productImg.type = 1 AND product.productID = ?";
+        query = "select product.*, productImg.productImgURL from product inner join productImg On product.productID = productImg.productID Where productImg.type = 2 AND product.productID = ?";
         try {
             con = u.getConnection();
             ps = con.prepareStatement(query);
