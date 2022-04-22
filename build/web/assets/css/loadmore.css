@@ -1,0 +1,28 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 22, 2022, 1:03:30 PM
+    Author     : QUANG HUNG
+*/
+
+#load-more{
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    padding:5px 10px;
+    border:1px solid #334;
+    color:#fff;
+    font-size: 16px;
+    background-color: #b154f0;
+    cursor: pointer;
+}
+
+#load-more:hover{
+    background-color: #1de3eb;
+    border-color: #1de3eb;
+    color:#fff;
+}
