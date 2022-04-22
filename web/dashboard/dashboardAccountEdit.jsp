@@ -16,7 +16,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/png">
 
-        <title>Dashboard</title>
+        <title>Management</title>
 
         <!-- Custom fonts for this template-->
         <link href="dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

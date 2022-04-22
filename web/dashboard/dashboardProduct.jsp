@@ -4,6 +4,7 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/png">
 
-        <title>Dashboard</title>
+        <title>Management</title>
 
         <!-- Custom fonts for this template-->
         <link href="dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -163,108 +164,66 @@
                                                 <th>Name</th>
                                                 <th>370x368</th>
                                                 <th>570x330</th>
-                                                <th>Original Price</th>
-                                                <th>Sale Percent</th>
-                                                <th>Sale Price</th>
+                                                <th class="col-1">Original Price</th>
+                                                <th class="col-1">Sale Percent</th>
+                                                <th class="col-1">Sale Price</th>
                                                 <th>Category</th>
                                                 <th>Amount</th>
-                                                <th>Status</th>
-                                                <th>Last Update</th>
-                                                <th>Action</th>
+                                                <th class="col-1">Status</th>
+                                                <th>Seller</th>
+                                                <th class="col-2 text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>PUBG</td>
-                                                <td><img width="50px" src="assets/img/player/list/player-1.webp" alt=""></td>
-                                                <td><img width="100px" src="assets/img/others/popular-game-thumb4.webp" alt=""></td>
-                                                <td>$100</td>
-                                                <td>
-                                                    <div class="btn btn-outline-danger btn-sm">
-                                                        -50%
-                                                    </div>
-                                                </td>
-                                                <td>$50</td>
-                                                <td>Action</td>
-                                                <td>12</td>
-                                                <td>
-                                                    <div class="btn btn-outline-primary btn-sm">
-                                                        Public
-                                                    </div>
-                                                </td>
-                                                <td>@Seller</td>
-                                                <td>
-                                                    <a href="dashboard-product-view" class="btn btn-warning btn-icon-split btn-sm">
-                                                        <span class="text">View</span>
-                                                    </a>
-                                                    <a href="dashboard-product-edit" class="btn btn-success btn-icon-split btn-sm">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            <c:forEach items="${listProduct}" var="product">
 
-                                            <tr>
-                                                <td>2</td>
-                                                <td>CSGO</td>
-                                                <td><img width="50px" src="assets/img/player/list/player-1.webp" alt=""></td>
-                                                <td><img width="100px" src="assets/img/others/popular-game-thumb4.webp" alt=""></td>
-                                                <td>$200</td>
-                                                <td></td>
-                                                <td>$200</td>
-                                                <td>Action</td>
-                                                <td>13</td>
-                                                <td>
-                                                    <div class="btn btn-outline-secondary btn-sm">
-                                                        Unpublic
-                                                    </div>
-                                                </td>
-                                                <td>@Admin</td>
-                                                <td>
-                                                    <a href="dashboard-product-view" class="btn btn-warning btn-icon-split btn-sm">
-                                                        <span class="text">View</span>
-                                                    </a>
-                                                    <a href="dashboard-product-edit" class="btn btn-success btn-icon-split btn-sm">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>3</td>
-                                                <td>LOL</td>
-                                                <td><img width="50px" src="assets/img/player/list/player-1.webp" alt=""></td>
-                                                <td><img width="100px" src="assets/img/others/popular-game-thumb4.webp" alt=""></td>
-                                                <td>$200</td>
-                                                <td></td>
-                                                <td>$200</td>
-                                                <td>Tactic</td>
-                                                <td>0</td>
-                                                <td>
-                                                    <div class="btn btn-outline-danger btn-sm">
-                                                        Out of stock
-                                                    </div>
-                                                </td>
-                                                <td>@Admin</td>
-                                                <td>
-                                                    <a href="dashboard-product-view" class="btn btn-warning btn-icon-split btn-sm">
-                                                        <span class="text">View</span>
-                                                    </a>
-                                                    <a href="dashboard-product-edit" class="btn btn-success btn-icon-split btn-sm">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-
+                                                <tr>
+                                                    <td>${product.productID}</td>
+                                                    <td>${product.productName}</td>
+                                                    <td><img width="50px" src="${product.productImgURL}" alt=""></td>
+                                                    <td><img width="100px" src="${product.productImgUrlDetail}" alt=""></td>
+                                                    <td>$${product.originalPrice}</td>
+                                                    <td>
+                                                        <c:if test="${product.salePercent > 0}">
+                                                            <div class="btn btn-outline-danger btn-sm">
+                                                                -${product.salePercent}%
+                                                            </div>
+                                                        </c:if>
+                                                    </td>
+                                                    <td>$${product.sellPrice}</td>
+                                                    <td>${product.categoryName}</td>
+                                                    <td>${product.amount}</td>
+                                                    <td>
+                                                        <c:if test="${product.statusID == 1}">
+                                                            <div class="btn btn-outline-primary btn-sm">
+                                                                Public
+                                                            </div>
+                                                        </c:if>
+                                                        <c:if test="${product.statusID == 2}">
+                                                            <div class="btn btn-outline-secondary btn-sm">
+                                                                Not public
+                                                            </div>
+                                                        </c:if>
+                                                        <c:if test="${product.statusID == 3}">
+                                                            <div class="btn btn-outline-danger btn-sm">
+                                                                Out of stock
+                                                            </div>
+                                                        </c:if>
+                                                    </td>
+                                                    <td>@${product.sellerName}</td>
+                                                    <td class="text-center">
+                                                        <a href="dashboard-product-view?id=${product.productID}" class="btn btn-warning btn-icon-split btn-sm">
+                                                            <span class="text">View</span>
+                                                        </a>
+                                                        <a href="dashboard-product-edit?id=${product.productID}" class="btn btn-success btn-icon-split btn-sm">
+                                                            <span class="text">Edit</span>
+                                                        </a>
+                                                        <a class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="${product.productID}">
+                                                            <span class="text">Delete</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody> 
                                     </table>
                                 </div>
@@ -310,11 +269,11 @@
                         </button>
                     </div>
                     <div class="modal-body">Select "Delete" below if you are sure to delete this product.
-                        <form method="post" action="">
+                        <form method="get" action="">
                             <input type="hidden" name="id" id="id">
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-danger" href="login.html">Delete</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </div>
                         </form>
                     </div>
@@ -333,7 +292,7 @@
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <form method="post" action="">
+                    <form method="post" enctype="multipart/form-data" action="">
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="name" class="col-form-label"><span style="color: red">*</span> Product name:</label>
@@ -341,7 +300,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="col-form-label"><span style="color: red">*</span> Price ($):</label>
-                                <input type="number" class="form-control" name="price" required="">
+                                <input type="text" class="form-control" name="price" required="">
                             </div>
                             <div class="mb-3">
                                 <div class="row">
@@ -351,22 +310,22 @@
                                     </div>
                                 </div>
                                 <select class="form-control" name="category">
-                                    <option value="1">Action</option>
-                                    <option value="2">Tactic</option>
-                                    <option value="3">Thriller</option>
+                                    <c:forEach items="${listCategory}" var="cat">
+                                        <option value="${cat.categoryID}">${cat.categoryName}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                             <div class="mb-3">
                                 <label for="image1" class="col-form-label"><span style="color: red">*</span> URL Image (370x368):</label>
-                                <input type="text" class="form-control" name="image1" required="">
+                                <input type="text" class="form-control" name="imageSqu" required="">
                             </div>
                             <div class="mb-3">
                                 <label for="image2" class="col-form-label"><span style="color: red">*</span> URL Image (570x330):</label>
-                                <input type="text" class="form-control" name="image2" required="">
+                                <input type="text" class="form-control" name="imageRec" required="">
                             </div>
                             <div class="mb-3">
                                 <label for="desc" class="col-form-label">Description:</label>
-                                <textarea type="text" class="form-control" name="desc"></textarea>
+                                <textarea type="text" class="form-control" name="description"></textarea>
                             </div>
                             <div class="mb-3">
                                 <div class="row">
@@ -380,7 +339,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success" href="login.html">Create</button>
+                            <button type="submit" class="btn btn-success">Create</button>
                         </div>
                     </form>
                 </div>

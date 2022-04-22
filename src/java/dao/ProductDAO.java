@@ -119,12 +119,11 @@ public class ProductDAO {
                         rs.getInt("statusID"),
                         rs.getDate("createdDate"),
                         rs.getString("productImgURL").trim());
-
                 return product;
+
             }
         } catch (Exception e) {
         }
-
         return null;
     }
 
@@ -154,6 +153,7 @@ public class ProductDAO {
                     break;
             }
             query += " ORDER BY productID OFFSET " + (index - 1) * 3 + " ROWS FETCH NEXT 3 ROWS ONLY";
+            System.out.println(query);
             con = u.getConnection();
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
@@ -389,7 +389,8 @@ public class ProductDAO {
             ps = con.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                list.add(new Product(rs.getInt("productID"),
+                list.add(new Product(
+                        rs.getInt("productID"),
                         rs.getString("productName"),
                         rs.getString("description"),
                         rs.getDouble("originalPrice"),
@@ -409,6 +410,256 @@ public class ProductDAO {
             return null;
         }
         return list;
+    }
+
+    public List<Product> getAllProductInformation() {
+        List<Product> list = new ArrayList<>();
+        query = "select D.*, [user].username\n"
+                + "from\n"
+                + "	(select C.*, category.categoryName \n"
+                + "	from\n"
+                + "		(select A.productID, A.productName, A.[description], A.originalPrice, A.sellPrice, A.salePercent, A.categoryID, A.sellerID, A.amount, A.statusID, A.createdDate, A.ImageSqu, B.ImageRec\n"
+                + "		from \n"
+                + "		(select product.*, (productImg.productImgURL) AS 'ImageSqu' from product, productImg where product.productID = productImg.productID AND productImg.type = 1) AS A\n"
+                + "		JOIN\n"
+                + "		(select product.*, (productImg.productImgURL) AS 'ImageRec' from product, productImg where product.productID = productImg.productID AND productImg.type = 2) AS B\n"
+                + "		ON A.productID = B.productID) AS C\n"
+                + "	JOIN \n"
+                + "	category\n"
+                + "	ON C.categoryID = category.categoryID) AS D\n"
+                + "JOIN [user] ON D.sellerID = [user].userID";
+
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Product(
+                        rs.getInt("productID"),
+                        rs.getString("productName"),
+                        rs.getString("description"),
+                        rs.getDouble("originalPrice"),
+                        rs.getDouble("sellPrice"),
+                        rs.getDouble("salePercent"),
+                        rs.getInt("categoryID"),
+                        rs.getInt("sellerID"),
+                        rs.getInt("amount"),
+                        rs.getInt("statusID"),
+                        rs.getDate("createdDate"),
+                        rs.getString("ImageSqu"),
+                        rs.getString("ImageRec"),
+                        rs.getString("categoryName"),
+                        rs.getString("username"))
+                );
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return list;
+    }
+
+    public Product getProductInformationByProductId(int productId) {
+        query = "select D.*, [user].username\n"
+                + "from\n"
+                + "	(select C.*, category.categoryName \n"
+                + "	from\n"
+                + "		(select A.productID, A.productName, A.[description], A.originalPrice, A.sellPrice, A.salePercent, A.categoryID, A.sellerID, A.amount, A.statusID, A.createdDate, A.ImageSqu, B.ImageRec\n"
+                + "		from \n"
+                + "		(select product.*, (productImg.productImgURL) AS 'ImageSqu' from product, productImg where product.productID = productImg.productID AND productImg.type = 1) AS A\n"
+                + "		JOIN\n"
+                + "		(select product.*, (productImg.productImgURL) AS 'ImageRec' from product, productImg where product.productID = productImg.productID AND productImg.type = 2) AS B\n"
+                + "		ON A.productID = B.productID) AS C\n"
+                + "	JOIN \n"
+                + "	category\n"
+                + "	ON C.categoryID = category.categoryID) AS D\n"
+                + "JOIN [user] ON D.sellerID = [user].userID WHERE D.productID = ?";
+
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, productId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Product p = new Product(rs.getInt("productID"),
+                        rs.getString("productName"),
+                        rs.getString("description"),
+                        rs.getDouble("originalPrice"),
+                        rs.getDouble("sellPrice"),
+                        rs.getDouble("salePercent"),
+                        rs.getInt("categoryID"),
+                        rs.getInt("sellerID"),
+                        rs.getInt("amount"),
+                        rs.getInt("statusID"),
+                        rs.getDate("createdDate"),
+                        rs.getString("ImageSqu"),
+                        rs.getString("ImageRec"),
+                        rs.getString("categoryName"),
+                        rs.getString("username"));
+                ps.close();
+                rs.close();
+                return p;
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return null;
+    }
+
+    public boolean createNewProduct(String name, String desc, double price, int catId, int sellerId, int amount) {
+        String sql = "insert into product(productName, description, originalPrice, sellPrice, salePercent, categoryID, sellerID, amount, statusID, createdDate) values (?, ?, ?, ?, 0, ?, ?, ?, ?, GETDATE())";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, desc);
+            ps.setDouble(3, price);
+            ps.setDouble(4, price);
+            ps.setInt(5, catId);
+            ps.setInt(6, sellerId);
+            ps.setInt(7, amount);
+            ps.setInt(8, 2);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean insertProductImageSquare(int productId, String imgSqu) {
+        String sql = "insert into productImg (productID, productImgUrl, type) values (?, ?, ?)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ps.setString(2, imgSqu);
+            ps.setInt(3, 1);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean insertProductImageRectangle(int productId, String imgRec) {
+        String sql = "insert into productImg (productID, productImgUrl, type) values (?, ?, ?)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ps.setString(2, imgRec);
+            ps.setInt(3, 2);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public void insertProductKey(int productId, String productKey) {
+        String sql = "insert into productKey (productID, productKey, status) values (?, ?, 1)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, productId);
+            ps.setString(2, productKey);
+            ps.executeUpdate();
+            ps.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getNewestProductId() {
+        String sql = "select * from product order by productID DESC";
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("productID");
+                ps.close();
+                rs.close();
+                return id;
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return 0;
+    }
+
+    public boolean deleteProductByProductId(int productId) {
+        String sql1 = "DELETE FROM productKey WHERE productID=?";
+        String sql2 = "DELETE FROM productImg WHERE productID=?";
+        String sql3 = "DELETE FROM product WHERE productID=?";
+        try {
+            ps = con.prepareStatement(sql1);
+            ps.setInt(1, productId);
+            ps.executeUpdate();
+
+            ps = con.prepareStatement(sql2);
+            ps.setInt(1, productId);
+            ps.executeUpdate();
+
+            ps = con.prepareStatement(sql3);
+            ps.setInt(1, productId);
+            ps.executeUpdate();
+
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateProductInformation(int productId, String name, String desc, double originalPrice, double sellPrice, double salePercent, int catId, int amount, int statusId, String imgSqu, String imgRec) {
+        if (con == null) {
+            createConnection();
+        }
+        String sql1 = "update product set productName = ?, description = ?, originalPrice = ?, "
+                + "sellPrice = ?, salePercent = ?, categoryID = ?, amount = ?, statusID = ? "
+                + "where productID = ?";
+        String sql2 = "update productImg set productImgUrl = ?,"
+                + "where productID = ? and type=1";
+        String sql3 = "update productImg set productImgUrl = ?,"
+                + "where productID = ? and type=2";
+        try {
+            ps = con.prepareStatement(sql1);
+            ps.setString(1, name);
+            ps.setString(2, desc);
+            ps.setDouble(3, originalPrice);
+            ps.setDouble(4, sellPrice);
+            ps.setDouble(5, salePercent);
+            ps.setInt(6, catId);
+            ps.setInt(7, amount);
+            ps.setInt(8, statusId);
+            ps.setInt(9, productId);
+            ps.executeUpdate();
+
+            ps = con.prepareStatement(sql2);
+            ps.setString(1, imgSqu);
+            ps.setInt(2, productId);
+            ps.executeUpdate();
+
+            ps = con.prepareStatement(sql2);
+            ps.setString(1, imgRec);
+            ps.setInt(2, productId);
+            ps.executeUpdate();
+
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public static void main(String[] args) {

@@ -48,4 +48,35 @@ public class CategoryDAO {
         }
         return null;
     }
+    
+    public Category getCategoryByCategoryId(int categoryId){
+        DBContext u = new DBContext();
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "Select * from category where categoryID = ?";
+
+        try {
+            con = u.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, categoryId);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Category categories = new Category(
+                        rs.getInt("categoryID"), 
+                        rs.getString("categoryName"));
+                ps.close();
+                rs.close();
+                return categories;
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println("Get all Category error!!!");
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

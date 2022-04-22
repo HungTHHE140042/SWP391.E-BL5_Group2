@@ -26,6 +26,9 @@ public class Product {
     private int statusID;
     private Date createdDate;
     private String productImgURL;
+    private String productImgUrlDetail;
+    private String categoryName;
+    private String sellerName;
 
     public Product() {
     }
@@ -52,6 +55,41 @@ public class Product {
         this.createdDate = createdDate;
         this.productImgURL = productImgURL;
     }
+
+    public Product(int productID, String productName, String description, double originalPrice, double sellPrice, double salePercent, int categoryID, int sellerID, int amount, int statusID, Date createdDate, String productImgURL, String productImgUrlDetail, String categoryName, String sellerName) {
+        this.productID = productID;
+        this.productName = productName;
+        this.description = description;
+        this.originalPrice = originalPrice;
+        this.sellPrice = sellPrice;
+        this.salePercent = salePercent;
+        this.categoryID = categoryID;
+        this.sellerID = sellerID;
+        this.amount = amount;
+        this.statusID = statusID;
+        this.createdDate = createdDate;
+        this.productImgURL = productImgURL;
+        this.productImgUrlDetail = productImgUrlDetail;
+        this.categoryName = categoryName;
+        this.sellerName = sellerName;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
+
 
     public double getSellPrice() {
         return sellPrice;
@@ -148,6 +186,16 @@ public class Product {
     public void setProductImgURL(String productImgURL) {
         this.productImgURL = productImgURL;
     }
+
+    public String getProductImgUrlDetail() {
+        return productImgUrlDetail;
+    }
+
+    public void setProductImgUrlDetail(String productImgUrlDetail) {
+        this.productImgUrlDetail = productImgUrlDetail;
+    }
+    
+    
 
     @Override
     public String toString() {
