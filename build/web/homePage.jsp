@@ -194,8 +194,8 @@
                                         <div class="blog_date">
                                             <span><i class="icofont-calendar"></i>  ${post.date}</span>
                                         </div>
-                                        <h3><a href="blog-details.html">${post.title}</a></h3>
-                                        <a href="blog-details.html">READ MORE</a>
+                                        <h3><a href="post-detail?id=${post.ID}">${post.title}</a></h3>
+                                        <a href="post-detail?id=${post.ID}">READ MORE</a>
                                     </div>
                                 </div>
                             </div>
