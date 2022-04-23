@@ -50,8 +50,8 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="dashboard-product">
-                <i class="fas fa-gamepad"></i>
+            <a class="nav-link" href="pomotionManager">
+                <i class="fas fa-ticket-alt"></i>
                 <span>Promotion</span></a>
         </li>
 
@@ -86,10 +86,9 @@
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span></a>
         </li>
-    </c:if>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
-
+    </c:if>
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

@@ -40,7 +40,7 @@
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
 
-        <%@include file="layout/headerLoged.jsp" %>
+        <%@include file="layout/header.jsp" %>
 
         <!-- breadcrumbs area start -->
         <div class="breadcrumbs_aree breadcrumbs_bg" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
@@ -63,7 +63,7 @@
 
         <!-- page wrapper start -->
         <div class="page_wrapper container mb-100">
-            <section class="h-100 h-custom mb-25">
+            <section class="h-200 h-custom mb-25">
                 <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-lg-8 col-xl-6">

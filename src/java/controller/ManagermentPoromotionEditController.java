@@ -9,7 +9,6 @@ import dao.PromotionDAO;
 import entity.Promotion;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-public class ManagementPomotionController extends HttpServlet {
+public class ManagermentPoromotionEditController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +42,11 @@ public class ManagementPomotionController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PromotionDAO promotionDAO = new PromotionDAO();
-        List<Promotion> listGetAllPromotion = promotionDAO.getAllPromotion();
+        String id = request.getParameter("id");
+        Promotion promotion = promotionDAO.getPromotionByID(id);
 
-        request.setAttribute("listGetAllPromotion", listGetAllPromotion);
-        request.getRequestDispatcher("dashboard/dashboardPromotion.jsp").forward(request, response);
+        request.setAttribute("promotion", promotion);
+        request.getRequestDispatcher("dashboard/dashboardPromotionEdit.jsp").forward(request, response);
     }
 
     /**
@@ -60,16 +60,18 @@ public class ManagementPomotionController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PromotionDAO promotionDAO = new PromotionDAO();
-        String id = request.getParameter("idDelete");
-        if(id != null){
-            promotionDAO.deletePromotion(id);
+        try {
+            PromotionDAO promotionDAO = new PromotionDAO();
+            String id = request.getParameter("id");
+            String getPromotionCode = request.getParameter("promotionCode");
+            String getPrice = request.getParameter("salePercent");
+            String getAmount = request.getParameter("amount");
+            if(promotionDAO.updatePromotion(getPromotionCode, getPrice, getAmount, id)){
+                response.sendRedirect("pomotionManager");
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        String getPromotionCode = request.getParameter("protionCode");
-        String getPrice = request.getParameter("salePercent");
-        String getAmount = request.getParameter("amount");
-        promotionDAO.insertPromotion(getPromotionCode, getAmount, getAmount);
-        response.sendRedirect("pomotionManager");
     }
 
     /**

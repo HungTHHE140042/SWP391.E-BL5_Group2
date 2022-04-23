@@ -40,7 +40,7 @@
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
 
-        <%@include file="layout/headerLoged.jsp" %>
+        <%@include file="layout/header.jsp" %>
 
         <!-- breadcrumbs area start -->
         <div class="breadcrumbs_aree breadcrumbs_bg" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
