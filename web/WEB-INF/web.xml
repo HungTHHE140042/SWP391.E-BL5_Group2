@@ -176,6 +176,10 @@
         <servlet-name>ManagementPomotionController</servlet-name>
         <servlet-class>controller.ManagementPomotionController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagermentPoromotionEditController</servlet-name>
+        <servlet-class>controller.ManagermentPoromotionEditController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -358,6 +362,10 @@
     <servlet-mapping>
         <servlet-name>ManagementPomotionController</servlet-name>
         <url-pattern>/pomotionManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagermentPoromotionEditController</servlet-name>
+        <url-pattern>/promotionEdit</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
