@@ -47,12 +47,18 @@ public class AddToCartController extends HttpServlet {
                     String checkAddCart = "0";
                     session.setAttribute("checkAddCart", checkAddCart);
                     response.sendRedirect("product");
-                } else {
+                } 
+                else if(product.getAmount() == amount){
+                    String checkQuantity = "1";
+                    session.setAttribute("checkQuantity", checkQuantity);
+                    response.sendRedirect("cart");
+                }
+                else  {
                     CartDAO.updateCart(productID, amount, u.getUserId());
                     String checkAddCart = "1";
                     session.setAttribute("checkAddCart", checkAddCart);
                     response.sendRedirect("product");
-                }
+                } 
             } else {
                 if (product.getAmount() == 0) {
                     String checkAddCart = "0";
