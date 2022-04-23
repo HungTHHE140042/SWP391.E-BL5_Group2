@@ -123,6 +123,10 @@ public class ManagementProductController extends HttpServlet {
 
         String uploadFolderPath = getServletContext().getRealPath("/upload") + File.separator + uploadFileName;
 
+        if (uploadFolderPath == null) {
+
+        }
+
         try {
             byte[] byt = new byte[inputStream.available()];
             inputStream.read(byt);
