@@ -70,31 +70,22 @@
                             <div class="blog_details_header text-center">
                                 <div class="blog__meta_date">
                                     <ul class="d-flex justify-content-center">
-                                        <li><span>By</span> Harold Leonard   </li>
-                                        <li> 03 April, 21  </li>
+                                        <li><span>By</span> ${post.username}   </li>
+                                        <li> ${post.date}  </li>
                                     </ul>
                                 </div>
                                 <div class="blog_details_title">
-                                    <h2>How to Start a Video Game from
-                                        mobile & computer.</h2>
+                                    <h2>${post.title}</h2>
                                 </div>
                             </div>
                             <div class="blog_sticky_thumb">
-                                <img width="1170px" height="550px" src="assets/img/blog/blog-sticky.webp" alt="">
+                                <img width="1170px" height="550px" src="${post.imageLinkDetail}" alt="">
                             </div>
                             <div class="blog_details_content ">
                                 <div class="blog_details_content_step">
-                                    <h3 class="title_margin">Make your store stand out from the others by converting more
-                                        shoppers into buyers!</h3>
+                                    <h3 class="title_margin">${post.title}</h3>
                                     <div class="blog_details_desc">   
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry has been industry standard dummy text ever since the
-                                            a galley of type and scrambe make type specimen book has survived not only five centuries text of the printing and typesetin indust
-                                            standard dummy text ever since the 1500s, when an unknown printer.</p> 
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                            ever since the 1500s, when an unknown printer took a galley of type and scirambled it to make a type specimen book. It has survived
-                                            only five centuries, but also the leap into electronic typesetting, remaining the essentially unchanged. It was popularised in the 1960s
-                                            the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing crambled it to make
-                                            specimen book. It has survived nots only five centuries, but also the leap into.</p>  
+                                        <p>${post.content}</p> 
                                     </div> 
                                 </div>
                                 
@@ -115,7 +106,7 @@
             <div class="blog_like_area" data-bgimg="assets/img/blog/blog-like-bg.webp">
                 <div class="container">
                     <div class="blog_like_title">
-                        <h2>You may also like</h2>
+                        <h2>You may also like @${post.username}</h2>
                     </div>
                     <div class="blog_like_inner slick__activation2" data-slick='{
                         "slidesToShow": 2,
@@ -130,87 +121,24 @@
                         {"breakpoint":576, "settings": { "slidesToShow": 1 } }  
                         ]                                                     
                     }'>
-                        <div class="blog_like_list">
+                        <c:forEach items="${listPost}" var="post">
+                            <div class="blog_like_list">
                             <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
                                 <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog1.webp" alt=""></a>
+                                    <a href="post-detail?id=${post.postId}"><img width="200px" height="200px" src="${post.imageLinkThumbnail}" alt=""></a>
                                 </div>
                                 <div class="blog_content">
                                     <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
+                                        <span><i class="icofont-calendar"></i>  ${post.date}</span>
                                     </div>
-                                    <h3><a href="blog-details.html">if you have seen Apple's
-                                        recent jabs.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
+                                    <h3><a href="post-detail?id=${post.postId}">${post.title}</a></h3>
+                                    <a href="post-detail?id=${post.postId}">READ MORE</a>
                                 </div>
                             </div>
                             <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog3.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                    </div>
-                                    <h3><a href="blog-details.html"> Perferendis hic sint are rem, incidunt vitae.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
-                                </div>
                             </div>
                         </div>
-                        <div class="blog_like_list">
-                            <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog2.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                    </div>
-                                    <h3><a href="blog-details.html">Lorem ipsum dolor sit amet, adipisicing elit.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
-                                </div>
-                            </div>
-                            <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog4.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                    </div>
-                                    <h3><a href="blog-details.html">if you have seen Apple's
-                                        recent jabs.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog_like_list">
-                            <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog2.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                    </div>
-                                    <h3><a href="blog-details.html">Lorem ipsum dolor sit amet, adipisicing elit.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
-                                </div>
-                            </div>
-                            <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s" data-wow-duration="1.1s">
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img width="200" height="200" src="assets/img/blog/blog4.webp" alt=""></a>
-                                </div>
-                                <div class="blog_content">
-                                    <div class="blog_date">
-                                        <span><i class="icofont-calendar"></i>  20 January 2021</span>
-                                    </div>
-                                    <h3><a href="blog-details.html">if you have seen Apple's
-                                        recent jabs.</a></h3>
-                                    <a href="blog-details.html">READ MORE</a>
-                                </div>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

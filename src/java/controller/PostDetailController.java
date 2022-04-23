@@ -5,8 +5,12 @@
  */
 package controller;
 
+import dao.PostDAO;
+import entity.PostJoinUser;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +33,16 @@ public class PostDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int postId = Integer.parseInt(request.getParameter("id"));
+        
+        PostDAO pDAO = new PostDAO();
+        PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+        request.setAttribute("post", post);
+        
+        List<PostJoinUser> listPost = new ArrayList<>();
+        listPost = pDAO.getPostByAuthorUsername(post.getUsername());
+        request.setAttribute("listPost", listPost);
+        
         request.getRequestDispatcher("postDetail.jsp").forward(request, response);
     }
 

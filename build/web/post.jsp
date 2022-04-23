@@ -38,72 +38,72 @@
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
         <%@include file="layout/header.jsp" %>
 
-    <!-- breadcrumbs area start -->
-    <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumbs_text text-center">
-                        <h1>Post PAGE</h1>
-                        <ul class="d-flex justify-content-center">
-                            <li><a href="home">Home </a></li>
-                            <li> <span>//</span></li>
-                            <li>  Post </li>
-                        </ul>
+        <!-- breadcrumbs area start -->
+        <div class="breadcrumbs_aree breadcrumbs_bg mb-140" data-bgimg="assets/img/bg/breadcrumbs-bg.webp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumbs_text text-center">
+                            <h1>Post PAGE</h1>
+                            <ul class="d-flex justify-content-center">
+                                <li><a href="home">Home </a></li>
+                                <li> <span>//</span></li>
+                                <li>  Post </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- breadcrumbs area end -->
+        <!-- breadcrumbs area end -->
 
-    <!-- page wrapper start -->
-    <div class="page_wrapper">
+        <!-- page wrapper start -->
+        <div class="page_wrapper">
 
-        <!-- blog page section start -->
-        <section class="blog_page_section mb-140">
+            <!-- blog page section start -->
+            <section class="blog_page_section mb-140">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="blog_page_wrapper">
                                 <div class="blog_page_inner">
                                     <div class="row">
-                                        <div class="col-lg-4 col-sm-6 col-12 mb-50">
-                                            <div class="single_blog_grid d-flex flex-column">
-                                                <div class="blog_thumb">
-                                                    <a href="post-detail"><img width="376px" height="376px" src="assets/img/blog/blog-grid-1.webp" alt=""></a>
-                                                </div>
-                                                <div class="blog_content">
-                                                    <div class="blog_date">
-                                                        <span><i class="icofont-calendar"></i>  20 January 2022</span>
+                                        <c:forEach items="${listPost}" var="post">
+                                            <div class="col-lg-4 col-sm-6 col-12 mb-50">
+                                                <div class="single_blog_grid d-flex flex-column">
+                                                    <div class="blog_thumb">
+                                                        <a href="post-detail?id=${post.postId}"><img width="376px" height="376px" src="${post.imageLinkThumbnail}" alt=""></a>
                                                     </div>
-                                                    <h3><a href="post-detail">It long established fact that reader
-                                                        distracted the readable.</a></h3>
-                                                    
+                                                    <div class="blog_content">
+                                                        <div class="blog_date">
+                                                            <span><i class="icofont-calendar"></i>  ${post.date}</span>
+                                                        </div>
+                                                        <h3><a href="post-detail?id=${post.postId}">${post.title}</a></h3>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
+                                        </c:forEach>
                                     </div>
+
                                 </div>
                                 <div class="pagination pagination_pages">
-                                    <ul>
-                                        <li class="current"><span>1</span></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li class="next"><a href="#"><i class="icofont-rounded-double-right"></i></a></li>
-                                    </ul>
+                                    <c:if test="${total > 1}">
+                                        <ul>
+                                            <c:forEach begin="1" end="${total}" var="page">
+                                                <li><a href="post?page=${page}">${page}</a></li>
+                                                </c:forEach>
+                                        </ul>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-        </section>
-        <!-- blog page section end -->
+            </section>
+            <!-- blog page section end -->
 
-    </div>
-    <!-- page wrapper end -->
+        </div>
+        <!-- page wrapper end -->
 
         <%@include file="layout/footer.jsp" %>
         <!-- JS
