@@ -57,6 +57,8 @@ public class ManagementProductController extends HttpServlet {
         String id = request.getParameter("id");
         ProductDAO pDAO = new ProductDAO();
 
+        request.setAttribute("stt", null);
+
         if (id != null) {
             int idDel = Integer.parseInt(id);
             if (pDAO.deleteProductByProductId(idDel)) {
@@ -69,6 +71,15 @@ public class ManagementProductController extends HttpServlet {
                 listCategory = cDAO.getAll();
                 request.setAttribute("listCategory", listCategory);
 
+                request.setAttribute("stt", "3");
+                request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
+            } else {
+                CategoryDAO cDAO = new CategoryDAO();
+                List<Category> listCategory = new ArrayList<>();
+                listCategory = cDAO.getAll();
+                request.setAttribute("listCategory", listCategory);
+
+                request.setAttribute("stt", "4");
                 request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
             }
         }
@@ -145,6 +156,7 @@ public class ManagementProductController extends HttpServlet {
         User u = (User) session.getAttribute("user");
 
         if (pDAO.createNewProduct(name, desc, price, categoryId, u.getUserId(), listProductKey.size())) {
+            System.out.println(listProductKey.size() + "..");
             int newestId = pDAO.getNewestProductId();
             if (pDAO.insertProductImageSquare(newestId, imgSqu) && pDAO.insertProductImageRectangle(newestId, imgRec)) {
                 for (String key : listProductKey) {
@@ -152,11 +164,24 @@ public class ManagementProductController extends HttpServlet {
                     String encryptKey = AES.encrypt(key, "@ch40_4nh_3m_nh3");
                     pDAO.insertProductKey(newestId, encryptKey);
                 }
+                request.setAttribute("stt", "1");
             } else {
-                request.getRequestDispatcher("error.jsp").forward(request, response);
+                CategoryDAO cDAO = new CategoryDAO();
+                List<Category> listCategory = new ArrayList<>();
+                listCategory = cDAO.getAll();
+                request.setAttribute("listCategory", listCategory);
+
+                request.setAttribute("stt", "2");
+                request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
             }
         } else {
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+            CategoryDAO cDAO = new CategoryDAO();
+            List<Category> listCategory = new ArrayList<>();
+            listCategory = cDAO.getAll();
+            request.setAttribute("listCategory", listCategory);
+
+            request.setAttribute("stt", "2");
+            request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
         }
 
         List<Product> listProduct = new ArrayList<>();

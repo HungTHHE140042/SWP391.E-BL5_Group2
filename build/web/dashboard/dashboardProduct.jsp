@@ -32,6 +32,61 @@
     </head>
 
     <body id="page-top">
+        <c:choose>
+            <c:when test="${stt.equals('1')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header bg-success">
+                            <strong class="mr-auto text-white"><h4>Create Successfully</h4></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Create new Product success.
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+            <c:when test="${stt.equals('2')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header bg-danger">
+                            <strong class="mr-auto text-white"><h4>Create Fail</h4></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Create new Product fail, try again!
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+            <c:when test="${stt.equals('3')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header bg-success">
+                            <strong class="mr-auto text-white"><h4>Delete Successfully</h4></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Delete Product success.
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+            <c:when test="${stt.equals('4')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header bg-danger">
+                            <strong class="mr-auto text-white"><h4>Delete Fail</h4></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Delete Product fail, try again!
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise></c:otherwise>
+        </c:choose>
 
         <!-- Page Wrapper -->
         <div id="wrapper">
@@ -285,6 +340,10 @@
                 console.log(modal);
                 modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
             });
+            
+            $(document).ready(function () {
+            $('.toast').toast('show');
+        });
         </script>
     </body>
 </html>
