@@ -4,6 +4,7 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,6 +32,60 @@
     </head>
 
     <body id="page-top">
+        <c:choose>
+            <c:when test="${msg.equals('0')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header">
+                            <strong class="mr-auto text-danger"><h5>Error</h5></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Error, try again!
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+            <c:when test="${msg.equals('1')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header">
+                            <strong class="mr-auto text-success"><h5>Successfully</h5></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Create new Category success.
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+            <c:when test="${msg.equals('2')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header">
+                            <strong class="mr-auto text-success"><h5>Successfully</h5></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Delete Category success.
+                        </div>
+                    </div>
+                </div>
+            </c:when><c:when test="${msg.equals('3')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header">
+                            <strong class="mr-auto text-success"><h5>Successfully</h5></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Edit Category success.
+                        </div>
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise></c:otherwise>
+        </c:choose>
 
         <!-- Page Wrapper -->
         <div id="wrapper">
@@ -82,42 +137,32 @@
                                             <tr>
                                                 <th class="col-1">ID</th>
                                                 <th>Category</th>
-                                                <th class="col-1">Action</th>
+                                                <th class="col-2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Action</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#editModal" data-id="id here" data-category="Action">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Tactic</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#editModal" data-id="id here" data-category="Action">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            <c:forEach items="${listCategory}" var="cat">
+                                                <tr>
+                                                    <td>${cat.categoryID}</td>
+                                                    <td>${cat.categoryName}</td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#editModal" data-id="${cat.categoryID}" data-category="${cat.categoryName}">
+                                                            <span class="text">Edit</span>
+                                                        </a>
+                                                        <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="${cat.categoryID}">
+                                                            <span class="text">Delete</span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody> 
                                     </table>
                                 </div>
                                 <div class="div m-4">
-                                    <a href="dashboard-product" class="btn btn-info float-right">
+<!--                                    <a href="dashboard-product" class="btn btn-info float-right">
                                         <i class="fas fa-arrow-circle-left"></i>
                                         <span class="text">Back to Products</span>
-                                    </a>
+                                    </a>-->
                                 </div>
                             </div>
                         </div>
@@ -162,10 +207,10 @@
                     </div>
                     <div class="modal-body">Select "Delete" below if you are sure to delete this product.
                         <form method="post" action="">
-                            <input type="hidden" name="id" id="id">
+                            <input type="hidden" name="idDelete" id="id">
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-danger" href="login.html">Delete</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </div>
                         </form>
                     </div>
@@ -188,11 +233,11 @@
                         <form method="post" action="">
                             <div class="mb-3">
                                 <label for="idEdit" class="col-form-label">ID:</label>
-                                <input type="text" class="form-control" name="id" id="idEdit" disabled="">
+                                <input type="text" class="form-control" name="idEdit" id="idEdit" readonly="">
                             </div>
                             <div class="mb-3">
                                 <label for="categoryEdit" class="col-form-label"><span style="color: red">*</span> Category:</label>
-                                <input type="text" class="form-control" name="id" id="categoryEdit" required="">
+                                <input type="text" class="form-control" name="categoryEdit" id="categoryEdit" required="">
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -219,7 +264,7 @@
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="category" class="col-form-label"><span style="color: red">*</span> Category name:</label>
-                                <input type="text" class="form-control" name="category" required="">
+                                <input type="text" class="form-control" name="categoryCreate" required="">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -268,6 +313,10 @@
                 modal.find('.modal-dialog .modal-content .modal-body #idEdit').val(id);
                 modal.find('.modal-dialog .modal-content .modal-body #categoryEdit').val(cat);
             });
+            
+            $(document).ready(function () {
+            $('.toast').toast('show');
+        });
         </script>
     </body>
 </html>
