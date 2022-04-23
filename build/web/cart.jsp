@@ -142,7 +142,7 @@
                 <c:when test="${cartDetails.size() == 0}">
                     <div style="font-size: 200%; text-align: center">
                         <div style="margin-bottom: 20px">Sorry you don't have items in your cart :((</div>
-                        <div>Please visit Game Page for more items ♥</div>               
+                        <div>Please visit Game Page for more items <3</div>               
                     </div>
                 </c:when>
             </c:choose>
