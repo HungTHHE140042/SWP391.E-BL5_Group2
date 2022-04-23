@@ -20,8 +20,8 @@
         <!-- Add site Favicon -->
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/png">
 
-        <!-- CSS 
-        ========================= -->
+        <!-- CSS ========================= -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Metal+Mania&display=swap" rel="stylesheet">
@@ -37,6 +37,38 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
+
+        <c:choose>
+            <c:when test="${sessionScope.checkAddCart.equals('1')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #54b2a9" >
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Add to cart successfully!!!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                <% session.removeAttribute("checkAddCart"); %>
+            </c:when>
+            <c:when test="${sessionScope.checkAddCart.equals('0')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #851e3e" >
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                This item is sold out!!!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                <% session.removeAttribute("checkAddCart"); %>
+            </c:when>
+        </c:choose>
+
+
+
         <%@include file="layout/header.jsp" %>
         <jsp:useBean id="category" scope="page" class="dao.CategoryDAO"></jsp:useBean>
             <!-- breadcrumbs area start -->
@@ -112,7 +144,7 @@
 
                                                         <div class="social-link">
                                                             <input type="text" name="productID" value="${product.productID}" hidden>
-                                                            <button type="submit" class="btn btn-link">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </button>
+                                                            <button id="AddToCart" type="submit" class="btn btn-link">Add to Cart <img width="20" height="20" src="assets/img/icon/shopping-cart.png" alt=""> </button>
                                                         </div>
 
                                                     </div>
@@ -229,5 +261,11 @@
 
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
+
+        <script>
+            $(document).ready(function () {
+            $(".toast").toast("show");
+            });
+        </script>
     </body>
 </html>

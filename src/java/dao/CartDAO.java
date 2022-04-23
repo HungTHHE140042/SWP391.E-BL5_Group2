@@ -17,9 +17,9 @@ import java.util.ArrayList;
  *
  * @author MSI
  */
-public class AddToCartDAO {
+public class CartDAO {
 
-    public AddToCartDAO() {
+    public CartDAO() {
         createConnection();
     }
 
@@ -152,7 +152,7 @@ public class AddToCartDAO {
     }
 
     public static void main(String[] args) {
-        AddToCartDAO addToCartDAO = new AddToCartDAO();
+        CartDAO addToCartDAO = new CartDAO();
         System.out.println(addToCartDAO.removeFromCart(1, 4));
     }
 }
