@@ -41,6 +41,36 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
+        
+        <c:choose>
+            <c:when test="${sessionScope.checkAddCart.equals('1')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #54b2a9" >
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Add to cart successfully!!!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                <% session.removeAttribute("checkAddCart"); %>
+            </c:when>
+            <c:when test="${sessionScope.checkAddCart.equals('0')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #851e3e" >
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                This item is sold out!!!
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                <% session.removeAttribute("checkAddCart"); %>
+            </c:when>
+        </c:choose>
+        
         <%@include file="layout/header.jsp" %>
 
         <!-- breadcrumbs area start -->
@@ -85,14 +115,21 @@
                                     <span class="" style="font-size:15px; color:gray; text-decoration-line:line-through;">$${product.originalPrice}</span>
                                     <div class="btn btn-danger">-${product.salePercent}%</div>
                                     <div class="btn btn-success" style="text-align: left; font-size: 30px">$${product.sellPrice}</div>
-                                </div>
+                                </div>                              
                                 <div class="col-6">
                                     <div style="text-align: right;">
                                         <form action="addtocart" method="post">
                                             <input type="text" name="productID" value="${product.productID}" hidden>
-                                            <button type="submit" class="btn btn-link">Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt="">  </button>
+                                            <button type="submit" class="btn btn-link">Add to Cart <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
                                         </form>
                                     </div>
+                                </div>
+                                <div class="col-6">
+                                    Quantity: 
+                                    <c:choose>
+                                        <c:when test="${product.amount == 0}"> Out of stock !</c:when> 
+                                        <c:otherwise>${product.amount}</c:otherwise>   
+                                    </c:choose>
                                 </div>
 
                             </div>
@@ -337,6 +374,11 @@
                 loadMorebtn.textContent = 'More...';
             }
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".toast").toast("show");
+        });
     </script>
 
 </body>

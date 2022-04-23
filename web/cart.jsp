@@ -39,6 +39,19 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
+        <c:if test="${sessionScope.checkQuantity.equals('1')}">
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #851e3e" >
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            Sorry quantity of this product is maximum!!!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <% session.removeAttribute("checkQuantity");%>
+        </c:if>
 
         <%@include file="layout/headerLoged.jsp" %>
 
@@ -63,66 +76,76 @@
 
         <!-- page wrapper start -->
         <div class="page_wrapper container mb-100">
-            <table class="cart-table cart-table-rouned table table-light table-hover mb-25 ">
-                <thead>
-                    <tr class="">
-                        <th scope="col">ID Product</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Total Price</th>
-                        <th class="col-2" scope="col">
-                            <div class="text-center">
-                                Remove
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach items="${cartDetails}" var="item">
-                        <tr>
-                            <th scope="row">${item.productID}</th>
-                            <td>${item.productName}</td>
-                            <td>${item.sellPrice}</td>
+            <c:choose>
+                <c:when test="${cartDetails.size() > 0}">
+                    <table class="cart-table cart-table-rouned table table-light table-hover mb-25 ">
+                        <thead>
+                            <tr class="">
+                                <th scope="col">ID Product</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total Price</th>
+                                <th class="col-2" scope="col">
+                                    <div class="text-center">
+                                        Remove
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${cartDetails}" var="item">
+                                <tr>
+                                    <th scope="row">${item.productID}</th>
+                                    <td>${item.productName}</td>
+                                    <td>${item.sellPrice}</td>
 
-                            <td class="text-center">
-                                <div class="row text-center">
-                                    <div class="col-2 text-center ">
-                                        <form  action="cart" method="post">
-                                            <button type="submit" class="btn btn-danger mr-2"><i class="fas fa-minus"></i>
-                                            </button>
-                                                <input hidden name="quantity" value="0">
-                                            <input hidden name="proID" value="${item.productID}">
-                                        </form>   
-                                    </div>
-                                    <div class="col-6 text-center" style="padding-left: 28px;">
-                                        ${item.quantity}
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        <form action="cart" method="post">
-                                            <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
-                                            </button>
-                                                <input hidden name="quantity" value="1">
-                                            <input hidden name="proID" value="${item.productID}">
-                                        </form>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>$${item.sellPrice*item.quantity}</td>
-                            <td class="text-center">
-                                <a href="#" class="" data-bs-toggle="modal" data-bs-target="#removeModal" data-id="${item.productID}">
-                                    <i class="fas fa-times" style="color: red"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-            <div class="col-12">
-                <div class="others_gane_btn text-center">
-                    <a class="btn btn-link" href="checkout">Checkout </a>
-                </div>
-            </div>
+                                    <td class="text-center">
+                                        <div class="row text-center">
+                                            <div class="col-2 text-center ">
+                                                <form  action="cart" method="post">
+                                                    <button type="submit" class="btn btn-danger mr-2"><i class="fas fa-minus"></i>
+                                                    </button>
+                                                    <input hidden name="quantity" value="0">
+                                                    <input hidden name="proID" value="${item.productID}">
+                                                </form>   
+                                            </div>
+                                            <div class="col-6 text-center" style="padding-left: 28px;">
+                                                ${item.quantity}
+                                            </div>
+                                            <div class="col-2 text-center">
+                                                <form action="cart" method="post">
+                                                    <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i>
+                                                    </button>
+                                                    <input hidden name="quantity" value="1">
+                                                    <input hidden name="proID" value="${item.productID}">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$${item.sellPrice*item.quantity}</td>
+                                    <td class="text-center">
+                                        <a href="#" class="" data-bs-toggle="modal" data-bs-target="#removeModal" data-id="${item.productID}">
+                                            <i class="fas fa-times" style="color: red"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                    <div class="col-12">
+                        <div class="others_gane_btn text-center">
+                            <a class="btn btn-link" href="checkout">Checkout </a>
+                        </div>
+                    </div>
+                </c:when>
+                <c:when test="${cartDetails.size() == 0}">
+                    <div style="font-size: 200%; text-align: center">
+                        <div style="margin-bottom: 20px">Sorry you don't have items in your cart :((</div>
+                        <div>Please visit Game Page for more items ♥</div>               
+                    </div>
+                </c:when>
+            </c:choose>
         </div>
 
         <!-- page wrapper end -->
@@ -182,6 +205,11 @@
                 console.log(id);
                 var modal = $(this);
                 modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $(".toast").toast("show");
             });
         </script>
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

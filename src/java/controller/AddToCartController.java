@@ -5,8 +5,10 @@
  */
 package controller;
 
-import dao.AddToCartDAO;
+import dao.CartDAO;
+import dao.ProductDAO;
 import entity.CartDetail;
+import entity.Product;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,26 +28,44 @@ public class AddToCartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
-        AddToCartDAO addToCartDAO = new AddToCartDAO();
+            throws ServletException, IOException {
+        CartDAO CartDAO = new CartDAO();
+        ProductDAO productDAO = new ProductDAO();
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
         if (u != null) {
             int productID = Integer.parseInt(request.getParameter("productID"));
-            if (addToCartDAO.checkProductCart(productID, u.getUserId())) {
-                int amount = addToCartDAO.getAmountCart(productID, u.getUserId());
-                addToCartDAO.updateCart(productID, amount, u.getUserId());
+            Product product = productDAO.getProductByID(productID);
+            if (CartDAO.checkProductCart(productID, u.getUserId())) {
+                int amount = CartDAO.getAmountCart(productID, u.getUserId());
+                if (product.getAmount() == 0) {
+                    String checkAddCart = "0";
+                    session.setAttribute("checkAddCart", checkAddCart);
+                    response.sendRedirect("product");
+                } else {
+                    CartDAO.updateCart(productID, amount, u.getUserId());
+                    String checkAddCart = "1";
+                    session.setAttribute("checkAddCart", checkAddCart);
+                    response.sendRedirect("product");
+                }
             } else {
-                int quantity = 1;
-                addToCartDAO.createCart(productID, quantity, u.getUserId());
-                System.out.println("Create Cart ok!!!!");
-            }           
-            response.sendRedirect("cart");
+                if (product.getAmount() == 0) {
+                    String checkAddCart = "0";
+                    session.setAttribute("checkAddCart", checkAddCart);
+                    response.sendRedirect("product");
+                } else {
+                    int quantity = 1;
+                    CartDAO.createCart(productID, quantity, u.getUserId());
+                    String checkAddCart = "1";
+                    session.setAttribute("checkAddCart", checkAddCart);
+                    response.sendRedirect("product");
+                }
+            }
         } else {
             response.sendRedirect("signin");
         }
