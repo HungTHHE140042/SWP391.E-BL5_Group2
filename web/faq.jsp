@@ -64,126 +64,20 @@
                 <div class="container">
                     <div class="faq_page_inner">
                         <div class="accordion" id="accordionExample">
-                            <div class="faq_question_list">
-                                <h2 class="questions__title accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        HOW CAN I CONTACT THE TEAM FOR HELP?
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="frequently_desc accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa
-                                            like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha
-                                            with desktop publishing software like including versions.</p>
+                            <c:forEach items="${listFaq}" var="f">
+                                <div class="faq_question_list">
+                                    <h2 class="questions__title accordion-header" id="${f.ID}">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${f.ID}" aria-expanded="false" aria-controls="collapse${f.ID}">
+                                            ${f.title}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse${f.ID}" class="accordion-collapse collapse" aria-labelledby="${f.ID}" data-bs-parent="#accordionExample">
+                                        <div class="frequently_desc accordion-body">
+                                            <p>${f.content}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="faq_question_list">
-                                <h2 class="questions__title accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        What should I do if I’m missing a part?
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="frequently_desc accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa
-                                            like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="faq_question_list">
-                                <h2 class="questions__title accordion-header" id="headingthree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsethree" aria-expanded="false" aria-controls="collapsethree">
-                                        Can I play bonx more than once?
-                                    </button>
-                                </h2>
-                                <div id="collapsethree" class="accordion-collapse collapse" aria-labelledby="headingthree" data-bs-parent="#accordionExample">
-                                    <div class="frequently_desc accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa
-                                            like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="faq_question_list">
-                                <h2 class="questions__title accordion-header" id="headingfour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                        Are there any expansion packs on the way?
-                                    </button>
-                                </h2>
-                                <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour" data-bs-parent="#accordionExample">
-                                    <div class="frequently_desc accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa
-                                            like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="faq_question_list">
-                                <h2 class="questions__title accordion-header" id="headingfive">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-                                        Where can I find the items so that I can print them again?
-                                    </button>
-                                </h2>
-                                <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive" data-bs-parent="#accordionExample">
-                                    <div class="frequently_desc accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa
-                                            like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="faq_question_list">
-                                <h2 class="questions__title accordion-header" id="headingsix">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                                        Where can I find the solution to the bonx?
-                                    </button>
-                                </h2>
-                                <div id="collapsesix" class="accordion-collapse collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExample">
-                                    <div class="frequently_desc accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa
-                                            like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="faq_question_list">
-                                <h2 class="questions__title accordion-header" id="headingseven">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
-                                        When I enter a correct code it says that it’s incorrect.
-                                    </button>
-                                </h2>
-                                <div id="collapseseven" class="accordion-collapse collapse" aria-labelledby="headingseven" data-bs-parent="#accordionExample">
-                                    <div class="frequently_desc accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa
-                                            like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="faq_question_list">
-                                <h2 class="questions__title accordion-header" id="headingeight">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseight" aria-expanded="false" aria-controls="collapseight">
-                                        Is it possible to pause the bonx tournament?
-                                    </button>
-                                </h2>
-                                <div id="collapseight" class="accordion-collapse collapse" aria-labelledby="headingeight" data-bs-parent="#accordionExample">
-                                    <div class="frequently_desc accordion-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer
-                                            took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa
-                                            like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha
-                                            with desktop publishing software like including versions.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
             </section>
