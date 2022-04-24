@@ -36,7 +36,103 @@
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <%@include file="layout/slideboad.jsp" %>
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="cms" style="color: yellow">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Dashboard</div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="cms">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <c:if test="${sessionScope.user.roleId == 1}">
+                    <div class="sidebar-heading">
+                        Admin
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-account">
+                            <i class="fas fa-user"></i>
+                            <span>Accounts</span></a>
+                    </li>
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+                </c:if>
+                <!-- Heading -->
+                <c:if test="${(sessionScope.user.roleId == 1) or (sessionScope.user.roleId == 2)}">
+                    <div class="sidebar-heading">
+                        Seller
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-product">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Products</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="pomotionManager">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Promotion</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-order">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span></a>
+                    </li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+                </c:if>
+                <c:if test="${(sessionScope.user.roleId == 1) or (sessionScope.user.roleId == 4)}">
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        Marketing
+                    </div>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashboard-post">
+                            <i class="fas fa-file"></i>
+                            <span>Posts</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-faq">
+                            <i class="fas fa-question-circle"></i>
+                            <span>FAQs</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-notification">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span></a>
+                    </li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider d-none d-md-block">
+                </c:if>
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+
+
+            </ul>
             <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
@@ -91,7 +187,7 @@
                                     <img width="200px" src="${post.imageLinkDetail}" alt="">
                                 </div>
                             </div>
-                            
+
                             <div class="row mt-4 mb-4">
                                 <div class="col-1 text-center">
                                     Content
@@ -116,7 +212,7 @@
                                     ${post.date}
                                 </div>
                             </div>
-                            
+
                             <div class="div mb-4 mr-4">
                                 <a href="dashboard-post" class="btn btn-danger float-right">
                                     <span class="text">Close</span>
@@ -150,7 +246,7 @@
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-        
+
         <!-- Bootstrap core JavaScript-->
         <script src="dashboard/vendor/jquery/jquery.min.js"></script>
         <script src="dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
