@@ -4064,6 +4064,13 @@ input[type="button"].btn-block {
   border-color: #dddfeb #dddfeb #fff;
 }
 
+.nav-tabs .nav-link:visited,
+.nav-tabs .nav-item.show .nav-link {
+  color: #6e707e;
+  background-color: #fff;
+  border-color: #dddfeb #dddfeb #fff;
+}
+
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
   border-top-left-radius: 0;

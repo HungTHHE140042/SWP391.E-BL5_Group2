@@ -39,7 +39,103 @@
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <%@include file="layout/slideboad.jsp" %>
+            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="cms" style="color: yellow">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">Dashboard</div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="cms">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <c:if test="${sessionScope.user.roleId == 1}">
+                    <div class="sidebar-heading">
+                        Admin
+                    </div>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashboard-account">
+                            <i class="fas fa-user"></i>
+                            <span>Accounts</span></a>
+                    </li>
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+                </c:if>
+                <!-- Heading -->
+                <c:if test="${(sessionScope.user.roleId == 1) or (sessionScope.user.roleId == 2)}">
+                    <div class="sidebar-heading">
+                        Seller
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-product">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Products</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="pomotionManager">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Promotion</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-order">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span></a>
+                    </li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+                </c:if>
+                <c:if test="${(sessionScope.user.roleId == 1) or (sessionScope.user.roleId == 4)}">
+                    <!-- Heading -->
+                    <div class="sidebar-heading">
+                        Marketing
+                    </div>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-post">
+                            <i class="fas fa-file"></i>
+                            <span>Posts</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-faq">
+                            <i class="fas fa-question-circle"></i>
+                            <span>FAQs</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-notification">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span></a>
+                    </li>
+                    <!-- Divider -->
+                    <hr class="sidebar-divider d-none d-md-block">
+                </c:if>
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+
+
+            </ul>
             <!-- End of Sidebar -->
 
             <!-- Content Wrapper -->
@@ -83,71 +179,71 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach var="c" items="${LIST_User}">
-                                            <tr>
-                                                <td>${c.userId}</td>
-                                                <td>${c.username}</td>
-                                                <td>${c.password}</td>
-                                                <td>${c.email}</td>
-                                                <c:if test="${c.roleId == 1}">
-                                                    <td>
-                                                        <div class="btn btn-outline-danger btn-sm">
-                                                            Admin
-                                                        </div>
-                                                    </td>
-                                                </c:if>
-                                                <c:if test="${c.roleId == 2}">
-                                                    <td>
-                                                        <div class="btn btn-outline-primary btn-sm">
-                                                            Seller
-                                                        </div>
-                                                    </td>
-                                                </c:if>
-                                                <c:if test="${c.roleId == 3}">
-                                                    <td>
-                                                        <div class="btn btn-outline-warning btn-sm">
-                                                            Customer
-                                                        </div>
-                                                    </td>
-                                                </c:if>
-                                                <c:if test="${c.roleId == 4}">
-                                                    <td>
-                                                        <div class="btn btn-outline-secondary btn-sm">
-                                                            Marketing
-                                                        </div>
-                                                    </td>
-                                                </c:if>
-                                                <c:if test="${c.statusId == 1}">
-                                                    <td>
-                                                        <div style="color: blue">
-                                                            Active
-                                                        </div>
-                                                    </td>
-                                                </c:if>
+                                            <c:forEach var="c" items="${LIST_User}">
+                                                <tr>
+                                                    <td>${c.userId}</td>
+                                                    <td>${c.username}</td>
+                                                    <td>${c.password}</td>
+                                                    <td>${c.email}</td>
+                                                    <c:if test="${c.roleId == 1}">
+                                                        <td>
+                                                            <div class="btn btn-outline-danger btn-sm">
+                                                                Admin
+                                                            </div>
+                                                        </td>
+                                                    </c:if>
+                                                    <c:if test="${c.roleId == 2}">
+                                                        <td>
+                                                            <div class="btn btn-outline-primary btn-sm">
+                                                                Seller
+                                                            </div>
+                                                        </td>
+                                                    </c:if>
+                                                    <c:if test="${c.roleId == 3}">
+                                                        <td>
+                                                            <div class="btn btn-outline-warning btn-sm">
+                                                                Customer
+                                                            </div>
+                                                        </td>
+                                                    </c:if>
+                                                    <c:if test="${c.roleId == 4}">
+                                                        <td>
+                                                            <div class="btn btn-outline-secondary btn-sm">
+                                                                Marketing
+                                                            </div>
+                                                        </td>
+                                                    </c:if>
+                                                    <c:if test="${c.statusId == 1}">
+                                                        <td>
+                                                            <div style="color: blue">
+                                                                Active
+                                                            </div>
+                                                        </td>
+                                                    </c:if>
                                                     <c:if test="${c.statusId == 2}">
-                                                    <td>
-                                                        <div style="color: gray">
-                                                            Inactive
-                                                        </div>
-                                                    </td>
-                                                </c:if>
+                                                        <td>
+                                                            <div style="color: gray">
+                                                                Inactive
+                                                            </div>
+                                                        </td>
+                                                    </c:if>
                                                     <c:if test="${c.statusId== 3} ">
+                                                        <td>
+                                                            <div style="color: red">
+                                                                Banned
+                                                            </div>
+                                                        </td>
+                                                    </c:if>
                                                     <td>
-                                                        <div style="color: red">
-                                                            Banned
-                                                        </div>
+                                                        <a href="dashboard-account-edit?id=${c.userId}" class="btn btn-success btn-icon-split btn-sm">
+                                                            <span class="text">Edit</span>
+                                                        </a>
+                                                        <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="${c.userId}">
+                                                            <span class="text">Delete</span>
+                                                        </a>
                                                     </td>
-                                                </c:if>
-                                                <td>
-                                                    <a href="dashboard-account-edit?id=${c.userId}" class="btn btn-success btn-icon-split btn-sm">
-                                                        <span class="text">Edit</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="${c.userId}">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody> 
                                     </table>
                                 </div>
