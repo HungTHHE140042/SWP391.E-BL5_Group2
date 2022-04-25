@@ -123,10 +123,6 @@ public class ManagementProductController extends HttpServlet {
 
         String uploadFolderPath = getServletContext().getRealPath("/upload") + File.separator + uploadFileName;
 
-        if (uploadFolderPath == null) {
-
-        }
-
         try {
             byte[] byt = new byte[inputStream.available()];
             inputStream.read(byt);
@@ -160,12 +156,11 @@ public class ManagementProductController extends HttpServlet {
         User u = (User) session.getAttribute("user");
 
         if (pDAO.createNewProduct(name, desc, price, categoryId, u.getUserId(), listProductKey.size())) {
-            System.out.println(listProductKey.size() + "..");
             int newestId = pDAO.getNewestProductId();
             if (pDAO.insertProductImageSquare(newestId, imgSqu) && pDAO.insertProductImageRectangle(newestId, imgRec)) {
                 for (String key : listProductKey) {
                     //Encrypt product key before insert to database
-                    String encryptKey = AES.encrypt(key, "@ch40_4nh_3m_nh3");
+                    String encryptKey = AES.encrypt(key, "@SWP391_Group2");
                     pDAO.insertProductKey(newestId, encryptKey);
                 }
                 request.setAttribute("stt", "1");
