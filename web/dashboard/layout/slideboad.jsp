@@ -13,7 +13,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="${numberClickDashBoard == 1 ? "nav-item active":"nav-item"}">
         <a class="nav-link" href="cms">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -28,7 +28,7 @@
             Admin
         </div>
 
-        <li class="nav-item">
+        <li class="${numberClickAccount == 1 ? "nav-item active":"nav-item"}">
             <a class="nav-link" href="dashboard-account">
                 <i class="fas fa-user"></i>
                 <span>Accounts</span></a>
@@ -43,19 +43,19 @@
             Seller
         </div>
 
-        <li class="nav-item">
+        <li class="${numberClickProduct == 1 ? "nav-item active":"nav-item"}">
             <a class="nav-link" href="dashboard-product">
                 <i class="fas fa-gamepad"></i>
                 <span>Products</span></a>
         </li>
 
-        <li class="nav-item">
+        <li class="${numberPromotionClick == 1 ? "nav-item active":"nav-item"}">
             <a class="nav-link" href="pomotionManager">
                 <i class="fas fa-ticket-alt"></i>
                 <span>Promotion</span></a>
         </li>
 
-        <li class="nav-item">
+        <li class="${numberOrderClick == 1 ? "nav-item active":"nav-item"}">
             <a class="nav-link" href="dashboard-order">
                 <i class="fas fa-shopping-cart"></i>
                 <span>Orders</span></a>
@@ -69,19 +69,19 @@
             Marketing
         </div>
 
-        <li class="nav-item">
+        <li class="${numberPostClick == 1 ? "nav-item active":"nav-item"}">
             <a class="nav-link" href="dashboard-post">
                 <i class="fas fa-file"></i>
                 <span>Posts</span></a>
         </li>
 
-        <li class="nav-item">
+        <li class="${numberFAQClick == 1 ? "nav-item active":"nav-item"}">
             <a class="nav-link" href="dashboard-faq">
                 <i class="fas fa-question-circle"></i>
                 <span>FAQs</span></a>
         </li>
 
-        <li class="nav-item">
+        <li class="${numberNotificationClick == 1 ? "nav-item active":"nav-item"}">
             <a class="nav-link" href="dashboard-notification">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span></a>

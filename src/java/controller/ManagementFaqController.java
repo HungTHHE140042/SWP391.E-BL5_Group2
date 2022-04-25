@@ -39,16 +39,18 @@ public class ManagementFaqController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         FaqDAO faqDAO = new FaqDAO();
         List<FaqJoinUser> listFAQ = new ArrayList<>();
-
+        int numberFAQClick = 1;
         try {
             int Id = Integer.parseInt(request.getParameter("idDelete"));
             if (faqDAO.removeFaqById(Id)) {
                 listFAQ = faqDAO.getAllFAQs();
+                request.setAttribute("numberFAQClick", numberFAQClick);
                 request.setAttribute("List_FAQ", listFAQ);
                 request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
             }
         } catch (Exception e) {
             listFAQ = faqDAO.getAllFAQs();
+            request.setAttribute("numberFAQClick", numberFAQClick);
             request.setAttribute("List_FAQ", listFAQ);
             request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
         }
@@ -72,7 +74,7 @@ public class ManagementFaqController extends HttpServlet {
             String content = request.getParameter("content");
             FaqDAO faqDAO = new FaqDAO();
             List<FaqJoinUser> listFAQ = new ArrayList<>();
-
+            int numberFAQClick = 1;
             HttpSession session = request.getSession();
             User u = (User) session.getAttribute("user");
             System.out.println("user " + u);
@@ -80,6 +82,7 @@ public class ManagementFaqController extends HttpServlet {
                 int Id = Integer.parseInt(ID);
                 if (faqDAO.updateFAQ(Id, title, content)) {
                     listFAQ = faqDAO.getAllFAQs();
+                    request.setAttribute("numberFAQClick", numberFAQClick);
                     request.setAttribute("List_FAQ", listFAQ);
                     request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
                 }
@@ -89,6 +92,7 @@ public class ManagementFaqController extends HttpServlet {
             if (!(titleCreate.isEmpty() && contentCreate.isEmpty())) {
                 if (faqDAO.createFAQ(u.getUserId(), titleCreate, contentCreate)) {
                     listFAQ = faqDAO.getAllFAQs();
+                    request.setAttribute("numberFAQClick", numberFAQClick);
                     request.setAttribute("List_FAQ", listFAQ);
                     request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
                 }

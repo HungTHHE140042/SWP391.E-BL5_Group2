@@ -36,18 +36,21 @@ public class ManagementAccountController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         UserDAO userDAO = new UserDAO();
+        int numberClickAccount = 1;
         List<User> listAccount = new ArrayList<>();
         try {
             int userId = Integer.parseInt(request.getParameter("idDelete"));
             if (userDAO.removeUserByUserId(userId)) {
                 listAccount = userDAO.getAllUsers();
                 //Set data to JSP
+                request.setAttribute("numberClickAccount", numberClickAccount);
                 request.setAttribute("LIST_User", listAccount);
                 request.getRequestDispatcher("dashboard/dashboardAccount.jsp").forward(request, response);
             }
         } catch (Exception e) {
             listAccount = userDAO.getAllUsers();
             //Set data to JSP
+            request.setAttribute("numberClickAccount", numberClickAccount);
             request.setAttribute("LIST_User", listAccount);
             request.getRequestDispatcher("dashboard/dashboardAccount.jsp").forward(request, response);
         }
@@ -64,6 +67,7 @@ public class ManagementAccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int numberClickAccount = 1;
         try {
             String username = ("".equals(request.getParameter("username"))) ? "" : request.getParameter("username");
             String email = ("".equals(request.getParameter("email"))) ? "" : request.getParameter("email");
@@ -71,6 +75,7 @@ public class ManagementAccountController extends HttpServlet {
             int roleId = Integer.parseInt(("".equals(request.getParameter("roleId"))) ? "" : request.getParameter("roleId"));
             UserDAO uDAO = new UserDAO();
             if (uDAO.createUser(username, password, email, roleId, 1)) {
+                request.setAttribute("numberClickAccount", numberClickAccount);
                 response.sendRedirect("dashboard-account");
             }
         } catch (Exception e) {

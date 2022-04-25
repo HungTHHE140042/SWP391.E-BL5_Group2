@@ -44,7 +44,8 @@ public class ManagermentPoromotionEditController extends HttpServlet {
         PromotionDAO promotionDAO = new PromotionDAO();
         String id = request.getParameter("id");
         Promotion promotion = promotionDAO.getPromotionByID(id);
-
+        int numberPromotionClick = 1;
+        request.setAttribute("numberPromotionClick", numberPromotionClick);
         request.setAttribute("promotion", promotion);
         request.getRequestDispatcher("dashboard/dashboardPromotionEdit.jsp").forward(request, response);
     }
@@ -66,7 +67,9 @@ public class ManagermentPoromotionEditController extends HttpServlet {
             String getPromotionCode = request.getParameter("promotionCode");
             String getPrice = request.getParameter("salePercent");
             String getAmount = request.getParameter("amount");
+            int numberPromotionClick = 1;
             if(promotionDAO.updatePromotion(getPromotionCode, getPrice, getAmount, id)){
+                request.setAttribute("numberPromotionClick", numberPromotionClick);
                 response.sendRedirect("pomotionManager");
             }
         } catch (Exception e) {

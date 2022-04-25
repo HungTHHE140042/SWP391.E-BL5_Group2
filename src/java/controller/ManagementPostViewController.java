@@ -32,16 +32,18 @@ public class ManagementPostViewController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        int numberPostClick = 1;
         int postId = Integer.parseInt(request.getParameter("id"));
         PostDAO pDAO = new PostDAO();
         PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
         if (post != null) {
             request.setAttribute("post", post);
+            request.setAttribute("numberPostClick", numberPostClick);
             request.getRequestDispatcher("dashboard/dashboardPostView.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+        request.setAttribute("numberPostClick", numberPostClick);
         request.getRequestDispatcher("dashboard/dashboardPostView.jsp").forward(request, response);
     }
 

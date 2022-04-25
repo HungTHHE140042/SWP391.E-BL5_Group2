@@ -53,10 +53,10 @@ public class ManagementProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        int numberClickProduct = 1;
         String id = request.getParameter("id");
         ProductDAO pDAO = new ProductDAO();
-
+        
         request.setAttribute("stt", null);
 
         if (id != null) {
@@ -70,7 +70,7 @@ public class ManagementProductController extends HttpServlet {
                 List<Category> listCategory = new ArrayList<>();
                 listCategory = cDAO.getAll();
                 request.setAttribute("listCategory", listCategory);
-
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.setAttribute("stt", "3");
                 request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
             } else {
@@ -78,7 +78,7 @@ public class ManagementProductController extends HttpServlet {
                 List<Category> listCategory = new ArrayList<>();
                 listCategory = cDAO.getAll();
                 request.setAttribute("listCategory", listCategory);
-
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.setAttribute("stt", "4");
                 request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
             }
@@ -92,7 +92,7 @@ public class ManagementProductController extends HttpServlet {
         List<Category> listCategory = new ArrayList<>();
         listCategory = cDAO.getAll();
         request.setAttribute("listCategory", listCategory);
-
+        request.setAttribute("numberClickProduct", numberClickProduct);
         request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
     }
 
@@ -114,7 +114,7 @@ public class ManagementProductController extends HttpServlet {
         String imgRec = request.getParameter("imageRec");
         String desc = request.getParameter("description");
         List<String> listProductKey = new ArrayList<>();
-
+        int numberClickProduct = 1;
         //Up file to Upload folder
         Part uploadFilePart = request.getPart("product-key-file");
         String uploadFileName = Paths.get(uploadFilePart.getSubmittedFileName()).getFileName().toString();
@@ -174,7 +174,7 @@ public class ManagementProductController extends HttpServlet {
                 List<Category> listCategory = new ArrayList<>();
                 listCategory = cDAO.getAll();
                 request.setAttribute("listCategory", listCategory);
-
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.setAttribute("stt", "2");
                 request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
             }
@@ -183,7 +183,7 @@ public class ManagementProductController extends HttpServlet {
             List<Category> listCategory = new ArrayList<>();
             listCategory = cDAO.getAll();
             request.setAttribute("listCategory", listCategory);
-
+            request.setAttribute("numberClickProduct", numberClickProduct);
             request.setAttribute("stt", "2");
             request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
         }
@@ -196,7 +196,7 @@ public class ManagementProductController extends HttpServlet {
         List<Category> listCategory = new ArrayList<>();
         listCategory = cDAO.getAll();
         request.setAttribute("listCategory", listCategory);
-
+        request.setAttribute("numberClickProduct", numberClickProduct);
         request.getRequestDispatcher("dashboard/dashboardProduct.jsp").forward(request, response);
     }
 

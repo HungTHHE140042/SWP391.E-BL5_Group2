@@ -1,7 +1,7 @@
 <%-- 
     Document   : blogDetails
     Created on : Apr 12, 2022, 10:08:46 PM
-    Author     : trinh
+    Author     : trson
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

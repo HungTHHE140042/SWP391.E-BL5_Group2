@@ -37,10 +37,10 @@ public class ManagementCategoryController extends HttpServlet {
         CategoryDAO cDAO = new CategoryDAO();
         ArrayList<Category> listCateogry = new ArrayList<>();
         listCateogry = cDAO.getAll();
-
+        int numberClickProduct = 1;
         request.setAttribute("msg", null);
         request.setAttribute("listCategory", listCateogry);
-
+        request.setAttribute("numberClickProduct", numberClickProduct);
         request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
     }
 
@@ -61,18 +61,19 @@ public class ManagementCategoryController extends HttpServlet {
         String categoryCreate = request.getParameter("categoryCreate");
 
         CategoryDAO cDAO = new CategoryDAO();
-
+        int numberClickProduct = 1;
         if (categoryCreate != null) {
             if (cDAO.createCategory(categoryCreate)) {
                 ArrayList<Category> listCateogry = new ArrayList<>();
                 listCateogry = cDAO.getAll();
                 request.setAttribute("listCategory", listCateogry);
                 request.setAttribute("msg", "1");
-
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
             } else {
                 ArrayList<Category> listCateogry = new ArrayList<>();
                 listCateogry = cDAO.getAll();
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.setAttribute("listCategory", listCateogry);
                 request.setAttribute("msg", "0");
                 request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
@@ -86,11 +87,12 @@ public class ManagementCategoryController extends HttpServlet {
                 listCateogry = cDAO.getAll();
                 request.setAttribute("listCategory", listCateogry);
                 request.setAttribute("msg", "2");
-
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
             } else {
                 ArrayList<Category> listCateogry = new ArrayList<>();
                 listCateogry = cDAO.getAll();
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.setAttribute("listCategory", listCateogry);
                 request.setAttribute("msg", "0");
                 request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
@@ -104,20 +106,21 @@ public class ManagementCategoryController extends HttpServlet {
                 request.setAttribute("listCategory", listCateogry);
 
                 request.setAttribute("msg", "3");
-
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
             } else {
                 ArrayList<Category> listCateogry = new ArrayList<>();
                 listCateogry = cDAO.getAll();
                 request.setAttribute("listCategory", listCateogry);
                 request.setAttribute("msg", "0");
+                request.setAttribute("numberClickProduct", numberClickProduct);
                 request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
             }
         }
 
         ArrayList<Category> listCateogry = new ArrayList<>();
         listCateogry = cDAO.getAll();
-
+        request.setAttribute("numberClickProduct", numberClickProduct);
         request.setAttribute("listCategory", listCateogry);
         request.setAttribute("msg", null);
         request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);

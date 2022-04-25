@@ -61,17 +61,21 @@ public class PromotionDAO {
         return list;
     }
 
-    public void deletePromotion(String id) {
-        query = "delete from promotion where id = ?";
+    public boolean deletePromotion(int id) {
+        query = "DELETE FROM promotion where id = ?";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, id);
+            ps.setInt(1, id);
             ps.executeUpdate();
+            ps.close();
+            return true;
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
-    public void insertPromotion(String promotionCode, String salePercent, String amount) {
+    public boolean insertPromotion(String promotionCode, String salePercent, String amount) {
         query = "insert into promotion(promotionCode, salePercent, amount) VALUES(?,?,?)";
         try {
             ps = con.prepareStatement(query);
@@ -79,7 +83,11 @@ public class PromotionDAO {
             ps.setString(2, salePercent);
             ps.setString(3, amount);
             ps.executeUpdate();
+            ps.close();
+            return true;
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 

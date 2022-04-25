@@ -31,11 +31,13 @@ public class ManagementAccountEditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int numberClickAccount = 1;
         try {
             int userId = Integer.parseInt(request.getParameter("id"));
             UserDAO pDAO = new UserDAO();
             User user = pDAO.getUserByUserId(userId);
             request.setAttribute("user", user);
+            request.setAttribute("numberClickAccount", numberClickAccount);
             request.getRequestDispatcher("dashboard/dashboardAccountEdit.jsp").forward(request, response);
 
         } catch (Exception e) {

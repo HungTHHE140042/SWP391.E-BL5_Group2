@@ -35,7 +35,7 @@ public class ManagementProductViewController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-
+        int numberClickProduct = 1;
         if (id != null) {
             int productId = Integer.parseInt(id);
             ProductDAO pDAO = new ProductDAO();
@@ -45,7 +45,7 @@ public class ManagementProductViewController extends HttpServlet {
             CategoryDAO cDAO = new CategoryDAO();
             Category category = cDAO.getCategoryByCategoryId(p.getCategoryID());
             request.setAttribute("category", category);
-            
+            request.setAttribute("numberClickProduct", numberClickProduct);
             request.getRequestDispatcher("dashboard/dashboardProductView.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);

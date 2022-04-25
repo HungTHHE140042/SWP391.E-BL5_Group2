@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author trinh
+ * @author trson
  */
 public class PostController extends HttpServlet {
 
@@ -36,7 +36,7 @@ public class PostController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String page = request.getParameter("page");
+        String page = request.getParameter("page"); 
         int index = 0;
         if (page != null) {
             index = Integer.parseInt(page) - 1;
@@ -44,14 +44,17 @@ public class PostController extends HttpServlet {
         PostDAO postDAO = new PostDAO();
         List<PostJoinUser> listPost = new ArrayList<>();
         listPost = postDAO.paginationPost(index, 3);
+
         request.setAttribute("listPost", listPost);
 
         int count = postDAO.countPost();
-        count = count / 3;
         if (count % 3 != 0) {
-            count++;
+            count = (count /3) +1;
+        } else{
+            count = count/3;
         }
         request.setAttribute("total", count);
+
 
         request.getRequestDispatcher("post.jsp").forward(request, response);
     }

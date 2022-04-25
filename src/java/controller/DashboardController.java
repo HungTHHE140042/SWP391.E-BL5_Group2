@@ -36,6 +36,7 @@ public class DashboardController extends HttpServlet {
         OrderDetailDAO orderDetailDAO = new OrderDetailDAO();
         int month = orderDetailDAO.getMonth();
         String totalPrice = orderDetailDAO.totalPrice();
+        int numberClick = 1;
         //Get total price per month now
         String totalPriceMonth1 = orderDetailDAO.totalPricePerMonth(1);
         String totalPriceMonth2 = orderDetailDAO.totalPricePerMonth(2);
@@ -52,6 +53,7 @@ public class DashboardController extends HttpServlet {
         CategoryOrder categoryOrder4 = orderDetailDAO.getTotalCategoryOrderByID(4);
         CategoryOrder categoryOrder5 = orderDetailDAO.getTotalCategoryOrderByID(5);
         //Set data to jsp\
+        request.setAttribute("numberClickDashBoard", numberClick);
         request.setAttribute("totalPrice", totalPrice);
         request.setAttribute("totalPriceMonth1", totalPriceMonth1);
         request.setAttribute("totalPriceMonth2", totalPriceMonth2);
