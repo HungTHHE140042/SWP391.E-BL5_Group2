@@ -41,6 +41,29 @@ var thang9 = $('#dataAreaChart').data('thang9');
 var thang10 = $('#dataAreaChart').data('thang10');
 var thang11 = $('#dataAreaChart').data('thang11');
 var thang12 = $('#dataAreaChart').data('thang12');
+var list = $('#dataAreaChart').data('list');
+var array = list.split(',');
+
+var totalPrice = []
+totalPrice.push(thang1)
+totalPrice.push(thang2)
+totalPrice.push(thang3)
+totalPrice.push(thang4)
+totalPrice.push(thang5)
+totalPrice.push(thang6)
+totalPrice.push(thang7)
+totalPrice.push(thang8)
+totalPrice.push(thang9)
+totalPrice.push(thang10)
+totalPrice.push(thang11)
+totalPrice.push(thang12)
+
+var d = new Date();
+var month = d.getMonth()
+for (var i = 12; i > month; i--) {
+    totalPrice.splice(i)
+}
+
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
@@ -58,7 +81,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [thang1, thang2, thang3, thang4],
+      data: totalPrice,
     }],
   },
   options: {
