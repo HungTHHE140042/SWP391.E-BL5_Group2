@@ -51,7 +51,7 @@ public class ManagementProductEditController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-
+        int numberClickProduct = 1;
         if (id != null) {
             int productId = Integer.parseInt(id);
             ProductDAO pDAO = new ProductDAO();
@@ -62,11 +62,12 @@ public class ManagementProductEditController extends HttpServlet {
             List<Category> listCategory = new ArrayList<>();
             listCategory = cDAO.getAll();
             request.setAttribute("listCategory", listCategory);
-
+            request.setAttribute("numberClickProduct", numberClickProduct);
             request.getRequestDispatcher("dashboard/dashboardProductEdit.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+        request.setAttribute("numberClickProduct", numberClickProduct);
         request.getRequestDispatcher("dashboard/dashboardProductEdit.jsp").forward(request, response);
     }
 
@@ -81,6 +82,7 @@ public class ManagementProductEditController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int numberClickProduct = 1;
         try {
             int id = Integer.parseInt(request.getParameter("idEdit"));
             String name = request.getParameter("name");
@@ -142,7 +144,7 @@ public class ManagementProductEditController extends HttpServlet {
             } else {
                 System.out.println("update_fail");
             }
-
+            request.setAttribute("numberClickProduct", numberClickProduct);
             response.sendRedirect("dashboard-product");
 
         } catch (Exception e) {

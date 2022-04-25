@@ -29,6 +29,8 @@ public class ManagementNotificationController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int numberNotificationClick = 1;
+        request.setAttribute("numberNotificationClick", numberNotificationClick);
         request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
     }
 

@@ -29,6 +29,8 @@ public class ManagementOrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int numberOrderClick = 1;
+        request.setAttribute("numberOrderClick", numberOrderClick);
         request.getRequestDispatcher("dashboard/dashboardOrder.jsp").forward(request, response);
     }
 
