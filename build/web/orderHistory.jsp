@@ -66,10 +66,10 @@
                 <thead>
                     <tr class="">
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Date</th>
                         <th scope="col">Total</th>
+                        <th scope="col">Promotion Code</th>
+                        <th scope="col">Note</th>
                         <th class="" scope="col">
                             <div class="text-center">
                                 Status
@@ -83,61 +83,60 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$200</td>
-                        <td class="text-center">
-                            <div class="btn btn-secondary">Pending</div>
-                        </td>
-                        <td class="text-center">
-                            <a href="order-detail" type="button" class="btn btn-outline-primary">Detail</a>
-                            <a href="#" type="button" class="btn btn-outline-danger">Cancel</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$120</td>
-                        <td class="text-center">
-                            <div class="btn btn-success">Accepted</div>
-                        </td>
-                        <td class="text-center">
-                             <a href="order-detail" type="button" class="btn btn-outline-primary">Detail</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$320</td>
-                        <td class="text-center">
-                            <div class="btn btn-danger">Rejected</div>
-                        </td>
-                        <td class="text-center">
-                             <a href="order-detail" type="button" class="btn btn-outline-primary">Detail</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$320</td>
-                        <td class="text-center">
-                            <div class="btn btn-warning">Canceled</div>
-                        </td>
-                        <td class="text-center">
-                            <button type="button" class="btn btn-outline-primary">Detail</button>
-                        </td>
-                    </tr>
+                    <c:forEach items="${listOrder}" var="order">
+                        <tr>
+                            <th scope="row">${order.id}</th>
+                            <td>${order.date}</td>
+                            <td>${order.total}</td>
+                            <td>${order.promotionCode}</td>
+                            <td>${order.note}</td>
+                            <td class="text-center">
+                                <c:if test="${order.status == 1}">
+                                    <div class="btn btn-secondary">Pending</div>
+                                </c:if>
+                                <c:if test="${order.status == 2}">
+                                    <div class="btn btn-success">Accepted</div>
+                                </c:if>
+                                <c:if test="${order.status == 3}">
+                                    <div class="btn btn-danger">Rejected</div>
+                                </c:if>
+                                <c:if test="${order.status == 4}">
+                                    <div class="btn btn-warning">Canceled</div>
+                                </c:if>
+                            </td>
+                            <td class="text-center">
+                                <a href="order-detail?id=${order.id}" type="button" class="btn btn-outline-primary">Detail</a>
+                                <c:if test="${order.status == 1}">
+                                    <a href="#" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#cancelModal" data-id="${order.id}">Cancel</a>
+                                </c:if>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
+        </div>
+
+        <!-- Cancel Modal -->
+        <div class="modal fade" id="cancelModal" tabindex="-10" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: black" id="exampleModalLongTitle">Are you sure Cancel?</h5>
+                    </div>
+                    <form method="post" action="">
+                        <div class="modal-body">
+                            <div class="container" style="color: black" >
+                                Select "Cancel" below if you are sure to cancel this order.
+                            </div>
+                            <input type="hidden" name="idCancel" id="idCancel">
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+                            <button type="submit" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <!-- page wrapper end -->
@@ -164,5 +163,13 @@
         <script src="assets/js/main.js"></script>
 
         <script src="https://kit.fontawesome.com/228aa84c51.js" crossorigin="anonymous"></script>
+        <script>
+            $('#cancelModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget); // Button that triggered the modal
+                var id = button.data('id');
+                var modal = $(this);
+                modal.find('.modal-dialog .modal-content .modal-body #idCancel').val(id);
+            });
+        </script>
     </body>
 </html>

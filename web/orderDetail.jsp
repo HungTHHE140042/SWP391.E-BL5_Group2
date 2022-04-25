@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumbs_text text-center">
-                            <h1>#59241712</h1>
+                            <h1>#${orderId}</h1>
                             <ul class="d-flex justify-content-center">
                                 <li><a href="home">Home </a></li>
                                 <li> <span>//</span></li>
@@ -68,10 +68,9 @@
                 <thead>
                     <tr class="">
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price</th>
                         <th class="" scope="col">
                             <div class="text-center">
                                 Key
@@ -80,56 +79,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$200</td>
-                        <td class="text-center" style="color: blue">
-                            PUBG59341712391323
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$120</td>
-                        <td class="text-center" style="color: blue">
-                            PUBG59341712391323
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$120</td>
-                        <td class="text-center" style="color: red">
-                            Rejected
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$120</td>
-                        <td class="text-center" style="color: red">
-                            Canceled
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>$120</td>
-                        <td class="text-center" style="color: gray">
-                            Pending
-                        </td>
-                    </tr>
+                    <c:forEach items="${orderDetail}" var="order">
+                        <tr>
+                            <th scope="row">${order.ID}</th>
+                            <td><img width="50px" src="${order.productImgUrl}"></td>
+                            <td>${order.productName}</td>
+                            <td>$${order.productPrice}</td>
+                            <c:if test="${orderStatus == 1}">
+                                <td class="text-center" style="color: gray">
+                                    Pending
+                                </td>
+                            </c:if>
+                            <c:if test="${orderStatus == 2}">
+                                <td class="text-center" style="color: blue">
+                                    ${order.productKey}
+                                </td>
+                            </c:if>
+                            <c:if test="${orderStatus == 3}">
+                                <td class="text-center" style="color: red">
+                                    Rejected
+                                </td>
+                            </c:if>
+                            <c:if test="${orderStatus == 4}">
+                                <td class="text-center" style="color: red">
+                                    Canceled
+                                </td>
+                            </c:if>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

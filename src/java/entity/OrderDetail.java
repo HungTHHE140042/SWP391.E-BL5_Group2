@@ -16,7 +16,10 @@ public class OrderDetail {
     private int productID;
     private String productName;
     private int quantity;
+    private double productPrice;
     private int keyID;
+    private String productKey;
+    private String productImgUrl;
 
     public OrderDetail() {
     }
@@ -29,6 +32,16 @@ public class OrderDetail {
         this.quantity = quantity;
         this.keyID = keyID;
     }
+
+    public OrderDetail(int ID, String productName, double productPrice, String productKey, String productImgUrl) {
+        this.ID = ID;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productKey = productKey;
+        this.productImgUrl = productImgUrl;
+    }
+
+    
 
     public int getID() {
         return ID;
@@ -77,6 +90,34 @@ public class OrderDetail {
     public void setKeyID(int keyID) {
         this.keyID = keyID;
     }
+
+    public String getProductKey() {
+        return productKey;
+    }
+
+    public void setProductKey(String productKey) {
+        this.productKey = productKey;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public String getProductImgUrl() {
+        return productImgUrl;
+    }
+
+    public void setProductImgUrl(String productImgUrl) {
+        this.productImgUrl = productImgUrl;
+    }
+    
+    
+    
+    
 
     @Override
     public String toString() {
