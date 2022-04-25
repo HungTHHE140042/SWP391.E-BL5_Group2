@@ -8,6 +8,7 @@ package dao;
 import context.DBContext;
 import entity.CategoryOrder;
 import entity.Month;
+import entity.OrderDetail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -218,6 +219,33 @@ public class OrderDetailDAO {
         return null;
     }
 
+    public List<OrderDetail> getOrderDetailByOrderId(int orderId) {
+        List<OrderDetail> list = new ArrayList<>();
+        query = "select * from\n"
+                + "(select A.*, pk.productKey from\n"
+                + "	(select od.productID, od.productName, od.productPrice, od.keyID from [order] o, orderDetail od where o.ID = od.orderID and o.ID = ?) as A\n"
+                + "JOIN\n"
+                + "	productKey pk\n"
+                + "ON A.keyID = pk.keyID) AS B\n"
+                + "JOIN\n"
+                + "productImg p\n"
+                + "ON B.productID = p.productID WHERE p.[type] = 1";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, orderId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new OrderDetail(rs.getInt("ID"), rs.getString("productName"), rs.getFloat("productPrice"), rs.getString("productKey"), rs.getString("productImgURL")));
+            }
+            ps.close();
+            rs.close();
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public static void main(String[] args) {
         OrderDetailDAO orderDetailDAO = new OrderDetailDAO();
         int month = orderDetailDAO.getMonth();
@@ -231,7 +259,7 @@ public class OrderDetailDAO {
         CategoryOrder categoryOrder = orderDetailDAO.getTotalCategoryOrderByID(3);
         List<Month> listTotalPrice = orderDetailDAO.totalPricePerMonth1();
         String list = orderDetailDAO.totalPricePerMonth().toString();
-        
+    
         System.out.println(countOrderDetail);
         System.out.println(totalPrice);
         System.out.println(totalOrderSuccess);

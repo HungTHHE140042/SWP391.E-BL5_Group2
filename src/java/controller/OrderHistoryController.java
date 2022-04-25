@@ -5,12 +5,18 @@
  */
 package controller;
 
+import dao.OrderDAO;
+import entity.Order;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,6 +36,21 @@ public class OrderHistoryController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+
+        if (u != null) {
+            OrderDAO oDAO = new OrderDAO();
+            List<Order> listOrder = new ArrayList<>();
+            listOrder = oDAO.getAllOrderByUserId(u.getUserId());
+
+            request.setAttribute("listOrder", listOrder);
+            System.out.println(listOrder + ".." + u.getUserId());
+        } else {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+
         request.getRequestDispatcher("orderHistory.jsp").forward(request, response);
     }
 
@@ -44,7 +65,15 @@ public class OrderHistoryController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String idCancel = request.getParameter("idCancel");
+
+        if (idCancel != null) {
+            int id = Integer.parseInt(idCancel);
+            OrderDAO oDAO = new OrderDAO();
+            if(oDAO.cancelOrder(id)){
+                response.sendRedirect("order-history");
+            }
+        }
     }
 
     /**
