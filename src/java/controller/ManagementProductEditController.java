@@ -127,7 +127,7 @@ public class ManagementProductEditController extends HttpServlet {
                         }
                     }
                     for (String key : keyList) {
-                        String encryptKey = AES.encrypt(key, "@ch40_4nh_3m_nh3");
+                        String encryptKey = AES.encrypt(key, "@SWP391_Group2");
                         pDAO.insertProductKey(id, encryptKey);
                     }
                     amount = amount + keyList.size();
