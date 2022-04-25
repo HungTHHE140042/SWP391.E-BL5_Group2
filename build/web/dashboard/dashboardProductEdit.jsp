@@ -145,18 +145,19 @@
                                     </div>
                                 </div>
                                 <input type="hidden" name="amount" value="${product.amount}">
-                                <div class="row mt-4 mb-4">
-                                    <div class="col-1 text-center">
-                                        Add Product key
+                                <c:if test="${sessionScope.user.roleId == 1}">
+                                    <div class="row mt-4 mb-4">
+                                        <div class="col-1 text-center">
+                                            Add Product key
+                                        </div>
+                                        <div class="col-10">
+                                            <input class="form-control" name="product-key-file" accept=".xls,.xlsx" type="file" >
+                                        </div>
+                                        <div class="col-1 text-center">
+                                            <a href="file/product_key_template.xlsx" class="btn btn-warning btn-sm"><i class="fas fa-arrow-circle-down"></i> Template</a>
+                                        </div>
                                     </div>
-                                    <div class="col-10">
-                                        <input class="form-control" name="product-key-file" accept=".xls,.xlsx" type="file" >
-                                    </div>
-                                    <div class="col-1 text-center">
-                                        <a href="file/product_key_template.xlsx" class="btn btn-warning btn-sm"><i class="fas fa-arrow-circle-down"></i> Template</a>
-                                    </div>
-                                </div>
-
+                                </c:if>
                                 <div class="div mb-4 mr-4">
                                     <button type="submit" class="btn btn-success float-right ml-2">
                                         <span class="text">Save</span>

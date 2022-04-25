@@ -293,15 +293,17 @@
                                 <label for="desc" class="col-form-label">Description:</label>
                                 <textarea type="text" class="form-control" name="description"></textarea>
                             </div>
-                            <div class="mb-3">
-                                <div class="row">
-                                    <div class="col-4"><span style="color: red">*</span> Product key:</div>
-                                    <div class="col-8">
-                                        <a href="file/product_key_template.xlsx" class="btn btn-warning btn-sm float-right"><i class="fas fa-arrow-circle-down"></i> Template File</a>
+                            <c:if test="${sessionScope.user.roleId == 1}">
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-4"><span style="color: red">*</span> Product key:</div>
+                                        <div class="col-8">
+                                            <a href="file/product_key_template.xlsx" class="btn btn-warning btn-sm float-right"><i class="fas fa-arrow-circle-down"></i> Template File</a>
+                                        </div>
                                     </div>
+                                    <input type="file" accept=".xls,.xlsx" name="product-key-file" class="form-control-file" required="">
                                 </div>
-                                <input type="file" accept=".xls,.xlsx" name="product-key-file" class="form-control-file" required="">
-                            </div>
+                            </c:if>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
