@@ -41,9 +41,9 @@ var thang9 = $('#dataAreaChart').data('thang9');
 var thang10 = $('#dataAreaChart').data('thang10');
 var thang11 = $('#dataAreaChart').data('thang11');
 var thang12 = $('#dataAreaChart').data('thang12');
-var list = $('#dataAreaChart').data('list');
-var array = list.split(',');
-
+//var list = $('#dataAreaChart').data('list');
+//var array = list.split(',');
+//
 var totalPrice = []
 totalPrice.push(thang1)
 totalPrice.push(thang2)

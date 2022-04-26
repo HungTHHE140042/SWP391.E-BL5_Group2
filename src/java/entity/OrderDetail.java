@@ -117,10 +117,6 @@ public class OrderDetail {
     public void setProductImgUrl(String productImgUrl) {
         this.productImgUrl = productImgUrl;
     }
-    
-    
-    
-    
 
     @Override
     public String toString() {
