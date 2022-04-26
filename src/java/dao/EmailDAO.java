@@ -229,8 +229,12 @@ public class EmailDAO {
     }
     
     public static String formatDate(String stringDate){
-        String date = stringDate.substring(0,stringDate.length()-4);
-        return date;
+        String[] parts = stringDate.split("[.]", 0);
+        String date = parts[0];
+        String[] formatDate1 = date.split(" ");
+        String[] formatDate2 = formatDate1[0].split("-");
+        String dateMonthYear = formatDate2[2] + "-" + formatDate2[1] + "-" + formatDate2[0] + " " + formatDate1[1];
+        return dateMonthYear;
     }
     
     public String datetoSQL() {
@@ -240,7 +244,7 @@ public class EmailDAO {
     }
     
     public static void main(String[] args) {
-        System.out.println(new EmailDAO().getReceiverByEmailID(2));
+        System.out.println(new EmailDAO().formatDate("2022-04-26 23:41:33.770"));
     }
 
 }
