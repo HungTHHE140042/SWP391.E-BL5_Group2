@@ -4,11 +4,13 @@
     Author     : QUANG HUNG
 --%>
 
-<%@page import="entity.PostJoinUser"%>
+<%@page import="entity.Email"%>
+<%@page import="java.sql.Date"%>
+<%@page import="dao.EmailDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="dao.PostDAO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -89,6 +91,19 @@
                     </div>
                 </div>
             </c:when>
+            <c:when test="${stt.equals('5')}">
+                <div class="position-fixed bottom-0 end-0 p-3" style="right: 10px; bottom: 10px; z-index: 11">
+                    <div class="toast" data-autohide="false">
+                        <div class="toast-header bg-success">
+                            <strong class="mr-auto text-white"><h4>Send Mail Successfully</h4></strong>
+                            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                        </div>
+                        <div class="toast-body">
+                            Send Mail success, try again!
+                        </div>
+                    </div>
+                </div>
+            </c:when>
             <c:otherwise></c:otherwise>
         </c:choose>
         <!-- Page Wrapper -->
@@ -113,7 +128,7 @@
 
                         <!-- Page Heading -->
                         <div class="div mb-4">
-                            <h4>Posts</h4>
+                            <h4>Mail Management</h4>
                             <a href="#" class="btn btn-success btn-icon-split" data-toggle="modal" data-target="#createModal">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
@@ -143,7 +158,13 @@
                                                     <td>${email.emailID}</td>
                                                     <td>${email.title}</td>
                                                     <td>${email.content}</td>
-                                                    <td>${email.date}</td>
+                                                    <%
+                                                        EmailDAO emailDAO = new EmailDAO();
+                                                        Email email = (Email)pageContext.getAttribute("email");
+                                                        String dateMail = emailDAO.formatDate(email.getDate());
+                                                        request.setAttribute("dateMail", dateMail);
+                                                    %>
+                                                    <td>${dateMail}</td>
                                                     <c:if test="${email.status == 0}">
                                                         <td>
                                                             <div class="btn btn-outline-secondary btn-sm">
@@ -157,7 +178,7 @@
                                                         <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="${email.emailID}">
                                                             <span class="text">Delete</span>
                                                         </a>
-                                                        <a href="dashboard-email-send?id=${email.emailID}" class="btn btn-success btn-icon-split btn-sm">
+                                                        <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#sendMailModal" data-id="${email.emailID}">
                                                             <span class="text">Send</span>
                                                         </a>    
                                                     </td>
@@ -208,6 +229,30 @@
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
+        
+        <!-- Send Mail Modal-->
+        <div class="modal fade" id="sendMailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Are you sure to Send this Mail?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Send" below if you are sure to send this Mail.
+                        <form method="get" action="">
+                            <input type="hidden" name="idSend" id="sendID">
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-success">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Delete Modal-->
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -222,7 +267,7 @@
                     </div>
                     <div class="modal-body">Select "Delete" below if you are sure to delete this Mail.
                         <form method="get" action="">
-                            <input type="hidden" name="idDelete" id="id">
+                            <input type="hidden" name="idDelete" id="deleteID">
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -300,12 +345,22 @@
             console.log(id);
             var modal = $(this);
             console.log(modal);
-            modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
+            modal.find('.modal-dialog .modal-content .modal-body #deleteID').val(id);
+        });
+        
+        $('#sendMailModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Button that triggered the modal
+            var id = button.data('id');
+            console.log(id);
+            var modal = $(this);
+            console.log(modal);
+            modal.find('.modal-dialog .modal-content .modal-body #sendID').val(id);
         });
 
         $(document).ready(function () {
             $('.toast').toast('show');
         });
     </script>
+    
 </body>
 </html>

@@ -10,6 +10,7 @@ import entity.Email;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -84,7 +85,7 @@ public class ManagementEmailEditController extends HttpServlet {
                     String content = request.getParameter("content");
 
                     EmailDAO emailDAO = new EmailDAO();
-                    if (emailDAO.updateEmailInformation(id, title, content)) {
+                    if (emailDAO.updateEmailInformation(id, title, content, emailDAO.datetoSQL(), 0)) {
                         System.out.println("update_success");
                     } else {
                         System.out.println("update_fail");

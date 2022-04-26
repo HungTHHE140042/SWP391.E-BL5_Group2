@@ -7,12 +7,14 @@ package dao;
 
 import context.DBContext;
 import entity.Email;
+import entity.EmailReceiverJoinUser;
 import entity.User;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -186,13 +188,37 @@ public class EmailDAO {
         return null;
     }
     
-    public boolean updateEmailInformation(int emailID, String title, String content) {
-        String sql = "Update [email] set title = ?, content = ? where email.ID = ?";
+    public List<EmailReceiverJoinUser> getReceiverByEmailID(int emailID){
+        String sql = "select er.ID, er.emailID, er.userID, u.email from emailReceiver er "
+                + "inner join [user] u on u.userID=er.userID where emailID = ?";
+        List<EmailReceiverJoinUser> receiverList = new ArrayList<>();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, emailID);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                receiverList.add(new EmailReceiverJoinUser(rs.getInt("ID"),
+                        rs.getInt("emailID"),
+                        rs.getString("email")
+                ));
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return receiverList;
+    }
+    
+    public boolean updateEmailInformation(int emailID, String title, String content, String date, int status) {
+        String sql = "Update [email] set title = ?, content = ?, date = ?, status = ? where email.ID = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, title);
             ps.setString(2, content);
-            ps.setInt(3, emailID);
+            ps.setString(3, date);
+            ps.setInt(4, status);
+            ps.setInt(5, emailID);
             ps.executeUpdate();
             ps.close();
             return true;
@@ -202,10 +228,19 @@ public class EmailDAO {
         return false;
     }
     
+    public static String formatDate(String stringDate){
+        String date = stringDate.substring(0,stringDate.length()-4);
+        return date;
+    }
     
+    public String datetoSQL() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");  
+        LocalDateTime now = LocalDateTime.now();  
+        return dtf.format(now);
+    }
     
     public static void main(String[] args) {
-        System.out.println(new EmailDAO().updateEmailInformation(8, "test", "test"));
+        System.out.println(new EmailDAO().getReceiverByEmailID(2));
     }
 
 }
