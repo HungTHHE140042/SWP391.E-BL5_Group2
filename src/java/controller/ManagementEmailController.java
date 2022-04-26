@@ -9,12 +9,16 @@ import dao.EmailDAO;
 import dao.SubscribeDAO;
 import dao.UserDAO;
 import entity.Email;
+import entity.EmailReceiverJoinUser;
 import entity.Subscribe;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,10 +49,11 @@ public class ManagementEmailController extends HttpServlet {
             if (u.getRoleId() == 1 || u.getRoleId() == 4) {
                 int numberEmailClick = 1;
                 request.setAttribute("stt", null);
-                String id = request.getParameter("idDelete");
+                String idDelete = request.getParameter("idDelete");
+                String idSend = request.getParameter("idSend");
                 EmailDAO emailDAO = new EmailDAO();
-                if (id != null) {
-                    int emailID = Integer.parseInt(request.getParameter("idDelete"));
+                if (idDelete != null) {
+                    int emailID = Integer.parseInt(idDelete);
                     if (emailDAO.deleteEmailByEmailID(emailID)) {
                         List<Email> listEmail = new ArrayList<>();
                         listEmail = emailDAO.getAllEmail();
@@ -64,6 +69,25 @@ public class ManagementEmailController extends HttpServlet {
                         request.setAttribute("stt", "4");
                         request.getRequestDispatcher("dashboard/dashboardEmail.jsp").forward(request, response);
                     }
+                } else if (idSend != null) {
+                    int emailID = Integer.parseInt(idSend);
+                    Email sendMail = emailDAO.getEmailByEmailID(emailID);
+                    List<EmailReceiverJoinUser> receiverList = emailDAO.getReceiverByEmailID(emailID);
+                    for (EmailReceiverJoinUser receiver : receiverList) {
+                        try {
+                            smtp.Email.sendEmail(receiver.getUserEmail(), sendMail.getTitle(), sendMail.getContent());
+                        } catch (MessagingException ex) {
+                            Logger.getLogger(ManagementEmailController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    emailDAO.updateEmailInformation(sendMail.getEmailID(), sendMail.getTitle(), emailDAO.datetoSQL(), sendMail.getContent(), 1);
+                    List<Email> listEmail = new ArrayList<>();
+                    listEmail = emailDAO.getAllEmail();
+                    request.setAttribute("listEmail", listEmail);
+                    request.setAttribute("numberEmailClick", numberEmailClick);
+                    request.setAttribute("stt", "5");
+                    request.getRequestDispatcher("dashboard/dashboardEmail.jsp").forward(request, response);
+
                 } else {
                     List<Email> listEmail = new ArrayList<>();
                     listEmail = emailDAO.getAllEmail();

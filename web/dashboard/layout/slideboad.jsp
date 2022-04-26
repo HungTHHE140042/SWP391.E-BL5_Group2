@@ -67,6 +67,14 @@
                 Notifications
             </div>
         </c:if>
+        <c:if test="${numberEmailClick == 1}">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-paper-plane"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">
+                Emails
+            </div>
+        </c:if>
     </a>
 
     <!-- Divider -->
@@ -146,10 +154,10 @@
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span></a>
         </li>
-        
+
         <li class="${numberEmailClick == 1 ? "nav-item active":"nav-item"}">
             <a class="nav-link" href="dashboard-email">
-                <i class="fas fa-bell"></i>
+                <i class="fas fa-paper-plane"></i>
                 <span>Emails</span></a>
         </li>
         <!-- Divider -->
