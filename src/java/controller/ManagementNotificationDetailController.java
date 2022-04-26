@@ -5,8 +5,11 @@
  */
 package controller;
 
+import dao.NotificationDAO;
+import entity.NotificationDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author trinh
  */
 public class ManagementNotificationDetailController extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -29,7 +33,25 @@ public class ManagementNotificationDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("dashboard/dashboardNotificationDetail.jsp").forward(request, response);
+        try {
+            int notificationId = Integer.parseInt(request.getParameter("id"));
+            NotificationDAO ndao = new NotificationDAO();
+            List<NotificationDetail> list = ndao.getNotificationByNotificationId(notificationId);
+            String temp = "";
+            NotificationDetail detail = new NotificationDetail(list.get(0).getID(), list.get(0).getTitle(), list.get(0).getContent(),list.get(0).getUserID());
+            
+            for (NotificationDetail notificationDetail : list) {
+                temp = temp + notificationDetail.getUserID() + ", ";
+            }
+            temp = temp.replaceAll(", $", "");
+            System.out.println(temp);
+            request.setAttribute("Noti_Detail", detail);
+            request.setAttribute("userID", temp);
+            request.getRequestDispatcher("dashboard/dashboardNotificationDetail.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -43,7 +65,7 @@ public class ManagementNotificationDetailController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     /**

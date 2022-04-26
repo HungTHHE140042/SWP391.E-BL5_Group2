@@ -74,8 +74,8 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th class="col-1">ID</th>
-                                                <th>Last</th>
+                                                <th>ID</th>
+                                                <th class="col-2">Last</th>
                                                 <th>Title</th>
                                                 <th>Content</th>
                                                 <th class="col-1">Status</th>
@@ -83,44 +83,36 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>17/4/2022</td>
-                                                <td>HOW CAN I CONTACT THE TEAM FOR HELP?</td>
-                                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha with desktop publishing software like including versions.</td>
+                                            <c:forEach var="n" items="${List_Noti}">
+                                                <tr>
+                                                <td>${n.ID}</td>
+                                                <td>${n.time}</td>
+                                                <td>${n.title}</td>
+                                                <td>${n.content}</td>
+                                                <c:if test="${n.status == 1}">
+                                                    <td>
+                                                        <div class="btn btn-outline-primary btn-sm">
+                                                            Sent
+                                                        </div>
+                                                    </td>
+                                                </c:if>
+                                                <c:if test="${n.status == 0}">
+                                                    <td>
+                                                        <div class="btn btn-outline-secondary btn-sm">
+                                                            Not send
+                                                        </div>
+                                                    </td>
+                                                </c:if>
                                                 <td>
-                                                    <a href="#" class="btn btn-outline-primary btn-sm">
-                                                        Sent
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <a href="dashboard-notification-detail" class="btn btn-warning btn-icon-split btn-sm">
+                                                    <a href="dashboard-notification-detail?id=${n.ID}" class="btn btn-warning btn-icon-split btn-sm">
                                                         <span class="text">Detail</span>
                                                     </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
+                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="${n.ID}">
                                                         <span class="text">Delete</span>
                                                     </a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>17/4/2022</td>
-                                                <td>HOW CAN I CONTACT THE TEAM FOR HELP?</td>
-                                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been industry standard unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five reIcentem with desktop publishing softwa like including versions has been industry standard unknown printer took a galley of type and scramIblrd it to make a type specimen book ha with desktop publishing software like including versions.</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-outline-secondary btn-sm">
-                                                        Not send
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <a href="dashboard-notification-detail" class="btn btn-warning btn-icon-split btn-sm">
-                                                        <span class="text">Detail</span>
-                                                    </a>
-                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
-                                                        <span class="text">Delete</span>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            </c:forEach>
                                         </tbody> 
                                     </table>
                                 </div>
@@ -166,8 +158,8 @@
                         </button>
                     </div>
                     <div class="modal-body">Select "Delete" below if you are sure to delete this Notification.
-                        <form method="post" action="">
-                            <input type="hidden" name="id" id="id">
+                        <form method="get" action="">
+                            <input type="hidden" name="idDelete" id="id">
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                 <button type="submit" class="btn btn-danger" href="login.html">Delete</button>
@@ -202,19 +194,19 @@
                             <div class="mb-3">
                                 <label for="content" class="col-form-label"><span style="color: red">*</span> Receiver:</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="user" checked="">
+                                    <input class="form-check-input" type="checkbox" name="cus" value="" id="user" checked="">
                                     <label class="form-check-label" for="user">
                                         All Customers
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="seller">
+                                    <input class="form-check-input" type="checkbox" name="sell" value="" id="seller">
                                     <label class="form-check-label" for="seller">
                                         All Sellers
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="marketing">
+                                    <input class="form-check-input" type="checkbox" name="market" value="" id="marketing">
                                     <label class="form-check-label" for="marketing">
                                         All Marketing
                                     </label>
