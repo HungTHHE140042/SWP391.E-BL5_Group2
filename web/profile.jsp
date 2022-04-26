@@ -142,7 +142,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form_input">
-                                    <input name="email" disabled="true" placeholder="Email" type="text"s value=${sessionScope.user.email}>
+                                    <input name="email" readonly="" placeholder="Email" type="text"s value=${sessionScope.user.email}>
                                 </div>
                             </div>
                         </div>
@@ -155,6 +155,12 @@
                                 <div class="form_input">
                                     <input name="password" placeholder="Password" type="password" value=${sessionScope.user.password} disabled="true">
                                 </div>
+                            </div>
+                        </div>
+                                <!--.-->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input id="subscribe" name="subscribe" type="checkbox" value="subs" <c:if test="${subs == true}">checked</c:if>> <label for="subscribe"><i>Register receive email all information of store</i></label>
                             </div>
                         </div>
 

@@ -639,9 +639,9 @@ public class ProductDAO {
         String sql1 = "update product set productName = ?, description = ?, originalPrice = ?, "
                 + "sellPrice = ?, salePercent = ?, categoryID = ?, amount = ?, statusID = ? "
                 + "where productID = ?";
-        String sql2 = "update productImg set productImgUrl = ?,"
+        String sql2 = "update productImg set productImgURL = ? "
                 + "where productID = ? and type=1";
-        String sql3 = "update productImg set productImgUrl = ?,"
+        String sql3 = "update productImg set productImgURL = ? "
                 + "where productID = ? and type=2";
         try {
             ps = con.prepareStatement(sql1);
@@ -661,7 +661,7 @@ public class ProductDAO {
             ps.setInt(2, productId);
             ps.executeUpdate();
 
-            ps = con.prepareStatement(sql2);
+            ps = con.prepareStatement(sql3);
             ps.setString(1, imgRec);
             ps.setInt(2, productId);
             ps.executeUpdate();
