@@ -11,6 +11,7 @@ import entity.Category;
 import entity.Product;
 import function.AES;
 import function.Calculate;
+import function.SendEmail;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -88,6 +89,7 @@ public class ManagementProductEditController extends HttpServlet {
             String name = request.getParameter("name");
             String imgSqu = request.getParameter("imageSquare");
             String imgRec = request.getParameter("imageRectangle");
+            
             double originalPrice = Double.parseDouble("".equals(request.getParameter("originalPrice")) ? "0" : request.getParameter("originalPrice"));
             double salePercent = Double.parseDouble("".equals(request.getParameter("salePercent")) ? "0" : request.getParameter("salePercent"));
             int catId = Integer.parseInt(request.getParameter("categoryId"));
@@ -140,6 +142,9 @@ public class ManagementProductEditController extends HttpServlet {
             double sellPrice = Calculate.calculateSellPrice(originalPrice, salePercent);
 
             if (pDAO.updateProductInformation(id, name, desc, originalPrice, sellPrice, salePercent, catId, amount, statusId, imgSqu, imgRec)) {
+                if(statusId == 1){
+                    SendEmail.sendEmailToSubscriber("[^^] Let check new Product", "New Product: " + name + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/productDetails?productID="+ id +"'>more...</a>]");
+                }
                 System.out.println("update_success");
             } else {
                 System.out.println("update_fail");

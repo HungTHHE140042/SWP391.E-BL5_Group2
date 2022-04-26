@@ -8,6 +8,7 @@ package controller;
 import dao.FaqDAO;
 import entity.FaqJoinUser;
 import entity.User;
+import function.SendEmail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -94,6 +95,8 @@ public class ManagementFaqController extends HttpServlet {
                     listFAQ = faqDAO.getAllFAQs();
                     request.setAttribute("numberFAQClick", numberFAQClick);
                     request.setAttribute("List_FAQ", listFAQ);
+                    
+                    SendEmail.sendEmailToSubscriber("[^^] Let check new FAQ", "New FAQ: " + titleCreate + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/faq'>more...</a>]");
                     request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
                 }
             }

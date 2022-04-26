@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.SubscribeDAO;
 import dao.UserDAO;
 import entity.User;
 import java.io.IOException;
@@ -36,8 +37,11 @@ public class ProfileController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
-        
+
         if (u != null) {
+            SubscribeDAO sDAO = new SubscribeDAO();
+            boolean sub = sDAO.isSubscribe(u.getUserId());
+            request.setAttribute("subs", sub);
             request.getRequestDispatcher("profile.jsp").forward(request, response);
         } else {
             response.sendRedirect("signin");
@@ -60,7 +64,29 @@ public class ProfileController extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("userId"));
         String userName = request.getParameter("username").trim();
+        String email = request.getParameter("email");
+        String subscribe = request.getParameter("subscribe");
 
+        SubscribeDAO sDAO = new SubscribeDAO();
+        if (subscribe != null) {
+            if (sDAO.insertSubscribe(id, email)) {
+                request.setAttribute("subs", true);
+                request.setAttribute("msgUpdate", true);
+            } else {
+                request.setAttribute("msgUpdate", false);
+            }
+        } else {
+            if (sDAO.isSubscribe(id)) {
+                if (sDAO.deleteSubscribe(id)) {
+                    request.setAttribute("subs", false);
+                    request.setAttribute("msgUpdate", true);
+                } else {
+                    request.setAttribute("msgUpdate", false);
+                }
+            } else {
+                request.setAttribute("msgUpdate", false);
+            }
+        }
         request.setAttribute("msgUpdate", false);
 
         if (!userName.equals("")) {

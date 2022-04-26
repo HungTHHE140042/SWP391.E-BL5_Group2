@@ -40,11 +40,12 @@ public class ManagementPostEditController extends HttpServlet {
             request.setAttribute("post", post);
             request.setAttribute("error", null);
             request.setAttribute("numberPostClick", numberPostClick);
-            request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
 
         } catch (Exception e) {
+            e.printStackTrace();
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+        request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
 
     }
 

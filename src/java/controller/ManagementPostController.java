@@ -8,9 +8,13 @@ package controller;
 import dao.PostDAO;
 import entity.PostJoinUser;
 import entity.User;
+import function.SendEmail;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -85,6 +89,12 @@ public class ManagementPostController extends HttpServlet {
                     request.setAttribute("listPost", listPost);
                     request.setAttribute("error", "1");
                     request.setAttribute("numberPostClick", numberPostClick);
+                    
+                    try {
+                        SendEmail.sendEmailToSubscriber("[^^] Let check new Post", "New Post: " + title + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/post'>more...</a>]");
+                    } catch (MessagingException ex) {
+                        Logger.getLogger(ManagementPostController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     request.getRequestDispatcher("dashboard/dashboardPost.jsp").forward(request, response);
                 } else {
                     listPost = pDAO.getAllPostJoinUser();
