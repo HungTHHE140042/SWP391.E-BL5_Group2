@@ -147,7 +147,7 @@
                                                 <th>ID</th>
                                                 <th>Title</th>
                                                 <th>Content</th>
-                                                <th>Date</th>
+                                                <th>Time</th>
                                                 <th>Status</th>
                                                 <th>Option</th>
                                             </tr>
