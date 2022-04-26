@@ -14,16 +14,19 @@ public class NotificationDetail {
     private String title;
     private String content;
     private int userID;
-
+    private int status;
     public NotificationDetail() {
     }
 
-    public NotificationDetail(int ID, String title, String content, int userID) {
+    public NotificationDetail(int ID, String title, String content, int userID, int status) {
         this.ID = ID;
         this.title = title;
         this.content = content;
         this.userID = userID;
+        this.status = status;
     }
+
+   
 
     public int getID() {
         return ID;
@@ -57,9 +60,19 @@ public class NotificationDetail {
         this.userID = userID;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "NotificationDetail{" + "ID=" + ID + ", title=" + title + ", content=" + content + ", userID=" + userID + '}';
+        return "NotificationDetail{" + "ID=" + ID + ", title=" + title + ", content=" + content + ", userID=" + userID + ", status=" + status + '}';
     }
+
+    
     
 }

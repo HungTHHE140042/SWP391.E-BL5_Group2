@@ -46,7 +46,7 @@ public class ManagementNotificationDetailController extends HttpServlet {
                     NotificationDAO ndao = new NotificationDAO();
                     List<NotificationDetail> list = ndao.getNotificationByNotificationId(notificationId);
                     String temp = "";
-                    NotificationDetail detail = new NotificationDetail(list.get(0).getID(), list.get(0).getTitle(), list.get(0).getContent(),list.get(0).getUserID());
+                    NotificationDetail detail = new NotificationDetail(list.get(0).getID(), list.get(0).getTitle(), list.get(0).getContent(),list.get(0).getUserID(),list.get(0).getStatus());
                     
                     for (NotificationDetail notificationDetail : list) {
                         temp = temp + notificationDetail.getUserID() + ", ";

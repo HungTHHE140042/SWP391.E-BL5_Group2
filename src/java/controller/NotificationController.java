@@ -36,10 +36,10 @@ public class NotificationController extends HttpServlet {
         User u = (User) session.getAttribute("user");
         if (u != null) {
             //Write code here
+            request.getRequestDispatcher("notification.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
     }
 
     /**
@@ -57,10 +57,10 @@ public class NotificationController extends HttpServlet {
         User u = (User) session.getAttribute("user");
         if (u != null) {
             //Write code here
+            request.getRequestDispatcher("notification.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
     }
 
     /**

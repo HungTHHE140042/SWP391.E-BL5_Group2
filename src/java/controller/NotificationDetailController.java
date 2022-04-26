@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
  * @author trinh
  */
 public class NotificationDetailController extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -35,10 +36,11 @@ public class NotificationDetailController extends HttpServlet {
         User u = (User) session.getAttribute("user");
         if (u != null) {
             //Write code here
+            request.getRequestDispatcher("notificationDetail.jsp").forward(request, response);
+
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("notificationDetail.jsp").forward(request, response);
     }
 
     /**
