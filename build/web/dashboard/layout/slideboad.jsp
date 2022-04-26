@@ -146,6 +146,12 @@
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span></a>
         </li>
+        
+        <li class="${numberEmailClick == 1 ? "nav-item active":"nav-item"}">
+            <a class="nav-link" href="dashboard-email">
+                <i class="fas fa-bell"></i>
+                <span>Emails</span></a>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
     </c:if>

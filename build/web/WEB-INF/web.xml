@@ -184,6 +184,10 @@
         <servlet-name>ManagermentPromotionDeleteController</servlet-name>
         <servlet-class>controller.ManagermentPromotionDeleteController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagementEmailController</servlet-name>
+        <servlet-class>controller.ManagementEmailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -374,6 +378,10 @@
     <servlet-mapping>
         <servlet-name>ManagermentPromotionDeleteController</servlet-name>
         <url-pattern>/promotionDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagementEmailController</servlet-name>
+        <url-pattern>/dashboard-email</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
