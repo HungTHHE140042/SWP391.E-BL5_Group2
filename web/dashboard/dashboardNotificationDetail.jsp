@@ -64,7 +64,7 @@
                                     ID
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="Username" value="1" disabled="">
+                                    <input class="form-control" type="text" placeholder="Username" value="${Noti_Detail.ID}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -72,7 +72,7 @@
                                     Title
                                 </div>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" placeholder="Product name" value="HOW CAN I CONTACT THE TEAM FOR HELP?" disabled="">
+                                    <input class="form-control" type="text" placeholder="Product name" value="${Noti_Detail.title}" disabled="">
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -80,7 +80,7 @@
                                     Content
                                 </div>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows="5" disabled="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap electrotypesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and morerecently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
+                                    <textarea class="form-control" rows="5" disabled="">${Noti_Detail.content}</textarea>
                                 </div>
                             </div>
                             <div class="row mt-4 mb-4">
@@ -88,7 +88,7 @@
                                     Receiver ID
                                 </div>
                                 <div class="col-10">
-                                    <textarea class="form-control" rows="2" disabled="">1, 2, 3</textarea>
+                                    <textarea class="form-control" rows="2" disabled="">${userID}</textarea>
                                 </div>
                             </div>
 
@@ -117,7 +117,6 @@
 
             </div>
             <!-- End of Content Wrapper -->
-
         </div>
         <!-- End of Page Wrapper -->
 

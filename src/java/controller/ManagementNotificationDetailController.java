@@ -5,9 +5,13 @@
  */
 package controller;
 
+
 import entity.User;
+import dao.NotificationDAO;
+import entity.NotificationDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,8 +41,25 @@ public class ManagementNotificationDetailController extends HttpServlet {
         if (u != null) {
             if (u.getRoleId() == 1 || u.getRoleId() == 4) {
                 
-                //Write code here
-                
+                try {
+                    int notificationId = Integer.parseInt(request.getParameter("id"));
+                    NotificationDAO ndao = new NotificationDAO();
+                    List<NotificationDetail> list = ndao.getNotificationByNotificationId(notificationId);
+                    String temp = "";
+                    NotificationDetail detail = new NotificationDetail(list.get(0).getID(), list.get(0).getTitle(), list.get(0).getContent(),list.get(0).getUserID());
+                    
+                    for (NotificationDetail notificationDetail : list) {
+                        temp = temp + notificationDetail.getUserID() + ", ";
+                    }
+                    temp = temp.replaceAll(", $", "");
+                    System.out.println(temp);
+                    request.setAttribute("Noti_Detail", detail);
+                    request.setAttribute("userID", temp);
+                    request.getRequestDispatcher("dashboard/dashboardNotificationDetail.jsp").forward(request, response);
+
+                } catch (Exception e) {
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                }
                 
                 int numberNotificationClick = 1;
                 request.setAttribute("numberNotificationClick", numberNotificationClick);

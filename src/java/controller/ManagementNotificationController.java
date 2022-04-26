@@ -5,9 +5,13 @@
  */
 package controller;
 
+import dao.NotificationDAO;
+import entity.Notification;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +41,20 @@ public class ManagementNotificationController extends HttpServlet {
         if (u != null) {
             if (u.getRoleId() == 1 || u.getRoleId() == 4) {
                 
-                //Write code here
+                NotificationDAO ndao = new NotificationDAO();
+                List<Notification> notifications = new ArrayList<>();
+                try {
+                int Id = Integer.parseInt(request.getParameter("idDelete"));
+                if (ndao.removeNotificationById(Id)) {
+                    notifications = ndao.getAllNotification();
+                    request.setAttribute("List_Noti", notifications);
+                    request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
+                }
+                } catch (Exception e) {
+                    notifications = ndao.getAllNotification();
+                    request.setAttribute("List_Noti", notifications);
+                    request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
+                }
                 
                 int numberNotificationClick = 1;
                 request.setAttribute("numberNotificationClick", numberNotificationClick);
@@ -48,6 +65,8 @@ public class ManagementNotificationController extends HttpServlet {
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+        
+
     }
 
     /**
@@ -61,6 +80,50 @@ public class ManagementNotificationController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String cus = request.getParameter("cus");
+        String sell = request.getParameter("sell");
+        String market = request.getParameter("market");
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        List<Notification> notifications = new ArrayList<>();
+        NotificationDAO aO = new NotificationDAO();
+        if (aO.createNotification(title, content)) {
+            int notiID = aO.getNewestNotication();
+            if (cus != null) {
+                List<User> u = aO.getUserByRoleID(3);
+                for (User user : u) {
+                    if (aO.createNotificationDetail(notiID, user.getUserId())) {
+                        continue;
+                    }
+                }
+//                notifications = aO.getAllNotification();
+//                request.setAttribute("List_Noti", notifications);
+//                request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
+            }
+            if (sell != null) {
+                List<User> u = aO.getUserByRoleID(2);
+                for (User user : u) {
+                    if (aO.createNotificationDetail(notiID, user.getUserId())) {
+                        continue;
+                    }
+//                    notifications = aO.getAllNotification();
+//                    request.setAttribute("List_Noti", notifications);
+//                    request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
+                }
+            }
+            if (market != null) {
+                List<User> u = aO.getUserByRoleID(4);
+                for (User user : u) {
+                    if (aO.createNotificationDetail(notiID, user.getUserId())) {
+                        continue;
+                    }
+                }
+            }
+            notifications = aO.getAllNotification();
+            request.setAttribute("List_Noti", notifications);
+            request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
+        }
+
     }
 
     /**
