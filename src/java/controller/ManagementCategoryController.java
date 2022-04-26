@@ -7,6 +7,7 @@ package controller;
 
 import dao.CategoryDAO;
 import entity.Category;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,15 +35,24 @@ public class ManagementCategoryController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        CategoryDAO cDAO = new CategoryDAO();
-        ArrayList<Category> listCateogry = new ArrayList<>();
-        listCateogry = cDAO.getAll();
-        int numberClickProduct = 1;
-        request.setAttribute("msg", null);
-        request.setAttribute("listCategory", listCateogry);
-        request.setAttribute("numberClickProduct", numberClickProduct);
-        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 2) {
+                CategoryDAO cDAO = new CategoryDAO();
+                ArrayList<Category> listCateogry = new ArrayList<>();
+                listCateogry = cDAO.getAll();
+                int numberClickProduct = 1;
+                request.setAttribute("msg", null);
+                request.setAttribute("listCategory", listCateogry);
+                request.setAttribute("numberClickProduct", numberClickProduct);
+                request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
+        } else {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -55,75 +66,85 @@ public class ManagementCategoryController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idDelete = request.getParameter("idDelete");
-        String idEdit = request.getParameter("idEdit");
-        String categoryEdit = request.getParameter("categoryEdit");
-        String categoryCreate = request.getParameter("categoryCreate");
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 2) {
+                String idDelete = request.getParameter("idDelete");
+                String idEdit = request.getParameter("idEdit");
+                String categoryEdit = request.getParameter("categoryEdit");
+                String categoryCreate = request.getParameter("categoryCreate");
 
-        CategoryDAO cDAO = new CategoryDAO();
-        int numberClickProduct = 1;
-        if (categoryCreate != null) {
-            if (cDAO.createCategory(categoryCreate)) {
+                CategoryDAO cDAO = new CategoryDAO();
+                int numberClickProduct = 1;
+                if (categoryCreate != null) {
+                    if (cDAO.createCategory(categoryCreate)) {
+                        ArrayList<Category> listCateogry = new ArrayList<>();
+                        listCateogry = cDAO.getAll();
+                        request.setAttribute("listCategory", listCateogry);
+                        request.setAttribute("msg", "1");
+                        request.setAttribute("numberClickProduct", numberClickProduct);
+                        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
+                    } else {
+                        ArrayList<Category> listCateogry = new ArrayList<>();
+                        listCateogry = cDAO.getAll();
+                        request.setAttribute("numberClickProduct", numberClickProduct);
+                        request.setAttribute("listCategory", listCateogry);
+                        request.setAttribute("msg", "0");
+                        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
+
+                    }
+                }
+                if (idDelete != null) {
+                    int id = Integer.parseInt(idDelete);
+                    if (cDAO.deleteCategory(id)) {
+                        ArrayList<Category> listCateogry = new ArrayList<>();
+                        listCateogry = cDAO.getAll();
+                        request.setAttribute("listCategory", listCateogry);
+                        request.setAttribute("msg", "2");
+                        request.setAttribute("numberClickProduct", numberClickProduct);
+                        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
+                    } else {
+                        ArrayList<Category> listCateogry = new ArrayList<>();
+                        listCateogry = cDAO.getAll();
+                        request.setAttribute("numberClickProduct", numberClickProduct);
+                        request.setAttribute("listCategory", listCateogry);
+                        request.setAttribute("msg", "0");
+                        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
+                    }
+                }
+                if (idEdit != null) {
+                    int id = Integer.parseInt(idEdit);
+                    if (cDAO.editCategory(id, categoryEdit)) {
+                        ArrayList<Category> listCateogry = new ArrayList<>();
+                        listCateogry = cDAO.getAll();
+                        request.setAttribute("listCategory", listCateogry);
+
+                        request.setAttribute("msg", "3");
+                        request.setAttribute("numberClickProduct", numberClickProduct);
+                        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
+                    } else {
+                        ArrayList<Category> listCateogry = new ArrayList<>();
+                        listCateogry = cDAO.getAll();
+                        request.setAttribute("listCategory", listCateogry);
+                        request.setAttribute("msg", "0");
+                        request.setAttribute("numberClickProduct", numberClickProduct);
+                        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
+                    }
+                }
+
                 ArrayList<Category> listCateogry = new ArrayList<>();
                 listCateogry = cDAO.getAll();
-                request.setAttribute("listCategory", listCateogry);
-                request.setAttribute("msg", "1");
                 request.setAttribute("numberClickProduct", numberClickProduct);
+                request.setAttribute("listCategory", listCateogry);
+                request.setAttribute("msg", null);
                 request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
             } else {
-                ArrayList<Category> listCateogry = new ArrayList<>();
-                listCateogry = cDAO.getAll();
-                request.setAttribute("numberClickProduct", numberClickProduct);
-                request.setAttribute("listCategory", listCateogry);
-                request.setAttribute("msg", "0");
-                request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
-
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
+        } else {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        if (idDelete != null) {
-            int id = Integer.parseInt(idDelete);
-            if (cDAO.deleteCategory(id)) {
-                ArrayList<Category> listCateogry = new ArrayList<>();
-                listCateogry = cDAO.getAll();
-                request.setAttribute("listCategory", listCateogry);
-                request.setAttribute("msg", "2");
-                request.setAttribute("numberClickProduct", numberClickProduct);
-                request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
-            } else {
-                ArrayList<Category> listCateogry = new ArrayList<>();
-                listCateogry = cDAO.getAll();
-                request.setAttribute("numberClickProduct", numberClickProduct);
-                request.setAttribute("listCategory", listCateogry);
-                request.setAttribute("msg", "0");
-                request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
-            }
-        }
-        if (idEdit != null) {
-            int id = Integer.parseInt(idEdit);
-            if (cDAO.editCategory(id, categoryEdit)) {
-                ArrayList<Category> listCateogry = new ArrayList<>();
-                listCateogry = cDAO.getAll();
-                request.setAttribute("listCategory", listCateogry);
-
-                request.setAttribute("msg", "3");
-                request.setAttribute("numberClickProduct", numberClickProduct);
-                request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
-            } else {
-                ArrayList<Category> listCateogry = new ArrayList<>();
-                listCateogry = cDAO.getAll();
-                request.setAttribute("listCategory", listCateogry);
-                request.setAttribute("msg", "0");
-                request.setAttribute("numberClickProduct", numberClickProduct);
-                request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
-            }
-        }
-
-        ArrayList<Category> listCateogry = new ArrayList<>();
-        listCateogry = cDAO.getAll();
-        request.setAttribute("numberClickProduct", numberClickProduct);
-        request.setAttribute("listCategory", listCateogry);
-        request.setAttribute("msg", null);
-        request.getRequestDispatcher("dashboard/dashboardCategory.jsp").forward(request, response);
     }
 
     /**

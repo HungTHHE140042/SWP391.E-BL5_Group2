@@ -9,12 +9,14 @@ import dao.CategoryDAO;
 import dao.ProductDAO;
 import entity.Category;
 import entity.Product;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,17 +38,27 @@ public class ManagementProductViewController extends HttpServlet {
             throws ServletException, IOException {
         String id = request.getParameter("id");
         int numberClickProduct = 1;
-        if (id != null) {
-            int productId = Integer.parseInt(id);
-            ProductDAO pDAO = new ProductDAO();
-            Product p = pDAO.getProductInformationByProductId(productId);
-            request.setAttribute("product", p);
-            
-            CategoryDAO cDAO = new CategoryDAO();
-            Category category = cDAO.getCategoryByCategoryId(p.getCategoryID());
-            request.setAttribute("category", category);
-            request.setAttribute("numberClickProduct", numberClickProduct);
-            request.getRequestDispatcher("dashboard/dashboardProductView.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 2) {
+                if (id != null) {
+                    int productId = Integer.parseInt(id);
+                    ProductDAO pDAO = new ProductDAO();
+                    Product p = pDAO.getProductInformationByProductId(productId);
+                    request.setAttribute("product", p);
+
+                    CategoryDAO cDAO = new CategoryDAO();
+                    Category category = cDAO.getCategoryByCategoryId(p.getCategoryID());
+                    request.setAttribute("category", category);
+                    request.setAttribute("numberClickProduct", numberClickProduct);
+                    request.getRequestDispatcher("dashboard/dashboardProductView.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                }
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }

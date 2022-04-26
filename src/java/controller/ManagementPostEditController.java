@@ -7,12 +7,14 @@ package controller;
 
 import dao.PostDAO;
 import entity.PostJoinUser;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,21 +34,30 @@ public class ManagementPostEditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int numberPostClick = 1;
-        try {
-            int postId = Integer.parseInt(request.getParameter("id"));
-            PostDAO pDAO = new PostDAO();
-            PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
-            request.setAttribute("post", post);
-            request.setAttribute("error", null);
-            request.setAttribute("numberPostClick", numberPostClick);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 4) {
+                int numberPostClick = 1;
+                try {
+                    int postId = Integer.parseInt(request.getParameter("id"));
+                    PostDAO pDAO = new PostDAO();
+                    PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+                    request.setAttribute("post", post);
+                    request.setAttribute("error", null);
+                    request.setAttribute("numberPostClick", numberPostClick);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                }
+                request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
+        } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
-
     }
 
     /**
@@ -60,26 +71,36 @@ public class ManagementPostEditController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int numberPostClick = 1;
-        try {
-            int postId = Integer.parseInt(request.getParameter("id"));
-            String title = request.getParameter("title");
-            String urlThumbnail = request.getParameter("urlThumbnail");
-            String urlDetail = request.getParameter("urlDetail");
-            String content = request.getParameter("content");
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 4) {
+                int numberPostClick = 1;
+                try {
+                    int postId = Integer.parseInt(request.getParameter("id"));
+                    String title = request.getParameter("title");
+                    String urlThumbnail = request.getParameter("urlThumbnail");
+                    String urlDetail = request.getParameter("urlDetail");
+                    String content = request.getParameter("content");
 
-            PostDAO pDAO = new PostDAO();
-            if (pDAO.updatePost(postId, title, urlThumbnail, urlDetail, content)) {
-                request.setAttribute("numberPostClick", numberPostClick);
-                response.sendRedirect("dashboard-post");
+                    PostDAO pDAO = new PostDAO();
+                    if (pDAO.updatePost(postId, title, urlThumbnail, urlDetail, content)) {
+                        request.setAttribute("numberPostClick", numberPostClick);
+                        response.sendRedirect("dashboard-post");
+                    } else {
+                        request.setAttribute("error", "1");
+                        PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+                        request.setAttribute("post", post);
+                        request.setAttribute("numberPostClick", numberPostClick);
+                        request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
+                    }
+                } catch (Exception e) {
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                }
             } else {
-                request.setAttribute("error", "1");
-                PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
-                request.setAttribute("post", post);
-                request.setAttribute("numberPostClick", numberPostClick);
-                request.getRequestDispatcher("dashboard/dashboardPostEdit.jsp").forward(request, response);
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
-        } catch (Exception e) {
+        } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }

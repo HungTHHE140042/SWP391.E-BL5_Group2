@@ -158,8 +158,8 @@
                                                  data-thang5="${totalPriceMonth5}" data-thang6="${totalPriceMonth6}"
                                                  data-thang7="${totalPriceMonth7}" data-thang7="${totalPriceMonth7}"
                                                  data-thang8="${totalPriceMonth8}" data-thang9="${totalPriceMonth9}"
-                                                 data-thang10="${totalPriceMonth10}" data-thang11="${totalPriceMonth11}
-                                                 data-thang12="${totalPriceMonth12} data-list="${listTotalPricePerMonth}></div>
+                                                 data-thang10="${totalPriceMonth10}" data-thang11="${totalPriceMonth11}"
+                                                 data-thang12="${totalPriceMonth12}" data-list="${listTotalPricePerMonth}"></div>
                                         </div>
                                     </div>
                                 </div>
