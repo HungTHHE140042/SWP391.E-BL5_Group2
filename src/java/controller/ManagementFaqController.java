@@ -38,24 +38,33 @@ public class ManagementFaqController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        FaqDAO faqDAO = new FaqDAO();
-        List<FaqJoinUser> listFAQ = new ArrayList<>();
-        int numberFAQClick = 1;
-        try {
-            int Id = Integer.parseInt(request.getParameter("idDelete"));
-            if (faqDAO.removeFaqById(Id)) {
-                listFAQ = faqDAO.getAllFAQs();
-                request.setAttribute("numberFAQClick", numberFAQClick);
-                request.setAttribute("List_FAQ", listFAQ);
-                request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 4) {
+                FaqDAO faqDAO = new FaqDAO();
+                List<FaqJoinUser> listFAQ = new ArrayList<>();
+                int numberFAQClick = 1;
+                try {
+                    int Id = Integer.parseInt(request.getParameter("idDelete"));
+                    if (faqDAO.removeFaqById(Id)) {
+                        listFAQ = faqDAO.getAllFAQs();
+                        request.setAttribute("numberFAQClick", numberFAQClick);
+                        request.setAttribute("List_FAQ", listFAQ);
+                        request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
+                    }
+                } catch (Exception e) {
+                    listFAQ = faqDAO.getAllFAQs();
+                    request.setAttribute("numberFAQClick", numberFAQClick);
+                    request.setAttribute("List_FAQ", listFAQ);
+                    request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
+                }
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
-        } catch (Exception e) {
-            listFAQ = faqDAO.getAllFAQs();
-            request.setAttribute("numberFAQClick", numberFAQClick);
-            request.setAttribute("List_FAQ", listFAQ);
-            request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-
     }
 
     /**
@@ -69,39 +78,47 @@ public class ManagementFaqController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            String ID = request.getParameter("idEdit");
-            String title = request.getParameter("title");
-            String content = request.getParameter("content");
-            FaqDAO faqDAO = new FaqDAO();
-            List<FaqJoinUser> listFAQ = new ArrayList<>();
-            int numberFAQClick = 1;
-            HttpSession session = request.getSession();
-            User u = (User) session.getAttribute("user");
-            System.out.println("user " + u);
-            if (ID != null) {
-                int Id = Integer.parseInt(ID);
-                if (faqDAO.updateFAQ(Id, title, content)) {
-                    listFAQ = faqDAO.getAllFAQs();
-                    request.setAttribute("numberFAQClick", numberFAQClick);
-                    request.setAttribute("List_FAQ", listFAQ);
-                    request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 4) {
+                try {
+                    String ID = request.getParameter("idEdit");
+                    String title = request.getParameter("title");
+                    String content = request.getParameter("content");
+                    FaqDAO faqDAO = new FaqDAO();
+                    List<FaqJoinUser> listFAQ = new ArrayList<>();
+                    int numberFAQClick = 1;
+                    System.out.println("user " + u);
+                    if (ID != null) {
+                        int Id = Integer.parseInt(ID);
+                        if (faqDAO.updateFAQ(Id, title, content)) {
+                            listFAQ = faqDAO.getAllFAQs();
+                            request.setAttribute("numberFAQClick", numberFAQClick);
+                            request.setAttribute("List_FAQ", listFAQ);
+                            request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
+                        }
+                    }
+                    String titleCreate = request.getParameter("titleCreate");
+                    String contentCreate = request.getParameter("contentCreate");
+                    if (!(titleCreate.isEmpty() && contentCreate.isEmpty())) {
+                        if (faqDAO.createFAQ(u.getUserId(), titleCreate, contentCreate)) {
+                            listFAQ = faqDAO.getAllFAQs();
+                            request.setAttribute("numberFAQClick", numberFAQClick);
+                            request.setAttribute("List_FAQ", listFAQ);
+
+                            SendEmail.sendEmailToSubscriber("[^^] Let check new FAQ", "New FAQ: " + titleCreate + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/faq'>more...</a>]");
+                            request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
+                        }
+                    }
+                } catch (Exception e) {
+                    System.out.println("e " + e);
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
                 }
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
-            String titleCreate = request.getParameter("titleCreate");
-            String contentCreate = request.getParameter("contentCreate");
-            if (!(titleCreate.isEmpty() && contentCreate.isEmpty())) {
-                if (faqDAO.createFAQ(u.getUserId(), titleCreate, contentCreate)) {
-                    listFAQ = faqDAO.getAllFAQs();
-                    request.setAttribute("numberFAQClick", numberFAQClick);
-                    request.setAttribute("List_FAQ", listFAQ);
-                    
-                    SendEmail.sendEmailToSubscriber("[^^] Let check new FAQ", "New FAQ: " + titleCreate + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/faq'>more...</a>]");
-                    request.getRequestDispatcher("dashboard/dashboardFAQ.jsp").forward(request, response);
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("e " + e);
+        } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }

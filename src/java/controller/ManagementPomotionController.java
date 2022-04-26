@@ -7,6 +7,7 @@ package controller;
 
 import dao.PromotionDAO;
 import entity.Promotion;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -43,22 +45,32 @@ public class ManagementPomotionController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PromotionDAO promotionDAO = new PromotionDAO();
-        List<Promotion> listGetAllPromotion = new ArrayList<>();
-        int numberPromotionClick = 1;
-        try {
-            int id = Integer.parseInt(request.getParameter("idDeletePromotion"));
-            if (promotionDAO.deletePromotion(id)) {
-                listGetAllPromotion = promotionDAO.getAllPromotion();
-                request.setAttribute("numberPromotionClick", numberPromotionClick);
-                request.setAttribute("listGetAllPromotion", listGetAllPromotion);
-                request.getRequestDispatcher("dashboard/dashboardPromotion.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 2) {
+                PromotionDAO promotionDAO = new PromotionDAO();
+                List<Promotion> listGetAllPromotion = new ArrayList<>();
+                int numberPromotionClick = 1;
+                try {
+                    int id = Integer.parseInt(request.getParameter("idDeletePromotion"));
+                    if (promotionDAO.deletePromotion(id)) {
+                        listGetAllPromotion = promotionDAO.getAllPromotion();
+                        request.setAttribute("numberPromotionClick", numberPromotionClick);
+                        request.setAttribute("listGetAllPromotion", listGetAllPromotion);
+                        request.getRequestDispatcher("dashboard/dashboardPromotion.jsp").forward(request, response);
+                    }
+                } catch (Exception e) {
+                    listGetAllPromotion = promotionDAO.getAllPromotion();
+                    request.setAttribute("numberPromotionClick", numberPromotionClick);
+                    request.setAttribute("listGetAllPromotion", listGetAllPromotion);
+                    request.getRequestDispatcher("dashboard/dashboardPromotion.jsp").forward(request, response);
+                }
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
-        } catch (Exception e) {
-            listGetAllPromotion = promotionDAO.getAllPromotion();
-            request.setAttribute("numberPromotionClick", numberPromotionClick);
-            request.setAttribute("listGetAllPromotion", listGetAllPromotion);
-            request.getRequestDispatcher("dashboard/dashboardPromotion.jsp").forward(request, response);
+        } else {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 
@@ -73,17 +85,27 @@ public class ManagementPomotionController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int numberPromotionClick = 1;
-        try {
-            String getPromotionCode = request.getParameter("protionCode");
-            String getPrice = request.getParameter("salePercent");
-            String getAmount = request.getParameter("amount");
-            PromotionDAO promotionDAO = new PromotionDAO();
-            if (promotionDAO.insertPromotion(getPromotionCode, getAmount, getAmount)) {
-                request.setAttribute("numberPromotionClick", numberPromotionClick);
-                response.sendRedirect("pomotionManager");
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 2) {
+                int numberPromotionClick = 1;
+                try {
+                    String getPromotionCode = request.getParameter("protionCode");
+                    String getPrice = request.getParameter("salePercent");
+                    String getAmount = request.getParameter("amount");
+                    PromotionDAO promotionDAO = new PromotionDAO();
+                    if (promotionDAO.insertPromotion(getPromotionCode, getAmount, getAmount)) {
+                        request.setAttribute("numberPromotionClick", numberPromotionClick);
+                        response.sendRedirect("pomotionManager");
+                    }
+                } catch (Exception e) {
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                }
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
-        } catch (Exception e) {
+        } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }

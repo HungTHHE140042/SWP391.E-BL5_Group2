@@ -9,6 +9,7 @@ import dao.CategoryDAO;
 import dao.ProductDAO;
 import entity.Category;
 import entity.Product;
+import entity.User;
 import function.AES;
 import function.Calculate;
 import function.SendEmail;
@@ -25,6 +26,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
@@ -51,25 +53,35 @@ public class ManagementProductEditController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        int numberClickProduct = 1;
-        if (id != null) {
-            int productId = Integer.parseInt(id);
-            ProductDAO pDAO = new ProductDAO();
-            Product p = pDAO.getProductInformationByProductId(productId);
-            request.setAttribute("product", p);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 2) {
+                String id = request.getParameter("id");
+                int numberClickProduct = 1;
+                if (id != null) {
+                    int productId = Integer.parseInt(id);
+                    ProductDAO pDAO = new ProductDAO();
+                    Product p = pDAO.getProductInformationByProductId(productId);
+                    request.setAttribute("product", p);
 
-            CategoryDAO cDAO = new CategoryDAO();
-            List<Category> listCategory = new ArrayList<>();
-            listCategory = cDAO.getAll();
-            request.setAttribute("listCategory", listCategory);
-            request.setAttribute("numberClickProduct", numberClickProduct);
-            request.getRequestDispatcher("dashboard/dashboardProductEdit.jsp").forward(request, response);
+                    CategoryDAO cDAO = new CategoryDAO();
+                    List<Category> listCategory = new ArrayList<>();
+                    listCategory = cDAO.getAll();
+                    request.setAttribute("listCategory", listCategory);
+                    request.setAttribute("numberClickProduct", numberClickProduct);
+                    request.getRequestDispatcher("dashboard/dashboardProductEdit.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                }
+                request.setAttribute("numberClickProduct", numberClickProduct);
+                request.getRequestDispatcher("dashboard/dashboardProductEdit.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        request.setAttribute("numberClickProduct", numberClickProduct);
-        request.getRequestDispatcher("dashboard/dashboardProductEdit.jsp").forward(request, response);
     }
 
     /**
@@ -83,76 +95,86 @@ public class ManagementProductEditController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int numberClickProduct = 1;
-        try {
-            int id = Integer.parseInt(request.getParameter("idEdit"));
-            String name = request.getParameter("name");
-            String imgSqu = request.getParameter("imageSquare");
-            String imgRec = request.getParameter("imageRectangle");
-            
-            double originalPrice = Double.parseDouble("".equals(request.getParameter("originalPrice")) ? "0" : request.getParameter("originalPrice"));
-            double salePercent = Double.parseDouble("".equals(request.getParameter("salePercent")) ? "0" : request.getParameter("salePercent"));
-            int catId = Integer.parseInt(request.getParameter("categoryId"));
-            int statusId = Integer.parseInt(request.getParameter("statusId"));
-            String desc = request.getParameter("description");
-            int amount = Integer.parseInt(request.getParameter("amount"));
-
-            ProductDAO pDAO = new ProductDAO();
-
-            //Upload product key file
-            Part uploadKeyFilePart = request.getPart("product-key-file");
-            String uploadFileName = Paths.get(uploadKeyFilePart.getSubmittedFileName()).getFileName().toString();
-            if (!uploadFileName.equals("")) {
-                String uploadFolderPath = getServletContext().getRealPath("/upload") + File.separator + uploadFileName;
-                InputStream inputStream = uploadKeyFilePart.getInputStream();
-
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 2) {
+                int numberClickProduct = 1;
                 try {
-                    byte[] byt = new byte[inputStream.available()];
-                    inputStream.read(byt);
-                    FileOutputStream fileOutputStream = new FileOutputStream(uploadFolderPath);
-                    fileOutputStream.write(byt);
-                    fileOutputStream.flush();
-                    fileOutputStream.close();
+                    int id = Integer.parseInt(request.getParameter("idEdit"));
+                    String name = request.getParameter("name");
+                    String imgSqu = request.getParameter("imageSquare");
+                    String imgRec = request.getParameter("imageRectangle");
 
-                    //Read upload file
-                    FileInputStream fileInputStream = new FileInputStream(uploadFolderPath);
-                    XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
-                    XSSFSheet sheet = workbook.getSheetAt(0);
-                    FormulaEvaluator formula = workbook.getCreationHelper().createFormulaEvaluator();
+                    double originalPrice = Double.parseDouble("".equals(request.getParameter("originalPrice")) ? "0" : request.getParameter("originalPrice"));
+                    double salePercent = Double.parseDouble("".equals(request.getParameter("salePercent")) ? "0" : request.getParameter("salePercent"));
+                    int catId = Integer.parseInt(request.getParameter("categoryId"));
+                    int statusId = Integer.parseInt(request.getParameter("statusId"));
+                    String desc = request.getParameter("description");
+                    int amount = Integer.parseInt(request.getParameter("amount"));
 
-                    List<String> keyList = new ArrayList<>();
-                    for (Row row : sheet) {
-                        for (Cell cell : row) {
-                            if (!cell.getStringCellValue().equals("")) {
-                                keyList.add(cell.getStringCellValue());
+                    ProductDAO pDAO = new ProductDAO();
+
+                    //Upload product key file
+                    Part uploadKeyFilePart = request.getPart("product-key-file");
+                    String uploadFileName = Paths.get(uploadKeyFilePart.getSubmittedFileName()).getFileName().toString();
+                    if (!uploadFileName.equals("")) {
+                        String uploadFolderPath = getServletContext().getRealPath("/upload") + File.separator + uploadFileName;
+                        InputStream inputStream = uploadKeyFilePart.getInputStream();
+
+                        try {
+                            byte[] byt = new byte[inputStream.available()];
+                            inputStream.read(byt);
+                            FileOutputStream fileOutputStream = new FileOutputStream(uploadFolderPath);
+                            fileOutputStream.write(byt);
+                            fileOutputStream.flush();
+                            fileOutputStream.close();
+
+                            //Read upload file
+                            FileInputStream fileInputStream = new FileInputStream(uploadFolderPath);
+                            XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
+                            XSSFSheet sheet = workbook.getSheetAt(0);
+                            FormulaEvaluator formula = workbook.getCreationHelper().createFormulaEvaluator();
+
+                            List<String> keyList = new ArrayList<>();
+                            for (Row row : sheet) {
+                                for (Cell cell : row) {
+                                    if (!cell.getStringCellValue().equals("")) {
+                                        keyList.add(cell.getStringCellValue());
+                                    }
+                                }
                             }
+                            for (String key : keyList) {
+                                String encryptKey = AES.encrypt(key, "@SWP391_Group2");
+                                pDAO.insertProductKey(id, encryptKey);
+                            }
+                            amount = amount + keyList.size();
+                        } catch (Exception e) {
+                            System.out.println(e);
                         }
+
                     }
-                    for (String key : keyList) {
-                        String encryptKey = AES.encrypt(key, "@SWP391_Group2");
-                        pDAO.insertProductKey(id, encryptKey);
+
+                    double sellPrice = Calculate.calculateSellPrice(originalPrice, salePercent);
+
+                    if (pDAO.updateProductInformation(id, name, desc, originalPrice, sellPrice, salePercent, catId, amount, statusId, imgSqu, imgRec)) {
+                        if (statusId == 1) {
+                            SendEmail.sendEmailToSubscriber("[^^] Let check new Product", "New Product: " + name + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/productDetails?productID=" + id + "'>more...</a>]");
+                        }
+                        System.out.println("update_success");
+                    } else {
+                        System.out.println("update_fail");
                     }
-                    amount = amount + keyList.size();
+                    request.setAttribute("numberClickProduct", numberClickProduct);
+                    response.sendRedirect("dashboard-product");
+
                 } catch (Exception e) {
-                        System.out.println(e);
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
                 }
-
-            }
-
-            double sellPrice = Calculate.calculateSellPrice(originalPrice, salePercent);
-
-            if (pDAO.updateProductInformation(id, name, desc, originalPrice, sellPrice, salePercent, catId, amount, statusId, imgSqu, imgRec)) {
-                if(statusId == 1){
-                    SendEmail.sendEmailToSubscriber("[^^] Let check new Product", "New Product: " + name + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/productDetails?productID="+ id +"'>more...</a>]");
-                }
-                System.out.println("update_success");
             } else {
-                System.out.println("update_fail");
+                request.getRequestDispatcher("error.jsp").forward(request, response);
             }
-            request.setAttribute("numberClickProduct", numberClickProduct);
-            response.sendRedirect("dashboard-product");
-
-        } catch (Exception e) {
+        } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }

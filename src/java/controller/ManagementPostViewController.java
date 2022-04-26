@@ -7,12 +7,14 @@ package controller;
 
 import dao.PostDAO;
 import entity.PostJoinUser;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,19 +34,29 @@ public class ManagementPostViewController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int numberPostClick = 1;
-        int postId = Integer.parseInt(request.getParameter("id"));
-        PostDAO pDAO = new PostDAO();
-        PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
-        if (post != null) {
-            request.setAttribute("post", post);
-            request.setAttribute("numberPostClick", numberPostClick);
-            request.getRequestDispatcher("dashboard/dashboardPostView.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            if (u.getRoleId() == 1 || u.getRoleId() == 4) {
+                int numberPostClick = 1;
+                int postId = Integer.parseInt(request.getParameter("id"));
+                PostDAO pDAO = new PostDAO();
+                PostJoinUser post = pDAO.getPostJoinUserByPostId(postId);
+                if (post != null) {
+                    request.setAttribute("post", post);
+                    request.setAttribute("numberPostClick", numberPostClick);
+                    request.getRequestDispatcher("dashboard/dashboardPostView.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                }
+                request.setAttribute("numberPostClick", numberPostClick);
+                request.getRequestDispatcher("dashboard/dashboardPostView.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        request.setAttribute("numberPostClick", numberPostClick);
-        request.getRequestDispatcher("dashboard/dashboardPostView.jsp").forward(request, response);
     }
 
     /**
