@@ -6,7 +6,6 @@
 package dao;
 
 import context.DBContext;
-<<<<<<< Updated upstream
 import entity.Order;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,17 +16,13 @@ import java.util.List;
 
 /**
  *
- * @author trinh
-=======
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-
-/**
+ * @author trinh ======= import java.sql.Connection; import
+ * java.sql.PreparedStatement; import java.sql.ResultSet;
  *
- * @author MSI
->>>>>>> Stashed changes
+ *
+ * /**
+ *
+ * @author MSI >>>>>>> Stashed changes
  */
 public class OrderDAO {
 
@@ -38,10 +33,7 @@ public class OrderDAO {
     Connection con = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-<<<<<<< Updated upstream
     String sql = null;
-=======
->>>>>>> Stashed changes
 
     public void createConnection() {
         DBContext u = new DBContext();
@@ -54,7 +46,6 @@ public class OrderDAO {
         }
     }
 
-<<<<<<< Updated upstream
     public List<Order> getAllOrderByUserId(int userId) {
         if (con == null) {
             createConnection();
@@ -87,8 +78,8 @@ public class OrderDAO {
         }
         return list;
     }
-    
-    public boolean cancelOrder(int orderId){
+
+    public boolean cancelOrder(int orderId) {
         String sql = "UPDATE [order] SET [status] =  4 WHERE ID = ?";
         try {
             ps = con.prepareStatement(sql);
@@ -101,8 +92,8 @@ public class OrderDAO {
             return false;
         }
     }
-    
-    public int getOrderStatusByOrderId(int orderId){
+
+    public int getOrderStatusByOrderId(int orderId) {
         String query = "select [status] from [order] o where o.ID = ?";
         try {
             ps = con.prepareStatement(query);
@@ -111,7 +102,16 @@ public class OrderDAO {
             while (rs.next()) {
                 int status = Integer.parseInt(rs.getString("status"));
                 return status;
-=======
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return 0;
+    }
+
     public boolean insertOrder(int userID, double totalPrice, int promotionID) {
         String sql = "INSERT INTO [dbo].[order]\n"
                 + "           ([userID]\n"
@@ -120,8 +120,8 @@ public class OrderDAO {
                 + "           ,[date]\n"
                 + "           ,[promotionID])\n"
                 + "     VALUES\n"
-                + "           (?,?,?,getDate(),?)"; 
-        
+                + "           (?,?,?,getDate(),?)";
+
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, userID);
@@ -131,43 +131,31 @@ public class OrderDAO {
             ps.executeUpdate();
             ps.close();
             return true;
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
-    
-    public int getLastOrderID(){
+
+    public int getLastOrderID() {
         String sql = "SELECT IDENT_CURRENT('order')";
-        
         try {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while(rs.next()){
                 int id = rs.getInt(1);
                 return id;
->>>>>>> Stashed changes
             }
-            ps.close();
-            rs.close();
         } catch (Exception e) {
             e.printStackTrace();
-<<<<<<< Updated upstream
-            return 0;
-        }
-        return 0;
-    }
-=======
         }
         return -1;
     }
-    
-    
+
     public static void main(String[] args) {
         OrderDAO orderDAO = new OrderDAO();
         System.out.println(orderDAO.getLastOrderID());
     }
 
->>>>>>> Stashed changes
 }

@@ -7,10 +7,7 @@ package dao;
 
 import context.DBContext;
 import entity.CategoryOrder;
-<<<<<<< Updated upstream
 import entity.Month;
-=======
->>>>>>> Stashed changes
 import entity.OrderDetail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -288,32 +285,5 @@ public class OrderDetailDAO {
         String totalOrderSuccess = orderDetailDAO.totalOrderSuccess();
         String totalOrderProcessing = orderDetailDAO.totalOrderProcessing();
 
-        CategoryOrder categoryOrder = orderDetailDAO.getTotalCategoryOrderByID(3);
-<<<<<<< Updated upstream
-        List<Month> listTotalPrice = orderDetailDAO.totalPricePerMonth1();
-        String list = orderDetailDAO.totalPricePerMonth().toString();
-    
-        System.out.println(countOrderDetail);
-        System.out.println(totalPrice);
-        System.out.println(totalOrderSuccess);
-        System.out.println(totalOrderProcessing);
-        System.out.println(totalPricePerMonthNow);
-        System.out.println(totalPricePerMonth3);
-        System.out.println(categoryOrder);
-        System.out.println(listTotalPrice);
-        System.out.println(listTotalPrice.size());
-        System.out.println(list);
-=======
-
-//        System.out.println(countOrderDetail);
-//        System.out.println(totalPrice);
-//        System.out.println(totalOrderSuccess);
-//        System.out.println(totalOrderProcessing);
-//        System.out.println(totalPricePerMonthNow);
-//        System.out.println(totalPricePerMonth3);
-//        System.out.println(categoryOrder);
-
-            
->>>>>>> Stashed changes
     }
 }
