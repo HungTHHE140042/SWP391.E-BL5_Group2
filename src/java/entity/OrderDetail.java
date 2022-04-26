@@ -15,6 +15,7 @@ public class OrderDetail {
     private int orderID;
     private int productID;
     private String productName;
+    private Double productPrice;
     private int quantity;
     private double productPrice;
     private int keyID;
@@ -33,6 +34,7 @@ public class OrderDetail {
         this.keyID = keyID;
     }
 
+<<<<<<< Updated upstream
     public OrderDetail(int ID, String productName, double productPrice, String productKey, String productImgUrl) {
         this.ID = ID;
         this.productName = productName;
@@ -43,6 +45,16 @@ public class OrderDetail {
 
     
 
+=======
+    public Double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(Double productPrice) {
+        this.productPrice = productPrice;
+    }
+    
+>>>>>>> Stashed changes
     public int getID() {
         return ID;
     }

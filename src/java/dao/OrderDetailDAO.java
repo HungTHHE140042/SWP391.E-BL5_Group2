@@ -7,7 +7,10 @@ package dao;
 
 import context.DBContext;
 import entity.CategoryOrder;
+<<<<<<< Updated upstream
 import entity.Month;
+=======
+>>>>>>> Stashed changes
 import entity.OrderDetail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,6 +45,35 @@ public class OrderDetailDAO {
 
     public OrderDetailDAO() {
         createConnection();
+    }
+
+    public boolean insertOrderDetail(OrderDetail orderDetail) {
+        query = "INSERT INTO [dbo].[orderDetail]\n"
+                + "           ([orderID]\n"
+                + "           ,[productID]\n"
+                + "           ,[productName]\n"
+                + "           ,[productPrice]\n"
+                + "           ,[quantity]\n"
+                + "           ,[keyID])\n"
+                + "     VALUES\n"
+                + "           (?,?,?,?,?,?)\n";
+        
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, orderDetail.getOrderID());
+            ps.setInt(2, orderDetail.getProductID());
+            ps.setString(3, orderDetail.getProductName());
+            ps.setDouble(4, orderDetail.getProductPrice());
+            ps.setInt(5, 1);
+            ps.setInt(6, orderDetail.getKeyID());
+            ps.executeUpdate();
+            ps.close();
+            
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public String countOrderDetail() {
@@ -257,6 +289,7 @@ public class OrderDetailDAO {
         String totalOrderProcessing = orderDetailDAO.totalOrderProcessing();
 
         CategoryOrder categoryOrder = orderDetailDAO.getTotalCategoryOrderByID(3);
+<<<<<<< Updated upstream
         List<Month> listTotalPrice = orderDetailDAO.totalPricePerMonth1();
         String list = orderDetailDAO.totalPricePerMonth().toString();
     
@@ -270,5 +303,17 @@ public class OrderDetailDAO {
         System.out.println(listTotalPrice);
         System.out.println(listTotalPrice.size());
         System.out.println(list);
+=======
+
+//        System.out.println(countOrderDetail);
+//        System.out.println(totalPrice);
+//        System.out.println(totalOrderSuccess);
+//        System.out.println(totalOrderProcessing);
+//        System.out.println(totalPricePerMonthNow);
+//        System.out.println(totalPricePerMonth3);
+//        System.out.println(categoryOrder);
+
+            
+>>>>>>> Stashed changes
     }
 }

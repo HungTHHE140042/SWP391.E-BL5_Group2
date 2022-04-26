@@ -130,15 +130,42 @@ public class PromotionDAO {
         }
         return null;
     }
+    
+    public boolean updateAmountPromotion(int ID){
+        query = "update [promotion] set amount = 0 where ID = "+ID+"";
+        
+        try {
+            ps = con.prepareStatement(query);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public Promotion checkPromotion(String promotion) {
+        query = "select * from promotion where promotionCode = '" + promotion + "' and amount > 0";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Promotion p = new Promotion();
+                p.setId(rs.getInt("ID"));
+                p.setPromotionCode(rs.getString("promotionCode"));
+                p.setSalePercent(rs.getInt("salePercent"));
+                p.setAmount(rs.getInt("amount"));
+                return p;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
-        PromotionDAO promotionDAO = new PromotionDAO();
-        List<Promotion> listGetAllPromotion = promotionDAO.getAllPromotion();
+        PromotionDAO promotionDAO = new PromotionDAO();       
+        System.out.println(promotionDAO.checkPromotion("SangDepTrai"));
 
-        for (Promotion promotion : listGetAllPromotion) {
-            System.out.println(promotion);
-        }
-        
-        
     }
 }

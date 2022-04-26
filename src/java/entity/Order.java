@@ -9,6 +9,7 @@ import java.sql.Date;
 
 /**
  *
+<<<<<<< Updated upstream
  * @author trinh
  */
 public class Order {
@@ -67,6 +68,46 @@ public class Order {
 
     public void setTotal(double total) {
         this.total = total;
+=======
+ * @author MSI
+ */
+public class Order {
+    
+    private int userID;
+    private double totalPrice;
+    private String note;
+    private int status;
+    private Date date;
+    private int promotionID;
+
+    public Order() {
+    }
+
+    public Order(int userID, double totalPrice, String note, int status, Date date, int promotionID) {
+        this.userID = userID;
+        this.totalPrice = totalPrice;
+        this.note = note;
+        this.status = status;
+        this.date = date;
+        this.promotionID = promotionID;
+    }
+
+    
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+>>>>>>> Stashed changes
     }
 
     public String getNote() {
@@ -93,6 +134,7 @@ public class Order {
         this.date = date;
     }
 
+<<<<<<< Updated upstream
     public int getPromotionId() {
         return promotionId;
     }
@@ -110,6 +152,20 @@ public class Order {
     }
     
     
+=======
+    public int getPromotionID() {
+        return promotionID;
+    }
+
+    public void setPromotionID(int promotionID) {
+        this.promotionID = promotionID;
+    }
+
+    @Override
+    public String toString() {
+        return "order{" + "userID=" + userID + ", totalPrice=" + totalPrice + ", note=" + note + ", status=" + status + ", date=" + date + ", promotionID=" + promotionID + '}';
+    }
+>>>>>>> Stashed changes
     
     
 }
