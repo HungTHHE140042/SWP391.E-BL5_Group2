@@ -16,7 +16,13 @@ import java.util.List;
 
 /**
  *
- * @author trinh
+ * @author trinh ======= import java.sql.Connection; import
+ * java.sql.PreparedStatement; import java.sql.ResultSet;
+ *
+ *
+ * /**
+ *
+ * @author MSI >>>>>>> Stashed changes
  */
 public class OrderDAO {
 
@@ -72,8 +78,8 @@ public class OrderDAO {
         }
         return list;
     }
-    
-    public boolean cancelOrder(int orderId){
+
+    public boolean cancelOrder(int orderId) {
         String sql = "UPDATE [order] SET [status] =  4 WHERE ID = ?";
         try {
             ps = con.prepareStatement(sql);
@@ -86,8 +92,8 @@ public class OrderDAO {
             return false;
         }
     }
-    
-    public int getOrderStatusByOrderId(int orderId){
+
+    public int getOrderStatusByOrderId(int orderId) {
         String query = "select [status] from [order] o where o.ID = ?";
         try {
             ps = con.prepareStatement(query);
@@ -105,4 +111,51 @@ public class OrderDAO {
         }
         return 0;
     }
+
+    public boolean insertOrder(int userID, double totalPrice, int promotionID) {
+        String sql = "INSERT INTO [dbo].[order]\n"
+                + "           ([userID]\n"
+                + "           ,[totalPrice]\n"
+                + "           ,[status]\n"
+                + "           ,[date]\n"
+                + "           ,[promotionID])\n"
+                + "     VALUES\n"
+                + "           (?,?,?,getDate(),?)";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, userID);
+            ps.setDouble(2, totalPrice);
+            ps.setInt(3, 1);
+            ps.setInt(4, promotionID);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public int getLastOrderID() {
+        String sql = "SELECT IDENT_CURRENT('order')";
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int id = rs.getInt(1);
+                return id;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        OrderDAO orderDAO = new OrderDAO();
+        System.out.println(orderDAO.getLastOrderID());
+    }
+
 }

@@ -9,9 +9,11 @@ import java.sql.Date;
 
 /**
  *
- * @author trinh
+ * <<<<<<< Updated upstream @author trinh
+ *
  */
 public class Order {
+
     private int id;
     private int userId;
     private double total;
@@ -108,8 +110,10 @@ public class Order {
     public void setPromotionCode(String promotionCode) {
         this.promotionCode = promotionCode;
     }
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Order{" + "id=" + id + ", userId=" + userId + ", total=" + total + ", note=" + note + ", status=" + status + ", date=" + date + ", promotionId=" + promotionId + ", promotionCode=" + promotionCode + '}';
+    }
+
 }

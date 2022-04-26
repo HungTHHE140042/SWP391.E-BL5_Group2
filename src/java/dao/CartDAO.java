@@ -37,6 +37,19 @@ public class CartDAO {
             e.printStackTrace();
         }
     }
+    
+    public boolean deleteCart(int userID){
+        String sql = "DELETE FROM cart WHERE userID = "+userID+"";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     public boolean createCart(int productID, int amount, int userID) {
         String sql = "Insert into cart(productID,amount,userID) values(?,?,?)";

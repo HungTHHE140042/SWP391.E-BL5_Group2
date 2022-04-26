@@ -3,12 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
             <file>file:/C:/Users/Admin/Documents/GitHub/SWP391.E-BL5_Group2/src/java/controller/DashboardController.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SWP391.E-BL5_Group2/web/dashboard/cms.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SWP391.E-BL5_Group2/web/dashboard/layout/slideboad.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SWP391.E-BL5_Group2/src/java/dao/OrderDetailDAO.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SWP391.E-BL5_Group2/web/dashboard/dashboardProduct.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SWP391.E-BL5_Group2/web/dashboard/dashboardProductEdit.jsp</file>
+=======
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/dao/OrderDAO.java</file>
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/dao/OrderDetailDAO.java</file>
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/entity/Cart.java</file>
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/dao/PromotionDAO.java</file>
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/entity/OrderDetail.java</file>
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/entity/CartDetail.java</file>
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/controller/CheckoutController.java</file>
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/entity/Order.java</file>
+            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/dao/CartDAO.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

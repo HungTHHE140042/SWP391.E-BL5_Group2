@@ -42,6 +42,13 @@ public class OrderDetail {
     }
 
     
+    public Double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(Double productPrice) {
+        this.productPrice = productPrice;
+    }
 
     public int getID() {
         return ID;
@@ -97,10 +104,6 @@ public class OrderDetail {
 
     public void setProductKey(String productKey) {
         this.productKey = productKey;
-    }
-
-    public double getProductPrice() {
-        return productPrice;
     }
 
     public void setProductPrice(double productPrice) {

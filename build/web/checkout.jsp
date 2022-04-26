@@ -4,7 +4,9 @@
     Author     : trinh
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,6 +41,21 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
+        
+        <c:if test="${sessionScope.checkPromotion.equals('1')}">
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #851e3e" >
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            This discount code has been used or does not exist !!!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <% session.removeAttribute("checkPromotion"); %>
+        </c:if>
+
 
         <%@include file="layout/header.jsp" %>
 
@@ -77,21 +94,19 @@
                                     <div class="row">
                                         <div class="col mb-3">
                                             <p class="small text-muted mb-1">Date</p>
-                                            <p style="color: black">10 April 2021</p>
+                                            <p style="color: black">${sessionScope.localDate}</p>
                                         </div>
                                         <div class="col mb-3">
                                             <p class="small text-muted mb-1">Email</p>
-                                            <p style="color: black">admin@gmail.com <a href="profile" class="btn btn-primary" style="font-size: 10px">Edit</a></p>
+                                            <p style="color: black">${sessionScope.user.email}</p>
                                         </div>
                                     </div>
 
                                     <table class="cart-table cart-table-rouned table table-light table-hover mb-25 ">
                                         <thead>
                                             <tr class="">
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">ID Product</th>
+                                                <th scope="col">Product Name</th>
                                                 <th scope="col">Price</th>
                                                 <th scope="col">Quantity</th>
                                                 <th class="col-2" scope="col">
@@ -102,36 +117,23 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td class="text-center">$25</td>
-                                                <td class="text-center">2</td>
-                                                <td class="text-center">
-                                                    $50
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                                <td class="text-center">$100</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center">
-                                                    $100
-                                                </td>
-                                            </tr>
+                                            <c:forEach items="${sessionScope.cartDetails}" var="item">
+                                                <tr>
+                                                    <th scope="row">${item.productID}</th>
+                                                    <td>${item.productName}</td>
+                                                    <td>${item.sellPrice}</td>
+                                                    <td>${item.quantity}</td>
+                                                    <td>${item.sellPrice*item.quantity}</td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                     <hr>
-                                    <form method="post" action="">
+                                    <form method="post" action="checkout">
                                         <div class="row">
                                             <div class="col-10">
-                                                <input type="hidden" name="cartId" value="">
-                                                <input class="form-control" type="text" name="promotionCode" placeholder="Promotion Code">
+                                                <input type="hidden" name="index" value="1">
+                                                <input class="form-control" type="text" name="promotionCode" placeholder="Promotion Code" value="${promotion.promotionCode}">
                                             </div>
                                             <div class="col-1">
                                                 <button type="submit" class="btn btn-info">USE</button>
@@ -144,8 +146,8 @@
                                     </p>
                                     <div class="row my-4">
                                         <div class="col-md-4 offset-md-8 col-lg-4 offset-lg-9">
-                                            <div class="btn btn-success">
-                                                <p class="lead fw-bold mb-0" style="color: white;">$262.99</p>
+                                            <div class="btn btn-success">                                                 
+                                                <p class="lead fw-bold mb-0" style="color: white;">$${total}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -155,11 +157,15 @@
                     </div>
                 </div>
             </section>
-            <div class="col-12">
-                <div class="others_gane_btn text-center">
-                    <a class="btn btn-link" href="payment">Payment </a>
+            <form action="checkout" method="post">
+                <input type="hidden" name="index" value="0">
+                <input name="total" type="text" value="${total}" hidden>
+                <div class="col-12">
+                    <div class="others_gane_btn text-center">
+                        <button type="submit" class="btn btn-link" >Payment </button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
 
         <!-- page wrapper end -->
@@ -185,6 +191,13 @@
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
 
+
+
         <script src="https://kit.fontawesome.com/228aa84c51.js" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                $(".toast").toast("show");
+            });
+        </script>
     </body>
 </html>

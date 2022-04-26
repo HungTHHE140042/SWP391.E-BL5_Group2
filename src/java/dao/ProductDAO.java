@@ -42,6 +42,18 @@ public class ProductDAO {
             e.printStackTrace();
         }
     }
+    
+    public boolean updateAmountProduct(int productID, int amount){
+        String sql = "update [product] set amount = "+amount+" where productID ="+productID+"";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     //get All san pham
     public ArrayList<Product> getAll() {
