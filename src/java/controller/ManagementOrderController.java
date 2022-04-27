@@ -10,18 +10,24 @@ import dao.OrderDAO;
 import dao.ProductDAO;
 import dao.ProductKeyDAO;
 import dao.PromotionDAO;
+import dao.UserDAO;
 import entity.Order;
 import entity.OrderDetail;
 import entity.ProductKey;
 import entity.User;
+import function.SendEmail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import smtp.Email;
 
 /**
  *
@@ -92,6 +98,13 @@ public class ManagementOrderController extends HttpServlet {
             int userID = orderDAO.getOrderByID(Integer.parseInt(acceptID)).getUserId();
             notificationDAO.createNotificationDetailOrder(notificationDAO.getNewestNotication(), userID, Integer.parseInt(acceptID));
             
+            try {
+                UserDAO udao = new UserDAO();
+                User u = udao.getUserByUserId(userID);
+                Email.sendEmail(u.getEmail(), "Your order #"+orderDAO.getLastOrderID()+" had accepted.", "Your order "+orderDAO.getLastOrderID()+" had accepted. Let check your key at Order Detail or [<a href='order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
+            } catch (MessagingException ex) {
+                Logger.getLogger(ManagementOrderController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             response.sendRedirect("dashboard-order");
         } else if (rejectID != null) {
             List<OrderDetail> orderDetails = orderDAO.getOrderDetailByOrderID(Integer.parseInt(rejectID));
@@ -108,10 +121,20 @@ public class ManagementOrderController extends HttpServlet {
                 orderDAO.updateNote(note, Integer.parseInt(rejectID));
                 request.setAttribute("orders", orders);
             } 
+            
+            
             notificationDAO.createNotificationOrder("Your order #"+orderDAO.getLastOrderID()+" had rejected." , 
                     "Your order "+orderDAO.getLastOrderID()+" had rejected. Let check at Order Detail or [<a href='order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
             int userID = orderDAO.getOrderByID(Integer.parseInt(acceptID)).getUserId();
             notificationDAO.createNotificationDetailOrder(notificationDAO.getNewestNotication(), userID, Integer.parseInt(acceptID));
+            
+            try {
+                UserDAO udao = new UserDAO();
+                User u = udao.getUserByUserId(userID);
+                Email.sendEmail(u.getEmail(), "Your order #"+orderDAO.getLastOrderID()+" had rejected.", "Your order "+orderDAO.getLastOrderID()+" had rejected. Let check at Order Detail or [<a href='order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
+            } catch (MessagingException ex) {
+                Logger.getLogger(ManagementOrderController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             request.getRequestDispatcher("dashboard/dashboardOrder.jsp").forward(request, response);
         }

@@ -238,6 +238,25 @@ public class PostDAO {
         }
         return total;
     }
+    
+    public int getNewestPost() {
+        String sql = "select * post order by ID DESC";
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ps.close();
+                rs.close();
+                return rs.getInt("ID");
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
         PostDAO postDAO = new PostDAO();

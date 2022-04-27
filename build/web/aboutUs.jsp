@@ -72,8 +72,7 @@
                                     <div class="contact_info_text">
                                         <h3>Email:</h3>
                                         <p>
-                                            <a href="mailto:gamestudio@gmail.com">gamestudio@gmail.com</a>  <br>
-                                            <a href="mailto:support24@gmail.com">support24@gmail.com</a>
+                                            <a href="mailto:rypito.twitter@gmail.com">rypito.twitter@gmail.com</a>  <br>
                                         </p>
                                     </div>
                                 </div>
@@ -98,8 +97,7 @@
                                     <div class="contact_info_text">
                                         <h3>Phone:</h3>
                                         <p> 
-                                            <a href="tel:(402)685-5964"> (402) 685-5964</a>
-                                            <a href="tel:+88(00)4568457437"> +88 (00) 4568 457 437</a>
+                                            <a href="tel:(+84)999-9999-999"> (+84) 999-9999-999</a>
                                         </p>
                                     </div>
                                 </div>
@@ -107,47 +105,6 @@
                         </div>
                     </div>
 
-
-                    <div class="contact_form_area">
-                        <div class="section_title text-center mb-60">
-                            <h2>GET IN TOUCH</h2>
-                            <p>When unknown printer took type and scrambled it to make <br>
-                                type specimen book centuries,</p>
-                        </div>
-                        <div class="contact_form_inner">
-                            <form id="contact-form" action="assets/mail.php">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form_input">
-                                            <input name="con_name" placeholder="Name" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form_input">
-                                            <input name="con_email"  placeholder="E-Mail" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form_input">
-                                            <input name="con_phone"  placeholder="Phone" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form_input">
-                                            <input name="con_address"  placeholder="Address" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form_textarea">
-                                    <textarea name="con_message" placeholder="Write a review from here"></textarea>
-                                </div>
-                                <div class="form_input_btn text-center">
-                                    <button type="submit" class="btn btn-link">SUBMIT NOW <img width="20" height="20" src="assets/img/icon/arrrow-icon.webp" alt=""></button>
-                                </div>
-                                <p class="form-message"></p>
-                            </form>
-                        </div>
-                    </div>
                 </div>
             </section>
             <!-- contact section end -->

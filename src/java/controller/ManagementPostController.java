@@ -100,9 +100,9 @@ public class ManagementPostController extends HttpServlet {
                             request.setAttribute("listPost", listPost);
                             request.setAttribute("error", "1");
                             request.setAttribute("numberPostClick", numberPostClick);
-
                             try {
-                                SendEmail.sendEmailToSubscriber("[^^] Let check new Post", "New Post: " + title + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/post'>more...</a>]");
+                                int id = pDAO.getNewestPost();
+                                SendEmail.sendEmailToSubscriber("[^^] Let check new Post", "New Post: " + title + " [<a href='http://localhost:8080/SWP391.E-BL5_Group2/post-detail?id="+ id +"'>more...</a>]");
                             } catch (MessagingException ex) {
                                 Logger.getLogger(ManagementPostController.class.getName()).log(Level.SEVERE, null, ex);
                             }
