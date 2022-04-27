@@ -102,7 +102,7 @@ public class NotificationDAO {
             createConnection();
         }
         List<NotificationDetail> listNoti = new ArrayList<>();
-        String query = "select gn.ID as ID ,gn.title as title ,gn.content as content , gnd.userID as userID from [GameShop].[dbo].[notification] "
+        String query = "select gn.ID as ID ,gn.title as title ,gn.content as content  ,  gnd.userID as userID ,gnd.status from [GameShop].[dbo].[notification] "
                 + "as gn join [GameShop].[dbo].[notificationDetail] as gnd on gn.ID = gnd.notificationID "
                 + "where gnd.notificationID = ?";
         try {
@@ -113,7 +113,8 @@ public class NotificationDAO {
                 listNoti.add(new NotificationDetail(rs.getInt("ID"),
                         rs.getString("title"),
                         rs.getString("content"),
-                        rs.getInt("userID"))
+                        rs.getInt("userID"),
+                        rs.getInt("status"))
                 );
             }
             ps.close();
@@ -190,7 +191,7 @@ public class NotificationDAO {
     }
 
     public boolean createNotificationDetail(int notificationID, int userID) {
-        String sql = "INSERT INTO [GameShop].[dbo].[notificationDetail]([userID],[orderID],[notificationID]) VALUES(?, null, ?)";
+        String sql = "INSERT INTO [GameShop].[dbo].[notificationDetail]([userID],[orderID],[notificationID], [status]) VALUES(?, null, ? ,1)";
         try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, userID);
