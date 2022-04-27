@@ -41,32 +41,15 @@ public class OrderDetailController extends HttpServlet {
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
         if (u != null) {
-            String idDetail = request.getParameter("id");
-            if (idDetail != null) {
-                int id = Integer.parseInt(idDetail);
-                OrderDetailDAO odDAO = new OrderDetailDAO();
-                List<OrderDetail> listOrderDetail = new ArrayList<>();
-                listOrderDetail = odDAO.getOrderDetailByOrderId(id);
 
-<<<<<<< Updated upstream
-                OrderDAO oDAO = new OrderDAO();
-                int status = oDAO.getOrderStatusByOrderId(id);
-                if (status == 2) {
-                    System.out.println(listOrderDetail + "..");
-                    for (OrderDetail orderDetail : listOrderDetail) {
-                        String decryptProductKey = AES.decrypt(orderDetail.getProductKey(), "@SWP391_Group2");
-                        orderDetail.setProductKey(decryptProductKey);
-                    }
-=======
             OrderDAO oDAO = new OrderDAO();
             int status = oDAO.getOrderStatusByOrderId(id);
             if (status == 2) {
                 for (OrderDetail orderDetail : listOrderDetail) {
                     String decryptProductKey = AES.decrypt(orderDetail.getProductKey(), "@SWP391_Group2");
                     orderDetail.setProductKey(decryptProductKey);
->>>>>>> Stashed changes
                 }
-
+            
                 request.setAttribute("orderStatus", status);
                 request.setAttribute("orderId", id);
                 request.setAttribute("orderDetail", listOrderDetail);

@@ -5,12 +5,11 @@
  */
 package controller;
 
-<<<<<<< Updated upstream
 import entity.User;
-=======
 import dao.OrderDAO;
 import entity.Order;
->>>>>>> Stashed changes
+import dao.OrderDAO;
+import entity.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -23,7 +22,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author trinh
  */
+
+
 public class PaymentController extends HttpServlet {
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -36,23 +38,21 @@ public class PaymentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< Updated upstream
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
         if (u != null) {
             //Write code here
+            OrderDAO orderDAO = new OrderDAO();
+            int lastOrder = orderDAO.getLastOrderID();
+            Order order = orderDAO.getOrderByID(lastOrder);
+
+            request.setAttribute("order", order);
+            request.getRequestDispatcher("payment.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-=======
-        
-        OrderDAO orderDAO = new OrderDAO();
-        int lastOrder = orderDAO.getLastOrderID();
-        Order order = orderDAO.getOrderByID(lastOrder);
-        
-        request.setAttribute("order", order);
->>>>>>> Stashed changes
         request.getRequestDispatcher("payment.jsp").forward(request, response);
+
     }
 
     /**
