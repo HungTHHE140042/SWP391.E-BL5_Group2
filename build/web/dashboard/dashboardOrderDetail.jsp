@@ -79,40 +79,38 @@
                                                 <th>Price</th>
                                                 <th>Quantity</th>
                                                 <th>Total</th>
-                                                    <c:if test="${sessionScope.user.roleId == 1}">
-                                                    <th>Product key</th>
-                                                    </c:if>
+                                                <th>Product key</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${orderDetails}" var="c">
-                                                <tr>
-                                                    <td>${c.ID}</td>
-                                                    <td>${c.productName}</td>
-                                                    <td>$${c.productPrice}</td>
-                                                    <td>${c.quantity}</td>
-                                                    <td>${c.productPrice*c.quantity}</td>
-                                                    <c:if test="${sessionScope.user.roleId == 1}">
-                                                        <td><span style="color: blue">${c.productKey}</span></td>
-                                                        </c:if>
-                                                        <c:if test="${status == 1}">
-                                                        <td><div class="btn btn-outline-warning btn-sm">
-                                                                Processing
-                                                            </div></td>
-                                                        </c:if>
-                                                        <c:if test="${status == 2}">
-                                                        <td><div class="btn btn-outline-success btn-sm">
-                                                                Accepted
-                                                            </div></td>
-                                                        </c:if>
-                                                        <c:if test="${status == 3}">
-                                                        <td><div class="btn btn-outline-danger btn-sm">
-                                                                Reject
-                                                            </div></td>
-                                                        </c:if>
-                                                </tr>
-                                            </c:forEach>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>PUBG</td>
+                                                <td>$50</td>
+                                                <td>2</td>
+                                                <td>$100</td>
+                                                <td><span style="color: blue">PUBG593417123913236</span></td>
+                                                <td><span style="color: green">Accepted</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>CSGO</td>
+                                                <td>$100</td>
+                                                <td>1</td>
+                                                <td>$100</td>
+                                                <td><span style="color: blue"></span></td>
+                                                <td><span style="color: gray">Pending</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>LOL</td>
+                                                <td>$50</td>
+                                                <td>1</td>
+                                                <td>$50</td>
+                                                <td><span style="color: blue"></span></td>
+                                                <td><span style="color: red">Rejected</span></td>
+                                            </tr>
                                         </tbody> 
                                     </table>
                                 </div>

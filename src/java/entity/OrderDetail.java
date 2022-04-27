@@ -24,19 +24,6 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(int ID, int orderID, int productID, String productName, int quantity, double productPrice, int keyID, String productKey) {
-        this.ID = ID;
-        this.orderID = orderID;
-        this.productID = productID;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.productPrice = productPrice;
-        this.keyID = keyID;
-        this.productKey = productKey;
-    }
-    
-    
-
     public OrderDetail(int ID, int orderID, int productID, String productName, int quantity, int keyID) {
         this.ID = ID;
         this.orderID = orderID;

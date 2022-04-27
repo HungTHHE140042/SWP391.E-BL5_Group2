@@ -131,19 +131,6 @@ public class PromotionDAO {
         return null;
     }
     
-    public boolean updateAmountPromotionReject(int ID){
-        query = "update [promotion] set amount = 1 where ID = "+ID+"";
-        
-        try {
-            ps = con.prepareStatement(query);
-            ps.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-    
     public boolean updateAmountPromotion(int ID){
         query = "update [promotion] set amount = 0 where ID = "+ID+"";
         
