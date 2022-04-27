@@ -43,6 +43,33 @@ public class ProductDAO {
         }
     }
     
+    public int getAmountProduct(int productID){
+        String sql = "select amount from product where productID = "+productID+"";
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int count = rs.getInt(1);
+                return count;
+            }          
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    
+    public boolean updateAmountProductReject(int productID, int amount){
+        String sql = "update [product] set amount = "+ amount +" where productID ="+productID+"";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
     public boolean updateAmountProduct(int productID, int amount){
         String sql = "update [product] set amount = "+amount+" where productID ="+productID+"";
         try {
