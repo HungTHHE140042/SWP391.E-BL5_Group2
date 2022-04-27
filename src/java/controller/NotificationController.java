@@ -5,9 +5,12 @@
  */
 package controller;
 
+import dao.NotificationDAO;
+import entity.Notification;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +38,11 @@ public class NotificationController extends HttpServlet {
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
         if (u != null) {
-            //Write code here
+            int id = u.getUserId();
+            NotificationDAO ndao = new NotificationDAO();
+            List<Notification> list = ndao.getNotificationByUserId(id);
+            request.setAttribute("List_Noti", list);
+            request.getSession(true).setAttribute("List_Noti", list);
             request.getRequestDispatcher("notification.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);

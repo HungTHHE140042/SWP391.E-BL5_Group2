@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -40,6 +41,7 @@ public class NotificationDAO {
             e.printStackTrace();
         }
     }
+// NAM Long iter 3
 
     public List<Notification> getAllNotification() {
         if (con == null) {
@@ -204,9 +206,8 @@ public class NotificationDAO {
         }
         return false;
     }
-    
-    
-   
+//------------------------------
+
     public boolean createNotificationOrder(String title, String content) {
         String sql = "INSERT INTO [GameShop].[dbo].[notification]([title],[status],[time],[content]) VALUES(?, 1, GETDATE(), ?)";
         try {
@@ -221,8 +222,8 @@ public class NotificationDAO {
         }
         return false;
     }
-    
-     public boolean createNotificationDetailOrder(int notificationID, int userID, int orderID) {
+
+    public boolean createNotificationDetailOrder(int notificationID, int userID, int orderID) {
         String sql = "INSERT INTO [GameShop].[dbo].[notificationDetail]([userID],[orderID],[notificationID], [status]) VALUES(?, ?, ? ,1)";
         try {
             ps = con.prepareStatement(sql);
@@ -237,15 +238,100 @@ public class NotificationDAO {
         }
         return false;
     }
-    
+// NAM Long iter 4
+
+    public List<Notification> getNotificationByUserId(int id) {
+        String sql = "select gn.ID as ID, gn.title as title, gnd.status as status, gn.time as time, gn.content as content "
+                + "from [GameShop].[dbo].[notification] as gn join [GameShop].[dbo].[notificationDetail] as gnd on gn.ID = gnd.[notificationID] where gnd.userID = ?";
+        List<Notification> list = new ArrayList<>();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Notification(rs.getInt("ID"),
+                        rs.getString("title"),
+                        rs.getInt("status"),
+                        rs.getDate("time"),
+                        rs.getString("content")
+                )
+                );
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Notification> getNotificationActiveByUserId(int id) {
+        String sql = "select gn.ID as ID, gn.title as title, gnd.status as status, gn.time as time, gn.content as content "
+                + "from [GameShop].[dbo].[notification] as gn join [GameShop].[dbo].[notificationDetail] as gnd on gn.ID = gnd.[notificationID] where gnd.userID = ? and gnd.status = 1";
+        List<Notification> list = new ArrayList<>();
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Notification(rs.getInt("ID"),
+                        rs.getString("title"),
+                        rs.getInt("status"),
+                        rs.getDate("time"),
+                        rs.getString("content")
+                )
+                );
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public Notification getNotificationById(int id) {
+        String sql = " select * from [GameShop].[dbo].[notification] as n where n.ID = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Notification n = new Notification(rs.getInt("ID"), rs.getString("title"), rs.getInt("status"), rs.getDate("time"), rs.getString("content"));
+                ps.close();
+                rs.close();
+                return n;
+            }
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return null;
+    }
+
+    public boolean updateNotificationDetailStatus(int notiId, int userId) {
+        sql = "UPDATE [GameShop].[dbo].[notificationDetail] SET [status] = ?\n"
+                + " WHERE [userID] = ? and [notificationID] = ?";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, 0);
+            ps.setInt(2, userId);
+            ps.setInt(3, notiId);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
         NotificationDAO ndao = new NotificationDAO();
-        List<User> list = ndao.getUserByRoleID(3);
+        List<Notification> list = ndao.getNotificationActiveByUserId(2);
         int notiID = ndao.getNewestNotication();
-        for (User user : list) {
-            System.out.println(ndao.createNotificationDetail(notiID, user.getUserId()));
-
-        }
+        System.out.println(list);
     }
 }
