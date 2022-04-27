@@ -4,7 +4,6 @@
     Author     : trinh
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,21 +36,6 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
-        
-        <c:if test="${sessionScope.outOfStock.equals('1')}">
-                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-                    <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #851e3e" >
-                        <div class="d-flex">
-                            <div class="toast-body">
-                                Product in your cart is out of Stock <br>
-                                Please check quantity of Game!!!                              
-                            </div>
-                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                        </div>
-                    </div>
-                </div>
-                <% session.removeAttribute("outOfStock"); %>
-            </c:if>
 
         <%@include file="layout/header.jsp" %>
         <!-- breadcrumbs area start -->
@@ -122,11 +106,5 @@
 
         <!-- Main JS -->
         <script src="assets/js/main.js"></script>
-        
-        <script>
-            $(document).ready(function () {
-            $(".toast").toast("show");
-            });
-        </script>
     </body>
 </html>

@@ -3,7 +3,6 @@
     Created on : Apr 17, 2022, 11:05:55 AM
     Author     : trinh
 --%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -77,51 +76,53 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${orders}" var="order">
-                                                <tr>
-                                                    <td>${order.id}</td>
-                                                    <td>${order.date}</td>
-                                                    <td>${sessionScope.user.username}</td>
-                                                    <td>${order.total}</td>
-                                                    <td>${order.note}</td>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>4/17/2022</td>
+                                                <td>@admin</td>
+                                                <td>$300</td>
+                                                <td></td>
+                                                <td><span style="color: green">Accepted</span></td>
+                                                <td class="text-center">
+                                                    <a href="dashboard-order-detail" class="btn btn-warning btn-icon-split btn-sm">
+                                                        <span class="text">Detail</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
 
-                                                    <c:if test="${order.status == 1}">
-                                                        <td><div class="btn btn-outline-warning btn-sm">
-                                                                Processing
-                                                            </div></td>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>4/17/2022</td>
+                                                <td>@admin</td>
+                                                <td>$200</td>
+                                                <td>Error</td>
+                                                <td><span style="color: red">Rejected</span></td>
+                                                <td class="text-center">
+                                                    <a href="dashboard-order-detail" class="btn btn-warning btn-icon-split btn-sm">
+                                                        <span class="text">Detail</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>4/17/2022</td>
+                                                <td>@customer</td>
+                                                <td>$320</td>
+                                                <td></td>
+                                                <td><span style="color: gray">Pending</span></td>
+                                                <td class="text-center">
+                                                    <a href="dashboard-order-detail" class="btn btn-warning btn-icon-split btn-sm">
+                                                        <span class="text">Detail</span>
+                                                    </a>
+                                                    <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#acceptModal" data-id="id here">
+                                                        <span class="text">Accept</span>
+                                                    </a>
+                                                    <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#deleteModal" data-id="id here">
+                                                        <span class="text">Reject</span>
+                                                    </a>
 
-                                                    </c:if>
-                                                    <c:if test="${order.status == 2}">
-                                                        <td><div class="btn btn-outline-success btn-sm">
-                                                                Accepted
-                                                            </div></td>
-                                                        </c:if>
-                                                        <c:if test="${order.status == 3}">
-                                                        <td><div class="btn btn-outline-danger btn-sm">
-                                                                Reject
-                                                            </div></td>
-                                                        </c:if>
-
-                                                    <td class="text-center">
-                                                        <c:if test="${order.status == 1}">
-                                                            <a href="dashboard-order-detail?orderID=${order.id}" class="btn btn-warning btn-icon-split btn-sm">
-                                                                <span class="text">Detail</span>
-                                                            </a>                                                           
-                                                            <a href="#" class="btn btn-success btn-icon-split btn-sm" data-toggle="modal" data-target="#acceptModal" data-id="${order.id}">
-                                                                <span class="text">Accept</span>
-                                                            </a>
-                                                            <a href="#" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#rejectModal" data-id="${order.id}">
-                                                                <span class="text">Reject</span>
-                                                            </a>
-                                                        </c:if>
-                                                        <c:if test="${order.status == 2 || order.status == 3}">
-                                                            <a href="dashboard-order-detail?orderID=${order.id}" class="btn btn-warning btn-icon-split btn-sm">
-                                                                <span class="text">Detail</span>
-                                                            </a>  
-                                                        </c:if>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
+                                                </td>
+                                            </tr>
                                         </tbody> 
                                     </table>
                                 </div>
@@ -156,7 +157,7 @@
         </a>
 
         <!-- Reject Modal-->
-        <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -167,8 +168,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="dashboard-order">
-                            <input type="hidden" name="rejectID" id="rejectID">
+                        <form method="post" action="">
+                            <input type="hidden" name="id" id="id">
                             <div class="mb-3">
                                 <label for="note" class="col-form-label"> Note:</label>
                                 <textarea class="form-control" name="note"></textarea>
@@ -182,7 +183,7 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Accept Modal-->
         <div class="modal fade" id="acceptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
@@ -195,8 +196,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="dashboard-order">
-                            <input type="hidden" name="acceptID" id="acceptID" >
+                        <form method="post" action="">
+                            <input type="hidden" name="id" id="id">
                             <div class="mb-3">
                                 <label for="note" class="col-form-label"> Note:</label>
                                 <textarea class="form-control" name="note"></textarea>
@@ -231,22 +232,13 @@
         <script src="https://kit.fontawesome.com/228aa84c51.js" crossorigin="anonymous"></script>
 
         <script>
-            $('#acceptModal').on('show.bs.modal', function (event) {
+            $('#deleteModal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget); // Button that triggered the modal
                 var id = button.data('id');
                 console.log(id);
                 var modal = $(this);
                 console.log(modal);
-                modal.find('.modal-dialog .modal-content .modal-body #acceptID').val(id);
-            });
-
-            $('#rejectModal').on('show.bs.modal', function (event) {
-                var button = $(event.relatedTarget); // Button that triggered the modal
-                var id = button.data('id');
-                console.log(id);
-                var modal = $(this);
-                console.log(modal);
-                modal.find('.modal-dialog .modal-content .modal-body #rejectID').val(id);
+                modal.find('.modal-dialog .modal-content .modal-body #id').val(id);
             });
         </script>
     </body>

@@ -3,7 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
             <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/src/java/controller/ReviewReplyAddController.java</file>
             <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/src/java/controller/FaqController.java</file>
             <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/web/faq.jsp</file>
@@ -13,15 +12,6 @@
             <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/src/java/dao/ReviewDAO.java</file>
             <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/web/productDetails.jsp</file>
             <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/src/java/controller/ProductDetailsController.java</file>
-=======
-            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/web/dashboard/dashboardOrderDetail.jsp</file>
-            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/dao/OrderDAO.java</file>
-            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/controller/ManagementOrderDetailController.java</file>
-            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/entity/OrderDetail.java</file>
-            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/controller/ManagementOrderController.java</file>
-            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/src/java/controller/CheckoutController.java</file>
-            <file>file:/D:/learning/Ky7/SWP/SWP391.E-BL5_Group2/web/dashboard/dashboardOrder.jsp</file>
->>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
