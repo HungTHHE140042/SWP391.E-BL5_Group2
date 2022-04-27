@@ -75,11 +75,11 @@
                                     <div class="row">
                                         <div class="col mb-3">
                                             <p class="small text-muted mb-1">Order ID:</p>
-                                            <p style="color: black">#541</p>
+                                            <p style="color: black">${order.id}</p>
                                         </div>
                                         <div class="col mb-3">
                                             <p class="small text-muted mb-1">User ID:</p>
-                                            <p style="color: black">#12</p>
+                                            <p style="color: black">${order.userId}</p>
                                         </div>
                                     </div>
                                     
@@ -104,14 +104,14 @@
                                     <div class="row">
                                         <div class="col mb-3">
                                             <p class="small text-muted mb-1">Content:</p>
-                                            <p style="color: black" class="form-control">541</p>
+                                            <p style="color: black" class="form-control">${order.id}</p>
                                         </div>
                                     </div>
                                     
                                     <div class="row">
                                         <div class="col mb-3">
                                             <p class="small text-muted mb-1">Money to be paid:</p>
-                                            <p style="color: black" class="form-control">$262.99</p>
+                                            <p style="color: black" class="form-control">$${order.total}</p>
                                         </div>
                                     </div>
                                 </div>

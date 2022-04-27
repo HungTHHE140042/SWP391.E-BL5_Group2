@@ -5,7 +5,12 @@
  */
 package controller;
 
+<<<<<<< Updated upstream
 import entity.User;
+=======
+import dao.OrderDAO;
+import entity.Order;
+>>>>>>> Stashed changes
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,6 +36,7 @@ public class PaymentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< Updated upstream
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
         if (u != null) {
@@ -38,6 +44,14 @@ public class PaymentController extends HttpServlet {
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+=======
+        
+        OrderDAO orderDAO = new OrderDAO();
+        int lastOrder = orderDAO.getLastOrderID();
+        Order order = orderDAO.getOrderByID(lastOrder);
+        
+        request.setAttribute("order", order);
+>>>>>>> Stashed changes
         request.getRequestDispatcher("payment.jsp").forward(request, response);
     }
 

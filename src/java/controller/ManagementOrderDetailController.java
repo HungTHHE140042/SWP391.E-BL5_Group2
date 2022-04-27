@@ -5,9 +5,13 @@
  */
 package controller;
 
+import dao.OrderDAO;
+import entity.OrderDetail;
 import entity.User;
+import function.AES;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,6 +42,21 @@ public class ManagementOrderDetailController extends HttpServlet {
             if (u.getRoleId() == 1 || u.getRoleId() == 2) {
                 int numberOrderClick = 1;
                 request.setAttribute("numberOrderClick", numberOrderClick);
+                int orderID = Integer.parseInt(request.getParameter("orderID"));
+                OrderDAO orderDAO = new OrderDAO();
+                List<OrderDetail> orderDetails = orderDAO.getOrderDetailByOrderID(orderID);
+
+                request.setAttribute("status", orderDAO.getOrderStatusByOrderId(orderID));
+                OrderDAO oDAO = new OrderDAO();
+                
+                int status = oDAO.getOrderStatusByOrderId(orderID);
+                if(status == 2){
+                    for (OrderDetail orderDetail : orderDetails) {
+                        String decryptProductKey = AES.decrypt(orderDetail.getProductKey(), "@SWP391_Group2");
+                        orderDetail.setProductKey(decryptProductKey);
+                    }
+                }                              
+                request.setAttribute("orderDetails", orderDetails);
                 request.getRequestDispatcher("dashboard/dashboardOrderDetail.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("error.jsp").forward(request, response);
