@@ -111,6 +111,8 @@ public class Order {
         this.promotionCode = promotionCode;
     }
 
+    
+
     @Override
     public String toString() {
         return "Order{" + "id=" + id + ", userId=" + userId + ", total=" + total + ", note=" + note + ", status=" + status + ", date=" + date + ", promotionId=" + promotionId + ", promotionCode=" + promotionCode + '}';

@@ -72,6 +72,21 @@ public class OrderDetailDAO {
         }
         return false;
     }
+    
+    public int countRejectOrderDetail(int orderID, int productID){
+        query = "select count(*) from orderDetail where orderID = "+orderID+" and productID = "+productID+"";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int count = rs.getInt(1);
+                return count;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
     public String countOrderDetail() {
         query = "select COUNT(ID) as NumberOfOrderDetail from orderDetail";
