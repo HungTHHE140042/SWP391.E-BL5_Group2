@@ -3,8 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SWP391.E-BL5_Group2/web/layout/headerLoged.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SWP391.E-BL5_Group2/web/payment.jsp</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/web/post.jsp</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/controller/ManagementPostController.java</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/entity/Post.java</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/entity/Product.java</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/web/dashboard/dashboardPost.jsp</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/entity/FaqJoinUser.java</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/web/postDetail.jsp</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/controller/ManagementPostEditController.java</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/controller/ManagementPostViewController.java</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/dao/PostDAO.java</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/controller/PostDetailController.java</file>
+            <file>file:/C:/Users/trson/Documents/GitHub/SWP391.E-BL5_Group2/src/java/controller/PostController.java</file>
         </group>
     </open-files>
 </project-private>

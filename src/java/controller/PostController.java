@@ -44,9 +44,7 @@ public class PostController extends HttpServlet {
         PostDAO postDAO = new PostDAO();
         List<PostJoinUser> listPost = new ArrayList<>();
         listPost = postDAO.paginationPost(index, 3);
-
         request.setAttribute("listPost", listPost);
-
         int count = postDAO.countPost();
         if (count % 3 != 0) {
             count = (count /3) +1;
@@ -54,8 +52,6 @@ public class PostController extends HttpServlet {
             count = count/3;
         }
         request.setAttribute("total", count);
-
-
         request.getRequestDispatcher("post.jsp").forward(request, response);
     }
 
