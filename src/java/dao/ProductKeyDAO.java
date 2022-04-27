@@ -56,6 +56,20 @@ public class ProductKeyDAO {
         }
         return null;
     }
+    
+    public boolean updateStatusKeyReject(int keyID) {
+
+        String sql = "update [productKey] set status = 1 where keyID = " + keyID + "";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     public boolean updateStatusKey(int keyID) {
 

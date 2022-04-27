@@ -13,6 +13,7 @@ import dao.ProductKeyDAO;
 import dao.PromotionDAO;
 import entity.CartDetail;
 import entity.OrderDetail;
+import entity.Product;
 import entity.ProductKey;
 import entity.Promotion;
 import entity.User;
@@ -51,13 +52,13 @@ public class CheckoutController extends HttpServlet {
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         CartDAO addToCartDAO = new CartDAO();
         User u = (User) session.getAttribute("user");
-        
+
         Double total = 0.0;
         ArrayList<CartDetail> cartDetails = addToCartDAO.getCartByUser(u.getUserId());
         for (CartDetail cartDetail : cartDetails) {
             total += cartDetail.getQuantity() * cartDetail.getSellPrice();
         }
-        
+
         request.setAttribute("total", total);
         session.setAttribute("cartDetails", cartDetails);
         session.setAttribute("localDate", localDate);
@@ -81,12 +82,31 @@ public class CheckoutController extends HttpServlet {
         CartDAO cartDAO = new CartDAO();
         ProductKeyDAO productKeyDAO = new ProductKeyDAO();
         ProductDAO productDAO = new ProductDAO();
-        HttpSession session = request.getSession();       
+        HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
-        ArrayList<CartDetail> cartDetails = (ArrayList<CartDetail>) session.getAttribute("cartDetails");     
+
+        ArrayList<CartDetail> cartDetails = (ArrayList<CartDetail>) session.getAttribute("cartDetails");
+        for (CartDetail cartDetail : cartDetails) {
+            Product product = productDAO.getProductByID(cartDetail.getProductID());
+            if (cartDetail.getQuantity() > product.getAmount()) {
+                String outOfStock = "1";
+                String check = "1";
+                session.setAttribute("outOfStock", outOfStock);
+                session.setAttribute("check", check);
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
+        }
+
         int index = Integer.parseInt(request.getParameter("index"));
 
-        if (index == 1) {
+        String check;
+        if (session.getAttribute("check") == null) {
+            check = "";
+        } else {
+            check = (String) session.getAttribute("check");
+        }
+        if (index == 1 && !check.equals("1")) {
+            session.removeAttribute("check");
             Promotion p = promotionDAO.checkPromotion(request.getParameter("promotionCode"));
             if (p != null) {
                 Double total = 0.0;
@@ -105,12 +125,15 @@ public class CheckoutController extends HttpServlet {
                 session.setAttribute("checkPromotion", checkPromotion);
                 response.sendRedirect("checkout");
             }
-        } else {
+        } else if (!check.equals("1")) {
             Promotion p = (Promotion) session.getAttribute("promotion");
-            orderDAO.insertOrder(u.getUserId(), Double.parseDouble(request.getParameter("total")), p.getId());
-            promotionDAO.updateAmountPromotion(p.getId());
+            if (session.getAttribute("promotion") != null) {
+                orderDAO.insertOrder(u.getUserId(), Double.parseDouble(request.getParameter("total")), p.getId());
+                promotionDAO.updateAmountPromotion(p.getId());
+            } else {
+                orderDAO.insertOrderWithoutPro(u.getUserId(), Double.parseDouble(request.getParameter("total")));
+            }
             int orderID = orderDAO.getLastOrderID();
-
             if (cartDetails != null) {
                 for (CartDetail c : cartDetails) {
                     if (c.getQuantity() > 1) {
@@ -153,7 +176,11 @@ public class CheckoutController extends HttpServlet {
                         }
                     }
                 }
+
             }
+            session.removeAttribute("promotion");
+            response.sendRedirect("payment");          
+        }else{
             session.removeAttribute("promotion");
             response.sendRedirect("home");
         }
