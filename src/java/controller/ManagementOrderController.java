@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.NotificationDAO;
 import dao.OrderDAO;
 import dao.ProductDAO;
 import dao.ProductKeyDAO;
@@ -80,9 +81,17 @@ public class ManagementOrderController extends HttpServlet {
         ProductDAO productDAO = new ProductDAO();
         ProductKeyDAO productKeyDAO = new ProductKeyDAO();
         PromotionDAO promotionDAO = new PromotionDAO();
+        NotificationDAO notificationDAO = new NotificationDAO();
         if (acceptID != null) {
+            
             orderDAO.updateNote(note, Integer.parseInt(acceptID));
             orderDAO.updateStatus(Integer.parseInt(acceptID));
+            
+            notificationDAO.createNotificationOrder("Your order #"+orderDAO.getLastOrderID()+" had accepted." , 
+                    "Your order "+orderDAO.getLastOrderID()+" had accepted. Let check your key at Order Detail or [<a href='order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
+            int userID = orderDAO.getOrderByID(Integer.parseInt(acceptID)).getUserId();
+            notificationDAO.createNotificationDetailOrder(notificationDAO.getNewestNotication(), userID, Integer.parseInt(acceptID));
+            
             response.sendRedirect("dashboard-order");
         } else if (rejectID != null) {
             List<OrderDetail> orderDetails = orderDAO.getOrderDetailByOrderID(Integer.parseInt(rejectID));
@@ -98,7 +107,12 @@ public class ManagementOrderController extends HttpServlet {
                 List<Order> orders = orderDAO.getAllOrder();
                 orderDAO.updateNote(note, Integer.parseInt(rejectID));
                 request.setAttribute("orders", orders);
-            }           
+            } 
+            notificationDAO.createNotificationOrder("Your order #"+orderDAO.getLastOrderID()+" had rejected." , 
+                    "Your order "+orderDAO.getLastOrderID()+" had rejected. Let check at Order Detail or [<a href='order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
+            int userID = orderDAO.getOrderByID(Integer.parseInt(acceptID)).getUserId();
+            notificationDAO.createNotificationDetailOrder(notificationDAO.getNewestNotication(), userID, Integer.parseInt(acceptID));
+            
             request.getRequestDispatcher("dashboard/dashboardOrder.jsp").forward(request, response);
         }
     }
