@@ -5,9 +5,12 @@
  */
 package controller;
 
+import dao.NotificationDAO;
+import entity.Notification;
 import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +38,16 @@ public class NotificationDetailController extends HttpServlet {
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
         if (u != null) {
-            //Write code here
+            //Write code her
+//            lay ra id notification
+//          lay list noti tren session 
+//          tim ra noti co id trong list check if status = 0 update status = 1
+            int NotiID = Integer.parseInt(request.getParameter("id"));
+            int userId = u.getUserId();
+            NotificationDAO ndao = new NotificationDAO();
+            Notification noti = ndao.getNotificationById(NotiID);
+            ndao.updateNotificationDetailStatus(NotiID, userId);
+            request.setAttribute("noti", noti);
             request.getRequestDispatcher("notificationDetail.jsp").forward(request, response);
 
         } else {

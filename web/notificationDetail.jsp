@@ -64,11 +64,10 @@
             <div class="container">
                 <div class="faq_question_list">
                     <div class="match_details_content">
-                        <span class="date">20 August 2021  -  09:00 PM</span>
-                        <h2 class="match_details_title">Your order #5946221 had accepted.</h2>
+                        <span class="date">${noti.time}</span>
+                        <h2 class="match_details_title">${noti.title}</h2>
                         <div class="match_details_desc">
-                            <p>Your order #5946221 had accepted. Let check your key at Order Detail or <a href="order-detail">here...</a></p>   
-                            <p class="text_italic">You should use key as soon as you can. <a href="faq">FAQs</a></p> 
+                            <p>${noti.content}</p>   
                         </div>
                     </div>
                 </div>

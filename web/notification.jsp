@@ -63,43 +63,44 @@
             <!-- faq page section start -->
             <section class="faq_page_section mb-140">
                 <div class="container">
-                    <div class="faq_page_inner mb-25">
-                        <div class="accordion" id="accordionExample">
-                            <div class="faq_question_list">
-                                <div class="row" style="color: white">
-                                    <div class="col-10">
-                                        <h4 class="questions__title accordion-header" id="headingOne">
-                                            <a class="" type="button" href="notification-detail">
-                                                <img style="margin-right: 10px" width="15" height="15" src="assets/img/icon/blue-circle.png">
-                                                <span style="font-weight: bold">We will sale-off all games in the next month.</span>
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        April 15, 2022
-                                    </div>
+                    <c:forEach var="n" items="${List_Noti}">
+                        <div class="faq_page_inner mb-25">
+                            <div class="accordion" id="accordionExample">
+                                <div class="faq_question_list">
+                                    <c:if test="${n.status == 1}" >
+                                        <div class="row" style="color: white">
+                                            <div class="col-10">
+                                                <h4 class="questions__title accordion-header" id="headingOne">
+                                                    <a class="" type="button" href="notification-detail?id=${n.ID}">
+                                                        <img style="margin-right: 10px" width="15" height="15" src="assets/img/icon/blue-circle.png">
+                                                        <span style="font-weight: bold">${n.title}</span>
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div class="col-2 text-center">
+                                                ${n.time}
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${n.status == 0}" >
+                                        <div class="row" style="color: gray">
+                                            <div class="col-10">
+                                                <h4 class="questions__title accordion-header" id="headingOne">
+                                                    <a class="" type="button" href="notification-detail?id=${n.ID}">
+                                                        ${n.title}
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div class="col-2 text-center">
+                                                ${n.time}
+                                            </div>
+                                        </div>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="faq_page_inner mb-25">
-                        <div class="accordion" id="accordionExample">
-                            <div class="faq_question_list">
-                                <div class="row" style="color: gray">
-                                    <div class="col-10">
-                                        <h4 class="questions__title accordion-header" id="headingOne">
-                                            <a class="" type="button" href="notification-detail">
-                                                Your order #5815 had accepted.
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div class="col-2 text-center">
-                                        April 15, 2022
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
+
                 </div>
             </section>
         </div>

@@ -4,9 +4,23 @@
     Author     : trinh
 --%>
 
+<%@page import="entity.User"%>
+<%@page import="dao.NotificationDAO"%>
+<%@page import="entity.Notification"%>
+<%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    User u = (User) session.getAttribute("user");
+    if (u != null) {
+        int id = u.getUserId();
+        NotificationDAO ndao = new NotificationDAO();
+        List<Notification> list = ndao.getNotificationActiveByUserId(id);
+        request.setAttribute("list", list);
+    }
+
+%>
 <header class="header_section header_transparent sticky-header">
     <div class="container">
         <div class="row">
@@ -40,24 +54,24 @@
                                     <li><a href="${pageContext.request.contextPath}/cms"><img width="15" height="15" src="assets/img/icon/crown.png" style="position: absolute; left: -20px; top: 6px; margin-right: 2px;" alt=""> <span style="color: yellow">Manage</span> </a></li>
                                         </c:if>
                                         <c:if test="${sessionScope.user != null}">
-                                    <li><a><img width="15" height="15" src="assets/img/icon/bell_noti.png" alt=""></a>
+                                            <c:if test="${list.size() > 0}">
+                                        <li><a><img width="15" height="15" src="assets/img/icon/bell_noti.png" alt=""></a>
+                                            </c:if>
+                                            <c:if test="${list.size() == 0}">
+                                        <li><a><img width="15" height="15" src="assets/img/icon/bell.png" alt=""></a>
+                                            </c:if>
                                         <ul class="sub_menu">
-                                            <li>
-                                                <a class="dropdown-item d-flex align-items-center" href="notification-detail">
-                                                    <div>
-                                                        <div class="small text-gray-500">April 12, 2022</div>
-                                                        <span class="font-weight-bold">We will sale-off all products in next month.</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item d-flex align-items-center" href="notification-detail">
-                                                    <div>
-                                                        <div class="small text-gray-500">April 12, 2022</div>
-                                                        Your order #5946221 had accepted.
-                                                    </div>
-                                                </a>
-                                            </li>
+                                            <c:forEach var="list" items="${list}">
+                                                <li>
+                                                    <a class="dropdown-item d-flex align-items-center" href="notification-detail?id=${list.ID}">
+                                                        <div>
+                                                            <div class="small text-gray-500">${list.time}</div>
+                                                            <span class="font-weight-bold">${list.title}</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </c:forEach>
+
                                             <div class="text-center btn-secondary">
                                                 <a href="notifications" style="color: white; font-size: 10px" >Show all Notifications</a>
                                             </div>
