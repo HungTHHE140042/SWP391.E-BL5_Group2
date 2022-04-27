@@ -118,7 +118,9 @@ public class CheckoutController extends HttpServlet {
                 total = (double) Math.round(total * 100) / 100;
 
                 session.setAttribute("promotion", p);
+                String checkPromotion = "0";
                 request.setAttribute("total", total);
+                request.setAttribute("checkPromotion", checkPromotion);
                 request.getRequestDispatcher("checkout.jsp").forward(request, response);
             } else {
                 String checkPromotion = "1";

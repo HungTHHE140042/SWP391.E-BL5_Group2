@@ -204,6 +204,40 @@ public class NotificationDAO {
         }
         return false;
     }
+    
+    
+   
+    public boolean createNotificationOrder(String title, String content) {
+        String sql = "INSERT INTO [GameShop].[dbo].[notification]([title],[status],[time],[content]) VALUES(?, 1, GETDATE(), ?)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, title);
+            ps.setString(2, content);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+     public boolean createNotificationDetailOrder(int notificationID, int userID, int orderID) {
+        String sql = "INSERT INTO [GameShop].[dbo].[notificationDetail]([userID],[orderID],[notificationID], [status]) VALUES(?, ?, ? ,1)";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, userID);
+            ps.setInt(2, orderID);
+            ps.setInt(3, notificationID);
+            ps.executeUpdate();
+            ps.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
 
     public static void main(String[] args) {
         NotificationDAO ndao = new NotificationDAO();

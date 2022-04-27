@@ -38,26 +38,29 @@ public class OrderDetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        User u = (User) session.getAttribute("user");
-        if (u != null) {
+        String idDetail = request.getParameter("id");
+        if (idDetail != null) {
+            int id = Integer.parseInt(idDetail);
+            OrderDetailDAO odDAO = new OrderDetailDAO();
+            List<OrderDetail> listOrderDetail = new ArrayList<>();
+            listOrderDetail = odDAO.getOrderDetailByOrderId(id);
 
             OrderDAO oDAO = new OrderDAO();
             int status = oDAO.getOrderStatusByOrderId(id);
             if (status == 2) {
+                System.out.println(listOrderDetail + "..");
                 for (OrderDetail orderDetail : listOrderDetail) {
                     String decryptProductKey = AES.decrypt(orderDetail.getProductKey(), "@SWP391_Group2");
                     orderDetail.setProductKey(decryptProductKey);
                 }
-            
-                request.setAttribute("orderStatus", status);
-                request.setAttribute("orderId", id);
-                request.setAttribute("orderDetail", listOrderDetail);
             }
-            request.getRequestDispatcher("orderDetail.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+
+            request.setAttribute("orderStatus", status);
+            request.setAttribute("orderId", id);
+            request.setAttribute("orderDetail", listOrderDetail);
         }
+
+        request.getRequestDispatcher("orderDetail.jsp").forward(request, response);
     }
 
     /**

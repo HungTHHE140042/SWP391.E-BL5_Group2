@@ -41,7 +41,7 @@
 
     </head>
     <body class="body__bg" data-bgimg="assets/img/bg/body-bg.webp">
-        
+
         <c:if test="${sessionScope.checkPromotion.equals('1')}">
             <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
                 <div class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true" style="background-color: #851e3e" >
@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <% session.removeAttribute("checkPromotion"); %>
+            <% session.removeAttribute("checkPromotion");%>
         </c:if>
 
 
@@ -133,7 +133,12 @@
                                         <div class="row">
                                             <div class="col-10">
                                                 <input type="hidden" name="index" value="1">
-                                                <input class="form-control" type="text" name="promotionCode" placeholder="Promotion Code" value="${promotion.promotionCode}">
+                                                <c:if test="${checkPromotion != 0}">
+                                                    <input class="form-control" type="text" name="promotionCode" placeholder="Promotion Code" value="${promotion.promotionCode}">
+                                                </c:if>
+                                                <c:if test="${checkPromotion == 0}">
+                                                    <input readonly class="form-control" type="text" name="promotionCode" placeholder="Promotion Code" value="${promotion.promotionCode}">
+                                                </c:if>
                                             </div>
                                             <div class="col-1">
                                                 <button type="submit" class="btn btn-info">USE</button>
