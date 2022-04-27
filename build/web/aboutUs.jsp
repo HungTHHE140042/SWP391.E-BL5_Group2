@@ -97,7 +97,7 @@
                                     <div class="contact_info_text">
                                         <h3>Phone:</h3>
                                         <p> 
-                                            <a href="tel:(+84)999-9999-999"> (+84) 999-9999-999</a>
+                                            <a href="tel:+84973304611"> (+84) 973304611</a>
                                         </p>
                                     </div>
                                 </div>
