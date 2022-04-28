@@ -101,7 +101,7 @@ public class ManagementOrderController extends HttpServlet {
             try {
                 UserDAO udao = new UserDAO();
                 User u = udao.getUserByUserId(userID);
-                Email.sendEmail(u.getEmail(), "Your order #"+orderDAO.getLastOrderID()+" had accepted.", "Your order "+orderDAO.getLastOrderID()+" had accepted. Let check your key at Order Detail or [<a href='order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
+                Email.sendEmail(u.getEmail(), "Your order #"+orderDAO.getLastOrderID()+" had accepted.", "Your order "+orderDAO.getLastOrderID()+" had accepted. Let check your key at Order Detail or [<a href='http://localhost:8080/SWP391.E-BL5_Group2/order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
             } catch (MessagingException ex) {
                 Logger.getLogger(ManagementOrderController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -124,7 +124,7 @@ public class ManagementOrderController extends HttpServlet {
             
             
             notificationDAO.createNotificationOrder("Your order #"+orderDAO.getLastOrderID()+" had rejected." , 
-                    "Your order "+orderDAO.getLastOrderID()+" had rejected. Let check at Order Detail or [<a href='order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
+                    "Your order "+orderDAO.getLastOrderID()+" had rejected. Let check at Order Detail or [<a href='http://localhost:8080/SWP391.E-BL5_Group2/order-detail?id="+orderDAO.getLastOrderID()+"'> here... </a>]");
             int userID = orderDAO.getOrderByID(Integer.parseInt(acceptID)).getUserId();
             notificationDAO.createNotificationDetailOrder(notificationDAO.getNewestNotication(), userID, Integer.parseInt(acceptID));
             
