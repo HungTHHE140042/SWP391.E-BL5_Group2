@@ -80,7 +80,7 @@ public class ManagementEmailController extends HttpServlet {
                             Logger.getLogger(ManagementEmailController.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
-                    emailDAO.updateEmailInformation(sendMail.getEmailID(), sendMail.getTitle(), emailDAO.datetoSQL(), sendMail.getContent(), 1);
+                    emailDAO.updateEmailInformation(sendMail.getEmailID(), sendMail.getTitle(), sendMail.getContent(), emailDAO.datetoSQL(), 1);
                     List<Email> listEmail = new ArrayList<>();
                     listEmail = emailDAO.getAllEmail();
                     request.setAttribute("listEmail", listEmail);
