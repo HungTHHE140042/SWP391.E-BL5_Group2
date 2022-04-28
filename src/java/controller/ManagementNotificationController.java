@@ -40,22 +40,22 @@ public class ManagementNotificationController extends HttpServlet {
         User u = (User) session.getAttribute("user");
         if (u != null) {
             if (u.getRoleId() == 1 || u.getRoleId() == 4) {
-                
+
                 NotificationDAO ndao = new NotificationDAO();
                 List<Notification> notifications = new ArrayList<>();
                 try {
-                int Id = Integer.parseInt(request.getParameter("idDelete"));
-                if (ndao.removeNotificationById(Id)) {
-                    notifications = ndao.getAllNotification();
-                    request.setAttribute("List_Noti", notifications);
-                    request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
-                }
+                    int Id = Integer.parseInt(request.getParameter("idDelete"));
+                    if (ndao.removeNotificationById(Id)) {
+                        notifications = ndao.getAllNotification();
+                        request.setAttribute("List_Noti", notifications);
+                        request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
+                    }
                 } catch (Exception e) {
                     notifications = ndao.getAllNotification();
                     request.setAttribute("List_Noti", notifications);
                     request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
                 }
-                
+
                 int numberNotificationClick = 1;
                 request.setAttribute("numberNotificationClick", numberNotificationClick);
                 request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
@@ -65,7 +65,6 @@ public class ManagementNotificationController extends HttpServlet {
         } else {
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-        
 
     }
 
@@ -92,31 +91,19 @@ public class ManagementNotificationController extends HttpServlet {
             if (cus != null) {
                 List<User> u = aO.getUserByRoleID(3);
                 for (User user : u) {
-                    if (aO.createNotificationDetail(notiID, user.getUserId())) {
-                        continue;
-                    }
+                    aO.createNotificationDetail(notiID, user.getUserId());
                 }
-//                notifications = aO.getAllNotification();
-//                request.setAttribute("List_Noti", notifications);
-//                request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
             }
             if (sell != null) {
                 List<User> u = aO.getUserByRoleID(2);
                 for (User user : u) {
-                    if (aO.createNotificationDetail(notiID, user.getUserId())) {
-                        continue;
-                    }
-//                    notifications = aO.getAllNotification();
-//                    request.setAttribute("List_Noti", notifications);
-//                    request.getRequestDispatcher("dashboard/dashboardNotification.jsp").forward(request, response);
+                    aO.createNotificationDetail(notiID, user.getUserId());
                 }
             }
             if (market != null) {
                 List<User> u = aO.getUserByRoleID(4);
                 for (User user : u) {
-                    if (aO.createNotificationDetail(notiID, user.getUserId())) {
-                        continue;
-                    }
+                    aO.createNotificationDetail(notiID, user.getUserId());
                 }
             }
             notifications = aO.getAllNotification();
