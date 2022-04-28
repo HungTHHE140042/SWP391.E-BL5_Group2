@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/web/dashboard/dashboardEmailEdit.jsp</file>
+            <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/src/java/controller/ManagementEmailController.java</file>
+            <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/src/java/controller/FaqController.java</file>
+            <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/web/faq.jsp</file>
+            <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/src/java/dao/EmailDAO.java</file>
+            <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/web/dashboard/dashboardEmail.jsp</file>
+            <file>file:/D:/A.Ki%207/SWP391/SWP391.E-BL5_Group2/src/java/controller/ManagementEmailEditController.java</file>
+        </group>
     </open-files>
 </project-private>
