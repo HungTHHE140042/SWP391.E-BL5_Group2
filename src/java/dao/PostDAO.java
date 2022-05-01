@@ -245,8 +245,6 @@ public class PostDAO {
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
-                ps.close();
-                rs.close();
                 return rs.getInt("ID");
             }
             ps.close();
